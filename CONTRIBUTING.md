@@ -23,7 +23,6 @@ dedicated repos as this forms student's portfolio.
 - [Task code lifecycle](#task-code-lifecycle)
   - [Submit a task](#submit-a-task)
   - [Open a pull request](#open-a-pull-request)
-  - [Ask for review](#ask-for-review)
   - [Update your code and PR](#update-your-code-and-pr)
   - [Merging the PR](#merging-the-pr)
 
