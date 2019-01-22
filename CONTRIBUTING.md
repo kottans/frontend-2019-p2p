@@ -48,7 +48,7 @@ In your local repository:
 - `git checkout master`
 - pull latest changes from upstream `master` branch:
   `git pull upstream master`
-- **IMPORTANT!** create new branch, name it according to task performed
+- :warning: create new branch, name it according to task performed
   (aka feature branch): `git checkout -b dom-api-task`.
   In this example feature branch is called `dom-api-task`
 - under your name folder, add a folder with task name (e.g. `js-dom`)
@@ -99,7 +99,7 @@ Code reviewers are expected to follow
 
 :warning: **DO NOT** update PR (files in the PR) using github web editor as this often merges `master` and also breaks conversation threads
 
-:warning: **DO NOT** merge `master` into your feature branch
+:warning: **DO NOT** merge `master` into your feature branch, because this will create an additional commit. If you need to updare your branch with files from master, use `git rebase` instead.
 
   - when implementing changes according to the changes request,
     consider cross-checking the entire code base for similar
