@@ -97,6 +97,7 @@ Code reviewers are expected to follow
     
 **Implementing changes:**
 :warning: **DO NOT** update PR (files in the PR) using github web editor as this often merges `master` and also breaks conversation threads
+
 :warning: **DO NOT** merge `master` into your feature branch
 
   - when implementing changes according to the changes request,
