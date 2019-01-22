@@ -76,22 +76,17 @@ In your local repository:
   [Re-sync Fork With Upstream guide](https://gist.github.com/OleksiyRudenko/8b3ddb664308de0634b53c525e551d8b)
   helpful to fix the issue.
 - ask your peers for review in
-  [FE p2p chat](https://t.me/joinchat/???????????????),
+  [FE Students | Kottans](https://t.me/joinchat/DmX0JBHVkEhV1us2HdMmpA),
   post a link to your PR as well
 
-You will require approvals from at least two peers, so seek
-for sufficient support.
-
-Code reviews that are only about code style/code formatting,
-variables and function naming,
-introducing semantic constants do not count.
+You will require approvals from at least two peers, so seek for sufficient support.
 
 Code reviewers are expected to follow
 [code review guidelines](./code-review-guidelines.md).
 
 ### Update your code and PR
 
-- Before making any changes:
+**Before making any changes:**
   - read code reviewers' comments
   - answer questions if any
   - explain anything you are asked to explain
@@ -99,10 +94,11 @@ Code reviewers are expected to follow
     the code reviewer to render an appropriate help
   - ask questions if anything in comments or recommendations
     is not clear
-- Implementing changes:
-  - **DO NOT** update PR (files in the PR) using github web editor
-    as this often merges `master` and also breaks conversation threads
-  - **DO NOT** merge `master` into your feature branch
+    
+**Implementing changes:**
+:warning: **DO NOT** update PR (files in the PR) using github web editor as this often merges `master` and also breaks conversation threads
+:warning: **DO NOT** merge `master` into your feature branch
+
   - when implementing changes according to the changes request,
     consider cross-checking the entire code base for similar
     situation and fix as appropriately. Do not expect code reviewers
@@ -117,8 +113,9 @@ Code reviewers are expected to follow
   - supplement commits with messages that give an idea of what's inside
     of the commit without looking into it.
     [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
-- Go to your PR on github and let code reviewers know your are done:
-  - resolve conversations you believe you have elaborated on
+
+**Go to your PR on github and let code reviewers know your are done:**
+  - **resolve conversations you believe you have elaborated on**
   - make sure you answered questions and gave proper explanations where
     required (do not resolve those conversations until you have a feedback
     from a code reviewer)
@@ -126,6 +123,7 @@ Code reviewers are expected to follow
     know your're done explicitly (e.g. write a comment mentioning
     a code reviewer using `@`)
 
+### FAQ:
 Q: Why just pushing a commit with changes is not sufficient?
 
 A: It is not a rare case that changes are introduced in more
