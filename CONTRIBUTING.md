@@ -76,8 +76,10 @@ In your local repository:
   [Re-sync Fork With Upstream guide](https://gist.github.com/OleksiyRudenko/8b3ddb664308de0634b53c525e551d8b)
   helpful to fix the issue.
 - ask your peers for review in
-  [FE p2p chat](https://t.me/joinchat/???????????????),
+  [FE p2p chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
   post a link to your PR as well
+- provide a review for this same task to at least 2 PR's of other students of p2p course
+- be reviewed by at least of 2 other students.
 
 You will require approvals from at least two peers, so seek
 for sufficient support.
