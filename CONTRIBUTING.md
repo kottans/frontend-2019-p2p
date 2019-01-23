@@ -78,15 +78,16 @@ In your local repository:
 
 
 ### Codereview
-- ask your peers for review in
-  [FE p2p chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
+- you will **require** approvals* from **at least two peers**, so seek
+for sufficient support. 
+  - ask your peers for review in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
   post a link to your PR as well
-- provide a review for this same task to at least 2 PR's of other students of p2p course
-- you will require approvals from at least two peers, so seek
-for sufficient support.
-Code reviews that are only about code style/code formatting,
-variables and function naming,
-introducing semantic constants do not count.
+  - if in some reason there are not reviwers from p2p course, you can ask your friends outside of the course<br>
+- **you should provide a review** for this same task to **at least 2 PR's** of other students of p2p course
+- after finishing previous steps ask mentors for review in [FE Questionarium chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897)
+
+*Code reviews that are only about code style/code formatting, variables and function naming, introducing semantic constants do not count.
+
 
 Code reviewers are expected to follow
 [code review guidelines](./code-review-guidelines.md).
