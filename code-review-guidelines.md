@@ -82,7 +82,7 @@ PRs should have proper name (as per task name), should contain link to working d
     - Magic numbers in code should be avoided. For details see [this link](https://stackoverflow.com/questions/47882/what-is-a-magic-number-and-why-is-it-bad).
 
 #### DRY, KISS, SOLID  
-Please read carefully about DRY, KISS, SOLID principles and help your peers to find possibilities to apply them.
+Please read carefully about [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), [KISS](https://en.wikipedia.org/wiki/KISS_principle), [SOLID](https://en.wikipedia.org/wiki/SOLID), [YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) principles and help your peers to find possibilities to apply them.
 
 #### JavaScritp Features  
 1. `for` loops, `forEach`, `map` & other iterative forms  
