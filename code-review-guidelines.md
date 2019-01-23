@@ -150,10 +150,10 @@ Adding elements to DOM from a loop is a bad practice. A browser will run reflow 
 #### Use of `event` global variable instead event handler argument (fails in FireFox)
 
 #### Relying on DOM structure
-Don't use constructions like `children[0]`, `firstElementChild `, `nextSibling`, etc. In such way, you rely on the order of DOM elements. So in case when you will have changed design - your code will be broken. Which is bad, obviously. Use `querySelector` or `closest`, if in event, instead.
+Don't use constructions like `children[0]`, `firstElementChild`, `parentNode`, `nextSibling`, etc. In such way, you rely on the order of DOM elements. So in case when you will have changed design - your code will be broken. Which is bad, obviously. Use `querySelector` or `closest`, if in event, instead.
 
 #### Changing styles with JS
-- Don't use inline style changing - `element.style`. In most cases this is a bad approach for several reasons: 
+Don't use inline style changing - `element.style`. In most cases this is a bad approach for several reasons: 
   1. First of all, a browser will apply such styling for each line separately/ Which means, that every such line of code will be a reason for running of calculations of a page and for drawing it,  so you can receive a performance problem. Read about reflow and repaint.  
   2. This is an imperative way, you need to write declarative and describe what your code does, not how. This will make your code shorter and easier to maintain. 
   3. Reuse of code. Saying, you will need to rotate some other stuff - you will add a similar line to another part of an application. Which is not right because of DRY. 
