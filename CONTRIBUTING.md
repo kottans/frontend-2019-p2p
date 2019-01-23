@@ -75,14 +75,15 @@ In your local repository:
   as previous section requires. You may find this
   [Re-sync Fork With Upstream guide](https://gist.github.com/OleksiyRudenko/8b3ddb664308de0634b53c525e551d8b)
   helpful to fix the issue.
+
+
+### Codereview
 - ask your peers for review in
   [FE p2p chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
   post a link to your PR as well
 - provide a review for this same task to at least 2 PR's of other students of p2p course
 - you will require approvals from at least two peers, so seek
 for sufficient support.
-
-
 Code reviews that are only about code style/code formatting,
 variables and function naming,
 introducing semantic constants do not count.
