@@ -79,10 +79,9 @@ In your local repository:
   [FE p2p chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
   post a link to your PR as well
 - provide a review for this same task to at least 2 PR's of other students of p2p course
-- be reviewed by at least of 2 other students.
-
-You will require approvals from at least two peers, so seek
+- you will require approvals from at least two peers, so seek
 for sufficient support.
+
 
 Code reviews that are only about code style/code formatting,
 variables and function naming,
