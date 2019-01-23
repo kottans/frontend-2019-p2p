@@ -134,10 +134,6 @@ A: It is not a rare case that changes are introduced in more
 than one commit. So it is important to let reviewers know
 they should not expect any further commits. **C** is for care.
 
-### Merging the PR
-
-_TBD_
-
 [icon-mit]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: https://github.com/OleksiyRudenko/a-tiny-JS-world/blob/master/LICENSE.md
 
