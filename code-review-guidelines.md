@@ -72,11 +72,11 @@ PRs should have proper name (as per task name), should contain link to working d
     - If-statement: multiple conditions can often be combined in one condition:
     ```javascript
     //Before: 
-    If (a) return;
-    If (b) return;
+    if (a) return;
+    if (b) return;
 
     // After:
-    If (a || b) return;
+    if (a || b) return;
     ```
 
     - Magic numbers in code should be avoided. For details see [this link](https://stackoverflow.com/questions/47882/what-is-a-magic-number-and-why-is-it-bad).
