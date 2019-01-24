@@ -81,7 +81,7 @@ In your local repository:
 
 ### Codereview
 
-- you will **require** approvals\* from **at least two peers**, so seek
+- you will **require** approvals from **at least two peers**, so seek
   for sufficient support.
   - ask your peers for review in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
     post a link to your PR as well
