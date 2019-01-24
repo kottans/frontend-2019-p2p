@@ -1,4 +1,5 @@
 [![MIT Licensed][icon-mit]][license]
+
 [![Kottans-Frontend][icon-kottans]][kottans-frontend]
 
 # How to Contribute
@@ -17,6 +18,7 @@ dedicated repos as this forms student's portfolio.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 ## Table of Contents
 
 - [Preparations](#preparations)
@@ -27,7 +29,8 @@ dedicated repos as this forms student's portfolio.
   - [Merging the PR](#merging-the-pr)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-*TOC is generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+_TOC is generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 ## Preparations
 
@@ -48,7 +51,7 @@ In your local repository:
 - `git checkout master`
 - pull latest changes from upstream `master` branch:
   `git pull upstream master`
-- **IMPORTANT!** create new branch, name it according to task performed
+- :warning: create new branch, name it according to task performed
   (aka feature branch): `git checkout -b dom-api-task`.
   In this example feature branch is called `dom-api-task`
 - under your name folder, add a folder with task name (e.g. `js-dom`)
@@ -76,59 +79,64 @@ In your local repository:
   [Re-sync Fork With Upstream guide](https://gist.github.com/OleksiyRudenko/8b3ddb664308de0634b53c525e551d8b)
   helpful to fix the issue.
 
-
 ### Codereview
-- you will **require** approvals* from **at least two peers**, so seek
-for sufficient support. 
+
+- you will **require** approvals\* from **at least two peers**, so seek
+  for sufficient support.
   - ask your peers for review in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
-  post a link to your PR as well
+    post a link to your PR as well
   - if for some reason there are no reviewers from p2p course available, you may ask your friends from outside the course for a review
 - **you have to provide reviews** on the same task to **at least 2 PRs** of other students of p2p course once your PR is merged, using your learnings from merged PR code review
 - after finishing previous steps ask mentors for review in [FE Questionarium chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897)
 - once the code review phase successfully finished and you have approval from other students, post a message in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897): { Here must be the name of your task } — #p2p-pr-done and add the link to your PR. This step is important, as it helps mentors to track your progress!
-
-*Code reviews that are only about code style/code formatting, variables and function naming, introducing semantic constants do not count.*
-
 
 Code reviewers are expected to follow
 [code review guidelines](./code-review-guidelines.md).
 
 ### Update your code and PR
 
-- Before making any changes:
-  - read code reviewers' comments
-  - answer questions if any
-  - explain anything you are asked to explain
-    as this gives an idea on your way of thinking and allows
-    the code reviewer to render an appropriate help
-  - ask questions if anything in comments or recommendations
-    is not clear
-- Implementing changes:
-  - **DO NOT** update PR (files in the PR) using github web editor
-    as this often merges `master` and also breaks conversation threads
-  - **DO NOT** merge `master` into your feature branch
-  - when implementing changes according to the changes request,
-    consider cross-checking the entire code base for similar
-    situation and fix as appropriately. Do not expect code reviewers
-    to attract your attention to every single line of code that
-    requires similar fix. Please, take care of your peers for reciprocity
-  - implement changes in your **task dedicated repo** and **update demo**
-    and commit
-  - copy changed files to this repo fork feature branch and commit
-  - push feature branch to your remote p2p repo to update your PR:
-    `git push origin dom-api-task`
-    (use actual feature branch name)
-  - supplement commits with messages that give an idea of what's inside
-    of the commit without looking into it.
-    [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
-- Go to your PR on github and let code reviewers know your are done:
-  - resolve conversations you believe you have elaborated on
-  - make sure you answered questions and gave proper explanations where
-    required (do not resolve those conversations until you have a feedback
-    from a code reviewer)
-  - if any conversations remain unresolved let reviewers
-    know your're done explicitly (e.g. write a comment mentioning
-    a code reviewer using `@`)
+**Before making any changes:**
+
+- read code reviewers' comments
+- answer questions if any
+- explain anything you are asked to explain
+  as this gives an idea on your way of thinking and allows
+  the code reviewer to render an appropriate help
+- ask questions if anything in comments or recommendations
+  is not clear
+
+**Implementing changes:**
+
+:warning: **DO NOT** update PR (files in the PR) using github web editor as this often merges `master` and also breaks conversation threads
+
+:warning: **DO NOT** merge `master` into your feature branch, because this will create an additional commit. If you need to updare your branch with files from master, use `git rebase` instead.
+
+- when implementing changes according to the changes request,
+  consider cross-checking the entire code base for similar
+  situation and fix as appropriately. Do not expect code reviewers
+  to attract your attention to every single line of code that
+  requires similar fix. Please, take care of your peers for reciprocity
+- implement changes in your **task dedicated repo** and **update demo**
+  and commit
+- copy changed files to this repo fork feature branch and commit
+- push feature branch to your remote p2p repo to update your PR:
+  `git push origin dom-api-task`
+  (use actual feature branch name)
+- supplement commits with messages that give an idea of what's inside
+  of the commit without looking into it.
+  [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)
+
+**Go to your PR on github and let code reviewers know your are done:**
+
+- **resolve conversations you believe you have elaborated on**
+- make sure you answered questions and gave proper explanations where
+  required (do not resolve those conversations until you have a feedback
+  from a code reviewer)
+- if any conversations remain unresolved let reviewers
+  know your're done explicitly (e.g. write a comment mentioning
+  a code reviewer using `@`)
+
+### FAQ:
 
 Q: Why just pushing a commit with changes is not sufficient?
 
@@ -138,6 +146,5 @@ they should not expect any further commits. **C** is for care.
 
 [icon-mit]: https://img.shields.io/badge/license-MIT-blue.svg
 [license]: https://github.com/OleksiyRudenko/a-tiny-JS-world/blob/master/LICENSE.md
-
 [icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
 [kottans-frontend]: https://github.com/kottans/frontend
