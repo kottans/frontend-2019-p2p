@@ -82,7 +82,7 @@ In your local repository:
 for sufficient support. 
   - ask your peers for review in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897),
   post a link to your PR as well
-  - if in some reason there are not reviwers from p2p course, you can ask your friends outside of the course<br>
+  - if for some reason there are no reviewers from p2p course available, you may ask your friends from outside the course for a review
 - **you have to provide reviews** on the same task to **at least 2 PRs** of other students of p2p course once your PR is merged, using your learnings from merged PR code review
 - after finishing previous steps ask mentors for review in [FE Questionarium chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897)
 - once the code review phase successfully finished and you have approval from other students, post a message in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897): { Here must be the name of your task } — #p2p-pr-done and add the link to your PR. This step is important, as it helps mentors to track your progress!
