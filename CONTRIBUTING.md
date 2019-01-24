@@ -1,6 +1,4 @@
-[![MIT Licensed][icon-mit]][license]
-
-[![Kottans-Frontend][icon-kottans]][kottans-frontend]
+[![MIT Licensed][icon-mit]][license] [![Kottans-Frontend][icon-kottans]][kottans-frontend]
 
 # How to Contribute
 
