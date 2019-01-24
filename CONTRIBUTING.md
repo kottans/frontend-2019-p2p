@@ -87,7 +87,7 @@ for sufficient support.
 - after finishing previous steps ask mentors for review in [FE Questionarium chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897)
 - once the code review phase successfully finished and you have approval from other students, post a message in [FE Students chat](https://web.telegram.org/#/im?p=s1495296464_549300875144563897): { Here must be the name of your task } — #p2p-pr-done and add the link to your PR. This step is important, as it helps mentors to track your progress!
 
-*Code reviews that are only about code style/code formatting, variables and function naming, introducing semantic constants do not count.
+*Code reviews that are only about code style/code formatting, variables and function naming, introducing semantic constants do not count.*
 
 
 Code reviewers are expected to follow
