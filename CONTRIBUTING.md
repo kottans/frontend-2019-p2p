@@ -133,6 +133,8 @@ Code reviewers are expected to follow
 - if any conversations remain unresolved let reviewers
   know your're done explicitly (e.g. write a comment mentioning
   a code reviewer using `@`)
+  
+### Merging the PR
 
 ### FAQ:
 
