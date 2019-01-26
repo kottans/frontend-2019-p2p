@@ -135,7 +135,7 @@ Code reviewers are expected to follow
   a code reviewer using `@`)
   
 ### Merging the PR
-
+PR can be merged by repo maintainers only. When you have required code reviews completed and all code reviewers have approved requested changes, just mention two or three mentors for them to merge approved PR into `master`.
 ### FAQ:
 
 Q: Why just pushing a commit with changes is not sufficient?
