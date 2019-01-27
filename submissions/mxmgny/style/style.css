@@ -8,6 +8,7 @@ aside{
     }
 button.active{
     background-color: #f9f9f9;
+    outline: none;
 }
 aside button{
     width:100%;
