@@ -1,0 +1,69 @@
+aside{
+    width: 250px;
+    background-color:#f1f1f1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* display: none; */
+    }
+button.active{
+    background-color: #f9f9f9;
+}
+aside button{
+    width:100%;
+    border-style: none;
+    cursor: pointer;
+    height: 40px;
+    font-size: 32px;
+    background-color: #f1f1f1;
+}
+button:hover {
+    background-color: #f9f9f9;
+}
+img {
+    float:left;
+}
+
+
+article.active{
+    display: block;
+    max-width: 900px;
+    margin: auto;
+    font-size: 18px;
+}
+article h2{
+    text-align: center;
+}
+
+article {
+    display: none;
+}
+
+@media screen and (max-width: 1400px) {
+    article.active{
+        max-width: 1000px;
+        width:100%;
+    }
+    aside {
+        position: relative;
+        width: 100%;
+
+    }
+
+}
+@media screen and (max-width: 800px) {
+    article.active{
+        width:100%;
+    }
+    img {
+        display: block;
+        float: none;
+        margin: auto;
+    }
+    aside {
+        position: relative;
+        width: 100%;
+
+    }
+
+}
