@@ -10,14 +10,13 @@ fetch(requestURL)
     })
     .then(function(jsonObj){
         const races = jsonObj['items'];
-        console.log(races);
-        
+       
         races.forEach( (race) => {
-        const navButton = createTextElement('button',race['header']);
-        const raceArticle = createRaceArticle(race);
-        aside.appendChild(navButton);
-        main.appendChild(raceArticle);
-    });
+            const navButton = createTextElement('button',race['header']);
+            const raceArticle = createRaceArticle(race);
+            aside.appendChild(navButton);
+            main.appendChild(raceArticle);
+        });
 
     aside.onclick = function(event) {
         changeRace.call(event.target)
