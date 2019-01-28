@@ -15,14 +15,14 @@ request.onload = function() {
 function loadPage(jsonObj) {
     const races = jsonObj['items'];
 
-    races.map( (race,id) => {
+    races.foreach( (race,id) => {
 
         const navButton = createTextElement('button',race['header']);
         navButton.addEventListener('click', changeRace);
-        if(id == 0) navButton.classList.add('active');
+        if(id === 0) navButton.classList.add('active');
 
         const raceArticle = createRaceArticle(race);
-        if(id == 0) raceArticle.classList.add('active');
+        if(id === 0) raceArticle.classList.add('active');
 
         aside.appendChild(navButton);
         main.appendChild(raceArticle);
@@ -55,7 +55,7 @@ function createTextElement(elementTag, text){
 
 function deactivate(tagName) { 
     let arrayOfElements = Array.from(document.getElementsByTagName(tagName));
-    arrayOfElements.map((element) => {element.classList.value = ""});
+    arrayOfElements.map( element => element.classList.value = "" );
 }
 
 function changeRace() {
