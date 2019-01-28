@@ -1,12 +1,15 @@
 body {
-    background-size: 2000px 1300px;
-    background-image: url(images/background.jpg);
-    background-repeat: no-repeat;
+    background: url(images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: linear-gradient(rgba(46,38,36,0.4), rgba(46,38,36,0.4)), 
+    url(images/background.jpg);
     margin: 0;
     padding: 0;
     color: white;
     font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-
 }
 
 ::-webkit-scrollbar {
@@ -24,8 +27,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-
 
 .data-text {
     display: block;
@@ -87,8 +88,7 @@ body {
 .container {
     position: relative;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 #navbar a {
@@ -234,4 +234,57 @@ body {
 a[href="https://github.com/Roka20012"] {
     color: white;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1700px) and (min-width: 1500px) {
+    .logo {
+        top: 80px;
+        transform: scale(1.7);
+    }
+
+    .container {
+        top: 150px;
+        position: relative;
+        transform: scale(1.1);
+    }
+    
+}
+
+@media screen and (max-width: 2000px) and (min-width: 1700px) {
+        .logo {
+        top: 80px;
+        transform: scale(1.7);
+    }
+
+    .container {
+        top: 150px;
+        position: relative;
+        transform: scale(1.3);
+    }
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2300px) {
+    .logo {
+        top: 80px;
+        transform: scale(1.7);
+    }
+
+    .container {
+        top: 150px;
+        position: relative;
+        transform: scale(1.5);
+    }
+}
+
+@media screen and (min-width: 2300px) {
+    .logo {
+        top: 75px;
+        transform: scale(2);
+    }
+
+    .container {
+        top: 180px;
+        position: relative;
+        transform: scale(1.7);
+    }
 }
