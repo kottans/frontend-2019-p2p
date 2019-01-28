@@ -5,6 +5,7 @@ Consider following links:
   [Code review по-человечески (часть 1)](https://habr.com/en/post/340550/)
 - [How to Do Code Reviews Like a Human (Part Two)](https://mtlynch.io/human-code-reviews-2/) /
   [Code review по-человечески (часть 2)](https://habr.com/ru/post/342244/)
+- [PR Code Review Phrase Book](https://gist.github.com/OleksiyRudenko/e6f573d7aca2cc854ccce6087cfe7138)
 
 ## Formatting, Style, Manual Testing
 
