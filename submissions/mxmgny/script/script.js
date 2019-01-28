@@ -15,12 +15,10 @@ request.onload = function() {
 function loadPage(jsonObj) {
     const races = jsonObj['items'];
 
-    races.foreach( (race,id) => {
+    races.foreach( (race) => {
 
         const navButton = createTextElement('button',race['header']);
-        navButton.addEventListener('click', changeRace);
         if(id === 0) navButton.classList.add('active');
-
         const raceArticle = createRaceArticle(race);
         if(id === 0) raceArticle.classList.add('active');
 
@@ -28,6 +26,9 @@ function loadPage(jsonObj) {
         main.appendChild(raceArticle);
     });
 
+    aside.onclick = function(event) {
+        changeRace.call(event.target)
+    };
     body.appendChild(aside);
     body.appendChild(main);
 }
