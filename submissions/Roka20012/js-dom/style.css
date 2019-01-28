@@ -16,7 +16,6 @@ body {
     display: none;
 }
 
-.menu-open,
 .menu-close {
     transition: all ease 0.2s;
     margin-right: 40px;
@@ -128,8 +127,7 @@ body {
 
 @media screen and (max-width: 900px) {
 
-    .menu-close,
-    .menu-open {
+    .menu-close {
         z-index: 1;
         height: 300px;
         top: -30px;
