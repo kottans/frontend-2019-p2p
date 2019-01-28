@@ -12,7 +12,7 @@ Consider following links:
 PRs should have proper name (as per task name), should contain link to working demo (if applicable) and to code. Advise your peer to fix or complete missing parts.
 
 ### User interface testing
-- Make sure to test the demo properly (TBA)
+- Make sure to test the demo properly
 - Please check that all interactive elements are visually indicated (by changing cursor form, background etc.) 
 
 ### Code formatting
