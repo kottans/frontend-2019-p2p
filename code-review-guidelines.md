@@ -22,6 +22,7 @@ Consider following links:
   - [DOM API](#dom-api)
   - [OO JS (Frogger)](#oo-js-frogger)
   - [OOP Exercise](#oop-exercise)
+- [Video](#video)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- TOC created using https://github.com/thlorenz/doctoc#installation -->
@@ -263,3 +264,4 @@ Watch a video below for **Kottans code review basics intro**
 
 [![Kottans p2p course intro](./img/yt-kottans-p2p-creview.png)](https://youtu.be/zq9w09qXrOk)
 
+[_^ Back to TOC ^_](#table-of-contents)
