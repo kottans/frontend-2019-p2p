@@ -1,0 +1,237 @@
+body {
+    background-size: 2000px 1300px;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.menu-open,
+.menu-close {
+    transition: all ease 0.2s;
+    margin-right: 40px;
+    top: 60px;
+    position: relative;
+    text-align: center;
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.data-text {
+    display: block;
+    position: relative;
+    top: 45px;
+    width: 1000px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: sans-serif;
+}
+
+.data-text div {
+    display: none;
+}
+
+#animeText {
+    position: relative;
+    display: block;
+    animation-duration: .5s;
+    animation-name: slidein;
+}
+
+
+@keyframes slidein {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes forAll {
+    from {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#all {
+    position: relative;
+    animation-duration: 0.5s;
+    animation-name: forAll;
+}
+
+.logo {
+    position: relative;
+    top: 30px;
+    font-size: 45px;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+#navbar a {
+    margin-bottom: 0px;
+    top: 10px;
+    left: 10px;
+    height: 30px;
+    position: relative;
+    display: inline-block;
+    background-color: #454545FF;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: 1em 2em 0.5em 2em;
+    outline: none;
+    border-radius: 1px;
+    border-right: 0px solid;
+    border-left: 0px solid;
+    transition: all ease 0.3s;
+}
+
+
+#navbar a:not(.check):hover {
+    background: #888;
+    cursor: pointer;
+    border-right: 10px solid;
+    border-left: 10px solid;
+}
+
+#navbar .check {
+    transition: all ease 0.5s;
+    border-right: 10px solid;
+    border-left: 10px solid;
+    background-color: #D52940FF;
+}
+
+@media screen and (max-width: 900px) {
+
+    .menu-close,
+    .menu-open {
+        z-index: 1;
+        height: 300px;
+        top: -30px;
+        left: 0px;
+        padding: 400px 0px 100% 0px;
+        position: fixed;
+        transition: all ease .2s;
+        background-color: #454545FF;
+    }
+
+    .menu-close {
+        width: 150px;
+        margin-left: -170px;
+    }
+
+    .menu-open {
+        width: 50%;
+        margin-left: 0px;
+    }
+
+    #navbar a {
+        top: -200px;
+        left: 0px;
+    }
+
+    .data-text {
+        margin-top: -15px;
+        margin-left: 20px;
+        margin-right: 10px;
+
+    }
+
+    .burger {
+        transition: all ease .2s;
+        position: absolute;
+        z-index: 3;
+        width: 40px;
+        height: 25px;
+        top: 35px;
+        left: 25px;
+    }
+
+    .burger:hover {
+        cursor: pointer;
+    }
+
+    .burger1 {
+        z-index: 2;
+        border-radius: 20px;
+        position: absolute;
+        top: 35px;
+        left: 25px;
+        width: 40px;
+        height: 5px;
+        background-color: orange;
+    }
+
+    .burger2 {
+        transition: all ease .2s;
+        z-index: 2;
+        border-radius: 20px;
+        position: absolute;
+        top: 45px;
+        left: 25px;
+        width: 40px;
+        height: 5px;
+        background-color: orange;
+    }
+
+    .burger3 {
+        z-index: 2;
+        border-radius: 20px;
+        position: absolute;
+        top: 55px;
+        left: 25px;
+        width: 40px;
+        height: 5px;
+        background-color: orange;
+    }
+
+    .open {
+        left: 15px;
+        background-color: white;
+        width: 60px;
+    }
+
+}
+
+#me {
+    height: 0px;
+    opacity: .2;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
+#me:hover {
+    opacity: .8;
+}
+
+a[href="https://github.com/Roka20012"] {
+    color: white;
+    text-decoration: none;
+}
