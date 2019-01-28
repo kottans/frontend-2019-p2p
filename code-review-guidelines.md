@@ -252,3 +252,14 @@ Bonus:
 [ES6 classes cheat-sheet](https://gist.github.com/OleksiyRudenko/672d39b08d9d0da4e179aca49876c58b)
 
 [_^ Back to TOC ^_](#table-of-contents)
+
+---
+
+## Video
+
+Watch a video below for **Kottans code review basics intro**
+
+(1h13m23s, narrated in Russian)
+
+[![Kottans p2p course intro](./img/yt-kottans-p2p-creview.png)](https://youtu.be/zq9w09qXrOk)
+

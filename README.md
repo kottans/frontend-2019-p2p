@@ -20,3 +20,11 @@ approved PRs to master.
 [How to submit a task for review](./CONTRIBUTING.md).
 
 [How to conduct code review](./code-review-guidelines.md).
+
+---
+
+Watch a video below for **Kottans p2p course intro**
+
+(50m45s, narrated in Russian)
+
+[![Kottans p2p course intro](./img/yt-kottans-p2p-intro.png)](https://youtu.be/3Oo5VjXb1lc)
