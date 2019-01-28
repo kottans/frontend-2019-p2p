@@ -1,23 +1,6 @@
 # How to Conduct A Helpful Code Review
 
-TBD:
-* Tone of voice etc
-* Typical phrases
-* Labels
-* Irrelevant commits
-* Review specialization (constants, code style, naming, labels,
-  irrelevant commits)
-
-## Attitude & Tone
-- If you don’t understand any part of the code or have any doubt, don’t hesitate to ask your peer for explanation. This is advantageous both for you and your peer.
-
-- Possible comment formulas
-> Please consider refactoring this function  
-> TBA
-
-TBA
-
-Read more:
+Consider following links:
 - [How to Do Code Reviews Like a Human (Part One)](https://mtlynch.io/human-code-reviews-1/) /
   [Code review по-человечески (часть 1)](https://habr.com/en/post/340550/)
 - [How to Do Code Reviews Like a Human (Part Two)](https://mtlynch.io/human-code-reviews-2/) /
