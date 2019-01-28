@@ -56,13 +56,6 @@ function checkStory({ target }) {
     if (target.tagName == "A") {//перевіряємо чи елемент на який ми натиснули це пункт меню
         for (let i = 0; i < nav.children.length; i++) {
             if (nav.children[i] == target) {//визначаємо на який пункт меню ми натиснули
-                if (!text.children[i].children.length) {//перевіряємо div на пустоту 31 line in html
-                    //в майбутньому всі div-и будуть заповнені контентом, тому нічого в них не буде 
-                    //додаватись, Ми будемо показувати div з відповідним id а інші ховати дивитись showStory();
-                    text.children[i].innerHTML = stories[i + 1];//якщо він пустий додаємо туди історію
-                    delete stories[i + 1];//видаляємо її з обєкту в якому вони зберігаються
-                }
-
                 showStory(i);//показуємо її
             }
         }
