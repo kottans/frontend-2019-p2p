@@ -34,9 +34,9 @@ _TOC is generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - fork this repository
 - clone your fork to your local machine:
-  `git clone https://github.com/YOUR_USERNAME/frontend-2019-homeworks.git`
+  `git clone https://github.com/YOUR_USERNAME/frontend-2019-p2p.git`
 - add this repository as an upstream:
-  `git remote add upstream https://github.com/kottans/frontend-2019-homeworks.git`
+  `git remote add upstream https://github.com/kottans/frontend-2019-p2p.git`
 - in your local repository, add a folder with your github name under
   `submissions`
 
