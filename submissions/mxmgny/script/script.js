@@ -1,27 +1,20 @@
-const requestURL = "https://raw.githubusercontent.com/mxmgny/DOM_Practice/master/script/data.json";
-const request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
 
+const requestURL = "https://raw.githubusercontent.com/mxmgny/DOM_Practice/master/script/data.json";
 const aside = document.createElement('aside');
 const main = document.createElement('main');
 const body = document.querySelector('body');
 
-request.onload = function() {
-    loadPage(request.response);
-}
-
-function loadPage(jsonObj) {
-    const races = jsonObj['items'];
-
-    races.foreach( (race) => {
-
+fetch(requestURL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(jsonObj){
+        const races = jsonObj['items'];
+        console.log(races);
+        
+        races.forEach( (race) => {
         const navButton = createTextElement('button',race['header']);
-        if(id === 0) navButton.classList.add('active');
         const raceArticle = createRaceArticle(race);
-        if(id === 0) raceArticle.classList.add('active');
-
         aside.appendChild(navButton);
         main.appendChild(raceArticle);
     });
@@ -29,9 +22,12 @@ function loadPage(jsonObj) {
     aside.onclick = function(event) {
         changeRace.call(event.target)
     };
+    aside.firstElementChild.classList.add('active');
+    main.firstElementChild.classList.add('active');
     body.appendChild(aside);
     body.appendChild(main);
-}
+    })
+    .catch( console.log() );
 
 function createRaceArticle(raceInfo) {
     let article = document.createElement('article');
