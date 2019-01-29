@@ -12,7 +12,7 @@ const burger = document.getElementsByClassName("burger2")[0];
 function hideBurgerMenu(target) {
     let computedStyle = getComputedStyle(burger);
 
-    if (computedStyle.left == "15px") {
+    if (computedStyle.left === "15px") {
         nav.classList.toggle("menu-open");
         burger.classList.toggle("open");
     }
@@ -24,9 +24,8 @@ function hideBurgerMenu(target) {
  * email: broslavsky.rostislaw@gmail.com
  */
 function setColorForElement(target) {
-    let a = Array.from(nav.children);
 
-    a.forEach((el) => {
+    [...nav.children].forEach(el => {
         el.classList.remove("check");
     });
     target.classList.add("check");
@@ -40,7 +39,7 @@ function setColorForElement(target) {
 function showStory(index) {
     let textChild = Array.from(text.children);
 
-    textChild.forEach((el) => {
+    textChild.forEach(el => {
         el.id = "";
     });
     textChild[index].id = "animeText";
@@ -53,9 +52,9 @@ function showStory(index) {
  */
 function checkStory({ target }) {
 
-    if (target.tagName == "A") {//перевіряємо чи елемент на який ми натиснули це пункт меню
+    if (target.tagName === "A") {//перевіряємо чи елемент на який ми натиснули це пункт меню
         for (let i = 0; i < nav.children.length; i++) {
-            if (nav.children[i] == target) {//визначаємо на який пункт меню ми натиснули
+            if (nav.children[i] === target) {//визначаємо на який пункт меню ми натиснули
                 showStory(i);//показуємо її
             }
         }
