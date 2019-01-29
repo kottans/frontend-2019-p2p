@@ -3,7 +3,7 @@
 const nav = document.getElementById("navbar");
 const text = document.getElementById("text");
 const burger = document.getElementsByClassName("burger2")[0];
-const a = nav.querySelectorAll("a");
+const menuItem = nav.querySelectorAll("a");
 
 /**
  * закриває меню якщо ми натискаємо на пункт меню 
@@ -12,9 +12,8 @@ const a = nav.querySelectorAll("a");
  * email: broslavsky.rostislaw@gmail.com
  */
 function hideBurgerMenu(target) {
-    let computedStyle = getComputedStyle(burger);
 
-    if (computedStyle.left === "15px") {
+    if (burger.classList.contains("open")) {
         nav.classList.toggle("menu-open");
         burger.classList.toggle("open");
     }
@@ -26,7 +25,7 @@ function hideBurgerMenu(target) {
  * email: broslavsky.rostislaw@gmail.com
  */
 function setColorForElement(target) {
-    a.forEach(el => {
+    menuItem.forEach(el => {
         el.classList.remove("check");
     });
     target.classList.add("check");
@@ -54,8 +53,8 @@ function showStory(index) {
 function checkStory({ target }) {
 
     if (target.tagName === "A") {//перевіряємо чи елемент на який ми натиснули це пункт меню
-        for (let i = 0; i < a.length; i++) {
-            if (a[i] === target) {//визначаємо на який пункт меню ми натиснули
+        for (let i = 0; i < menuItem.length; i++) {
+            if (menuItem[i] === target) {//визначаємо на який пункт меню ми натиснули
                 showStory(i);//показуємо її
             }
         }
