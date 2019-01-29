@@ -52,7 +52,7 @@ function showStory(index) {
  */
 function checkStory({ target }) {
 
-    if (target.tagName === "A") {//перевіряємо чи елемент на який ми натиснули це пункт меню
+    if (target.closest('#navbar')) {//перевіряємо чи елемент на який ми натиснули це пункт меню
         for (let i = 0; i < menuItem.length; i++) {
             if (menuItem[i] === target) {//визначаємо на який пункт меню ми натиснули
                 showStory(i);//показуємо її
