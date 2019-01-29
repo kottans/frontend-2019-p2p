@@ -52,7 +52,6 @@ function showStory(index) {
  */
 function checkStory({ target }) {
 
-    if (target.closest('#navbar')) {//перевіряємо чи елемент на який ми натиснули це пункт меню
         for (let i = 0; i < menuItem.length; i++) {
             if (menuItem[i] === target) {//визначаємо на який пункт меню ми натиснули
                 showStory(i);//показуємо її
@@ -61,7 +60,6 @@ function checkStory({ target }) {
 
         setColorForElement(target);//додаємо пункту меню відповідний колір
         hideBurgerMenu(target);//ховаємо navbar якщо екран менше 900 px;
-    }
 }
 
 nav.addEventListener("click", checkStory);
