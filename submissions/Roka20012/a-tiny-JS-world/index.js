@@ -44,6 +44,6 @@ const man = {
 
 [dog, cat, woman, man].forEach(el => {
   print(`Hi! I am ${el.species}; My name is <strong>${el.name}</strong>;
-    My gender is <em>${el.gender}</em>;I have ${el.legs} legs;
-    I have ${el.hands} hands;I want to say ${el.saying};`);
+    My gender is <em>${el.gender}</em>; I have ${el.legs} legs;
+    I have ${el.hands} hands; I want to say ${el.saying};`);
 });
