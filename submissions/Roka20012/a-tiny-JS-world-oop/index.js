@@ -7,28 +7,58 @@
 'use strict';
 
 class Creatures {
-    constructor(species, name, gender, legs, hands, saying) {
-      this.species = species,
-      this.name = name,
-      this.gender = gender,
-      this.legs = legs,
-      this.hands = hands,
-      this.saying = saying;
+    constructor(name, gender, saying) {
+        this.name = name;
+        this.gender = gender;
+        this.saying = saying;
+    }
+
+    say() {
+        let about = `Hi! I am ${this.species}; `;
+        about += `My name is <strong>${this.name}</strong>; `;
+        about += `My gender is <em>${this.gender}</em>; `;
+        about += `I have ${this.legs} legs; I have ${this.hands} hands; `;
+        about += `I want to say ${this.saying}`;
+
+        print(about);
     }
 }
 
-Creatures.prototype.sayHello = function(){
-  print(`Hi! I am ${this.species}; My name is <strong>${this.name}</strong>; My gender is <em>${this.gender}</em>;
-    \nI have ${this.legs} legs;I have ${this.hands} hands;I want to say ${this.saying};`);
-};
+class Animal extends Creatures {
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
+        this.legs = 4;
+        this.hands = 0;
+    }
+}
 
-const dog = new Creatures('dog', 'Toby', 'male', 4, 0, 'woof-woof!');
-const cat = new Creatures('cat', 'Molly', 'male', 4, 0, 'meow');
-const woman = new Creatures('human', 'Jenny', 'female', 2, 2, 'Hello Chris!');
-const man = new Creatures('human', 'John', 'male', 2, 2,' Hello Jenny!');
+class Person extends Creatures {
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
+        this.legs = 2;
+        this.hands = 2;
+        this.species = "human";
+    }
+}
 
-let allCreatures = [dog, cat, woman, man];
+class Dog extends Animal {
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
+        this.species = "dog";
+    }
+}
+
+class Cat extends Animal {
+    constructor(name, gender, saying) {
+        super(name, gender, saying);
+        this.species = "cat";
+    }
+}
+
+let allCreatures = [new Dog("Toby", "male", "woof-woof!"), new Cat("Molly", "male", "meow"),
+    new Person("Jenny", "female", "Hello John!"), new Person("John", "male", "Hello Jenny!")
+];
 
 allCreatures.forEach(el => {
-    el.sayHello();
+    el.say();
 });
