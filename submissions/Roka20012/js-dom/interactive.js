@@ -51,3 +51,4 @@ function hideOpenBurgerMenu(e) {
 let burgerButton = document.getElementsByClassName("burger")[0];
 
 burgerButton.addEventListener("click", hideOpenBurgerMenu);
+
