@@ -1,7 +1,12 @@
+:root {
+    --main-color: rgba(0,0,0,.2);
+    --font-size: 1.25em;
+    --bg-color: #f5f5f5;
+}
+
 body {
     font-family: "Arial", sans-serif;
     background-color: #fff;
-    overflow-x: hidden;
 }
 ul {
     margin: 0;
@@ -16,21 +21,23 @@ ul {
 .nav__input,
 .nav__menu,
 .nav__menu_input,
-.nav__menu_listMore{
+.nav__menu_listsMore{
     display: none;
 }
 .nav__menu{
     position: absolute;
     top: 50px;
     border: 1px solid #ccc;
-    border-color: rgba(0,0,0,.2);
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    border-color: var(--main-color);
+    box-shadow: 0 2px 10px var(--main-color);
     background: #fff;
     border-radius: 2px;
-    width: 337px;
+    max-width: 320px;
+    width: 100%;
     max-height: 634px;
     height: 496px;
-    overflow-y: overlay;
+    overflow-x: hidden;
+    overflow-y: auto;
     animation-name: google;
     animation-duration: 0.5s;
     animation-timing-function: ease;
@@ -46,7 +53,7 @@ ul {
     border-bottom-color: #fff;
     border-style: dashed dashed solid;
     border-width: 0 8.5px 8.5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px var(--main-color);
     position: absolute;
     left: 6.5px;
     top: -9px;
@@ -54,7 +61,7 @@ ul {
     height: 0;
     width: 0;
 }
-.nav__menu .nav__menu_list{
+.nav__menu .nav__menu_lists{
     display: flex;
     flex-wrap: wrap;
     margin: 20px;
@@ -66,17 +73,16 @@ ul {
     border: 1px solid transparent;
     z-index: 1;
     padding: 1px;
-    display: inline-block;
-    vertical-align: top;
     color: black;
     height: 98px;
-    width: 86px;
+    width: 81px;
 }
 .nav__menu li a{
     text-decoration: none;
     color: rgba(0,0,0,0.87);
     border: 1px solid transparent;
     display: block;
+    transition: all .25s ease;
 }
 .nav__menu li:hover a{
     border: 1px solid rgba(0,0,0,.2);
@@ -99,7 +105,8 @@ ul {
     cursor: pointer;
 }
 .nav__input_icon{
-    font-size: 12px;
+    display: block;
+    font-size: 0.75em;
     transition: all .5s ease;
 }
 .nav__input ~ label {
@@ -108,13 +115,13 @@ ul {
 .nav__input_icons:hover .nav__input_icon{
     color: #000;
 }
-.nav__input_icons div:after,
-.nav__input_icons div:before{
+.nav__input_icon:after,
+.nav__input_icon:before{
     position: absolute;
     content: "■";
     right: calc(100% + 1px);
 }
-.nav__input_icons div:after{
+.nav__input_icon:after{
     left: calc(100% + 1px);
 }
 .nav__input:checked ~ label {
@@ -130,7 +137,7 @@ ul {
     transform: translateX(-50%);
     top: 31px;
     border: 10px solid transparent;
-    border-bottom: 10px solid rgba(0,0,0,.2);
+    border-bottom: 10px solid var(--main-color);
     z-index: 3;
     animation-name: google;
     animation-duration: 0.1s;
@@ -191,18 +198,18 @@ ul {
 .nav__menu_title{
     text-align: center;
     display: block;
-    line-height: 20px;
+    line-height: var(--font-size);
     overflow: hidden;
     white-space: nowrap;
-    width: 84px;
+    width: 5.25em;
     text-overflow: ellipsis;
 }
 .nav__menu_input ~ label{
     text-align: center;
     display: block;
     cursor: pointer;
-    line-height: 40px;
-    background-color: #f5f5f5;
+    line-height: 2.5em;
+    background-color: var(--bg-color);
 }
 .nav__menu_listMore {
     animation-name: google;
@@ -214,10 +221,10 @@ ul {
     animation-fill-mode: none;
     animation-play-state: running;
 }
-.nav__menu_input:checked ~ .nav__menu_listMore{
+.nav__menu_input:checked ~ .nav__menu_listsMore{
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: var(--font-size);
     justify-content: space-between;
 }
 .nav__menu_input:checked ~label{
@@ -225,7 +232,7 @@ ul {
     width: 80%;
     margin: 0 auto;
 }
-.nav__menu_input:checked ~label div{
+.nav__menu_input:checked ~label span{
     display: none;
 }
 @keyframes google {
