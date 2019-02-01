@@ -166,11 +166,10 @@ Adding elements to DOM from a loop is a bad practice. A browser will run reflow 
   4. Use `innerHTML` instead
   
 **Use of `window.event` property**  
-[`window.event`](https://developer.mozilla.org/en-US/docs/Web/API/Window/event) is not universally supported and should be avoided. Notably fails in FireFox with error message "window.event is undefined". Use `event` passed to event handler function:
+[`window.event`](https://developer.mozilla.org/en-US/docs/Web/API/Window/event) is not universally supported and should be avoided. Notably fails in Firefox with error message "window.event is undefined". Use `event` passed to event handler function:
 
 ```javascript
 // Before
-
 someElement.addEventListener('click', function() {
     const value = event.target.value;
     // do something
@@ -179,6 +178,12 @@ someElement.addEventListener('click', function() {
 //After
 someElement.addEventListener('click', function(event) {
     const value = event.target.value;
+    // do something
+})
+
+// Even better - with ES6 features (arrow functions and destructuring)
+someElement.addEventListener('click', ({ target }) => {
+    const value = target.value;
     // do something
 })
 ```
