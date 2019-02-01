@@ -7,58 +7,66 @@
 'use strict';
 
 class Creatures {
-    constructor(name, gender, saying) {
+    constructor(name, saying, gender, legs) {
         this.name = name;
         this.gender = gender;
         this.saying = saying;
+        this.legs = legs;
     }
 
     say() {
-        let about = `Hi! I am ${this.species}; `;
-        about += `My name is <strong>${this.name}</strong>; `;
-        about += `My gender is <em>${this.gender}</em>; `;
-        about += `I have ${this.legs} legs; I have ${this.hands} hands; `;
-        about += `I want to say ${this.saying}`;
-
-        print(about);
+    	return [this.species, this.name, this.gender, this.legs , this.hands,
+        this.saying].join("; ");
     }
 }
 
 class Animal extends Creatures {
-    constructor(name, gender, saying) {
-        super(name, gender, saying);
-        this.legs = 4;
-        this.hands = 0;
-    }
-}
-
-class Person extends Creatures {
-    constructor(name, gender, saying) {
-        super(name, gender, saying);
-        this.legs = 2;
-        this.hands = 2;
-        this.species = "human";
+    constructor(name, saying, gender, legs = 4) {
+        super(name, saying, gender,  legs);
     }
 }
 
 class Dog extends Animal {
-    constructor(name, gender, saying) {
-        super(name, gender, saying);
+    constructor(name, saying, gender, legs) {
+        super(name, saying, gender, legs);
         this.species = "dog";
     }
 }
 
 class Cat extends Animal {
-    constructor(name, gender, saying) {
-        super(name, gender, saying);
+    constructor(name, saying, gender, legs) {
+        super(name, saying, gender, legs);
         this.species = "cat";
     }
 }
 
-let allCreatures = [new Dog("Toby", "male", "woof-woof!"), new Cat("Molly", "male", "meow"),
-    new Person("Jenny", "female", "Hello John!"), new Person("John", "male", "Hello Jenny!")
+class Person extends Creatures {
+    constructor(name, saying, gender, legs = 2) {
+        super(name, saying, gender, legs);
+        this.hands = 2;
+        this.species = "human";
+    }
+}
+
+class Man extends Person {
+    constructor(name, saying, gender, legs) {
+        super(name, saying, gender, legs);
+        this.gender = "male";
+    }
+}
+
+class Woman extends Person {
+    constructor(name, saying, gender, legs) {
+        super(name, saying, gender, legs);
+         this.gender = "female";
+    }
+}
+
+
+let allCreatures = [new Dog("Toby", "woof-woof!", "male"), new Cat("Molly", "meow", "male"),
+    new Woman("Jenny", "Hello John!"), new Man("John", "Hello Jenny!")
 ];
 
 allCreatures.forEach(el => {
-    el.say();
+    print(el.say());
 });
