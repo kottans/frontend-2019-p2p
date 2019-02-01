@@ -165,7 +165,23 @@ Adding elements to DOM from a loop is a bad practice. A browser will run reflow 
   3. Clone current container. Add items to a container and then replace your old container with a new one. But be aware of event listeners.
   4. Use `innerHTML` instead
   
-**Use of `event` global variable instead event handler argument (fails in FireFox)**
+**Use of `window.event` property**  
+[`window.event`](https://developer.mozilla.org/en-US/docs/Web/API/Window/event) is not universally supported and should be avoided. Notably fails in FireFox with error message "window.event is undefined". Use `event` passed to event handler function:
+
+```javascript
+// Before
+
+someElement.addEventListener('click', function() {
+    const value = event.target.value;
+    // do something
+})
+
+//After
+someElement.addEventListener('click', function(event) {
+    const value = event.target.value;
+    // do something
+})
+```
 
 **Relying on DOM structure**
 
