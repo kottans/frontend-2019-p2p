@@ -1,35 +1,115 @@
-const START_X_PLAYER = 202;
-const START_Y_PLAYER = 370;
-const MOVE_PLAYER_UP_DOWN = 80;
-const MOVE_PLAYER_LEFT_RIGTH = 101;
-const MAX_X_RIGHT = 505;
-const MAX_X_LEFT = -101;
-const MAX_Y_UP = -30;
-const MAX_Y_DOWN = 450;
-
-const START_X_ENEMY = -101;
-const START_Y_ENEMY = 50;
-const NEXT_Y_ENEMY = 80;
-const CHECK_X_Y_ENEMY = 75;
-const MAX_X_ENEMY = 505;
 let score = 0;
 let maxScore = 0;
 let scoreBoard = document.createElement("p");
 scoreBoard.innerHTML = "Max Score:0 Score:0";
 document.body.appendChild(scoreBoard);
 
-class Enemy {
-    constructor(x, y, speed) {
-        this.x = x,
-        this.y = y,
-        this.speed = speed,
-        this.sprite = 'images/enemy-bug.png'
+const ENEMY_CONF = {
+    START_X: -101,
+    START_Y: 50,
+    NEXT_Y: 80,
+    CHECK_X_Y: 75,
+    MAX_X: 505,
+    MAX_SPEED: 7,
+    MIN_SPEED: 1
+};
+
+const PLAYER_CONF = {
+    START_X: 202,
+    START_Y: 370,
+    MOVE_UP_DOWN: 80,
+    MOVE_LEFT_RIGTH: 101,
+    MAX_X_LEFT: -101,
+    MAX_X_RIGHT: 505,
+    MAX_Y_DOWN: 450,
+    MAX_Y_UP: -30
+};
+
+class Heroes {
+    constructor(x, y, sprite) {
+        this.x = x;
+        this.y = y;
+        this.sprite = sprite;
+    }
+
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 }
 
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+class Player extends Heroes {
+    constructor(x, y, sprite = "images/char-boy.png") {
+        super(x, y, sprite);
+    }
+
+    update(dt) {
+        switch (this.x) {
+            case PLAYER_CONF.MAX_X_RIGHT:
+                this.x = PLAYER_CONF.MAX_X_RIGHT - PLAYER_CONF.MOVE_LEFT_RIGTH;
+                break;
+            case PLAYER_CONF.MAX_X_LEFT:
+                this.x = PLAYER_CONF.MAX_X_LEFT + PLAYER_CONF.MOVE_LEFT_RIGTH;
+                break;
+        }
+
+        switch (this.y) {
+            case PLAYER_CONF.MAX_Y_UP:
+                score += 1;
+                scoreBoard.innerHTML = `Max Score:${maxScore} Score:${score}`;
+                this.x = PLAYER_CONF.START_X;
+                this.y = PLAYER_CONF.START_Y;
+                break;
+            case PLAYER_CONF.MAX_Y_DOWN:
+                this.y = PLAYER_CONF.START_Y;
+        }
+    }
+
+    handleInput(key) {
+        switch (key) {
+            case 'up':
+                this.y -= PLAYER_CONF.MOVE_UP_DOWN;
+                break;
+            case 'down':
+                this.y += PLAYER_CONF.MOVE_UP_DOWN;
+                break;
+            case 'left':
+                this.x -= PLAYER_CONF.MOVE_LEFT_RIGTH;
+                break;
+            case 'right':
+                this.x += PLAYER_CONF.MOVE_LEFT_RIGTH;
+                break;
+        }
+    }
+
+}
+
+class Enemy extends Heroes {
+    constructor(x, y, speed, sprite = 'images/enemy-bug.png') {
+        super(x, y, sprite);
+        this.speed = speed;
+    }
+
+    update(dt) {
+        if (this.x <= ENEMY_CONF.MAX_X) {
+            this.x += this.speed;
+        } else {
+            this.x = ENEMY_CONF.START_X;
+            this.speed = getRandomSpeed(ENEMY_CONF.MIN_SPEED + score, ENEMY_CONF.MAX_SPEED + score);
+        }
+
+        if (player.x < this.x + ENEMY_CONF.CHECK_X_Y &&
+            player.x + ENEMY_CONF.CHECK_X_Y > this.x &&
+            player.y < this.y + ENEMY_CONF.CHECK_X_Y &&
+            player.y + ENEMY_CONF.CHECK_X_Y > this.y) {
+
+            if (maxScore < score) maxScore = score;
+            score = 0;
+            scoreBoard.innerHTML = `Max Score:${maxScore}  Score:${score}`;
+            player.x = PLAYER_CONF.START_X;
+            player.y = PLAYER_CONF.START_Y;
+        }
+    }
+}
 
 function getRandomSpeed(min, max) {
     min = Math.ceil(min);
@@ -38,93 +118,22 @@ function getRandomSpeed(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+
+
+let player = new Player(PLAYER_CONF.START_X, PLAYER_CONF.START_Y);
+
 const allEnemies = [];
 
-function newEnemy(y = 0) {
-    let enemy = new Enemy(START_X_ENEMY, START_Y_ENEMY + y, getRandomSpeed(2, 5));
+function newEnemy(y = 0, player) {
+    let enemy = new Enemy(ENEMY_CONF.START_X, ENEMY_CONF.START_Y + y,
+        getRandomSpeed(ENEMY_CONF.MIN_SPEED, ENEMY_CONF.MAX_SPEED));
     allEnemies.push(enemy);
 }
 
 newEnemy();
-newEnemy(NEXT_Y_ENEMY);
-newEnemy(2*NEXT_Y_ENEMY);
-
-Enemy.prototype.update = function(dt) {
-    if (this.x <= MAX_X_ENEMY) {
-        this.x += this.speed;
-    } else {
-        this.x = START_X_ENEMY;
-        this.speed = getRandomSpeed(2 + score, 5 + score);
-    }
-
-    if (player.x < this.x + CHECK_X_Y_ENEMY &&
-        player.x + CHECK_X_Y_ENEMY > this.x &&
-        player.y < this.y + CHECK_X_Y_ENEMY &&
-        player.y + CHECK_X_Y_ENEMY > this.y) {
-
-        if(maxScore < score) maxScore = score;
-        score = 0;
-        scoreBoard.innerHTML = `Max Score:${maxScore}  Score:${score}`;
-        player.x = START_X_PLAYER;
-        player.y = START_Y_PLAYER;
-    }
-
-};
-
-class Player {
-    constructor(x, y, speed) {
-        this.x = x,
-        this.y = y,
-        this.speed,
-        this.sprite = 'images/char-boy.png'
-    }
-}
-
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-Player.prototype.update = function(dt) {
-    switch (this.x) {
-        case MAX_X_RIGHT:
-            this.x = MAX_X_RIGHT - MOVE_PLAYER_LEFT_RIGTH;
-            break;
-        case MAX_X_LEFT:
-            this.x = MAX_X_LEFT + MOVE_PLAYER_LEFT_RIGTH;
-            break;
-    }
-
-    switch(this.y) {
-        case MAX_Y_UP:
-            score += 1;
-            scoreBoard.innerHTML = `Max Score:${maxScore} Score:${score}`;
-            this.x = START_X_PLAYER;
-            this.y = START_Y_PLAYER;
-            break;
-        case MAX_Y_DOWN:
-            this.y = START_Y_PLAYER;
-    }
-};
-
-Player.prototype.handleInput = function(key) {
-    switch (key) {
-        case 'up':
-            this.y -= MOVE_PLAYER_UP_DOWN;
-            break;
-        case 'down':
-            this.y += MOVE_PLAYER_UP_DOWN;
-            break;
-        case 'left':
-            this.x -= MOVE_PLAYER_LEFT_RIGTH;
-            break;
-        case 'right':
-            this.x += MOVE_PLAYER_LEFT_RIGTH;
-            break;
-    }
-};
-
-let player = new Player(START_X_PLAYER, START_Y_PLAYER);
-
+newEnemy(ENEMY_CONF.NEXT_Y);
+newEnemy(2 * ENEMY_CONF.NEXT_Y);
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
