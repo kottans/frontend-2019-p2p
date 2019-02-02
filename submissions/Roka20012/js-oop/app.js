@@ -84,56 +84,50 @@ class Player extends Heroes {
 }
 
 class Enemy extends Heroes {
-    constructor(x, y, speed, sprite = 'images/enemy-bug.png') {
+    constructor(x, y, player, speed, sprite = 'images/enemy-bug.png') {
         super(x, y, sprite);
         this.speed = speed;
+        this.player = player;
     }
 
     update(dt) {
         if (this.x <= ENEMY_CONF.MAX_X) {
             this.x += this.speed;
+            this.checkCollisions();
         } else {
             this.x = ENEMY_CONF.START_X;
-            this.speed = getRandomSpeed(ENEMY_CONF.MIN_SPEED + score, ENEMY_CONF.MAX_SPEED + score);
+            this.speed = this.getRandomSpeed(ENEMY_CONF.MIN_SPEED + score, ENEMY_CONF.MAX_SPEED + score);
         }
+    }
 
-        if (player.x < this.x + ENEMY_CONF.CHECK_X_Y &&
-            player.x + ENEMY_CONF.CHECK_X_Y > this.x &&
-            player.y < this.y + ENEMY_CONF.CHECK_X_Y &&
-            player.y + ENEMY_CONF.CHECK_X_Y > this.y) {
+    getRandomSpeed(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    checkCollisions() {
+        if (this.player.x < this.x + ENEMY_CONF.CHECK_X_Y &&
+            this.player.x + ENEMY_CONF.CHECK_X_Y > this.x &&
+            this.player.y < this.y + ENEMY_CONF.CHECK_X_Y &&
+            this.player.y + ENEMY_CONF.CHECK_X_Y > this.y) {
 
             if (maxScore < score) maxScore = score;
+
             score = 0;
             scoreBoard.innerHTML = `Max Score:${maxScore}  Score:${score}`;
-            player.x = PLAYER_CONF.START_X;
-            player.y = PLAYER_CONF.START_Y;
+            this.player.x = PLAYER_CONF.START_X;
+            this.player.y = PLAYER_CONF.START_Y;
         }
     }
 }
 
-function getRandomSpeed(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-
-    return Math.floor(Math.random() * (max - min)) + min;
-}
-
-
-
-
 let player = new Player(PLAYER_CONF.START_X, PLAYER_CONF.START_Y);
 
-const allEnemies = [];
-
-function newEnemy(y = 0, player) {
-    let enemy = new Enemy(ENEMY_CONF.START_X, ENEMY_CONF.START_Y + y,
-        getRandomSpeed(ENEMY_CONF.MIN_SPEED, ENEMY_CONF.MAX_SPEED));
-    allEnemies.push(enemy);
-}
-
-newEnemy();
-newEnemy(ENEMY_CONF.NEXT_Y);
-newEnemy(2 * ENEMY_CONF.NEXT_Y);
+const allEnemies = [startPosition = 0, ENEMY_CONF.NEXT_Y, 2 * ENEMY_CONF.NEXT_Y].map(position =>
+    new Enemy(ENEMY_CONF.START_X, ENEMY_CONF.START_Y + position, player)
+);
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
