@@ -6,8 +6,6 @@ let paws = [
 	{id:'zuma', img:'img/zuma.png', name:'Zuma', description:'Zuma is a playful, water-loving Labrador pup, and the team’s water rescue dog. At five years old, he’s the youngest PAW Patrol member – a happy, energetic beach puppy who loves to laugh and surf. He’s always trying to get the more serious pups like Chase and Rubble to “lighten up.”'},
 	{id:'rocky', img:'img/rocky.png', name:'Rocky', description:'Rocky is a six-year-old Mixed Breed recycling pup. He is a creative canine, has a thousand ideas, and someone else’s trash is often his treasure. Rocky can usually find just the right thing to solve a problem. Rocky can get a little scruffy; he’s not a fan of baths and doesn’t like getting wet at all.'},
 	{id:'everest', img:'img/everest.png', name:'Everest', description:'The most recent pup to join the PAW Patrol, Everest is a fearless and feisty eight-year-old Husky pup and the team’s amazing forest ranger. She’s completely at home in the wild and is a big help to Jake up on his mountain. Everest comes down to join the team for any rescue in the snow or the woods.'}]
-
-
 function show (e){
 	let result = paws.filter(obj => {
   	return obj.id === e.target.id
@@ -16,7 +14,6 @@ function show (e){
 	document.querySelector(".pic").src = result[0].img
 	document.querySelector(".desc").innerHTML = result[0].description
 }
-
 butts = document.querySelectorAll('button')
 butts.forEach( function(element) {
 	element.addEventListener('click', show)
