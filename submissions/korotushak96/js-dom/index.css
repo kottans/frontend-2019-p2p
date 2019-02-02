@@ -1,4 +1,7 @@
 @media screen {
+    body{
+        box-sizing: border-box;
+    }
     .burger {
         position: absolute;
         top: 17px;
@@ -45,7 +48,6 @@
     }
 
     .menu-item{
-        box-sizing: border-box;
         background-color: black;
         padding-bottom: 5px;
         margin-bottom: 0px;
@@ -63,7 +65,6 @@
 
     .content-item{
         display: none;
-        box-sizing: border-box;
         font-size: 20px;
         background-color: rgb(83, 54, 54);
         color: rgb(20, 102, 197)

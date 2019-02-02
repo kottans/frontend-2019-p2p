@@ -43,10 +43,9 @@ const initAnimalsApp = ()=>{
 
     let menuHTML = '';
     let descriptionHTML = '';
-    const beastsDescriptionsFrag = document.createDocumentFragment();
 
     beastsData.forEach((beast)=>{
-        const {id, name, description, image} = beast;
+        const {name, description, image} = beast;
         // create menu-items
         menuHTML += `<div class='menu-item'>${name}</div>`;
         // and description
@@ -69,9 +68,11 @@ const initAnimalsApp = ()=>{
     });
 
     switchActive=(i)=>{
-        contentItem.forEach(item => item.classList.remove('active'));
+        contentItem.forEach((item, idx) => {
+            item.classList.remove('active');
+            menuItem[idx].classList.remove('chosen');
+        });
         contentItem[i].classList.toggle('active');
-        menuItem.forEach(item => item.classList.remove('chosen'));
         menuItem[i].classList.toggle('chosen');
     };
 
@@ -87,4 +88,5 @@ const initAnimalsApp = ()=>{
     })
 }
 
-document.addEventListener('DOMContentLoaded', initAnimalsApp())
+document.addEventListener('DOMContentLoaded', initAnimalsApp)
+
