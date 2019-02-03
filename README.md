@@ -1,3 +1,8 @@
+[![MIT Licensed][icon-mit]][license]
+[![Kottans-Frontend][icon-kottans]][kottans-frontend]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[![Telegram][icon-chat]][chat]
+
 # Frontend 2019 p2p homework
 
 This repo is supplementary to
@@ -28,3 +33,11 @@ Watch a video below for **Kottans p2p course intro**
 (50m45s, narrated in Russian)
 
 [![Kottans p2p course intro](./img/yt-kottans-p2p-intro.png)](https://youtu.be/3Oo5VjXb1lc)
+
+[icon-mit]: https://img.shields.io/badge/license-MIT-blue.svg
+[license]: https://github.com/OleksiyRudenko/a-tiny-JS-world/blob/master/LICENSE.md
+[icon-chat]: https://img.shields.io/badge/chat-on%20telegram-blue.svg
+
+[icon-kottans]: https://img.shields.io/badge/%3D(%5E.%5E)%3D-frontend-yellow.svg
+[kottans-frontend]: https://github.com/kottans/frontend
+[chat]: https://t.me/joinchat/DmX0JAl-mh5W0jrWli8Ycw
