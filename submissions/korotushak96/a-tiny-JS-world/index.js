@@ -27,32 +27,32 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-  const dog = {
+const dog = {
     species: 'dog',
     name: 'Dina',
     gender: 'female',
     legs: 4,
     hands: 0,
     saying: 'woof-woof!'
-  };
+};
 
-  const cat = {
-      species: 'cat',
-      name: 'Sirko',
-      gender: 'male',
-      legs: 4,
-      hands: 0,
-      saying: 'meow'
-  };
+const cat = {
+    species: 'cat',
+    name: 'Sirko',
+    gender: 'male',
+    legs: 4,
+    hands: 0,
+    saying: 'meow'
+};
 
-  const man = {
-      species: 'human',
-      name: 'Peter',
-      gender: 'male',
-      legs: 2,
-      hands: 2,
-      saying: 'Life is beautiful'
-  };
+const man = {
+    species: 'human',
+    name: 'Peter',
+    gender: 'male',
+    legs: 2,
+    hands: 2,
+    saying: 'Life is beautiful'
+};
 
 const woman = {
     species: 'human',
@@ -73,8 +73,12 @@ const catWoman = {
     saying: cat.saying
 };
 
+let getParameters = ({species, name, gender, legs, hands, saying}) =>{
+    return `Hi! I am ${species}; My name is <strong>${name}</strong>;
+    My gender is <em>${gender}</em>; I have ${legs} legs;
+    I have ${hands} hands; I want to say ${saying};`
+};
+
 [dog, cat, woman, man, catWoman].forEach(el => {
-    print(`Hi! I am ${el.species}; My name is <strong>${el.name}</strong>;
-      My gender is <em>${el.gender}</em>; I have ${el.legs} legs;
-      I have ${el.hands} hands; I want to say ${el.saying};`);
-  });
+    print(getParameters(el));
+});
