@@ -6,7 +6,7 @@ body {
 }
 html {
   height: 100%;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 a {
   text-decoration: none;
@@ -51,7 +51,7 @@ header {
   display: flex;
   flex-direction: column;
   align-content: center;
-  position: fixed;
+  position: absolute;
   text-align: center;
   color: white;
   transition: all 3s;
@@ -225,5 +225,10 @@ nav {
     color: white;
     margin-right: 20%;
     margin-left: 20%;
+  }
+}
+@media screen and (min-width: 425px){
+  .container {
+    height: auto;
   }
 }
