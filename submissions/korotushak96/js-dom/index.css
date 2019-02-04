@@ -18,17 +18,15 @@
     }
 
     .change .bar1 {
-        transform: rotate(-45deg) translate(-9px, 6px) ;
+        transform: rotate(-45deg) translate(-10px, 5px);
     }
 
-    
     .change .bar2 {
         opacity: 0;
     }
 
-    
     .change .bar3 {
-        transform: rotate(45deg) translate(-8px, -8px) ;
+        transform: rotate(45deg)  translate(-11px, -5px);
     }
 
     .container{
