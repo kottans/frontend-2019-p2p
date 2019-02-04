@@ -1,0 +1,72 @@
+body {
+  background-size: 100% 400%;
+  animation: backgroundAnimation 8s ease infinite;
+  user-select: none;
+  background-color: #458;
+}
+
+@keyframes hideCards {
+  0% {
+    backface-visibility: visible;
+    transform: rotateY(0deg);
+  }
+  50% {
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+  }
+  80% {
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+}
+
+.flipper {
+  perspective: 3000px;
+  position: relative;
+  width: 820px;
+  margin: auto;
+}
+
+.flipper img:hover {
+  cursor: pointer;
+}
+
+.flipper div {
+  position: relative;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: all ease 0.4s;
+  display: inline-grid;
+  background-image: url(images/back.jpg);
+  background-size: cover;
+  animation: hideCards 4s;
+  left: 4px;
+  margin-bottom: 2px;
+  background-color: #fff;
+}
+
+.flipper img {
+  position: relative;
+  border-radius: 15px;
+  transform-style: preserve-3d;
+  transition: all ease 0.4s;
+  display: inline-grid;
+  user-select: none;
+  transform: rotateY(180deg);
+  width: 200px;
+  height: 220px;
+}
+
+.flipper .check {
+  transform: rotateY(180deg);
+}
+
+.flipper .back {
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.hide {
+  transform: scale(0);
+  opacity: 0;
+}
