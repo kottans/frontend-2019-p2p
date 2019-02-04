@@ -10,9 +10,9 @@ function addCards() {
     let cards = [];
     cards = cards.concat(shuffleCards(), shuffleCards());
 
-    for (let i = 0; i < img.length; i++) {
-        img[i].src = cards[i];
-    }
+    cards.forEach(function (el, i) {
+        img[i].src = el;
+    });
 }
 
 function shuffleCards() {
@@ -26,11 +26,13 @@ function shuffleCards() {
 
 addCards();
 
-flipper.onclick = function({ target }) {
-    if (target.tagName == "IMG") {
+function GameProces({target}) {
+     if (target.tagName === "IMG") {
+        let elementsCheck = document.querySelectorAll(".check");
 
-        if (!target.parentNode.classList.contains("check")) {
+        if (!target.parentNode.classList.contains("check") && elementsCheck.length < 2 ) {
             target.parentNode.classList.toggle("check");
+
             let checkCards = document.querySelectorAll(".check img");
             if (checkCards.length === twoCards) {
                 if (checkCards[0].src === checkCards[1].src) {
@@ -43,17 +45,22 @@ flipper.onclick = function({ target }) {
 
                     setTimeout(function() {
                         let hideCards = document.querySelectorAll(".hide");
-                        console.log(hideCards);
+
                         if (hideCards.length === winGame) {
+                            let winGame = document.createElement("div");
+                            winGame.innerHTML = "!!!You WIN!!!     <div class='win'>RESTART</div>";
+                            winGame.classList.add("win-game");
 
-                            let answer = prompt("You win, do you want try again?yes/no", "");
+                            document.body.appendChild(winGame);
 
-                            if (answer === "yes") {
+                            document.querySelector(".win").onclick = function () {
                                 addCards();
-                                for (let i = 0; i < 12; i++) {
-                                    hideCards[i].classList.remove("hide");
-                                }
-                            }
+                                hideCards.forEach(function (el) {
+                                    el.classList.remove("hide");
+                                });
+                                winGame.remove();
+                            };
+
                         }
                     }, delayForAnswer);
 
@@ -67,4 +74,6 @@ flipper.onclick = function({ target }) {
         }
 
     }
-};
+}
+
+flipper.addEventListener("click", GameProces);

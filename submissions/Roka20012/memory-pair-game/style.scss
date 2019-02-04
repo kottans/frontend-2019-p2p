@@ -1,4 +1,4 @@
-@mixin forCards{
+@mixin simple{
 	position: relative;
 	border-radius: 15px;
 	transform-style: preserve-3d;
@@ -41,7 +41,7 @@ body {
 	}
 
 	div {
-		@include forCards;
+		@include simple;
 		background-image: url(images/back.jpg);
 		background-size: cover;
 		animation: hideCards 4s;
@@ -51,7 +51,7 @@ body {
 	}
 	
 	img{
-		@include forCards;
+		@include simple;
 		user-select: none;
 		transform: rotateY(180deg);
 		width: 200px;
@@ -71,4 +71,20 @@ body {
 .hide {
 	transform: scale(0);
 	opacity: 0;
+}
+
+.win-game {
+	font-family: Arial;
+	top: 100px;
+	left: 30%;
+	font-size: 100px;
+	position: absolute;
+	color: #888;
+	cursor: pointer;
+}
+
+.win:active {
+	transition: all ease .2s;
+	color: #666;
+	transform: scale(1.2);
 }
