@@ -36,7 +36,7 @@
     .menu{
         position: absolute;
         font-size: 30px;
-        color: blue;
+        color: #8e44ad;
         transform: translate(-300px, 0px);
         transition: 0.5s;
     }
@@ -46,15 +46,15 @@
     }
 
     .menu-item{
-        background-color: black;
+        background-color: #2c3e50;
         padding-bottom: 5px;
         margin-bottom: 0px;
-        border-bottom: 2px solid lightblue;
+        border-bottom: 2px solid #34495e;
         cursor: pointer;
     }
 
     .menu-item:hover{
-        background-color: rgba(0, 0, 0, 0.623)
+        background-color: rgba(127, 140, 141,1.0)
     }
 
     .chosen{
@@ -64,8 +64,8 @@
     .content-item{
         display: none;
         font-size: 20px;
-        background-color: rgb(83, 54, 54);
-        color: rgb(20, 102, 197)
+        background-color: #2c3e50;
+        color: #2980b9
     }
 
     .content-item_image{

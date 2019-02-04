@@ -84,7 +84,7 @@ const initAnimalsApp = ()=>{
     menu.addEventListener('click', (event)=>{
         let {target} = event;
         let index = menuItem.findIndex(item=>item == target);
-        switchActive(index);
+        if (index>=0) switchActive(index);
     })
 }
 
