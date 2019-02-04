@@ -52,7 +52,7 @@ const initAnimalsApp = ()=>{
         descriptionHTML += 
             `<div class='content-item'>
                 <div class='content-item_text'>${description}</div>
-                <img class='content-item_image' src='${image}'></img>
+                <img class='content-item_image' src='${image}' alt='${image.match(/\/([A-Za-z0-9_]*)/gi, '$1')}'>
             </div>`
     });
 

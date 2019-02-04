@@ -78,7 +78,7 @@
 }
 @media screen and (min-width: 421px) and (max-width: 830px){
     .content-item_image{
-        width: 75vh;
+        max-width: 100%;
         height: auto;
         margin-left: 5%;
         margin-right: 5%;
