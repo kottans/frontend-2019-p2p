@@ -59,8 +59,8 @@ const initAnimalsApp = ()=>{
     menu.insertAdjacentHTML('afterbegin', menuHTML);
     content.insertAdjacentHTML('afterbegin', descriptionHTML);
 
-    const contentItem = document.querySelectorAll('.content-item');
-    const menuItem = document.querySelectorAll('.menu-item');
+    const contentItem = [...document.querySelectorAll('.content-item')];
+    const menuItem = [...document.querySelectorAll('.menu-item')];
 
     burger.addEventListener('click', ()=>{
         burger.classList.toggle('change');
@@ -83,11 +83,8 @@ const initAnimalsApp = ()=>{
 
     menu.addEventListener('click', (event)=>{
         let {target} = event;
-        menuItem.forEach((item, i)=>{
-            if (target == item){
-                switchActive(i);
-            }
-        })
+        let index = menuItem.findIndex(item=>item == target);
+        switchActive(index);
     })
 }
 
