@@ -99,66 +99,9 @@ nav {
 
 
 /*           Jhin style            */
-
-.jhin-body {
-  background-color: #540a24;
+.champion {
   transition: 1s;
 }
-
-.jhin-header {
-  background-color: #94152d;
-  transition: 1s;
-}
-.jhin-desk-head {
-  background-color: #821d30;
-  transition: 1s;
-}
-
-/*         Cait style            */
-.caitlyn-header {
-  background-color: #216b73;
-  transition: 1s;
-}
-.caitlyn-body {
-  background-color: #138994;
-  transition: 1s;
-}
-.cait-desk-head {
-  background-color: #1c7782;
-    transition: 1s;
-}
-
-/*          Kai'sa style           */
-
-.kaisa-header {
-  background-color: #202c6f;
-  transition: 1s;
-}
-.kaisa-body {
-  background-color: #07103e;
-  transition: 1s;
-}
-.kaisa-desk-head {
-  background-color: #071252;
-  transition: 1s;
-}
-
-/*          MF style           */
-
-.mf-header {
-  background-color: #3cada7;
-  transition: 1s;
-}
-.mf-body {
-  background-color: #1d5452;
-  transition: 1s;
-}
-
-.mf-desk-head {
-  background-color: #008e86;
-  transition: 1s;
-}
-
 /*        MEDIA QUERIES        */
 
 @media screen and (min-width: 700px) {
