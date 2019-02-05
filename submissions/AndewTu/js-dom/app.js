@@ -21,3 +21,10 @@ butts = document.querySelectorAll('button')
 butts.forEach( function(element) {
 	element.addEventListener('click', show)
 });
+for (var i = 0; i < butts.length; i++) {
+  butts[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
