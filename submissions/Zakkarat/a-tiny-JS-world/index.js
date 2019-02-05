@@ -23,7 +23,7 @@ const cat = {
   hands: 0,
   saying: "Mur-meow?"
 }
-const human = {
+const man = {
   name: "Pablito",
   species: "human",
   gender: 'male',
@@ -39,7 +39,7 @@ const rat = {
   hands: 2,
   saying: "Oh, HELLO!"
 }
-const cat_woman = {
+const catWoman = {
   name: "Binokia",
   species: "human",
   gender: 'female',
@@ -48,7 +48,7 @@ const cat_woman = {
   saying: cat.saying
 }
 
-let characters = [dog, cat, human, rat, cat_woman]
+let characters = [dog, cat, man, rat, catWoman];
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
