@@ -1,7 +1,6 @@
 body {
   width: 100%;
   height: 100%;
-  background-color: #540a24;
   margin: 0;
 }
 html {
@@ -18,9 +17,7 @@ a {
 header {
   width: 100%;
   min-height: 70px;
-  background-color: #94152d;
   display: flex;
-
 }
 .toLeft {
   display: block;
@@ -47,7 +44,7 @@ header {
   width: 20%;
   min-width: 280px;
   height: 92.8%;
-  background-color: #94152d;
+
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -109,17 +106,17 @@ nav {
 }
 
 .jhin-header {
-  background-color: #94152d !important;
+  background-color: #94152d;
   transition: 1s;
 }
 .jhin-desk-head {
-  background-color: #821d30 !important;
+  background-color: #821d30;
   transition: 1s;
 }
 
 /*         Cait style            */
 .caitlyn-header {
-  background-color: #216b73 !important;
+  background-color: #216b73;
   transition: 1s;
 }
 .caitlyn-body {
@@ -127,14 +124,14 @@ nav {
   transition: 1s;
 }
 .cait-desk-head {
-  background-color: #1c7782 !important;
+  background-color: #1c7782;
     transition: 1s;
 }
 
 /*          Kai'sa style           */
 
 .kaisa-header {
-  background-color: #202c6f !important;
+  background-color: #202c6f;
   transition: 1s;
 }
 .kaisa-body {
@@ -142,14 +139,14 @@ nav {
   transition: 1s;
 }
 .kaisa-desk-head {
-  background-color: #071252 !important;
+  background-color: #071252;
   transition: 1s;
 }
 
 /*          MF style           */
 
 .mf-header {
-  background-color: #3cada7 !important;
+  background-color: #3cada7;
   transition: 1s;
 }
 .mf-body {
@@ -158,7 +155,7 @@ nav {
 }
 
 .mf-desk-head {
-  background-color: #008e86 !important;
+  background-color: #008e86;
   transition: 1s;
 }
 
