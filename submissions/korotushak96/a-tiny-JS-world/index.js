@@ -58,7 +58,7 @@ const woman = new Habitans(hum, 'Julia', fmg, 2, 2, womSay);
 
 const catWoman = new SuperHabit('superhuman', 'Jess', fmg, 2, 2, true, cat.saying);
 
-let getParameters = ({species, name, gender, legs, hands, saying}) =>{
+const getParameters = ({species, name, gender, legs, hands, saying}) =>{
     return `Hi! I am ${species}; My name is <strong>${name}</strong>;
     My gender is <em>${gender}</em>; I have ${legs} legs;
     I have ${hands} hands; I want to say ${saying};`
