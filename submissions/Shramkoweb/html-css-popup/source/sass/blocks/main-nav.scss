@@ -24,41 +24,39 @@
   }
 }
 
-.main-nav__link {
+.main-nav__link:hover {
+  text-decoration: underline;
+}
+
+.main-nav__link--user {
+  width: 32px;
+  height: 32px;
+
+  line-height: 32px;
+  text-align: center;
+  color: white;
+
+  background-color: coral;
+  border-radius: 50%;
+
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
+}
 
-  &--user {
-    width: 32px;
-    height: 32px;
+.main-nav__link--bell {
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
 
-    line-height: 32px;
-    text-align: center;
-    color: white;
+  &::before {
+    content: "";
 
-    background-color: coral;
-    border-radius: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
 
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  &--bell {
-    background-color: rgba(0, 0, 0, 0.55);
-    border-radius: 50%;
-
-    &::before {
-      content: "";
-
-      display: block;
-      width: 20px;
-      height: 20px;
-
-      background-image: url("../img/icons.png");
-      background-position: -69px -1973px;
-    }
+    background-image: url("../img/icons.png");
+    background-position: -69px -1973px;
   }
 }
 
