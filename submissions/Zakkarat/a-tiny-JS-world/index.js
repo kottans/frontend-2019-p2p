@@ -7,10 +7,20 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
+
+const INHABITANT = {
+    species: {
+        human: 'human'
+    },
+    genders: {
+        male: 'male',
+        female: 'female'
+    }
+};
 const dog = {
   name: "Paolo",
   species: "dog",
-  gender: 'male',
+  gender: INHABITANT.genders.male,
   legs: 4,
   hands: 0,
   saying: "Bark!"
@@ -18,15 +28,15 @@ const dog = {
 const cat = {
   name: "Sophie",
   species: "cat",
-  gender: 'female',
+  gender: INHABITANT.genders.female,
   legs: 4,
   hands: 0,
   saying: "Mur-meow?"
 }
 const man = {
   name: "Pablito",
-  species: "human",
-  gender: 'male',
+  species: INHABITANT.species.human,
+  gender: INHABITANT.genders.male,
   legs: 2,
   hands: 2,
   saying: "It seems that we got a strange rat here..."
@@ -34,15 +44,15 @@ const man = {
 const rat = {
   name: "Twitch",
   species: "rat",
-  gender: 'male',
+  gender: INHABITANT.genders.male,
   legs: 2,
   hands: 2,
   saying: "Oh, HELLO!"
 }
 const catWoman = {
   name: "Binokia",
-  species: "human",
-  gender: 'female',
+  species: INHABITANT.species.human,
+  gender: INHABITANT.genders.female,
   legs: 2,
   hands: 2,
   saying: cat.saying
@@ -57,14 +67,28 @@ let characters = [dog, cat, man, rat, catWoman];
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
-
-characters.forEach(function(char) {
+   const sentenceBuilder = char => {
+        let sentence = [
+            `Hey there, my name is <strong>${char.name}</strong>`,
+            `and I am a ${char.species}!`,
+            `My gender is ${char.gender},`,
+            `in addition I have ${char.legs} legs`,
+            `and ${char.hands} hands.`,
+            `Wait a minute... ${char.saying}`
+        ]
+        if(char.hands == 0){
+          sentence.slice(4);
+        }
+       return sentence.join(' ');
+   };
+   [dog, cat, man, rat, catWoman].forEach(char => print(sentenceBuilder(char)));
+/*[dog, cat, man, rat, catWoman].forEach(function(char) {
   if(char.hands > 0){
   print(`Hey there, my name is <strong>${char.name}</strong> and I am a ${char.species}! My gender is ${char.gender}, in addition I have ${char.legs} legs and ${char.hands} hands. Wait a minute... ${char.saying}`)
 } else {
   print(`Hey there, my name is <strong>${char.name}</strong> and I am a ${char.species}! My gender is ${char.gender}, in addition I have ${char.legs} legs. Wait a minute... ${char.saying}`)
 }
-})
+}) */
 
 
 /* Print examples:
