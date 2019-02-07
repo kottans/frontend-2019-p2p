@@ -77,18 +77,14 @@ let characters = [dog, cat, man, rat, catWoman];
             `Wait a minute... ${char.saying}`
         ]
         if(char.hands == 0){
-          sentence.slice(4);
+          sentence.splice(4, 1);
+          sentence[3] = sentence[3].split("");
+          sentence[3].push(".");
+          sentence[3] = sentence[3].join("");
         }
        return sentence.join(' ');
    };
    [dog, cat, man, rat, catWoman].forEach(char => print(sentenceBuilder(char)));
-/*[dog, cat, man, rat, catWoman].forEach(function(char) {
-  if(char.hands > 0){
-  print(`Hey there, my name is <strong>${char.name}</strong> and I am a ${char.species}! My gender is ${char.gender}, in addition I have ${char.legs} legs and ${char.hands} hands. Wait a minute... ${char.saying}`)
-} else {
-  print(`Hey there, my name is <strong>${char.name}</strong> and I am a ${char.species}! My gender is ${char.gender}, in addition I have ${char.legs} legs. Wait a minute... ${char.saying}`)
-}
-}) */
 
 
 /* Print examples:
