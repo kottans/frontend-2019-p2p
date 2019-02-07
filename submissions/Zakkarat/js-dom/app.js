@@ -30,7 +30,15 @@ function champAuto(a) {
 
 hamb.addEventListener("click", function () {menu()});
 
-champ.forEach(a => a.addEventListener("click", function () {champAuto(a)}));
+desk.addEventListener("click", function (a) {
+  let target = a.target;
+  while (target != this) {
+  if (target.tagName == 'A') {
+    champAuto(target);
+    return;
+  }
+  target = target.parentNode;
+}});
 
  function menu() {
    cont.classList.toggle("start");
