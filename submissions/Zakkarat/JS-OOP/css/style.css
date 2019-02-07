@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    font-family: Roboto;
+}
+body > div {
+  display: flex;
+  width: 505px;
+  height: 101px;
+  margin: auto;
+  background-color: #efefef;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 1px #888888;
+}
+div > div {
+  width: 49%;
+}
+h2 {
+  margin: 0;
+  margin-top: 24px;
+}
+h3 {
+  margin: 3px;
+}
+p {
+  margin: 0;
+}
