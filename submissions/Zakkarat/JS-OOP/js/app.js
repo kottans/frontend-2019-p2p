@@ -3,6 +3,10 @@ const startY = 380;
 const stepX = 100;
 const stepY = 80;
 const scr = document.querySelectorAll('p');
+const mdl = document.getElementsByClassName('modal')[0];
+const mdlCont = document.getElementsByClassName('modal-content')[0];
+const btn = document.getElementsByTagName('button')[0];
+let allowMove = true;
 
 var Enemy = function(y) {
     this.speed = speedRand();
@@ -61,20 +65,22 @@ Player.prototype.update = function() {
 Player.prototype.handleInput = function(allowedKey) {
     switch (allowedKey){
         case 'left':
-          if(this.x > 0) {
+          if(this.x > 0 && allowMove) {
             this.x -= stepX;
           }
             break;
         case 'up':
+          if(allowMove) {
             this.y -= stepY;
+          }
             break;
         case 'right':
-          if(this.x < 400) {
+          if(this.x < 400 && allowMove) {
             this.x += stepX;
           }
             break;
         case 'down':
-          if(this.y < 370) {
+          if(this.y < 370 && allowMove) {
             this.y += stepY;
           }
             break;
@@ -123,4 +129,14 @@ function highScr() {
 }
   score = 0;
   scr[2].textContent = score;
+  popUp();
+  allowMove = false;
+}
+btn.addEventListener('click', function() {
+  popUp()
+  allowMove = true;
+});
+function popUp() {
+  mdl.classList.toggle("modal-up");
+  mdlCont.classList.toggle("modal-content-up");
 }
