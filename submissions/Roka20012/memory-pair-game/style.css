@@ -1,11 +1,3 @@
-@mixin simple{
-  position: relative;
-  border-radius: 7%;
-  transform-style: preserve-3d;
-  transition: all ease 0.4s;
-  display: inline-grid;
-}
-
 body {
   background-size: 100% 400%;
   user-select: none;
@@ -17,43 +9,51 @@ body {
   position: relative;
   width: 820px;
   margin: auto;
+}
 
-  img:hover {
-    cursor: pointer;
-  }
+.flipper img:hover {
+  cursor: pointer;
+}
 
-  div {
-    @include simple;
-    background-image: url(images/back.jpg);
-    background-size: cover;
-    left: 4px;
-    margin-bottom: 2px;
-    background-color: #fff;
-    width: 200px;
-    height: 220px;
-  }
+.flipper div {
+  position: relative;
+  border-radius: 7%;
+  transform-style: preserve-3d;
+  transition: all ease 0.4s;
+  display: inline-grid;
+  background-image: url(images/back.jpg);
+  background-size: cover;
+  left: 4px;
+  margin-bottom: 2px;
+  background-color: #fff;
+  width: 200px;
+  height: 220px;
+}
 
-  .showme {
-    transition: all ease 0s;
-  }
-  
-  img{
-    @include simple;
-    position: fixed;
-    user-select: none;
-    transform: rotateY(180deg);
-    width: 200px;
-    height: 220px;
-  }
-  
-  .check {
-    transform: rotateY(180deg);
-  }
+.flipper .showme {
+  transition: all ease 0s;
+}
 
-  .back {
-    backface-visibility: hidden;
-    position: absolute;
-  }
+.flipper img {
+  position: relative;
+  border-radius: 7%;
+  transform-style: preserve-3d;
+  transition: all ease 0.4s;
+  display: inline-grid;
+  position: fixed;
+  user-select: none;
+  transform: rotateY(180deg);
+  width: 200px;
+  height: 220px;
+}
+
+.flipper .check {
+  transform: rotateY(180deg);
+}
+
+.flipper .back {
+  backface-visibility: hidden;
+  position: absolute;
 }
 
 .hide {
