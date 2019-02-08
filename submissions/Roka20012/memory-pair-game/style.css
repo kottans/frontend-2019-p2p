@@ -1,23 +1,15 @@
-body {
-  background-size: 100% 400%;
-  animation: backgroundAnimation 8s ease infinite;
-  user-select: none;
-  background-color: #458;
+@mixin simple{
+  position: relative;
+  border-radius: 7%;
+  transform-style: preserve-3d;
+  transition: all ease 0.4s;
+  display: inline-grid;
 }
 
-@keyframes hideCards {
-  0% {
-    backface-visibility: visible;
-    transform: rotateY(0deg);
-  }
-  50% {
-    backface-visibility: hidden;
-    transform: rotateY(0deg);
-  }
-  80% {
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-  }
+body {
+  background-size: 100% 400%;
+  user-select: none;
+  background-color: #458;
 }
 
 .flipper {
@@ -25,45 +17,43 @@ body {
   position: relative;
   width: 820px;
   margin: auto;
-}
 
-.flipper img:hover {
-  cursor: pointer;
-}
+  img:hover {
+    cursor: pointer;
+  }
 
-.flipper div {
-  position: relative;
-  border-radius: 15px;
-  transform-style: preserve-3d;
-  transition: all ease 0.4s;
-  display: inline-grid;
-  background-image: url(images/back.jpg);
-  background-size: cover;
-  animation: hideCards 4s;
-  left: 4px;
-  margin-bottom: 2px;
-  background-color: #fff;
-}
+  div {
+    @include simple;
+    background-image: url(images/back.jpg);
+    background-size: cover;
+    left: 4px;
+    margin-bottom: 2px;
+    background-color: #fff;
+    width: 200px;
+    height: 220px;
+  }
 
-.flipper img {
-  position: relative;
-  border-radius: 15px;
-  transform-style: preserve-3d;
-  transition: all ease 0.4s;
-  display: inline-grid;
-  user-select: none;
-  transform: rotateY(180deg);
-  width: 200px;
-  height: 220px;
-}
+  .showme {
+    transition: all ease 0s;
+  }
+  
+  img{
+    @include simple;
+    position: fixed;
+    user-select: none;
+    transform: rotateY(180deg);
+    width: 200px;
+    height: 220px;
+  }
+  
+  .check {
+    transform: rotateY(180deg);
+  }
 
-.flipper .check {
-  transform: rotateY(180deg);
-}
-
-.flipper .back {
-  backface-visibility: hidden;
-  position: absolute;
+  .back {
+    backface-visibility: hidden;
+    position: absolute;
+  }
 }
 
 .hide {
@@ -72,17 +62,29 @@ body {
 }
 
 .win-game {
-  font-family: Arial;
+  position: absolute;
   top: 100px;
   left: 30%;
-  font-size: 100px;
-  position: absolute;
-  color: #888;
+  text-align: center;
+  font-size: 6.5em;
+  color: #fff;
+  letter-spacing: -7px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.win {
   cursor: pointer;
+  text-align: center;
+}
+
+.win:hover {
+  text-decoration: underline;
+  text-shadow: 0px 0px 500px #888, 0px 0px 700px #888;
 }
 
 .win:active {
   transition: all ease .2s;
-  color: #666;
+  color: #B44A74FF;
   transform: scale(1.2);
 }
