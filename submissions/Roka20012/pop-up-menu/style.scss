@@ -15,8 +15,9 @@
 .sprite-container {
     position: relative;
     padding: 10px;
+    padding-left: 18px;
     top: 0px;
-    width: 220px;
+    width: 202px;
     height: 304px;
     display: none;
     background-color: #fff;
@@ -61,7 +62,7 @@
 
 .check:checked ~ .container-menu .sprite-container,
 .check:checked ~ .mark ,.check:checked ~ .container-menu .hide-label,
- .check:checked ~ .container-menu {
+.check:checked ~ .container-menu {
     display: grid;
 }
 
@@ -73,7 +74,7 @@
     height: 16px;
     left: 75%;
     cursor: pointer;
-    background: url(images/palette.png) no-repeat;
+    background-color: #888;
 }
 
 .checkmark:hover {
@@ -82,8 +83,8 @@
 
 a {
     text-decoration: none;
-    color: black;
     text-align: center;
+    color: black;
     font-family: Arial;
     font-size: 14px;
 }
@@ -93,6 +94,7 @@ a:focus {
 }
 
 span {
+    left: -2px;
     position: relative;
     top: -10px;
 }
@@ -110,7 +112,6 @@ a:hover {
     display: grid;
     width: 263px;
     height: 30px;
-    left: 1px;
     box-shadow: 0px 0px 0px 1px #E5E5E5FF;
     padding-top: 10px;
     text-align: center;
@@ -155,86 +156,17 @@ a:hover {
     display: grid;
 }
 
-.sprite1 {
+.sprite {
     width: 40px;
     height: 40px;
     position: relative;
     top: 5%;
     left: 20%;
-    background-image: url(images/sprite.png);
+    background-color: #888;
+    border-radius: 3px;
     background-size: 50px;
     background-repeat: no-repeat;
     background-position-x: center;
     margin-bottom: 20px;
     background-position-y: -5px;
-}
-
-.sprite2 {
-    @extend .sprite1;
-    background-position-y: -59px;
-}
-
-.sprite3 {
-    @extend .sprite1;
-    background-position-y: -112px;
-}
-
-.sprite4 {
-    @extend .sprite1;
-    background-position-y: -165px;
-}
-
-.sprite5 {
-    @extend .sprite1;
-    background-position-y: -220px;
-}
-
-.sprite6 {
-    @extend .sprite1;
-    background-position-y: -275px;
-}
-
-.sprite7 {
-    @extend .sprite1;
-    background-position-y: -330px;
-}
-
-.sprite8 {
-    @extend .sprite1;
-    background-position-y: -383px;
-}
-
-.sprite9 {
-    @extend .sprite1;
-    background-position-y: -435px;
-}
-
-.sprite10 {
-    @extend .sprite1;
-    background-position-y: -485px;
-}
-
-.sprite11 {
-    @extend .sprite1;
-    background-position-y: -275px;
-}
-
-.sprite12 {
-    @extend .sprite1;
-    background-position-y: -330px;
-}
-
-.sprite13 {
-    @extend .sprite1;
-    background-position-y: -383px;
-}
-
-.sprite14 {
-    @extend .sprite1;
-    background-position-y: -435px;
-}
-
-.sprite15 {
-    @extend .sprite1;
-    background-position-y: -485px;
 }
