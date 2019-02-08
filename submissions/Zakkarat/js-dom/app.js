@@ -30,7 +30,11 @@ function champAuto(a) {
 
 hamb.addEventListener("click", function () {menu()});
 
-desk.addEventListener("click", function (a) {
+desk.addEventListener("click", a => changeColor(a));
+
+cont.addEventListener("click", a => changeColor(a));
+
+function changeColor(a) {
   let target = a.target;
   while (target != this) {
   if (target.tagName == 'A') {
@@ -38,7 +42,7 @@ desk.addEventListener("click", function (a) {
     return;
   }
   target = target.parentNode;
-}});
+}}
 
  function menu() {
    cont.classList.toggle("start");
