@@ -1,0 +1,254 @@
+body {
+  font-family: sans-serif;
+  font-size: 13px;
+}
+
+.menu-bar {
+  display: flex;
+  width: 300px;
+  float: right;
+  vertical-align: middle;
+}
+
+/**  Links **/
+a {
+  width: 20%;
+  margin: auto;
+  color: rgb(22, 22, 24);
+  text-align: center;
+  outline: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Opacity of the icons */
+a:hover > img {
+  opacity: 1;
+}
+
+.bar img {
+  opacity: 0.8;
+}
+
+/* Apps container style */
+.apps-list {
+  display: none;
+  position: fixed;
+  flex-wrap: wrap;
+  right: 20px;
+  top: 50px;
+  width: 300px;
+  height: 500px;
+  background-color: white;
+  overflow-y: auto;
+  border: 1px solid rgba(211, 211, 211, 0.6);
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Show apps container after clicking the icon */
+a.icon-apps:active ~ div.apps-list,
+a.icon-apps:focus ~ div.apps-list,
+div.apps-list:hover {
+  display: flex;
+}
+
+/* Apps table */
+table {
+  float: center;
+  margin: 30px 20px;
+  width: 70%;
+  cursor: auto;
+}
+/* Apps row */
+tr {
+  width: 100%;
+}
+/* Apps item */
+td {
+  /* width: 33%; */
+  border: 1px solid white;
+  border-radius: 3px;
+  border-collapse: collapse;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+td:hover,
+td:focus {
+  border: 1px solid rgba(178, 201, 228, 0.5);
+}
+
+a .app-item {
+  width: 100%;
+  height: 100%;
+}
+
+.app-item-label {
+  margin: 10px 0 0 0;
+}
+
+/** Button More **/
+.apps-more-btn {
+  width: 100%;
+  border: none;
+  height: 40px;
+  background-color: rgba(211, 211, 211, 0.3);
+  cursor: pointer;
+}
+
+.apps-more-btn:hover {
+  background-color: rgba(211, 211, 211, 0.4);
+}
+
+/* Hide More button afrer clicking */
+button.apps-more-btn:visited,
+button.apps-more-btn:focus {
+  opacity: 0;
+  cursor: auto;
+  height: 1px;
+}
+
+/* Show more apps list after clecking button More */
+button.apps-more-btn:visited ~ div.apps-more-list,
+button.apps-more-btn:focus ~ div.apps-more-list,
+div.apps-more-list:hover {
+  display: flex;
+}
+
+/* More apps style */
+.apps-more-list {
+  display: none;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 500px;
+}
+
+.divider {
+  margin-left: 15px;
+  width: 90%;
+  border-top: 1px solid rgba(211, 211, 211, 0.3);
+}
+
+.apps-even-more-link {
+  text-align: center;
+  width: 100%;
+}
+
+/* Main content of the page */
+
+.main-content {
+  text-align: center;
+  padding-top: 30%;
+}
+
+/* Search laber letters */
+.label {
+  width: 100%;
+}
+.label span {
+  flex-wrap: nowrap;
+  font-weight: bold;
+  font-size: 60px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 40px;
+  -webkit-user-select: none;
+}
+
+.b {
+  color: rgb(38, 127, 252);
+}
+
+.o1 {
+  color: rgb(245, 55, 21);
+}
+
+.o2 {
+  color: rgb(255, 187, 0);
+}
+
+.l {
+  color: rgb(26, 180, 66);
+}
+
+/* Search field  */
+
+.search input {
+  width: 80%;
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(211, 211, 211, 0.4);
+  outline: none;
+  margin-top: 30px;
+  padding: 0px 20px;
+}
+
+.search input:hover {
+  background-color: rgba(211, 211, 211, 0.1);
+}
+.search-button {
+  background-color: rgba(38, 127, 252, 0.9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 25%;
+  margin-top: 45px;
+  outline: none;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.search-button:hover {
+  background-color: rgba(38, 127, 252, 1);
+}
+
+.search-icon {
+  margin-left: -40px;
+}
+
+/* Footer */
+
+.footer {
+  margin-top: 50%;
+  text-align: center;
+  color: rgb(129, 129, 129);
+}
+
+@media screen and (min-width: 500px) {
+  .main-content {
+    padding-top: 10%;
+  }
+
+  .label span {
+    font-size: 100px;
+  }
+
+  .footer {
+    margin-top: 30%;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .search input {
+    width: 600px;
+  }
+
+  .search-button {
+    width: 150px;
+  }
+
+  .footer {
+    margin-top: 10%;
+  }
+}
