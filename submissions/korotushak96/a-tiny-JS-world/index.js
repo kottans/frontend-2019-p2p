@@ -27,36 +27,66 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-  const fmg = 'female';
-  const mg = 'male';
-  const hum = 'human';
-  const manSay = 'Life is beautiful';
-  const womSay = 'I like that guy';
-class Habitans {
-    constructor(species, name, gender, legs, hands, saying){
-        this.species = species;
-        this.name = name;
-        this.gender = gender;
-        this.legs = legs;
-        this.hands = hands
-        this.saying = saying;
+const manSay = 'Life is beautiful';
+const womSay = 'I like that guy';
+
+const Habitans = {
+    species: {
+        human: 'human',
+        dog: 'dog',
+        cat: 'cat',
+        superhuman: 'superhuman'
+    },
+    gender:{
+        male: 'male',
+        female: 'female'
     }
 };
 
-class SuperHabit extends Habitans {
-    constructor(species, name, gender, legs, hands, clawed, saying){
-        super(species, name, gender, legs, hands, saying);
-        this.clawed = clawed;
-    }
-}
+const dog = {
+    species : Habitans.species.dog, 
+    name: 'Dina',
+    gender: Habitans.gender.female,
+    legs : 4,
+    hands: 0,
+    saying : 'woof-woof!'
+};
 
-const dog = new Habitans('dog', 'Dina', fmg, 4, 0, 'woof-woof!'); 
-const cat = new Habitans('cat', 'Sirko', mg, 4, 0, 'meow');
+const cat = {
+    species : Habitans.species.cat, 
+    name: 'Sirko',
+    gender: Habitans.gender.male,
+    legs : 4,
+    hands: 0,
+    saying : 'meow'
+};
 
-const man = new Habitans(hum, 'Peter', mg, 2, 2, manSay);
-const woman = new Habitans(hum, 'Julia', fmg, 2, 2, womSay);
+const man = {
+    species : Habitans.species.human, 
+    name: 'Peter',
+    gender: Habitans.gender.male,
+    legs : 2,
+    hands: 2,
+    saying : manSay
+};
 
-const catWoman = new SuperHabit('superhuman', 'Jess', fmg, 2, 2, true, cat.saying);
+const woman = {
+    species : Habitans.species.human, 
+    name: 'Julia',
+    gender: Habitans.gender.female,
+    legs : 2,
+    hands: 2,
+    saying : womSay
+};
+
+const catWoman = {
+    species : Habitans.species.superhuman, 
+    name: 'Jess',
+    gender: Habitans.gender.female,
+    legs : 2,
+    hands: 2,
+    saying : cat.saying
+};
 
 const getParameters = ({species, name, gender, legs, hands, saying}) =>{
     return `Hi! I am ${species}; My name is <strong>${name}</strong>;
