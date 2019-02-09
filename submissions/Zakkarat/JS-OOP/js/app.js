@@ -1,43 +1,61 @@
-const startX = 200;
-const startY = 380;
-const stepX = 100;
-const stepY = 80;
 const scr = document.querySelectorAll('p');
 const mdl = document.getElementsByClassName('modal')[0];
 const mdlCont = document.getElementsByClassName('modal-content')[0];
 const btn = document.getElementsByTagName('button')[0];
 let allowMove = true;
+const EnemyConf = {
+  minSpeed: 200,
+  maxSpeed: 375,
+  minStartX: -225,
+  minStartY: [60, 140, 230]
+}
+const PlayerConf = {
+  startX: 200,
+  startY: 380,
+  stepX: 100,
+  stepY: 80,
+  width: 60,
+  height: 70,
+  startScore: 0,
+  startLives: 3
+}
+const Field = {
+  maxWidthEnemy: 500,
+  maxHeight: 0,
+  minWidth: 0,
+  maxWidth: 400,
+  minHeight: 370
+}
 
 var Enemy = function(y) {
-    this.speed = speedRand();
+    this.speed = speedRandom();
     this.x = positionRand();
     this.y = y;
     this.sprite = 'images/enemy-bug.png';
 };
 
-function speedRand() {
-  let speed = Math.floor(Math.random() * (375 - 200 ) + 200);
-  return speed;
+function speedRandom() {
+  return Math.floor(Math.random() * (EnemyConf.maxSpeed - EnemyConf.minSpeed) + EnemyConf.minSpeed);
 }
 function positionRand() {
-  let position = Math.floor(Math.random() * (-225))
+  let position = Math.floor(Math.random() * (EnemyConf.minStartX))
   return position;
 }
 
 Enemy.prototype.colision = function() {
-  return (Math.abs(this.x - player.x) < 60 && Math.abs(this.y - player.y) < 70)
+  return (Math.abs(this.x - player.x) < PlayerConf.width && Math.abs(this.y - player.y) < PlayerConf.height)
 }
 
 Enemy.prototype.update = function(dt) {
     this.x += this.speed * dt;
-    if (this.x > 500) {
+    if (this.x > Field.maxWidthEnemy) {
       this.x = positionRand();
-      this.speed = speedRand();
+      this.speed = speedRandom();
     }
     if (this.colision()) {
-      player.x = startX;
-      player.y = startY;
-      updLive();
+      player.x = PlayerConf.startX;
+      player.y = PlayerConf.startY;
+      player.updLive();
     }
 };
 
@@ -49,49 +67,78 @@ const Player = function(x, y) {
   this.x = x;
   this.y = y;
   this.sprite = 'images/char-boy.png';
+  this.lives = PlayerConf.startLives;
+  this.score = PlayerConf.startScore;
+  this.highScore = PlayerConf.startScore;
 }
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.update = function() {
-    if(this.y < 0){
-      this.x = startX;
-      this.y = startY;
-      updScore();
+    if(this.y < Field.maxHeight){
+      this.x = PlayerConf.startX;
+      this.y = PlayerConf.startY;
+      this.updScore();
     }
   }
 
 Player.prototype.handleInput = function(allowedKey) {
     switch (allowedKey){
         case 'left':
-          if(this.x > 0 && allowMove) {
-            this.x -= stepX;
+          if(this.x > Field.minWidth && allowMove) {
+            this.x -= PlayerConf.stepX;
           }
             break;
         case 'up':
           if(allowMove) {
-            this.y -= stepY;
+            this.y -= PlayerConf.stepY;
           }
             break;
         case 'right':
-          if(this.x < 400 && allowMove) {
-            this.x += stepX;
+          if(this.x < Field.maxWidth && allowMove) {
+            this.x += PlayerConf.stepX;
           }
             break;
         case 'down':
-          if(this.y < 370 && allowMove) {
-            this.y += stepY;
+          if(this.y < Field.minHeight && allowMove) {
+            this.y += PlayerConf.stepY;
           }
             break;
     }
 };
+Player.prototype.updLive = function() {
+    this.lives--;
+    if (this.lives == 0){
+      this.lives = PlayerConf.startLives;
+      this.highScr();
+    }
+    scr[0].textContent = this.lives;
+}
+Player.prototype.updScore = function() {
+  this.score++;
+  scr[2].textContent = this.score;
+}
+Player.prototype.highScr = function() {
+  if(this.highScore < this.score) {
+  this.highScore = this.score;
+  scr[1].textContent = this.highScore;
+}
+  this.score = PlayerConf.startScore;
+  scr[2].textContent = this.score;
+  popUp();
+  allowMove = false;
+}
+btn.addEventListener('click', function() {
+  popUp()
+  allowMove = true;
+});
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let player = new Player(startX, startY);
+let player = new Player(PlayerConf.startX, PlayerConf.startY);
 
-let allEnemies = [new Enemy(60), new Enemy(140), new Enemy(230)];
+let allEnemies = [new Enemy(EnemyConf.minStartY[0]), new Enemy(EnemyConf.minStartY[1]), new Enemy(EnemyConf.minStartY[2])];
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
@@ -105,37 +152,6 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-// SCORE FUNCTIONS
-let score = 0;
-let highScore = 0;
-let lives = 3;
-
-function updLive() {
-  lives--;
-  if (lives == 0){
-    lives = 3;
-    highScr();
-  }
-  scr[0].textContent = lives;
-}
-function updScore() {
-  score++;
-  scr[2].textContent = score;
-}
-function highScr() {
-  if(highScore < score) {
-  highScore = score;
-  scr[1].textContent = highScore;
-}
-  score = 0;
-  scr[2].textContent = score;
-  popUp();
-  allowMove = false;
-}
-btn.addEventListener('click', function() {
-  popUp()
-  allowMove = true;
-});
 function popUp() {
   mdl.classList.toggle("modal-up");
   mdlCont.classList.toggle("modal-content-up");
