@@ -23,6 +23,7 @@ body {
   display: inline-grid;
   background-image: url(images/back.jpg);
   background-size: cover;
+  background-color: #888;
   left: 4px;
   margin-bottom: 2px;
   background-color: #fff;
@@ -37,10 +38,7 @@ body {
 .flipper img {
   position: relative;
   border-radius: 7%;
-  transform-style: preserve-3d;
-  transition: all ease 0.4s;
-  display: inline-grid;
-  position: fixed;
+  position: relative;
   user-select: none;
   transform: rotateY(180deg);
   width: 200px;
@@ -49,11 +47,6 @@ body {
 
 .flipper .check {
   transform: rotateY(180deg);
-}
-
-.flipper .back {
-  backface-visibility: hidden;
-  position: absolute;
 }
 
 .hide {
@@ -87,4 +80,8 @@ body {
   transition: all ease .2s;
   color: #B44A74FF;
   transform: scale(1.2);
+}
+
+.preload {
+  display: none;
 }
