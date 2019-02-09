@@ -87,6 +87,7 @@ a {
   color: black;
   font-family: Arial;
   font-size: 14px;
+
 }
 
 a:focus {
@@ -94,9 +95,9 @@ a:focus {
 }
 
 span {
-  left: -2px;
+  left: -1px;
   position: relative;
-  top: -10px;
+  top: -5px;
 }
 
 a:hover {
@@ -159,7 +160,7 @@ a:hover {
   width: 40px;
   height: 40px;
   position: relative;
-  top: 5%;
+  top: 10%;
   left: 20%;
   background-color: #888;
   border-radius: 3px;
