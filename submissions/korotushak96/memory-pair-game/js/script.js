@@ -58,11 +58,11 @@ const gameInit = ()=>{
     const changeStorage = (index)=>{
         if (firstCard < 0)  firstCard = index;
         else if (secondCard < 0) secondCard = index;
-        if (firstCard >=0 && firstCard == secondCard){
-            firstCard = -1;
-            secondCard = -1;
-            return;
-        } 
+        // if (firstCard >=0 && firstCard == secondCard){
+        //     firstCard = -1;
+        //     secondCard = -1;
+        //     return;
+        // } 
         if (firstCard>=0 && secondCard >=0) {
             backSide.forEach(card => card.classList.add('block'));
             checkEq(firstCard, secondCard);
@@ -96,6 +96,7 @@ const gameInit = ()=>{
         let {target} = event;
         target = target.parentNode.parentNode;
         if(target.tagName != 'DIV') return;
+        if (!target.classList.contains('is-flipped')) return;
         let targetIndex = target.dataset.index;
         flipCard(targetIndex);
         changeStorage(targetIndex);
