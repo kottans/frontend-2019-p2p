@@ -58,13 +58,19 @@ const gameInit = ()=>{
     const changeStorage = (index)=>{
         if (firstCard < 0)  firstCard = index;
         else if (secondCard < 0) secondCard = index;
+        if (firstCard >=0 && firstCard == secondCard){
+            flipCard(firstCard);
+            firstCard = -1;
+            secondCard = -1;
+            return;
+        } 
         if (firstCard>=0 && secondCard >=0) {
             backSide.forEach(card => card.classList.add('block'));
             checkEq(firstCard, secondCard);
         };  
     };
     
-    const checkEq = (first, second) => {
+    const checkEq = (first, second) => { 
         let cardOne = cards.find(card => first===card.dataset.index).dataset.id;
         let cardTwo = cards.find(card => second===card.dataset.index).dataset.id;
         console.log(`${cardOne} ${cardTwo}`);
