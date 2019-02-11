@@ -54,7 +54,6 @@ img{
 
 .block{
   pointer-events: none;
-  opacity: 0.8;
   background: #CCC;
 }
   

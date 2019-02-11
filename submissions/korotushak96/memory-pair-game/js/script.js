@@ -59,7 +59,6 @@ const gameInit = ()=>{
         if (firstCard < 0)  firstCard = index;
         else if (secondCard < 0) secondCard = index;
         if (firstCard >=0 && firstCard == secondCard){
-            flipCard(firstCard);
             firstCard = -1;
             secondCard = -1;
             return;
@@ -73,11 +72,9 @@ const gameInit = ()=>{
     const checkEq = (first, second) => { 
         let cardOne = cards.find(card => first===card.dataset.index).dataset.id;
         let cardTwo = cards.find(card => second===card.dataset.index).dataset.id;
-        console.log(`${cardOne} ${cardTwo}`);
         let bool = cardOne === cardTwo ? true : false;
         if (bool){
             disabed++;
-            console.log('match')
             setTimeout(()=>{
                 disableCard(first);
                 disableCard(second);
@@ -85,7 +82,6 @@ const gameInit = ()=>{
                 backSide.forEach(card => card.classList.remove('block'));
             }, 1000);
         } else {
-            console.log('nope!');
             setTimeout(()=>{
                 flipCard(first);
                 flipCard(second);
@@ -100,7 +96,6 @@ const gameInit = ()=>{
         let {target} = event;
         target = target.parentNode.parentNode;
         if(target.tagName != 'DIV') return;
-        console.log(target);
         let targetIndex = target.dataset.index;
         flipCard(targetIndex);
         changeStorage(targetIndex);
