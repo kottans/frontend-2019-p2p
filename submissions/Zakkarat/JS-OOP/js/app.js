@@ -109,7 +109,7 @@ Player.prototype.handleInput = function(allowedKey) {
 };
 Player.prototype.updLive = function() {
     this.lives--;
-    if (this.lives == 0){
+    if (this.lives === 0){
       this.lives = PlayerConf.startLives;
       this.highScr();
     }
