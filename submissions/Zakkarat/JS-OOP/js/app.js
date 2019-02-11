@@ -133,14 +133,11 @@ btn.addEventListener('click', function() {
   popUp()
   allowMove = true;
 });
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+
 let player = new Player(PlayerConf.startX, PlayerConf.startY);
 
-let allEnemies = [new Enemy(EnemyConf.minStartY[0]), new Enemy(EnemyConf.minStartY[1]), new Enemy(EnemyConf.minStartY[2])];
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+let allEnemies = EnemyConf.minStartY.map(startY => new Enemy(startY));
+
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
