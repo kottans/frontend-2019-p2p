@@ -31,10 +31,10 @@ const human = {
     shout: 'Winter is coming'
 };
 
-human.friends = [ dog.name,'Rob', cat.name ];
-dog.friends = [ human.name, 'Snoop Dog' ];
-catWoman.friends = [ human.name, cat.name ];
-cat.friends = [ human.name, catWoman.name] ;
+human.friends = [ dog, cat ];
+dog.friends = [ human];
+catWoman.friends = [ human, cat ];
+cat.friends = [ human, catWoman] ;
 
 
 [ cat, dog, human,catWoman ].forEach(obj => {
@@ -42,6 +42,6 @@ cat.friends = [ human.name, catWoman.name] ;
         `Hi, my name is <strong>${obj['name']}</strong>.`,
         `I am <em>${obj['gender']} ${obj['appearance']}</em>.`,
         `I have ${obj['legs']} legs and ${obj['hands']} hands.`,
-        `My friends are ${obj['friends'].join(', ')}.`,
+        `My friends are ${obj['friends'].map(friend =>  friend.name).join(', ')}.`,
         `And you know what? ${obj['shout']}`].join(''),'div');
 });
