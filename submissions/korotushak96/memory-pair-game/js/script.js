@@ -33,11 +33,11 @@ const gameInit = ()=>{
     let pokeHTML = '';
     contentArray.forEach(({id, src}, index)=>{
         pokeHTML+=`
-            <div class="card is-flipped" data-id="${id}" data-index='${index}'>
+            <div class="card is-flipped " data-id="${id}" data-index='${index}'>
                 <div class="card__face card__face--front">
                     <img src='${src}'>
                 </div>
-                <div class="card__face card__face--back">
+                <div class="card__face card__face--back ">
                     <img src='img/back.jpg'>
                 </div>
             </div>
@@ -49,7 +49,7 @@ const gameInit = ()=>{
     let secondCard = -1;
     let disabed = 0;
     const cards = [...document.querySelectorAll('.card')];
-    
+    const backSide = document.querySelectorAll('.card__face--back')
     const flipCard = (index)=>{
         let activeCard = cards.find(card => index===card.dataset.index);
         if (activeCard) activeCard.classList.toggle('is-flipped')
@@ -58,7 +58,10 @@ const gameInit = ()=>{
     const changeStorage = (index)=>{
         if (firstCard < 0)  firstCard = index;
         else if (secondCard < 0) secondCard = index;
-        if (firstCard>=0 && secondCard >=0) checkEq(firstCard, secondCard);  
+        if (firstCard>=0 && secondCard >=0) {
+            backSide.forEach(card => card.classList.add('block'));
+            checkEq(firstCard, secondCard);
+        };  
     };
     
     const checkEq = (first, second) => {
@@ -73,12 +76,14 @@ const gameInit = ()=>{
                 disableCard(first);
                 disableCard(second);
                 if (disabed>=pokemons.length) alert('well done!');
+                backSide.forEach(card => card.classList.remove('block'));
             }, 1000);
         } else {
             console.log('nope!');
             setTimeout(()=>{
                 flipCard(first);
                 flipCard(second);
+                backSide.forEach(card => card.classList.remove('block'));
             }, 1000)
         }
         firstCard = -1;
@@ -88,6 +93,8 @@ const gameInit = ()=>{
     scene.addEventListener('click', (event)=>{
         let {target} = event;
         target = target.parentNode.parentNode;
+        if(target.tagName != 'DIV') return;
+        console.log(target);
         let targetIndex = target.dataset.index;
         flipCard(targetIndex);
         changeStorage(targetIndex);

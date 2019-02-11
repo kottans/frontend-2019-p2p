@@ -51,4 +51,10 @@ img{
   opacity: 0.5;
   background: #CCC;
 }
+
+.block{
+  pointer-events: none;
+  opacity: 0.8;
+  background: #CCC;
+}
   
