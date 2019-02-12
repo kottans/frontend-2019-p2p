@@ -35,18 +35,20 @@ function cardFlip(elem) {
 
 function checkEqual() {
   if (check[0].src == check[1].src){
+    checking = false;
     founded.push(check[0]);
     check = [];
+    setTimeout(function() {checking = true;}, 1500)
+  }
     if (founded.length == 5) {
       popUp();
-    }
   } else {
     checking = false;
     setTimeout(function() {
       check.forEach(elem => elem.parentElement.parentElement.classList.toggle("toFlip"));
-      checking = true;
-      check = [];
-    }, 1500)
+      setTimeout(function() {checking = true;
+      check = [];}, 500)
+    }, 1000)
   }
 }
 
