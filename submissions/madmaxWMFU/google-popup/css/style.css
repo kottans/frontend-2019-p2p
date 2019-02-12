@@ -43,7 +43,7 @@
     margin: 0 10px 0 0;
 }
 
-#applications {
+.appCheck {
     display: none;
 }
 
@@ -62,31 +62,31 @@
     opacity: 1;
 }
 
-#applications:checked~.appsBox {
+.appCheck:checked~.appsBox {
     display: block;
 }
 
-#applications:checked~.appsBox>.otherApps {
+.appCheck:checked~.appsBox>.otherApps {
     display: block;
 }
 
-#applications:checked~.cornerTop {
-    display: block;
-}
-
-#applications:checked~.cornerButtom {
-    display: block;
-}
-
-#moreApps:checked~.appsBox {
-    overflow-y: auto;
-}
-
-#applications~.appsBox {
+.appCheck~.appsBox {
     overflow-y: hidden;
 }
 
-#moreApps:checked~.appsBox>.otherApps {
+.appCheck:checked~.cornerTop {
+    display: block;
+}
+
+.appCheck:checked~.cornerButtom {
+    display: block;
+}
+
+.moreCheck:checked~.appsBox {
+    overflow-y: auto;
+}
+
+.moreCheck:checked~.appsBox>.otherApps {
     display: none;
 }
 
@@ -108,7 +108,7 @@
 
 .ring:hover {
     opacity: 1;
-    background-color: rgba(0, 0, 0, .85)
+    background-color: rgba(0, 0, 0, .55)
 }
 
 .account {
@@ -223,6 +223,50 @@ a>.textApp {
     text-overflow: ellipsis;
 }
 
+.searchIcon {
+    background-position: 0 -1311px;
+}
+
+.mapsIcon {
+    background-position: 0 -207px;
+}
+
+.youtubeIcon {
+    background-position: 0 -552px;
+}
+
+.newsIcon {
+    background-position: 0 -1035px;
+}
+
+.gmailIcon {
+    background-position: 0 -1104px;
+}
+
+.contactsIcon {
+    background-position: 0 -2139px;
+}
+
+.calendarIcon {
+    background-position: 0 -828px;
+}
+
+.gIcon {
+    background-position: 0 -414px;
+}
+
+.driveicon {
+    background-position: 0 -2001px;
+}
+
+.translateIcon {
+    background-position: 0 -1656px;
+}
+
+.photosIcon {
+    background-position: 0 -1518px;
+}
+
 .otherApps {
     display: none;
     line-height: 40px;
@@ -235,7 +279,7 @@ a>.textApp {
     bottom: 105px;
 }
 
-#moreApps {
+.moreCheck {
     display: none;
 }
 
@@ -259,7 +303,7 @@ a>.textApp {
     text-decoration: underline;
 }
 
-#myAccount {
+a>.myAccount {
     background-image: url(../img/account.jpg);
     background-size: 64px 64px;
 }
@@ -271,7 +315,7 @@ a>.textApp {
 }
 
 .mainLogo {
-    content: url("../img/logo.png");
+    content: url("../img/monkey.png");
 }
 
 .searchInputBox {
@@ -285,16 +329,16 @@ a>.textApp {
     padding: 5px 8px 0 16px;
 }
 
-.searchInputBox>#leftPartSearchBox {
+.searchInputBox>.leftPartSearchBox {
     flex-grow: 9;
 }
 
-.searchInputBox>#rightPartSearchBox {
+.searchInputBox>.rightPartSearchBox {
     display: flex;
     flex-grow: 0;
 }
 
-#searchText {
+.searchText {
     border: none;
     margin: 0;
     padding: 0;
@@ -305,8 +349,8 @@ a>.textApp {
     margin-top: 5px;
 }
 
-#rightPartSearchBox>#keyboard,
-#mic {
+.rightPartSearchBox>.keyboard,
+.mic {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -317,14 +361,14 @@ a>.textApp {
     line-height: 44px;
 }
 
-#keyboard>span {
+.keyboard>span {
     background: url(../img/tia.png) no-repeat center;
     height: 24px;
     width: 24px;
     vertical-align: middle;
 }
 
-#mic>span {
+.mic>span {
     background: url(../img/mic.png) 0 0 no-repeat;
     height: 24px;
     width: 24px;
@@ -339,8 +383,8 @@ a>.textApp {
     text-align: center;
 }
 
-.searchButtonBox>#btn1,
-#btn2 {
+.searchButtonBox>.btn1,
+.btn2 {
     font-size: 13px;
     font-weight: bold;
     background-color: #f2f2f2;
@@ -355,8 +399,8 @@ a>.textApp {
     height: 36px;
 }
 
-#btn1:hover,
-#btn2:hover {
+.btn1:hover,
+.btn2:hover {
     border: 1px solid #c6c6c6;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     color: #222;
