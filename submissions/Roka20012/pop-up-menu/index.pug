@@ -6,14 +6,10 @@ html(lang="en")
 		link(rel="stylesheet", href="style.css")
 		link(rel="icon", href="images/ring.png")
 	body
-
 		.container
-			p MENU HERE! -------->
-			label.check-container(for="chekcme")
-				span.checkmark
-			input.check#chekcme(type="checkbox" name="chekcme")
-			input#check-show-more(type="checkbox")
+			input.check.control(type="checkbox")
 			.mark
+			input#check-show-more(type="checkbox")
 			.container-menu
 				.sprite-container
 					a(href="")
@@ -76,6 +72,4 @@ html(lang="en")
 					a.hide(href="")
 						.sprite
 						span Locked
-				label.hide-label(for="check-show-more")
-					span.show-text Show More
-					span.hide-text Show Less
+					a.hide.more(href="") More from...

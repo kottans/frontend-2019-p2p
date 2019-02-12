@@ -7,11 +7,6 @@
   top: 20px;
 }
 
-.check-container {
-  width: 0px;
-  height: 0px;
-}
-
 .sprite-container {
   position: relative;
   padding: 10px;
@@ -55,91 +50,100 @@
   background-color: white;
 }
 
-.check {
+.show-more {
   display: none;
-  position: relative;
+}
+
+.check {
+  position: absolute;
+  top: 2px;
+  left: 74%;
+  opacity: 0.6;
+}
+
+.check:hover {
+  opacity: 1;
+}
+
+.check::after {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  background-color: #888;
+  content: "";
+}
+
+.check:focus::after {
+  box-shadow: 0px 0px 1px 1px #A8C9FEFF;
+}
+
+#check-show-more {
+  display: none;
+}
+
+.check:checked ~ #check-show-more {
+  display: grid;
+}
+
+#check-show-more {
+  position: absolute;
+  z-index: 1;
+  top: 367px;
+  left: -3px;
+}
+
+#check-show-more::after {
+  position: absolute;
+  width: 260px;
+  height: 31px;
+  padding-top: 10px;
+  cursor: pointer;
+  content: "Show More";
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  background-color: #E5E5E5FF;
+  color: #4F4F4FFF;
+}
+
+#check-show-more:hover::after {
+  background-color: #CCC;
+}
+
+#check-show-more:focus::after {
+  box-shadow: 0px 0px 1px 2px #A8C9FEFF;
 }
 
 .check:checked ~ .container-menu .sprite-container,
-.check:checked ~ .mark, .check:checked ~ .container-menu .hide-label,
+.check:checked ~ .mark,
+.check:checked ~ .container-menu .hide-label,
 .check:checked ~ .container-menu {
   display: grid;
 }
 
-.checkmark {
-  position: absolute;
-  opacity: 0.6;
-  top: 5px;
-  width: 16px;
-  height: 16px;
-  left: 75%;
-  cursor: pointer;
-  background-color: #888;
-}
-
-.checkmark:hover {
-  opacity: 1;
-}
-
 a {
+  display: grid;
   text-decoration: none;
   text-align: center;
   color: black;
   font-family: Arial;
   font-size: 14px;
-
+  margin-top: -7px;
+  margin-bottom: 6px;
 }
 
 a:focus {
   box-shadow: 0px 0px 1px 1px #A8C9FEFF;
 }
 
-span {
-  left: -1px;
-  position: relative;
-  top: -5px;
-}
-
 a:hover {
   box-shadow: 0px 0px 0px 1px #E5E5E5FF;
 }
 
-.show-text, .hide-text {
-  cursor: pointer;
-  color: #4F4F4FFF;
-  font-family: Arial;
-  user-select: none;
-  position: absolute;
-  display: grid;
-  width: 263px;
-  height: 30px;
-  box-shadow: 0px 0px 0px 1px #E5E5E5FF;
-  padding-top: 10px;
-  text-align: center;
-  top: 329px;
-  background-color: #E5E5E5FF;
-}
-
-.hide-text {
-  display: none;
-}
-
-#check-show-more:checked ~ .container-menu label > .show-text {
-  display: none;
-}
-
-.hide-text:hover {
-  text-decoration: underline;
-}
-
-#check-show-more:checked ~ .container-menu label > .hide-text {
-  top: 560px;
-  display: grid;
-  background-color: #fff;
-}
-
-#check-show-more {
-  display: none;
+span {
+  position: relative;
+  top: -10px;
 }
 
 #check-show-more:checked ~ .container-menu {
@@ -148,7 +152,13 @@ a:hover {
   overflow-x: hidden;
 }
 
-.hide, .hide-label {
+#check-show-more:checked {
+  position: fixed;
+  left: -300px;
+}
+
+.hide,
+.hide-label {
   display: none;
 }
 
@@ -169,4 +179,26 @@ a:hover {
   background-position-x: center;
   margin-bottom: 20px;
   background-position-y: -5px;
+}
+
+.more {
+  z-index: 1;
+  position: absolute;
+  top: 500px;
+  width: 300px;
+  margin-top: 51px;
+  height: 20px;
+  left: -20px;
+  font-family: Arial;
+  font-size: 15px;
+  text-align: center;
+}
+
+.more:hover {
+  text-decoration: underline;
+  box-shadow: none;
+}
+
+.morefocus {
+  text-decoration: underline;
 }
