@@ -1,414 +1,433 @@
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.simpleNav {
+    font-family: sans-serif;
+    font-size: 13px;
+    float: right;
+    margin-top: 5px;
+}
+
+.simpleNav>div {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.divLinks>div,
+.divApps>div {
+    display: inline-block;
+}
+
+.link {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+.link:hover {
+    opacity: .85;
+    text-decoration: underline;
+}
+
+.mail {
+    line-height: 30px;
+    margin: 0 10px 0 0;
+}
+
+.images {
+    line-height: 30px;
+    margin: 0 10px 0 0;
+}
+
+.appCheck {
+    display: none;
+}
+
+.checker {
+    display: inline-block;
+    background-image: url(../img/anotherIcons.png);
+    background-position: -660px -110px;
+    background-size: 528px 70px;
+    height: 30px;
+    width: 30px;
+    opacity: .55;
+    cursor: pointer;
+}
+
+.checker:hover {
+    opacity: 1;
+}
+
+.appCheck:checked~.appsBox {
+    display: block;
+}
+
+.appCheck:checked~.appsBox>.otherApps {
+    display: block;
+}
+
+.appCheck~.appsBox {
+    overflow-y: hidden;
+}
+
+.appCheck:checked~.cornerTop {
+    display: block;
+}
+
+.appCheck:checked~.cornerButtom {
+    display: block;
+}
+
+.moreCheck:checked~.appsBox {
+    overflow-y: auto;
+}
+
+.moreCheck:checked~.appsBox>.mainApps>.disable {
+    visibility: visible;
+}
+
+.moreCheck:checked~.appsBox>.linkToOtherApps {
+    visibility: visible;
+}
+
+.moreCheck:checked~.appsBox>.otherApps {
+    display: none;
+}
+
+.ring {
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 50%;
+    display: inline-block;
+    background-image: url(../img/anotherIcons.png);
+    background-position: -694px -89px;
+    background-size: 508px 68px;
+    height: 20px;
+    width: 20px;
+    opacity: .55;
+    cursor: pointer;
+    color: #fff;
+    margin: 5px;
+    text-align: center;
+}
+
+.ring:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, .8)
+}
+
+.account {
+    background-image: url(../img/myAccount.png);
+    background-color: rgb(36, 137, 19);
+    border-radius: 50%;
+    display: inline-block;
+    background-size: 30px 30px;
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    margin: -24px 0px 0px 5px;
+}
+
+.cornerTop {
+    border-color: transparent;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: none;
+    position: absolute;
+    right: 102px;
+    height: 0;
+    width: 0;
+    border-bottom-color: rgba(0, 0, 0, .2);
+    top: 45.5px;
+    z-index: 1;
+}
+
+.cornerButtom {
+    border-color: transparent;
+    border-bottom-color: #fff;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: none;
+    position: absolute;
+    right: 102px;
+    top: 48px;
+    height: 0;
+    width: 0;
+    z-index: 1;
+}
+
+.appsBox {
+    display: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    color: #000;
+    max-height: 460px;
+    min-height: 460px;
+    height: 460px;
+    width: 320px;
+    overflow-x: hidden;
+    position: absolute;
+    right: 15px;
+    top: 44px;
+    transition: height .2s ease-in-out;
+    margin-top: 10px;
+}
+
+.appsBox>.mainApps {
+    max-height: 404px;
+    min-height: 100px;
+    padding: 28px;
+    padding-right: 27px;
+    text-align: left;
+    white-space: normal;
+    width: 265px;
+}
+
+.app {
+    display: inline-block;
+    height: 84px;
+    width: 84px;
+    text-align: center;
+}
+
+.disable {
+    visibility: hidden;
+}
+
+.app:hover {
+    border: 1px solid #e5e5e5;
+}
+
+.app>a {
+    text-decoration: none;
+    color: black;
+}
+
+*:focus,
+.app>a:focus>.iconApp {
+    outline: 2px solid #aeb5ff;
+}
+
+a>.iconApp {
+    display: inline-block;
+    vertical-align: top;
+    height: 58px;
+    width: 64px;
+    background-image: url(../img/allIcons.png);
+    background-size: 64px 2410px;
+    padding: 2px 2px 8px 2px;
+}
+
+a>.textApp {
+    display: block;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 84px;
+    text-overflow: ellipsis;
+}
+
+.searchIcon {
+    background-position: 0 -1311px;
+}
+
+.mapsIcon {
+    background-position: 0 -207px;
+}
+
+.youtubeIcon {
+    background-position: 0 -552px;
+}
+
+.newsIcon {
+    background-position: 0 -1035px;
+}
+
+.gmailIcon {
+    background-position: 0 -1104px;
+}
+
+.contactsIcon {
+    background-position: 0 -2139px;
+}
+
+.calendarIcon {
+    background-position: 0 -828px;
+}
+
+.gIcon {
+    background-position: 0 -414px;
+}
+
+.driveicon {
+    background-position: 0 -2001px;
+}
+
+.translateIcon {
+    background-position: 0 -1656px;
+}
+
+.photosIcon {
+    background-position: 0 -1518px;
+}
+
+.otherApps {
+    display: none;
+    line-height: 40px;
+    text-align: center;
+    width: 320px;
+    background: #f5f5f5;
+    cursor: pointer;
+    height: 40px;
+    position: relative;
+    bottom: 105px;
+}
+
+.moreCheck {
+    display: none;
+}
+
+.otherApps>a {
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.otherApps>a>label {
+    cursor: pointer;
+}
+
+.linkToOtherApps {
+    bottom: -295px;
+    position: relative;
+    padding: 25px;
+    text-align: center;
+}
+
+.linkToOtherApps>a {
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+}
+
+.linkToOtherApps>a:hover {
+    text-decoration: underline;
+}
+
+a>.myAccount {
+    background-image: url(../img/account.jpg);
+    background-size: 64px 64px;
+}
+
+.logo {
+    padding-top: 200px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.mainLogo {
+    content: url("../img/monkey.png");
+}
+
+.searchInputBox {
+    display: flex;
+    border-radius: 2px;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.2);
+    height: 44px;
+    width: 584px;
+    margin: 0 auto;
+    padding: 5px 8px 0 16px;
+}
+
+.searchInputBox>.leftPartSearchBox {
+    flex-grow: 9;
+}
+
+.searchInputBox>.rightPartSearchBox {
+    display: flex;
+    flex-grow: 0;
+}
+
+.searchText {
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: black;
+    outline: none;
+    height: 34px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.rightPartSearchBox>.keyboard,
+.mic {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    padding: 0 8px;
+    width: 24px;
+    line-height: 44px;
+}
+
+.keyboard>span {
+    background: url(../img/tia.png) no-repeat center;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
+.mic>span {
+    background: url(../img/mic.png) 0 0 no-repeat;
+    height: 24px;
+    width: 24px;
+    background-size: 24px;
+    vertical-align: middle;
+}
+
+.searchButtonBox {
+    margin: 0 auto;
+    width: 584px;
+    padding: 5px 50px;
+    text-align: center;
+}
+
+.btn1,
+.btn2 {
+    font-size: 13px;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 2px;
+    color: #757575;
+    cursor: pointer;
+    margin: 11px 4px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+    height: 36px;
+}
+
+.btn1:hover,
+.btn2:hover {
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+    color: #222;
+}
+
+@media screen and (max-width: 380px) {
     .simpleNav {
-        font-family: sans-serif;
-        font-size: 13px;
-        float: right;
-        margin-top: 5px;
+        width: 58%;
     }
-    
-    .simpleNav>div {
-        display: inline-block;
-        cursor: pointer;
-        vertical-align: middle;
-    }
-    
-    .divLinks>div,
-    .divApps>div {
-        display: inline-block;
-    }
-    
-    .link {
-        color: rgba(0, 0, 0, 0.8);
-        text-decoration: none;
-    }
-    
-    .link:hover {
-        opacity: .85;
-        text-decoration: underline;
-    }
-    
-    .mail {
-        line-height: 30px;
-        margin: 0 10px 0 0;
-    }
-    
-    .images {
-        line-height: 30px;
-        margin: 0 10px 0 0;
-    }
-    
-    .appCheck {
-        display: none;
-    }
-    
-    .checker {
-        display: inline-block;
-        background-image: url(../img/anotherIcons.png);
-        background-position: -660px -110px;
-        background-size: 528px 70px;
-        height: 30px;
-        width: 30px;
-        opacity: .55;
-        cursor: pointer;
-    }
-    
-    .checker:hover {
-        opacity: 1;
-    }
-    
-    .appCheck:checked~.appsBox {
-        display: block;
-    }
-    
-    .appCheck:checked~.appsBox>.otherApps {
-        display: block;
-    }
-    
-    .appCheck~.appsBox {
-        overflow-y: hidden;
-    }
-    
-    .appCheck:checked~.cornerTop {
-        display: block;
-    }
-    
-    .appCheck:checked~.cornerButtom {
-        display: block;
-    }
-    
-    .moreCheck:checked~.appsBox {
-        overflow-y: auto;
-    }
-    
-    .moreCheck:checked~.appsBox>.otherApps {
-        display: none;
-    }
-    
-    .ring {
-        background-color: rgba(0, 0, 0, .8);
-        border-radius: 50%;
-        display: inline-block;
-        background-image: url(../img/anotherIcons.png);
-        background-position: -694px -89px;
-        background-size: 508px 68px;
-        height: 20px;
-        width: 20px;
-        opacity: .55;
-        cursor: pointer;
-        color: #fff;
-        margin: 5px;
-        text-align: center;
-    }
-    
-    .ring:hover {
-        opacity: 1;
-        background-color: rgba(0, 0, 0, .8)
-    }
-    
-    .account {
-        background-image: url(../img/myAccount.png);
-        background-color: rgb(36, 137, 19);
-        border-radius: 50%;
-        display: inline-block;
-        background-size: 30px 30px;
-        height: 30px;
-        width: 30px;
-        vertical-align: middle;
-        cursor: pointer;
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        margin: -24px 0px 0px 5px;
-    }
-    
-    .cornerTop {
-        border-color: transparent;
-        border-style: dashed dashed solid;
-        border-width: 0 8.5px 8.5px;
-        display: none;
-        position: absolute;
-        right: 102px;
-        height: 0;
-        width: 0;
-        border-bottom-color: rgba(0, 0, 0, .2);
-        top: 45.5px;
-        z-index: 1;
-    }
-    
-    .cornerButtom {
-        border-color: transparent;
-        border-bottom-color: #fff;
-        border-style: dashed dashed solid;
-        border-width: 0 8.5px 8.5px;
-        display: none;
-        position: absolute;
-        right: 102px;
-        top: 48px;
-        height: 0;
-        width: 0;
-        z-index: 1;
-    }
-    
-    .appsBox {
-        display: none;
-        background: #fff;
-        border: 1px solid #ccc;
-        border-color: rgba(0, 0, 0, .2);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
-        color: #000;
-        max-height: 460px;
-        min-height: 460px;
-        height: 460px;
-        width: 320px;
-        overflow-x: hidden;
-        position: absolute;
-        right: 15px;
-        top: 44px;
-        transition: height .2s ease-in-out;
-        margin-top: 10px;
-    }
-    
-    .appsBox>.mainApps {
-        max-height: 404px;
-        min-height: 100px;
-        padding: 28px;
-        padding-right: 27px;
-        text-align: left;
-        white-space: normal;
-        width: 265px;
-    }
-    
-    .app {
-        display: inline-block;
-        height: 84px;
-        width: 84px;
-        text-align: center;
-    }
-    
-    .app:hover {
-        border: 1px solid #e5e5e5;
-    }
-    
-    .app>a {
-        text-decoration: none;
-        color: black;
-    }
-    
-    .app>a:focus>.iconApp {
-        border: 1px solid #aeb5ff;
-    }
-    
-    a>.iconApp {
-        display: inline-block;
-        vertical-align: top;
-        height: 58px;
-        width: 64px;
-        background-image: url(../img/allIcons.png);
-        background-size: 64px 2410px;
-        padding: 2px 2px 8px 2px;
-    }
-    
-    a>.textApp {
-        display: block;
-        line-height: 20px;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 84px;
-        text-overflow: ellipsis;
-    }
-    
-    .searchIcon {
-        background-position: 0 -1311px;
-    }
-    
-    .mapsIcon {
-        background-position: 0 -207px;
-    }
-    
-    .youtubeIcon {
-        background-position: 0 -552px;
-    }
-    
-    .newsIcon {
-        background-position: 0 -1035px;
-    }
-    
-    .gmailIcon {
-        background-position: 0 -1104px;
-    }
-    
-    .contactsIcon {
-        background-position: 0 -2139px;
-    }
-    
-    .calendarIcon {
-        background-position: 0 -828px;
-    }
-    
-    .gIcon {
-        background-position: 0 -414px;
-    }
-    
-    .driveicon {
-        background-position: 0 -2001px;
-    }
-    
-    .translateIcon {
-        background-position: 0 -1656px;
-    }
-    
-    .photosIcon {
-        background-position: 0 -1518px;
-    }
-    
-    .otherApps {
-        display: none;
-        line-height: 40px;
-        text-align: center;
-        width: 320px;
-        background: #f5f5f5;
-        cursor: pointer;
-        height: 40px;
-        position: relative;
-        bottom: 105px;
-    }
-    
-    .moreCheck {
-        display: none;
-    }
-    
-    .otherApps>label {
-        cursor: pointer;
-    }
-    
-    .linkToOtherApps {
-        bottom: -295px;
-        position: relative;
-        padding: 25px;
-        text-align: center;
-    }
-    
-    .linkToOtherApps>a {
-        color: rgba(0, 0, 0, 0.8);
-        text-decoration: none;
-    }
-    
-    .linkToOtherApps>a:hover {
-        text-decoration: underline;
-    }
-    
-    a>.myAccount {
-        background-image: url(../img/account.jpg);
-        background-size: 64px 64px;
-    }
-    
-    .logo {
-        padding-top: 200px;
-        padding-bottom: 20px;
-        text-align: center;
-    }
-    
-    .mainLogo {
-        content: url("../img/monkey.png");
-    }
-    
-    .searchInputBox {
-        display: flex;
-        border-radius: 2px;
-        border: none;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.2);
-        height: 44px;
-        width: 584px;
-        margin: 0 auto;
-        padding: 5px 8px 0 16px;
-    }
-    
-    .searchInputBox>.leftPartSearchBox {
-        flex-grow: 9;
-    }
-    
-    .searchInputBox>.rightPartSearchBox {
-        display: flex;
-        flex-grow: 0;
-    }
-    
-    .searchText {
-        border: none;
-        margin: 0;
-        padding: 0;
-        color: black;
-        outline: none;
-        height: 34px;
-        width: 100%;
-        margin-top: 5px;
-    }
-    
-    .rightPartSearchBox>.keyboard,
-    .mic {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        background: transparent;
-        outline: none;
-        padding: 0 8px;
-        width: 24px;
-        line-height: 44px;
-    }
-    
-    .keyboard>span {
-        background: url(../img/tia.png) no-repeat center;
-        height: 24px;
-        width: 24px;
-        vertical-align: middle;
-    }
-    
-    .mic>span {
-        background: url(../img/mic.png) 0 0 no-repeat;
-        height: 24px;
-        width: 24px;
-        background-size: 24px;
-        vertical-align: middle;
-    }
-    
-    .searchButtonBox {
-        margin: 0 auto;
-        width: 584px;
-        padding: 5px 50px;
-        text-align: center;
-    }
-    
-    .searchButtonBox>.btn1,
-    .btn2 {
-        font-size: 13px;
-        font-weight: bold;
-        background-color: #f2f2f2;
-        border: 1px solid #f2f2f2;
-        border-radius: 2px;
-        color: #757575;
-        cursor: pointer;
-        margin: 11px 4px;
-        min-width: 54px;
-        padding: 0 16px;
-        text-align: center;
-        height: 36px;
-    }
-    
-    .btn1:hover,
-    .btn2:hover {
-        border: 1px solid #c6c6c6;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
-        color: #222;
-    }
-    
-    @media screen and (max-width: 380px) {
-        .simpleNav {
-            width: 58%;
-        }
-    }
-    
+}
+
