@@ -6,10 +6,11 @@ const btn = document.getElementsByTagName('button')[0];
 let founded = [];
 let images = ['champ1', 'champ2', 'champ3', 'champ4', 'champ5'];
 let check = [];
-let checking = true;
+let checkFirst = true;
+let checkSecond = true;
 let prevTarget = "/img/back.jpg";
 prepareArray();
-cont.addEventListener('click', function(elem) {if(checking && elem.target.src != prevTarget) cardFlip(elem)});
+cont.addEventListener('click', function(elem) {if(checkFirst && checkSecond && elem.target.src != prevTarget) cardFlip(elem)});
 
 btn.addEventListener('click', function() {location.reload()});
 
@@ -22,7 +23,9 @@ function cardFlip(elem) {
   let target = elem.target;
   while (target != cont) {
   if (Array.from(cards).some(card => card == target) && founded.every(elem => elem.src != target.lastElementChild.getElementsByTagName("img")[0].src)) {
+    checkFirst = false;
     target.classList.toggle("toFlip");
+    setTimeout(function() {checkFirst = true}, 500)
     prevTarget = target.lastElementChild.getElementsByTagName("img")[0].src;
     check.push(target.lastElementChild.getElementsByTagName("img")[0]);
     if(check.length == 2) {
@@ -35,18 +38,18 @@ function cardFlip(elem) {
 
 function checkEqual() {
   if (check[0].src == check[1].src){
-    checking = false;
+    checkSecond = false;
     founded.push(check[0]);
     check = [];
-    setTimeout(function() {checking = true;}, 1500)
+    setTimeout(function() {checkSecond = true;}, 1500)
   }
     if (founded.length == 5) {
       popUp();
   } else {
-    checking = false;
+    checkSecond = false;
     setTimeout(function() {
       check.forEach(elem => elem.parentElement.parentElement.classList.toggle("toFlip"));
-      setTimeout(function() {checking = true;
+      setTimeout(function() {checkSecond = true;
       check = [];}, 500)
     }, 1000)
   }
