@@ -1,6 +1,6 @@
 const gameInit = ()=>{
-    const scene = document.querySelector('.scene');
-    const pokemons = [
+    const SCENE = document.querySelector('.scene');
+    const POKEMONS = [
         {
             id: 0,
             src: 'img/bulbasaur.png'
@@ -27,7 +27,7 @@ const gameInit = ()=>{
         }
     ];
     
-    let contentArray = [...pokemons,...pokemons];
+    let contentArray = [...POKEMONS,...POKEMONS];
     contentArray.sort(function() { return 0.5 - Math.random() });
 
     let pokeHTML = '';
@@ -44,7 +44,7 @@ const gameInit = ()=>{
         `
     });
     
-    scene.insertAdjacentHTML('afterbegin', pokeHTML);
+    SCENE.insertAdjacentHTML('afterbegin', pokeHTML);
     let firstCard = -1;
     let secondCard = -1;
     let disabed = 0;
@@ -57,12 +57,7 @@ const gameInit = ()=>{
     
     const changeStorage = (index)=>{
         if (firstCard < 0)  firstCard = index;
-        else if (secondCard < 0) secondCard = index;
-        // if (firstCard >=0 && firstCard == secondCard){
-        //     firstCard = -1;
-        //     secondCard = -1;
-        //     return;
-        // } 
+        else if (secondCard < 0) secondCard = index; 
         if (firstCard>=0 && secondCard >=0) {
             backSide.forEach(card => card.classList.add('block'));
             checkEq(firstCard, secondCard);
@@ -78,7 +73,7 @@ const gameInit = ()=>{
             setTimeout(()=>{
                 disableCard(first);
                 disableCard(second);
-                if (disabed>=pokemons.length) alert('well done!');
+                if (disabed>=POKEMONS.length) alert('well done!');
                 backSide.forEach(card => card.classList.remove('block'));
             }, 1000);
         } else {
@@ -92,7 +87,7 @@ const gameInit = ()=>{
         secondCard = -1;
     };
     
-    scene.addEventListener('click', (event)=>{
+    SCENE.addEventListener('click', (event)=>{
         let {target} = event;
         target = target.parentNode.parentNode;
         if(target.tagName != 'DIV') return;
