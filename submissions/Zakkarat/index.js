@@ -17,12 +17,19 @@ const INHABITANT = {
         female: 'female'
     }
 };
-const Character = function (name, species, gender, legs, saying) {
+const Character = function (name, gender, legs, saying) {
   this.name = name;
-  this.species = species;
   this.gender = gender;
   this.legs = legs;
   this.saying = saying;
+  }
+  const Cat = function (name, gender, legs, saying) {
+    Character.call(this, name, gender, legs, saying);
+    this.species = "cat";
+  }
+  const Dog = function (name, gender, legs, saying) {
+    Character.call(this, name, gender, legs, saying);
+    this.species = "dog";
   }
   Character.prototype.sentence = function() {
     let sentence = [
@@ -41,16 +48,25 @@ const Character = function (name, species, gender, legs, saying) {
     }
    return sentence.join(' ');
 };
-  const Humanoid = function (name, species, gender, legs, hands, saying) {
-    Character.call(this, name, species, gender, legs, saying)
+  const Humanoid = function (name, gender, legs, hands, saying) {
+    Character.call(this, name, gender, legs, saying);
+    this.species = INHABITANT.species.human;
       this.hands = hands;
   }
+  const Rat = function (name, gender, legs, hands, saying) {
+    Character.call(this, name, gender, legs, saying);
+    this.species = "rat";
+  }
+
   Humanoid.prototype = Object.create(Character.prototype);
-  const dog = new Character("Paolo", "dog", INHABITANT.genders.male, 4, "Bark!");
-  const cat = new Character("Sophie", "cat", INHABITANT.genders.female, 4, "Mur-meow?");
-  const man = new Humanoid("Pablito", INHABITANT.species.human, INHABITANT.genders.male, 2, 2,  "It seems that we got a strange rat here...");
-  const rat = new Humanoid("Twitch", "rat", INHABITANT.genders.male, 2, 2, "Oh, HELLO!");
-  const catWoman = new Humanoid("Binokia", INHABITANT.species.human, INHABITANT.genders.female, 2, 2, cat.saying)
+  Dog.prototype = Object.create(Character.prototype);
+  Cat.prototype = Object.create(Character.prototype);
+  Rat.prototype = Object.create(Humanoid.prototype);
+  const dog = new Dog("Paolo", INHABITANT.genders.male, 4, "Bark!");
+  const cat = new Cat("Sophie", INHABITANT.genders.female, 4, "Mur-meow?");
+  const man = new Humanoid("Pablito", INHABITANT.genders.male, 2, 2,  "It seems that we got a strange rat here...");
+  const rat = new Rat("Twitch", INHABITANT.genders.male, 2, 2, "Oh, HELLO!");
+  const catWoman = new Humanoid("Binokia", INHABITANT.genders.female, 2, 2, cat.saying)
 
 let characters = [dog, cat, man, rat, catWoman];
 // ======== OUTPUT ========
