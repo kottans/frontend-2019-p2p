@@ -43,8 +43,26 @@
     margin: 0 10px 0 0;
 }
 
-.appCheck {
-    display: none;
+.appCheck,
+.moreCheck {
+    position: absolute;
+    overflow-y: auto;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    top: 50px;
+    left: 18px;
+}
+
+.appCheck:focus+.checker {
+    outline: 2px solid #aeb5ff;
+}
+
+.moreCheck:focus+.checkerMore {
+    outline: 2px solid #aeb5ff;
 }
 
 .checker {
@@ -62,13 +80,8 @@
     opacity: 1;
 }
 
-.appCheck:checked~.appsBox,
-.appsBox:target {
+.appCheck:checked~.appsBox {
     display: block;
-}
-
-.appCheck~.appsBox {
-    overflow-y: hidden;
 }
 
 .appCheck:checked~.cornerTop {
@@ -79,30 +92,17 @@
     display: block;
 }
 
-.moreCheck:checked~.appsBox {
-    overflow-y: auto;
+.moreCheck:checked~.disable {
+    display: inline-block;
 }
 
-.moreCheck:checked~.appsBox>.mainApps>.disable {
+.moreCheck:checked~.linkToOtherApps {
     visibility: visible;
 }
 
-.moreCheck:checked~.appsBox>.linkToOtherApps {
-    visibility: visible;
+.moreCheck:checked~.otherApps {
+    visibility: hidden;
 }
-
-.moreCheck:checked~.appsBox>.otherApps {
-    display: none;
-}
-
-
-/* .otherApps:target {
-    display: none;
-}
-
-.otherApps:target .appsBox {
-    overflow-y: auto;
-} */
 
 .ring {
     background-color: rgba(0, 0, 0, .8);
@@ -188,7 +188,8 @@
     margin-top: 10px;
 }
 
-.appsBox>.mainApps {
+.appsBox>.mainApps,
+.otherAppsBox {
     max-height: 404px;
     min-height: 100px;
     padding: 28px;
@@ -206,7 +207,7 @@
 }
 
 .disable {
-    visibility: hidden;
+    display: none;
 }
 
 .app:hover {
@@ -287,35 +288,21 @@ a>.textApp {
 }
 
 .otherApps {
-    display: block;
+    visibility: visible;
     line-height: 40px;
     text-align: center;
-    width: 320px;
+    width: 314px;
     background: #f5f5f5;
     cursor: pointer;
     height: 40px;
-    position: relative;
-    bottom: 105px;
-}
-
-.moreCheck {
-    display: none;
-}
-
-.otherApps>a {
-    cursor: pointer;
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.8);
-}
-
-.otherApps>a>label {
-    cursor: pointer;
+    position: absolute;
+    left: 3px;
+    bottom: 20px;
 }
 
 .linkToOtherApps {
-    bottom: -295px;
     position: relative;
-    padding: 25px;
+    padding: 25px 50px;
     text-align: center;
 }
 

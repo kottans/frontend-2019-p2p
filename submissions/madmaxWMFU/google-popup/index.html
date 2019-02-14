@@ -15,11 +15,12 @@
                 <div><a class="link mail" href="#">Gmail</a></div>
                 <div><a class="link images" href="#">Images</a></div>
             </div>
+
             <div class="divApps">
                 <div>
-                    <a href="#openMainApps"><label class="checker" for="applications" title="Applications"></label></a>
                     <input id="applications" class="appCheck" type="checkbox" name="">
-                    <input id="moreApps" class="moreCheck" type="checkbox" name="">
+                    <label class="checker" for="applications" title="Applications"></label>
+
                     <div id="openMainApps" class="appsBox">
                         <div class="mainApps">
                             <div class="app">
@@ -94,7 +95,8 @@
                                     <span class="textApp">Photos</span>
                                 </a>
                             </div>
-                            <br>
+                            <input id="moreApps" class="moreCheck" type="checkbox" name="">
+                            <label class="checkerMore otherApps" for="moreApps">More</label>
                             <br>
                             <br>
                             <hr>
@@ -143,12 +145,9 @@
                                     <span class="textApp">Collections</span>
                                 </a>
                             </div>
-                        </div>
-                        <div class="linkToOtherApps disable">
-                            <a href="#">Other products from G00gle</a>
-                        </div>
-                        <div id="openOtherApps" class="otherApps">
-                            <a href="#openOtherApps"><label for="moreApps">More</label></a>
+                            <div class="linkToOtherApps disable">
+                                <a href="#">Other products from G00gle</a>
+                            </div>
                         </div>
                     </div>
                     <div class="cornerTop"></div>
@@ -182,5 +181,4 @@
         </div>
     </div>
 </body>
-
 </html>
