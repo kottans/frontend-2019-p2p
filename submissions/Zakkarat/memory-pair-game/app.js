@@ -1,8 +1,8 @@
 const cards = document.getElementsByClassName('flipper');
-const cont = document.getElementsByClassName('container')[0];
-const mdl = document.getElementsByClassName('modal')[0];
-const mdlCont = document.getElementsByClassName('modal-content')[0];
-const btn = document.getElementsByTagName('button')[0];
+const container = document.getElementsByClassName('container')[0];
+const modalWindow = document.getElementsByClassName('modal')[0];
+const modalContent = document.getElementsByClassName('modal-content')[0];
+const button = document.getElementsByTagName('button')[0];
 let founded = [];
 let images = ['champ1', 'champ2', 'champ3', 'champ4', 'champ5'];
 let check = [];
@@ -10,22 +10,22 @@ let checkFirst = true;
 let checkSecond = true;
 let prevTarget = "/img/back.jpg";
 prepareArray();
-cont.addEventListener('click', function(elem) {if(checkFirst && checkSecond && elem.target.src != prevTarget) cardFlip(elem)});
+container.addEventListener('click', function(elem) {if(checkFirst && checkSecond && elem.target.src != prevTarget) cardFlip(elem)});
 
-btn.addEventListener('click', function() {location.reload()});
+button.addEventListener('click', function() {location.reload()});
 
 function cardsAdd(elem) {
-  cont.innerHTML += `<div class="flip-container"><div class="flipper"><div class="front"><img src="./img/backCard.jpg" /></div><div class="back"><img src="./img/${elem}.jpg "</div></div></div>`
+  container.innerHTML += `<div class="flip-container"><div class="flipper"><div class="front"><img src="./img/backCard.jpg" /></div><div class="back"><img src="./img/${elem}.jpg "</div></div></div>`
 }
 
 images.forEach(elem => cardsAdd(elem));
 function cardFlip(elem) {
   let target = elem.target;
-  while (target != cont) {
-  if (Array.from(cards).some(card => card == target) && founded.every(elem => elem.src != target.lastElementChild.getElementsByTagName("img")[0].src)) {
-    checkFirst = false;
+  while (target != container) {
+  if ([...cards].some(card => card == target) && founded.every(elem => elem.src != target.lastElementChild.getElementsByTagName("img")[0].src)) {
+    setChecking1(false);
     target.classList.toggle("toFlip");
-    setTimeout(function() {checkFirst = true}, 500)
+    setTimeout(function() {setChecking1(true)}, 500)
     prevTarget = target.lastElementChild.getElementsByTagName("img")[0].src;
     check.push(target.lastElementChild.getElementsByTagName("img")[0]);
     if(check.length == 2) {
@@ -38,18 +38,18 @@ function cardFlip(elem) {
 
 function checkEqual() {
   if (check[0].src == check[1].src){
-    checkSecond = false;
+    setChecking2(false);
     founded.push(check[0]);
     check = [];
-    setTimeout(function() {checkSecond = true;}, 1500)
+    setTimeout(function() {setChecking2(false);}, 1500)
   }
     if (founded.length == 5) {
       popUp();
   } else {
-    checkSecond = false;
+    setChecking2(false)
     setTimeout(function() {
       check.forEach(elem => elem.parentElement.parentElement.classList.toggle("toFlip"));
-      setTimeout(function() {checkSecond = true;
+      setTimeout(function() {setChecking2(true);
       check = [];}, 500)
     }, 1000)
   }
@@ -61,6 +61,14 @@ function prepareArray() {
 }
 
 function popUp() {
-  mdl.classList.toggle("modal-up");
-  mdlCont.classList.toggle("modal-content-up");
+  modalWindow.classList.toggle("modal-up");
+  modalContent.classList.toggle("modal-content-up");
+}
+
+function setChecking1(expr) {
+  checkFirst = expr;
+}
+
+function setChecking2(expr) {
+  checkSecond = expr;
 }
