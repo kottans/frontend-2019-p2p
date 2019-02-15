@@ -423,3 +423,7 @@ a>.myAccount {
         width: 58%;
     }
 }
+
+hr {
+    margin: 20px;
+}
