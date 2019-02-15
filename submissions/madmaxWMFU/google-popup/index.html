@@ -10,17 +10,17 @@
 
 <body>
     <header>
-        <main class="navigationContainer">
-            <div class="simpleNav">
-                <ul class="nav">
-                    <li class="navLink">
+        <main class="navigation-container">
+            <div>
+                <ul class="navigation">
+                    <li class="navigation-link">
                         <a class="link mail" href="#">Gmail</a>
                     </li>
-                    <li class="navLink">
+                    <li class="navigation-link">
                         <a class="link images" href="#">Images</a>
                     </li>
-                    <li class="navLink">
-                        <div class="subNav">
+                    <ul class="sub-navigation">
+                        <li class="navigation-link">
                             <input id="applications" class="appCheck" type="checkbox" name="">
                             <label class="checker" for="applications" title="Applications"></label>
                             <div id="openMainApps" class="appsBox">
@@ -99,7 +99,7 @@
                                     </div>
                                     <input id="moreApps" class="moreCheck" type="checkbox" name="">
                                     <label class="checkerMore otherApps" for="moreApps">More</label>
-                                    <hr class="separatetLine">
+                                    <hr class="separatet-line">
                                     <div class="app disable">
                                         <a href="#">
                                             <span class="iconApp" style="background-position:0 -1449px"></span>
@@ -150,34 +150,35 @@
                             </div>
                             <div class="cornerTop"></div>
                             <div class="cornerButtom"></div>
-                        </div>
+                        </li>
+                    </ul>
                     </li>
-                    <li class="navLink">
+                    <li class="navigation-link">
                         <a id="ring" class="link ring" href="#" title="Notification: 0"></a>
                     </li>
-                    <li class="navLink">
+                    <li class="navigation-link">
                         <a id="account" class="link account" href="#"></a>
                     </li>
                 </ul>
             </div>
         </main>
     </header>
-    <div class="searchContainer">
+    <div class="search-container">
         <div class="logo">
-            <img class="mainLogo" alt="logo">
+            <img class="main-logo" alt="logo">
         </div>
-        <div class="searchInputBox">
-            <div class="leftPartSearchBox">
-                <input class="searchText" type="text" name="searchText" title="Search">
+        <div class="search-box">
+            <div class="left-part-search-box">
+                <input class="search-input" type="text" name="searchText" title="Search">
             </div>
-            <div class="rightPartSearchBox">
+            <div class="right-part-search-box">
                 <div class="keyboard"><span></span></div>
-                <div class="mic"><span></span></div>
+                <div class="microfone"><span></span></div>
             </div>
         </div>
-        <div class="searchButtonBox">
-            <button class="btn1">Search</button>
-            <button class="btn2">I'm lucky</button>
+        <div class="search-button-box">
+            <button class="button-first">Search</button>
+            <button class="button-second">I'm lucky</button>
         </div>
     </div>
 </body>

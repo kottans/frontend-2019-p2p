@@ -1,26 +1,15 @@
-.navigationContainer,
-.searchContainer {
+.navigation-container,
+.search-container {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
 }
 
-.simpleNav {
+.navigation-container {
     font-family: sans-serif;
     font-size: 13px;
     float: right;
-}
-
-.simpleNav>div {
-    display: inline-block;
-    cursor: pointer;
-    vertical-align: middle;
-}
-
-.divLinks>div,
-.divApps>div {
-    display: inline-block;
 }
 
 .link {
@@ -74,7 +63,7 @@
     width: 30px;
     opacity: .55;
     cursor: pointer;
-    margin: -9px 0px -12px 5px;
+    margin: -9px 0px -12px 0px;
 }
 
 .checker:hover {
@@ -326,11 +315,11 @@ a>.myAccount {
     text-align: center;
 }
 
-.mainLogo {
+.main-logo {
     content: url("../img/monkey.png");
 }
 
-.searchInputBox {
+.search-box {
     display: flex;
     border-radius: 2px;
     border: none;
@@ -341,16 +330,16 @@ a>.myAccount {
     padding: 5px 8px 0 16px;
 }
 
-.searchInputBox>.leftPartSearchBox {
+.search-box>.left-part-search-box {
     flex-grow: 9;
 }
 
-.searchInputBox>.rightPartSearchBox {
+.search-box>.right-part-search-box {
     display: flex;
     flex-grow: 0;
 }
 
-.searchText {
+.search-input {
     border: none;
     margin: 0;
     padding: 0;
@@ -361,8 +350,8 @@ a>.myAccount {
     margin-top: 5px;
 }
 
-.rightPartSearchBox>.keyboard,
-.mic {
+.right-part-search-box>.keyboard,
+.microfone {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -380,7 +369,7 @@ a>.myAccount {
     vertical-align: middle;
 }
 
-.mic>span {
+.microfone>span {
     background: url(../img/mic.png) 0 0 no-repeat;
     height: 24px;
     width: 24px;
@@ -388,15 +377,15 @@ a>.myAccount {
     vertical-align: middle;
 }
 
-.searchButtonBox {
+.search-button-box {
     margin: 0 auto;
     width: 584px;
     padding: 5px 50px;
     text-align: center;
 }
 
-.btn1,
-.btn2 {
+.button-first,
+.button-second {
     font-size: 13px;
     font-weight: bold;
     background-color: #f2f2f2;
@@ -411,28 +400,27 @@ a>.myAccount {
     height: 36px;
 }
 
-.btn1:hover,
-.btn2:hover {
+.button-first:hover,
+.button-second:hover {
     border: 1px solid #c6c6c6;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
     color: #222;
 }
 
-@media screen and (max-width: 380px) {
-    .simpleNav {
-        width: 58%;
-    }
-}
-
-.separatetLine {
+.separatet-line {
     margin: 20px;
 }
 
-.nav {
+.navigation {
     margin: 5px;
 }
 
-.nav>.navLink,
-.subNav {
+.sub-navigation {
+    display: inline;
+    padding: 0;
+}
+
+.navigation>.navigation-link,
+.sub-navigation>.navigation-link {
     display: inline;
 }
