@@ -424,15 +424,15 @@ a>.myAccount {
     }
 }
 
-hr {
+.separatetLine {
     margin: 20px;
 }
 
-ul {
+.nav {
     margin: 5px;
 }
 
-ul>li,
-.divLink {
+.navlink,
+.subNav {
     display: inline;
 }
