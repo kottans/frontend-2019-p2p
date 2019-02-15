@@ -432,7 +432,7 @@ a>.myAccount {
     margin: 5px;
 }
 
-.navlink,
+.nav>.navLink,
 .subNav {
     display: inline;
 }
