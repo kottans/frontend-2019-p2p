@@ -330,13 +330,17 @@ a>.myAccount {
     padding: 5px 8px 0 16px;
 }
 
-.search-box>.left-part-search-box {
-    flex-grow: 9;
+.left-part-search-box,
+.right-part-search-box {
+    margin-left: auto;
 }
 
-.search-box>.right-part-search-box {
+.left-part-search-box {
+    flex-basis: 80%;
+}
+
+.right-part-search-box {
     display: flex;
-    flex-grow: 0;
 }
 
 .search-input {
