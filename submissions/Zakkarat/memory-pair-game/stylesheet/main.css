@@ -1,32 +1,36 @@
 body {
-  margin: 0;
-  background-repeat: no-repeat;
-  background-image: url(../img/back.jpg );
-  background-size: cover;
   height: 100%;
+  margin: 0;
+
+  background-image: url(../img/back.jpg );
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 html {
   height: 100%;
 }
 .container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+
   width: 910px;
   height: 626;
-  justify-content:space-around;
-  flex-wrap: wrap;
   min-height: 58%;
-  background-color: #032333;
   margin: auto;
+
   border-radius: 5px;
+  background-color: #032333;
   box-shadow: 8px 5px 16px 3px;
 }
 
 .flip-container {
   margin-top: 28px;
-  margin-bottom: 10px;
-	perspective: 1000px;
-  margin-left: 2%;
   margin-right: 2%;
+  margin-bottom: 10px;
+  margin-left: 2%;
+
+	perspective: 1000px;
 }
 
 	.toFlip{
@@ -40,22 +44,26 @@ html {
 
 
 .flipper {
-	transition: 0.5s;
-	transform-style: preserve-3d;
 	position: relative;
+
+	transition: 0.5s;
+
+	transform-style: preserve-3d;
 }
 
 
 .front, .back {
-	backface-visibility: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
+
+	backface-visibility: hidden;
 }
 
 
 .front {
 	z-index: 2;
+
 	transform: rotateY(0deg);
 }
 
@@ -64,37 +72,47 @@ html {
 }
 .modal {
   position: fixed;
-  display: none;
   z-index: 1;
-  left: 0;
   top: 0;
-  font-family: Roboto;
+  left: 0;
+
+  display: none;
   justify-content: center;
+
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
+
   transition: 1.5s;
+
+  background-color: rgba(0,0,0,0.4);
+
+  font-family: Roboto;
 }
 .modal-content {
   position: fixed;
-  align-items: center;
+
   display: flex;
-  width: 370px;
-  height: 140px;
-  color: white;
-  margin-top: -100px;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: #032333;
+
+  width: 370px;
+  height: 140px;
+  margin-top: -100px;
+
+  color: white;
   border-radius: 5px;
+  background-color: #032333;
   box-shadow: 1px 1px 5px 1px #000;
 }
 .modal-up {
   display : flex;
+
   transition: 1.5s;
 }
 .modal-content-up {
   margin-top: 348px;
+
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
@@ -104,11 +122,13 @@ html {
 button {
   width: 45%;
   height: 50px;
-  border-radius: 5px;
+
   cursor: pointer;
-  background-color:#326179;
+
   color: white;
   border: 0px;
+  border-radius: 5px;
+  background-color:#326179;
 }
 @keyframes animatetop {
   from {margin-top:-300px; opacity:0}
