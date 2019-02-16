@@ -8,9 +8,11 @@ html(lang="en")
 		link(rel="icon", href="images/ring.png")
 	body
 		.container
-			input.check.control(type="checkbox")
+			input.check.visually-hidden.input#menu(type="checkbox" required name="menu" value="menu")
+			label.checkbox-label-wrapper(for="menu")
+				span.checkbox-label
+					img.icon-menu(src="icon.png" alt="menu-icon")
 			.mark
-			input.check-show-more(type="checkbox")
 			.container-menu
 				.sprite-container
 					a.icon(href="#")
@@ -43,6 +45,9 @@ html(lang="en")
 					a.icon(href="#")
 						.sprite
 						span.icon-text School?
+					input.visually-hidden.input2.check-show-more#menu2(type="checkbox" required name="menu" value="menu")
+					label.checkbox-label-wrapper2(for="menu2")
+						span.checkbox-label2
 					a.icon.hide(href="#")
 						.sprite
 						span.icon-text I`m off

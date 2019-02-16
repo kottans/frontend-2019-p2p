@@ -21,6 +21,7 @@
 }
 
 .container-menu {
+    overflow: scroll;
     height: 360px;
     width: 220px;
     position: absolute;
@@ -28,7 +29,6 @@
     top: 40px;
     border: 1px solid #CCCCCCFF;
     box-shadow: 0px 0px 10px -2px black;
-    overflow-y: hidden;
     overflow-x: hidden;
     display: none;
 }
@@ -78,41 +78,8 @@
     }
 }
 
-.check-show-more {
-    display: none;
-}
-
-.check:checked ~ .check-show-more {
+.check:checked  .check-show-more {
     display: grid;
-}
-
-.check-show-more {
-    position: absolute;
-    z-index: 1;
-    top: 367px;
-    left: -3px;
-
-    &::after {
-        position: absolute; 
-        width: 260px;
-        height: 31px;
-        padding-top: 10px;
-        cursor: pointer;
-        content: "Show More";
-        text-align: center;
-        font-family: Arial;
-        font-size: 16px;
-        background-color: #E5E5E5FF;
-        color: #4F4F4FFF;
-    }
-
-    &:hover::after {
-        background-color: #CCC;
-    }
-
-    &:focus::after {
-        box-shadow: 0px 0px 1px 2px #A8C9FEFF;
-    }
 }
 
 .check:checked~.container-menu .sprite-container,
@@ -121,6 +88,7 @@
 .check:checked~.container-menu {
     display: grid;
 }
+
 
 .icon {
     display: grid;
@@ -146,23 +114,12 @@
     top: -10px;
 }
 
-.check-show-more:checked ~ .container-menu { 
-    height: 385px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-.check-show-more:checked {
-    position: fixed;
-    left: -300px;
-}
-
 .hide,
 .hide-label {
     display: none;
 }
 
-.check-show-more:checked ~ .container-menu .hide {
+.check-show-more:checked ~ .hide {
     display: grid;
 }
 
@@ -184,7 +141,7 @@
 .more {
     z-index: 1;
     position: absolute;
-    top: 500px;
+    top: 490px;
     width: 300px;
     margin-top: 51px;
     height: 20px;
@@ -201,4 +158,125 @@
     &:focus {
         box-shadow: 0px 0px 1px 1px #A8C9FEFF;
     }
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 0px;
+    width: 0px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    top: 50px;
+    left: 18px;
+}
+
+.checkbox-label-wrapper {
+    width: 0px;
+    height: 0px;
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+}
+
+.icon-menu {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox-label-wrapper:hover {
+    text-decoration: underline;
+}
+
+.checkbox-label, .checkbox-label2 {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+
+}
+
+.checkbox-label {
+    left: 200px;
+}
+
+.checkbox-label2 {
+    padding-left: 50px;
+}
+
+.checkbox-label::before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 0;
+}
+
+input[type=checkbox]:checked ~ .checkbox-label-wrapper .checkbox-label::after {
+    border-color: #00f;
+    width: 16px;
+    height: 16px;
+}
+
+.input:focus ~ .checkbox-label-wrapper .checkbox-label::before {
+    box-shadow: 0px 0px 1px 2px #A8C9FEFF;
+}
+  
+.check-show-more {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    background-color: red;
+}
+
+.checkbox-label-wrapper2 {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-left: 50px;
+    display: flex;
+    position: absolute;
+}
+
+.checkbox-label-wrapper2:hover {
+    text-decoration: underline;
+}
+  
+.checkbox-label2::before {
+    content: 'Show More';
+    display: block;
+    width: 260px;
+    height: 30px;
+    padding-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial;
+    font-size: 16px;
+    background-color: #E5E5E5FF;
+    color: #4F4F4FFF;
+    position: absolute;
+    top: 320px;
+    left: -61px;
+}
+
+.check:checked ~ .checkbox-label-wrapper2 .checkbox-label2::after {
+    border-color: #00f;
+    width: 16px;
+    height: 16px;
+}
+
+.check-show-more:checked ~ .checkbox-label-wrapper2 .checkbox-label2::before {
+    position: absolute;
+    left: 1000px;
+}
+
+.input2:focus ~ .checkbox-label-wrapper2 .checkbox-label2::before {
+    box-shadow: 0px 0px 1px 2px #A8C9FEFF;
 }
