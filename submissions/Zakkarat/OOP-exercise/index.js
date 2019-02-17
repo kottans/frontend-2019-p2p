@@ -33,20 +33,17 @@ const Character = function (name, gender, legs, saying) {
   }
   Character.prototype.sentence = function() {
     let sentence = [
-        `Hey there, my name is <strong>${this.name}</strong>`,
-        `and I am a ${this.species}!`,
-        `My gender is ${this.gender},`,
+        `Hey there, my name is <strong>${this.name}</strong> `,
+        `and I am a ${this.species}! `,
+        `My gender is ${this.gender}, `,
         `in addition I have ${this.legs} legs`,
-        `and ${this.hands} hands.`,
-        `Wait a minute... ${this.saying}`
+        ` and ${this.hands} hands.`,
+        ` Wait a minute... ${this.saying}`
     ]
-    if(this.hands == null){
-      sentence.splice(4, 1);
-      sentence[3] = sentence[3].split("");
-      sentence[3].push(".");
-      sentence[3] = sentence[3].join("");
+    if(!this.hands){
+      sentence[4] = "."
     }
-   return sentence.join(' ');
+   return sentence.join('');
 };
   const Humanoid = function (name, gender, legs, hands, saying) {
     Character.call(this, name, gender, legs, saying);
@@ -54,7 +51,7 @@ const Character = function (name, gender, legs, saying) {
       this.hands = hands;
   }
   const Rat = function (name, gender, legs, hands, saying) {
-    Character.call(this, name, gender, legs, saying);
+    Humanoid.call(this, name, gender, legs, hands, saying);
     this.species = "rat";
   }
 
