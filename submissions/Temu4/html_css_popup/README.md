@@ -2,7 +2,8 @@ According to [Kottans Front-End Course](https://github.com/kottans/frontend/blob
 
 ## HTLM & CSS Practice (Google popup menu)
 
-[let's Booble!](./5_html_css_practice/README.md)
+[let's Booble!](https://temu4.github.io/Booble-popup/)
 
 Searching system page with Google style.
-No JS, only HTML and CSS.
+No JS, only HTML and CSS (BEM methodology).
+Adaptive for mobile.
