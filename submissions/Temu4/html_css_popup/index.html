@@ -5,165 +5,297 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <title>Booble menu</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <title>Let's Booble! =)</title>
   </head>
   <body>
-    <div class="menu">
-      <div class="menu-bar">
+    <div class="page">
+      <ul class="header">
         <!-- Link for mail -->
-        <a href="#" tabindex="1">Bmail</a>
+        <li class="header__link link">
+          <a href="#" tabindex="0" class="link__label"
+            ><span class="link__content" tabindex="-1">Bmail</span></a
+          >
+        </li>
         <!-- Link for images -->
-        <a href="#" tabindex="2">Images</a>
+        <li class="header__link link">
+          <a href="#" tabindex="0" class="link__label"
+            ><span class="link__content" tabindex="-1">Images</span></a
+          >
+        </li>
         <!-- Link for apps -->
-        <a class="icon-apps bar" href="#" title="Приложения Booble" tabindex="3"
-          ><img src="img/icon-apps.png" alt="Icon apps" />
-        </a>
-        <!-- Container with apps list -->
-        <div class="apps-list">
-          <table>
-            <tr>
-              <td tabindex="4">
-                <img src="img/apps-docs.png" alt="Docs" />
-                <div class="app-item-label">Docs</div>
-              </td>
-              <td tabindex="5">
-                <img src="img/apps-translate.png" alt="Translate" />
-                <div class="app-item-label">Translate</div>
-              </td>
-              <td tabindex="6">
-                <img src="img/apps-booble+.png" alt="Booble+" />
-                <div class="app-item-label">Booble+</div>
-              </td>
-            </tr>
-            <tr>
-              <td tabindex="7">
-                <img src="img/apps-search.png" alt="Search" />
-                <div class="app-item-label">Search</div>
-              </td>
-              <td tabindex="8">
-                <img src="img/apps-tube.png" alt="YouTube" />
-                <div class="app-item-label">YouTube</div>
-              </td>
-              <td tabindex="9">
-                <img src="img/apps-market.png" alt="Market" />
-                <div class="app-item-label">Market</div>
-              </td>
-            </tr>
-            <tr>
-              <td tabindex="10">
-                <img src="img/apps-mail.png" alt="Bmail" />
-                <div class="app-item-label">Bmail</div>
-              </td>
-              <td tabindex="11">
-                <img src="img/apps-disk.png" alt="Disk" />
-                <div class="app-item-label">Disk</div>
-              </td>
-              <td tabindex="12">
-                <img src="img/apps-dairy.png" alt="Calendar" />
-                <div class="app-item-label">Calendar</div>
-              </td>
-            </tr>
-            <tr>
-              <td tabindex="13">
-                <img src="img/apps-bussines.png" alt="Business" />
-                <div class="app-item-label">My Business</div>
-              </td>
-            </tr>
-          </table>
+        <li class="header__link link">
+          <a
+            href="#"
+            title="Приложения Booble"
+            class="link__label--apps"
+            tabindex="0"
+          >
+            <label class="link__content" for="apps-list" tabindex="-1">
+              <img class="link__icon" src="img/icon-apps.png" alt="Icon apps" />
+            </label>
+          </a>
+          <input class="toggle-checkbox" type="checkbox" id="apps-list" />
+          <div class="apps-box">
+            <div class="apps-box__mark"></div>
+            <div class="apps-box__list">
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-docs.png" alt="Docs" />
+                  </div>
+                  <div class="app-item__label"><p>Docs</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-translate.png" alt="Translate" />
+                  </div>
+                  <div class="app-item__label"><p>Translate</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-booble+.png" alt="Booble+" />
+                  </div>
+                  <div class="app-item__label"><p>Booble+</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-search.png" alt="Search" />
+                  </div>
+                  <div class="app-item__label"><p>Search</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-tube.png" alt="YouTube" />
+                  </div>
+                  <div class="app-item__label"><p>YouTube</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-market.png" alt="Market" />
+                  </div>
+                  <div class="app-item__label"><p>Market</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-mail.png" alt="Bmail" />
+                  </div>
+                  <div class="app-item__label"><p>Bmail</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-disk.png" alt="Disk" />
+                  </div>
+                  <div class="app-item__label"><p>Disk</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-dairy.png" alt="Calendar" />
+                  </div>
+                  <div class="app-item__label"><p>Calendar</p></div>
+                </a>
+              </div>
+              <div class="app-item">
+                <a class="app-item__link" href="#">
+                  <div class="app-item__icon">
+                    <img src="img/apps-bussines.png" alt="Business" />
+                  </div>
+                  <div class="app-item__label"><p>Business</p></div>
+                </a>
+              </div>
+              <input
+                class="toggle-checkbox-more-list"
+                type="checkbox"
+                id="apps-more-list"
+              />
+              <!-- Button More -->
+              <div
+                class="app-box__more-button more-button"
+                tabindex="0"
+                target="more-button"
+              >
+                <label
+                  class="more-button__label"
+                  for="apps-more-list"
+                  tabindex=""
+                  >More
+                </label>
+              </div>
 
-          <!-- Button More -->
-          <button class="apps-more-btn" tabindex="14">More</button>
-          <!-- Container with more apps list -->
-          <div class="apps-more-list">
-            <div class="divider"></div>
-            <table class="table-apps-more">
-              <tr>
-                <td tabindex="15">
-                  <img src="img/apps-blogger.png" alt="Blogger" />
-                  <div class="app-item-label">Blogger</div>
-                </td>
-                <td tabindex="16">
-                  <img src="img/apps-photos.png" alt="Photos" />
-                  <div class="app-item-label">Photos</div>
-                </td>
-                <td tabindex="17">
-                  <img src="img/apps-map.png" alt="Maps" />
-                  <div class="app-item-label">Maps</div>
-                </td>
-              </tr>
-              <tr>
-                <td tabindex="17">
-                  <img src="img/apps-acc.png" alt="Account" />
-                  <div class="app-item-label">Account</div>
-                </td>
-                <td tabindex="18">
-                  <img src="img/apps-contact.png" alt="Contact" />
-                  <div class="app-item-label">Contact</div>
-                </td>
-                <td tabindex="19">
-                  <img src="img/apps-massager.png" alt="Massanger" />
-                  <div class="app-item-label">Massanger</div>
-                </td>
-              </tr>
-              <tr>
-                <td tabindex="20">
-                  <img src="img/apps-keep.png" alt="Keep" />
-                  <div class="app-item-label">Keep</div>
-                </td>
-                <td tabindex="21">
-                  <img src="img/apps-jumboard.png" alt="Jambord" />
-                  <div class="app-item-label">Jambord</div>
-                </td>
-                <td tabindex="22">
-                  <img src="img/apps-classroom.png" alt="Classroom" />
-                  <div class="app-item-label">Classroom</div>
-                </td>
-              </tr>
-              <tr>
-                <td tabindex="23">
-                  <img src="img/apps-earth.png" alt="Planet" />
-                  <div class="app-item-label">Planet</div>
-                </td>
-                <td tabindex="24">
-                  <img src="img/apps-collection.png " alt="Collections" />
-                  <div class="app-item-label">Collections</div>
-                </td>
-              </tr>
-            </table>
-
-            <div class="apps-even-more-link">
-              <a href="#" tabindex="25">Even more from Booble</a>
+              <!-- More apps list -->
+              <div class="apps-box__more-list">
+                <div class="divider"></div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-blogger.png" alt="Blogger" />
+                    </div>
+                    <div class="app-item__label"><p>Blogger</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-photos.png" alt="Photos" />
+                    </div>
+                    <div class="app-item__label"><p>Photos</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-map.png" alt="Maps" />
+                    </div>
+                    <div class="app-item__label"><p>Maps</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-acc.png" alt="Account" />
+                    </div>
+                    <div class="app-item__label"><p>Account</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-contact.png" alt="Contact" />
+                    </div>
+                    <div class="app-item__label"><p>Contact</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-massager.png" alt="Massanger" />
+                    </div>
+                    <div class="app-item__label"><p>Massanger</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-keep.png" alt="Keep" />
+                    </div>
+                    <div class="app-item__label"><p>Keep</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-jumboard.png" alt="Jambord" />
+                    </div>
+                    <div class="app-item__label"><p>Jambord</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-classroom.png" alt="Classroom" />
+                    </div>
+                    <div class="app-item__label"><p>Classroom</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-earth.png" alt="Planet" />
+                    </div>
+                    <div class="app-item__label"><p>Planet</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-collection.png " alt="Collections" />
+                    </div>
+                    <div class="app-item__label"><p>Collections</p></div>
+                  </a>
+                </div>
+                <div class="apps-box__even-more even-more">
+                  <a class="even-more__link" href="#">Even more from Booble</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </li>
         <!-- Link for messages -->
-        <a href="#" class="bar" title="Уведомлений Booble: 0"
-          ><img src="img/icon-bell.png" alt="Icon messages"
-        /></a>
+        <li class="header__link link">
+          <a
+            href="#"
+            title="Уведомлений Booble: 0"
+            class="link__label"
+            tabindex="0"
+            ><span class="link__content" tabindex="-1"
+              ><img
+                src="img/icon-bell.png"
+                alt="Icon messages"
+                class="link__icon"
+            /></span>
+          </a>
+        </li>
         <!-- Link for account -->
-        <a href="#" class="bar" title="Акаунт Booble: Андрей Андреев"
-          ><img src="img/icon-logo.png" alt="Icon logo"
-        /></a>
+        <li class="header__link link">
+          <a
+            href="#"
+            title="Акаунт Booble: Андрей Андреев"
+            class="link__label"
+            tabindex="0"
+            ><span class="link__content" tabindex="-1"
+              ><img
+                src="img/icon-logo.png"
+                alt="Icon logo"
+                class="link__icon"/></span
+          ></a>
+        </li>
+      </ul>
+      <div class="search-box">
+        <label class="search-box__label label" for="search-field">
+          <span class="label__letter letter letter--b">B</span>
+          <span class="label__letter letter letter--o">o</span>
+          <span class="label__letter letter letter--o2">o</span>
+          <span class="label__letter letter letter--b">b</span>
+          <span class="label__letter letter letter--l">l</span>
+          <span class="label__letter letter letter--o2">e</span>
+        </label>
+        <div class="search-box__input input" tabindex="0">
+          <input
+            class="input__field"
+            id="search-field"
+            type="text"
+            placeholder="Search..."
+            tabindex="-1"
+          />
+          <img src="img/voice-search.png" class="input__icon" />
+        </div>
+        <button class="search-box__button">Search</button>
       </div>
-    </div>
-    <div class="main-content">
-      <div class="label">
-        <span class="b">B</span>
-        <span class="o1">o</span>
-        <span class="o2">o</span>
-        <span class="b">b</span>
-        <span class="l">l</span>
-        <span class="o2">e</span>
+      <div class="footer">
+        <a class="link__label" href="https://github.com/Temu4" tabindex="0"
+          ><div class="link__content" tabindex="-1">About me &#174;</div>
+        </a>
+        <div>2019</div>
       </div>
-      <div class="search">
-        <input type="text" placeholder="Search" />
-        <img class="search-icon" src="img/voice-search.png" />
-      </div>
-      <button class="search-button">Search</button>
-    </div>
-    <div class="footer">
-      <a href="https://github.com/Temu4">About me &#174;</a>
-      <div>2019</div>
     </div>
   </body>
 </html>
