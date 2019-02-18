@@ -1,50 +1,111 @@
 body {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
   font-family: sans-serif;
   font-size: 13px;
+  width: 100%;
+  height: 100%;
 }
 
-.menu-bar {
+/**  Header **/
+.header {
   display: flex;
-  width: 300px;
-  float: right;
-  vertical-align: middle;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 5px 0 0;
+  list-style: none;
 }
 
-/**  Links **/
-a {
-  width: 20%;
-  margin: auto;
+.header__link {
+  margin: 0 5px 0 5px;
+}
+
+.link__label {
+  min-width: 48px;
+  min-height: 48px;
   color: rgb(22, 22, 24);
-  text-align: center;
-  outline: none;
+  margin: 0 5px;
 }
 
-a:link {
+.link__label:link {
   text-decoration: none;
 }
 
-a:hover {
+.link__content {
+  opacity: 0.8;
+}
+
+/*****************/
+/*The result of this config: when you click to the interactive elements 
+there isn't focused square arraund them, but when you use keybord everything is ok.
+You should use tabindex="0" to the link-element and tabindex="-1" to the inner content.
+/* All the states on the inner element */
+:hover > .link__content {
+  opacity: 1;
+}
+
+:active > .link__content {
+  opacity: 0.8;
+}
+
+:focus > .link__content {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Removing default outline only after we've added our custom one */
+.link__label:focus,
+.link__label--apps:focus,
+.link__content:focus {
+  outline: none;
+}
+/*****************/
+
+.toggle-checkbox {
+  display: none;
+  position: absolute;
+}
+
+.link__label:hover {
   text-decoration: underline;
 }
 
 /* Opacity of the icons */
-a:hover > img {
+.link__label--apps:hover > .link__content {
   opacity: 1;
 }
 
-.bar img {
-  opacity: 0.8;
+/* Show apps container after clicking the icon */
+.toggle-checkbox:checked ~ .apps-box {
+  display: block;
 }
 
 /* Apps container style */
-.apps-list {
+.apps-box {
   display: none;
-  position: fixed;
-  flex-wrap: wrap;
   right: 20px;
-  top: 50px;
-  width: 300px;
-  height: 500px;
+  position: absolute;
+}
+
+.apps-box__mark {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(211, 211, 211, 0.6);
+  margin-left: 166px;
+}
+
+.apps-box__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 270px;
+  height: 450px;
+  padding-top: 20px;
   background-color: white;
   overflow-y: auto;
   border: 1px solid rgba(211, 211, 211, 0.6);
@@ -52,86 +113,73 @@ a:hover > img {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Show apps container after clicking the icon */
-a.icon-apps:active ~ div.apps-list,
-a.icon-apps:focus ~ div.apps-list,
-div.apps-list:hover {
+.app-item {
+  padding: 5px;
+  width: 68px;
+}
+
+.app-item:hover {
+  box-shadow: 0 0 5px rgba(211, 211, 211, 0.7);
+}
+
+.app-item__link {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
 }
 
-/* Apps table */
-table {
-  float: center;
-  margin: 30px 20px;
-  width: 70%;
-  cursor: auto;
+.app-item__link:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
 }
-/* Apps row */
-tr {
+
+/** Button More container**/
+.more-button {
+  display: flex;
+  justify-content: center;
   width: 100%;
-}
-/* Apps item */
-td {
-  /* width: 33%; */
-  border: 1px solid white;
-  border-radius: 3px;
-  border-collapse: collapse;
-  padding: 10px;
-  margin: 5px;
-  cursor: pointer;
-  text-align: center;
-  min-width: 48px;
-  min-height: 48px;
-}
-
-td:hover,
-td:focus {
-  border: 1px solid rgba(178, 201, 228, 0.5);
-}
-
-a .app-item {
-  width: 100%;
-  height: 100%;
-}
-
-.app-item-label {
-  margin: 10px 0 0 0;
-}
-
-/** Button More **/
-.apps-more-btn {
-  width: 100%;
-  border: none;
   height: 40px;
   background-color: rgba(211, 211, 211, 0.3);
   cursor: pointer;
 }
 
-.apps-more-btn:hover {
+.more-button__label {
+  width: inherit;
+  height: inherit;
+  padding: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.more-button:hover {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
-/* Hide More button afrer clicking */
-button.apps-more-btn:visited,
-button.apps-more-btn:focus {
-  opacity: 0;
-  cursor: auto;
-  height: 1px;
+.toggle-checkbox-more-list {
+  display: none;
+  position: absolute;
 }
 
-/* Show more apps list after clecking button More */
-button.apps-more-btn:visited ~ div.apps-more-list,
-button.apps-more-btn:focus ~ div.apps-more-list,
-div.apps-more-list:hover {
+/* Hide More button afrer clicking */
+.toggle-checkbox-more-list:checked ~ .more-button {
+  display: none;
+}
+
+/* Show more apps container after clicking the button */
+.toggle-checkbox-more-list:checked ~ .apps-box__more-list {
   display: flex;
 }
 
 /* More apps style */
-.apps-more-list {
+.apps-box__more-list {
   display: none;
   flex-wrap: wrap;
-  width: 300px;
-  height: 500px;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: inherit;
+  height: 450px;
 }
 
 .divider {
@@ -140,115 +188,162 @@ div.apps-more-list:hover {
   border-top: 1px solid rgba(211, 211, 211, 0.3);
 }
 
-.apps-even-more-link {
+.even-more {
   text-align: center;
   width: 100%;
 }
+.even-more__link {
+  color: black;
+}
 
-/* Main content of the page */
+.even-more__link:link {
+  text-decoration: none;
+}
 
-.main-content {
-  text-align: center;
-  padding-top: 30%;
+.even-more__link:hover {
+  opacity: 0.8;
+}
+
+.even-more__link:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Search box */
+.search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0 180px 0;
 }
 
 /* Search laber letters */
 .label {
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.label span {
-  flex-wrap: nowrap;
-  font-weight: bold;
+
+.label__letter {
+  padding: 5px;
+}
+
+/*Font for search label */
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"),
+    url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
+      format("woff2");
+}
+
+.letter {
+  font-family: "Product Sans";
+  font-weight: 900;
   font-size: 60px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 40px;
   -webkit-user-select: none;
 }
 
-.b {
+.letter--b {
   color: rgb(38, 127, 252);
 }
 
-.o1 {
+.letter--o {
   color: rgb(245, 55, 21);
 }
 
-.o2 {
+.letter--o2 {
   color: rgb(255, 187, 0);
 }
 
-.l {
+.letter--l {
   color: rgb(26, 180, 66);
 }
 
-/* Search field  */
+/* Search input field  */
+.search-box__input {
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-items: center;
+}
 
-.search input {
-  width: 80%;
+.input__field {
+  min-width: 300px;
+  width: 100%;
   height: 35px;
+  padding-left: 20px;
   border-radius: 20px;
   border: 1px solid rgba(211, 211, 211, 0.4);
-  outline: none;
-  margin-top: 30px;
-  padding: 0px 20px;
 }
 
-.search input:hover {
-  background-color: rgba(211, 211, 211, 0.1);
+/*****************/
+/* All the states on the inner element */
+:hover > .input__field {
+  background-color: rgba(211, 211, 211, 0.2);
 }
-.search-button {
+
+:active > .input__field {
+  background-color: rgba(211, 211, 211, 0.2);
+}
+
+:focus > .input__field {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Removing default outline only after we've added our custom one */
+.input:focus,
+.input__field:focus {
+  outline: none;
+}
+/*****************/
+
+.input__icon {
+  display: block;
+  widows: 10px;
+  height: 20px;
+  margin: 10px 0 0 -35px;
+}
+
+.search-box__button {
   background-color: rgba(38, 127, 252, 0.9);
   color: white;
   border: none;
   border-radius: 5px;
-  width: 25%;
-  margin-top: 45px;
-  outline: none;
-  min-width: 48px;
+  width: 15%;
+  min-width: 68px;
   min-height: 48px;
+  max-width: 88px;
 }
 
-.search-button:hover {
+.search-box__button:hover {
   background-color: rgba(38, 127, 252, 1);
 }
 
-.search-icon {
-  margin-left: -40px;
+.search-box__button:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
 }
 
 /* Footer */
-
 .footer {
-  margin-top: 50%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: rgb(129, 129, 129);
 }
 
-@media screen and (min-width: 500px) {
-  .main-content {
-    padding-top: 10%;
+/* Media queries */
+@media screen and (min-width: 600px) {
+  .letter {
+    font-size: 80px;
   }
-
-  .label span {
-    font-size: 100px;
-  }
-
-  .footer {
-    margin-top: 30%;
+  .input {
+    width: 80%;
   }
 }
 
-@media screen and (min-width: 650px) {
-  .search input {
-    width: 600px;
-  }
-
-  .search-button {
-    width: 150px;
-  }
-
-  .footer {
-    margin-top: 10%;
+@media screen and (min-width: 900px) {
+  .letter {
+    font-size: 100px;
   }
 }
