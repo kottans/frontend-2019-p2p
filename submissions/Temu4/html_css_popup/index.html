@@ -28,212 +28,202 @@
         </li>
         <!-- Link for apps -->
         <li class="header__link link">
-          <a
-            href="#"
-            title="Приложения Booble"
-            class="link__label--apps"
-            tabindex="0"
-          >
-            <label class="link__content" for="apps-list" tabindex="-1">
+          <div class="link__label--apps" title="Приложения Booble">
+            <input
+              class="check__input visually-hidden"
+              type="checkbox"
+              id="apps-list"
+            />
+            <label class="link__content" for="apps-list">
               <img class="link__icon" src="img/icon-apps.png" alt="Icon apps" />
             </label>
-          </a>
-          <input class="toggle-checkbox" type="checkbox" id="apps-list" />
-          <div class="apps-box">
-            <div class="apps-box__mark"></div>
-            <div class="apps-box__list">
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-docs.png" alt="Docs" />
-                  </div>
-                  <div class="app-item__label"><p>Docs</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-translate.png" alt="Translate" />
-                  </div>
-                  <div class="app-item__label"><p>Translate</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-booble+.png" alt="Booble+" />
-                  </div>
-                  <div class="app-item__label"><p>Booble+</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-search.png" alt="Search" />
-                  </div>
-                  <div class="app-item__label"><p>Search</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-tube.png" alt="YouTube" />
-                  </div>
-                  <div class="app-item__label"><p>YouTube</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-market.png" alt="Market" />
-                  </div>
-                  <div class="app-item__label"><p>Market</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-mail.png" alt="Bmail" />
-                  </div>
-                  <div class="app-item__label"><p>Bmail</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-disk.png" alt="Disk" />
-                  </div>
-                  <div class="app-item__label"><p>Disk</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-dairy.png" alt="Calendar" />
-                  </div>
-                  <div class="app-item__label"><p>Calendar</p></div>
-                </a>
-              </div>
-              <div class="app-item">
-                <a class="app-item__link" href="#">
-                  <div class="app-item__icon">
-                    <img src="img/apps-bussines.png" alt="Business" />
-                  </div>
-                  <div class="app-item__label"><p>Business</p></div>
-                </a>
-              </div>
-              <input
-                class="toggle-checkbox-more-list"
-                type="checkbox"
-                id="apps-more-list"
-              />
-              <!-- Button More -->
-              <div
-                class="app-box__more-button more-button"
-                tabindex="0"
-                target="more-button"
-              >
-                <label
-                  class="more-button__label"
-                  for="apps-more-list"
-                  tabindex=""
-                  >More
-                </label>
-              </div>
+            <div class="apps-box">
+              <div class="apps-box__mark"></div>
+              <div class="apps-box__list">
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-docs.png" alt="Docs" />
+                    </div>
+                    <div class="app-item__label"><p>Docs</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-translate.png" alt="Translate" />
+                    </div>
+                    <div class="app-item__label"><p>Translate</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-booble+.png" alt="Booble+" />
+                    </div>
+                    <div class="app-item__label"><p>Booble+</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-search.png" alt="Search" />
+                    </div>
+                    <div class="app-item__label"><p>Search</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-tube.png" alt="YouTube" />
+                    </div>
+                    <div class="app-item__label"><p>YouTube</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-market.png" alt="Market" />
+                    </div>
+                    <div class="app-item__label"><p>Market</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-mail.png" alt="Bmail" />
+                    </div>
+                    <div class="app-item__label"><p>Bmail</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-disk.png" alt="Disk" />
+                    </div>
+                    <div class="app-item__label"><p>Disk</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-dairy.png" alt="Calendar" />
+                    </div>
+                    <div class="app-item__label"><p>Calendar</p></div>
+                  </a>
+                </div>
+                <div class="app-item">
+                  <a class="app-item__link" href="#">
+                    <div class="app-item__icon">
+                      <img src="img/apps-bussines.png" alt="Business" />
+                    </div>
+                    <div class="app-item__label"><p>Business</p></div>
+                  </a>
+                </div>
+                <input class="input__check--more visually-hidden" type="checkbox" />
+                <!-- Button More -->
+                <div class="app-box__more-button more-button">
+                  <label class="more-button__label" for="apps-more-list"
+                    >More</label
+                  >
+                </div>
 
-              <!-- More apps list -->
-              <div class="apps-box__more-list">
-                <div class="divider"></div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-blogger.png" alt="Blogger" />
-                    </div>
-                    <div class="app-item__label"><p>Blogger</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-photos.png" alt="Photos" />
-                    </div>
-                    <div class="app-item__label"><p>Photos</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-map.png" alt="Maps" />
-                    </div>
-                    <div class="app-item__label"><p>Maps</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-acc.png" alt="Account" />
-                    </div>
-                    <div class="app-item__label"><p>Account</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-contact.png" alt="Contact" />
-                    </div>
-                    <div class="app-item__label"><p>Contact</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-massager.png" alt="Massanger" />
-                    </div>
-                    <div class="app-item__label"><p>Massanger</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-keep.png" alt="Keep" />
-                    </div>
-                    <div class="app-item__label"><p>Keep</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-jumboard.png" alt="Jambord" />
-                    </div>
-                    <div class="app-item__label"><p>Jambord</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-classroom.png" alt="Classroom" />
-                    </div>
-                    <div class="app-item__label"><p>Classroom</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-earth.png" alt="Planet" />
-                    </div>
-                    <div class="app-item__label"><p>Planet</p></div>
-                  </a>
-                </div>
-                <div class="app-item">
-                  <a class="app-item__link" href="#">
-                    <div class="app-item__icon">
-                      <img src="img/apps-collection.png " alt="Collections" />
-                    </div>
-                    <div class="app-item__label"><p>Collections</p></div>
-                  </a>
-                </div>
-                <div class="apps-box__even-more even-more">
-                  <a class="even-more__link" href="#">Even more from Booble</a>
+                <!-- More apps list -->
+                <div class="apps-box__more-list">
+                  <div class="divider"></div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-blogger.png" alt="Blogger" />
+                      </div>
+                      <div class="app-item__label"><p>Blogger</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-photos.png" alt="Photos" />
+                      </div>
+                      <div class="app-item__label"><p>Photos</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-map.png" alt="Maps" />
+                      </div>
+                      <div class="app-item__label"><p>Maps</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-acc.png" alt="Account" />
+                      </div>
+                      <div class="app-item__label"><p>Account</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-contact.png" alt="Contact" />
+                      </div>
+                      <div class="app-item__label"><p>Contact</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-massager.png" alt="Massanger" />
+                      </div>
+                      <div class="app-item__label"><p>Massanger</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-keep.png" alt="Keep" />
+                      </div>
+                      <div class="app-item__label"><p>Keep</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-jumboard.png" alt="Jambord" />
+                      </div>
+                      <div class="app-item__label"><p>Jambord</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-classroom.png" alt="Classroom" />
+                      </div>
+                      <div class="app-item__label"><p>Classroom</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-earth.png" alt="Planet" />
+                      </div>
+                      <div class="app-item__label"><p>Planet</p></div>
+                    </a>
+                  </div>
+                  <div class="app-item">
+                    <a class="app-item__link" href="#">
+                      <div class="app-item__icon">
+                        <img src="img/apps-collection.png " alt="Collections" />
+                      </div>
+                      <div class="app-item__label"><p>Collections</p></div>
+                    </a>
+                  </div>
+                  <div class="apps-box__even-more even-more">
+                    <a class="even-more__link" href="#"
+                      >Even more from Booble</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -241,32 +231,26 @@
         </li>
         <!-- Link for messages -->
         <li class="header__link link">
-          <a
-            href="#"
-            title="Уведомлений Booble: 0"
-            class="link__label"
-            tabindex="0"
-            ><span class="link__content" tabindex="-1"
+          <div class="link__label" title="Уведомлений Booble: 0" tabindex="0">
+            <span class="link__content" tabindex="-1"
               ><img
                 src="img/icon-bell.png"
                 alt="Icon messages"
                 class="link__icon"
             /></span>
-          </a>
+          </div>
         </li>
         <!-- Link for account -->
         <li class="header__link link">
-          <a
-            href="#"
-            title="Акаунт Booble: Андрей Андреев"
+          <div
             class="link__label"
+            title="Акаунт Booble: Андрей Андреев"
             tabindex="0"
-            ><span class="link__content" tabindex="-1"
-              ><img
-                src="img/icon-logo.png"
-                alt="Icon logo"
-                class="link__icon"/></span
-          ></a>
+          >
+            <span class="link__content" tabindex="-1"
+              ><img src="img/icon-logo.png" alt="Icon logo" class="link__icon"
+            /></span>
+          </div>
         </li>
       </ul>
       <div class="search-box">
@@ -283,7 +267,7 @@
             class="input__field"
             id="search-field"
             type="text"
-            placeholder="Search..."
+            placeholder="Write a massage"
             tabindex="-1"
           />
           <img src="img/voice-search.png" class="input__icon" />
