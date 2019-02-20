@@ -23,9 +23,8 @@ body {
   margin: 0 5px 0 5px;
 }
 
-.link__label {
-  min-width: 48px;
-  min-height: 48px;
+.link__label,
+.link__label--apps {
   color: rgb(22, 22, 24);
   margin: 0 5px;
 }
@@ -39,10 +38,7 @@ body {
 }
 
 /*****************/
-/*The result of this config: when you click to the interactive elements 
-there isn't focused square arraund them, but when you use keybord everything is ok.
-You should use tabindex="0" to the link-element and tabindex="-1" to the inner content.
-/* All the states on the inner element */
+/*Change states on the inner element */
 :hover > .link__content {
   opacity: 1;
 }
@@ -55,7 +51,7 @@ You should use tabindex="0" to the link-element and tabindex="-1" to the inner c
   box-shadow: 0 0 3px 1px rgb(0, 140, 255);
 }
 
-/* Removing default outline only after we've added our custom one */
+/* Removing default outline*/
 .link__label:focus,
 .link__label--apps:focus,
 .link__content:focus {
@@ -63,13 +59,34 @@ You should use tabindex="0" to the link-element and tabindex="-1" to the inner c
 }
 /*****************/
 
-.toggle-checkbox {
-  display: none;
+/* Hide an element */
+.visually-hidden {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .link__label:hover {
   text-decoration: underline;
+}
+
+.link__label:focus {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Focus to the link icon */
+.check__input:focus + * .link__icon {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/*Hide focus when checkbox :checked */
+.check__input:checked + * .link__icon {
+  box-shadow: none;
 }
 
 /* Opacity of the icons */
@@ -78,7 +95,7 @@ You should use tabindex="0" to the link-element and tabindex="-1" to the inner c
 }
 
 /* Show apps container after clicking the icon */
-.toggle-checkbox:checked ~ .apps-box {
+.check__input:checked ~ .apps-box {
   display: block;
 }
 
@@ -138,37 +155,39 @@ You should use tabindex="0" to the link-element and tabindex="-1" to the inner c
 /** Button More container**/
 .more-button {
   display: flex;
-  justify-content: center;
   width: 100%;
   height: 40px;
   background-color: rgba(211, 211, 211, 0.3);
-  cursor: pointer;
 }
 
 .more-button__label {
+  cursor: pointer;
+  text-align: center;
   width: inherit;
   height: inherit;
-  padding: auto;
-  text-align: center;
-  vertical-align: middle;
+  line-height: 40px;
 }
 
 .more-button:hover {
   background-color: rgba(211, 211, 211, 0.4);
 }
 
-.toggle-checkbox-more-list {
-  display: none;
-  position: absolute;
+/* Focus to the button */
+.input__check--more:focus + * .more-button__label {
+  box-shadow: inset 0 0 3px 1px rgb(0, 140, 255);
 }
 
+/*Hide focus when checkbox :checked */
+.input__check--more:checked ~ .more-button {
+  box-shadow: none;
+}
 /* Hide More button afrer clicking */
-.toggle-checkbox-more-list:checked ~ .more-button {
+.input__check--more:checked ~ .more-button {
   display: none;
 }
 
 /* Show more apps container after clicking the button */
-.toggle-checkbox-more-list:checked ~ .apps-box__more-list {
+.input__check--more:checked ~ .apps-box__more-list {
   display: flex;
 }
 
@@ -194,6 +213,7 @@ You should use tabindex="0" to the link-element and tabindex="-1" to the inner c
 }
 .even-more__link {
   color: black;
+  padding: 15px;
 }
 
 .even-more__link:link {
