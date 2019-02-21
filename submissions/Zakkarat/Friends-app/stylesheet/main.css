@@ -1,0 +1,376 @@
+body {
+  margin: 0;
+  background-color: #383b9238;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+h2,
+h3,
+h4 {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-left: 4%;
+}
+
+/*                 HEADER STUFF             */
+header {
+  margin: 0;
+  background-color: #362d92;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 115px;
+  height: 10%;
+  color: white;
+  font-family: "Kaushan script", cursive;
+  font-size: 2.2em;
+}
+header:last-child {
+  margin-left: auto;
+}
+
+.searchDec > h2 {
+  font-family: Roboto;
+  font-size: 0.7em;
+}
+
+.filterContainer {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  margin-right: 4%;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+input:focus {
+  background-color: white;
+}
+
+input:focus::placeholder {
+  opacity: 0;
+  margin-left: 10px;
+}
+
+button {
+  align-self: flex-end;
+}
+
+.filterDec {
+  margin-right: 5%;
+}
+
+.filter {
+  border-radius: 30px;
+  width: 105px;
+  height: 60px;
+  font-size: 0.7em;
+  color: white;
+  background-color: #362d92;
+  border: solid 3px white;
+  outline: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.filter:hover {
+  color: black;
+  background-color: white;
+}
+
+/*                 MAIN AND USER CARDS             */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  width: 20%;
+  height: 400px;
+  min-width: 350px;
+  display: flex;
+  background-color: white;
+  margin-top: 1.4%;
+  font-family: Roboto;
+  border-radius: 30px;
+  box-shadow: 8px 8px 15px #c5c6d4;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card > img {
+  border-radius: 100%;
+}
+.card > h1 {
+  margin-bottom: 1%;
+  margin-left: 0;
+}
+
+/*                 MODAL WINDOW                     */
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: 1.5s;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-family: Roboto;
+}
+.modal-content {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  width: 46%;
+  height: 70%;
+  margin-top: -100px;
+
+  color: black;
+  border-radius: 5px;
+}
+.modal-up {
+  display: flex;
+
+  transition: 1.5s;
+}
+.modal-content-up {
+  margin-top: 9%;
+
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+.modal-content > h1 {
+  margin-top: 10px;
+  margin-left: 0;
+}
+.outerCont {
+  width: 60%;
+  height: 88%;
+  background-color: white;
+  min-width: 425px;
+  border-radius: 5%;
+  box-shadow: 6px 6px 1px #00000047;
+}
+
+.innerCont {
+  width: 100%;
+  height: 22%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid #898b99;
+}
+.innerCont:first-child {
+  display: flex;
+}
+.searchMobDec {
+  border-radius: 30px;
+  width: 73%;
+  height: 34px;
+  padding-left: 13px;
+  font-size: 0.6em;
+  color: black;
+  background-color: white;
+  border: solid 3px #8a8b9a;
+  outline: 0;
+  transition: 0.5s;
+}
+.searchMob {
+  border-radius: 30px;
+  width: 73%;
+  height: 34px;
+  padding-left: 13px;
+  font-size: 1em;
+  color: black;
+  outline: 0;
+  transition: 0.5s;
+}
+.innerCont:last-child {
+  border: 0;
+  height: 10%;
+  align-items: flex-end;
+}
+.innerCont:last-child > .buttonCont > button {
+  margin-right: 16%;
+}
+
+.innerCont:last-child > .buttonCont {
+  align-items: center;
+}
+
+.buttonCont {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-around;
+}
+.innerCont > h2 {
+  margin-top: 5%;
+}
+
+.buttonCont > button {
+  width: 100px;
+  height: 48px;
+  border-radius: 30px;
+  font-size: 0.85em;
+  outline: 0;
+  color: #1f2056;
+  background-color: white;
+  border: 2px solid #8a8b9a;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.buttonCont > button:hover {
+  width: 100px;
+  height: 48px;
+  border-radius: 30px;
+  font-size: 0.85em;
+  outline: 0;
+  color: #1f2056;
+  background-color: white;
+  border: 4px solid #545aad;
+  cursor: pointer;
+  transition: 0.3s;
+}
+@media screen and (max-width: 450px) {
+  header > h1 {
+    font-size: 1.5em;
+    margin-top: 4%;
+  }
+  .searchMobDec {
+    border-radius: 30px;
+    width: 73%;
+    height: 34px;
+    padding-left: 13px;
+    font-size: 0.6em;
+    color: black;
+    background-color: white;
+    border: solid 3px #8a8b9a;
+    outline: 0;
+    transition: 0.5s;
+  }
+  .searchMob {
+    border-radius: 30px;
+    width: 73%;
+    height: 34px;
+    padding-left: 13px;
+    font-size: 1em;
+    color: black;
+    outline: 0;
+    transition: 0.5s;
+  }
+  .card {
+    margin-top: 6%;
+  }
+  .modal {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: 1.5s;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-family: Roboto;
+  }
+  .modal-content {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    margin-top: -100px;
+
+    color: black;
+    border-radius: 5px;
+  }
+  .modal-up {
+    display: flex;
+
+    transition: 1.5s;
+  }
+  .modal-content-up {
+    margin-top: 0;
+  }
+  .modal-content > h1 {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+  .outerCont {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 6px 6px 1px #00000047;
+  }
+  .innerCont {
+    width: 100%;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-bottom: 1px solid #898b99;
+  }
+  .innerCont:first-child {
+    display: flex;
+  }
+  .innerCont:last-child {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 375px) {
+  header > h1 {
+    font-size: 1em;
+    margin-top: 9%;
+  }
+  .card {
+    margin-top: 6%;
+    min-width: 290px;
+  }
+}
+@media screen and (min-width: 425px) and (max-width: 768px) {
+  .card {
+    margin-top: 6%;
+  }
+  .outerCont {
+    width: 100%;
+    height: 77%;
+  }
+  .innerCont:first-child {
+    display: flex;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .outerCont {
+    width: 100%;
+    height: 67%;
+  }
+  .innerCont {
+    height: 22%;
+  }
+}
