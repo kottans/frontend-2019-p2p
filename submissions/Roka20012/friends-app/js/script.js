@@ -93,7 +93,7 @@ const resetUsers = () => {
 
     buttons[buttons.length - 1].checked = true;
     searchByNameInput.value = "";
-
+    targetNameAge = true;
     usersContainer.innerHTML = "";
     allUsers.forEach(el => usersContainer.appendChild(el));
 
