@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Friend-App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/game-controller.png">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <span class="logo">Friend Land</span>
+        <div id="wrap">
+            <form action="" autocomplete="on">
+                <input class="search-by-name" id="search" name="search" type="text" placeholder="What're we looking for ?">
+                <input id="search_submit" value="Rechercher" type="submit">
+            </form>
+        </div>
+    </header>
+    <div class="container">
+        <input class="burger" type="checkbox" name="burger" data-icon="">
+        <div class="menu">
+            <br>
+            <br>
+            <br>
+            <input class="age-up" type="radio" data-icon="" name="age">
+            <input class="age-down" type="radio" data-icon="" name="age">
+            <br>
+            <br>
+            <input class="name-up" type="radio" data-icon="" name="name">
+            <input class="name-down" type="radio" data-icon=""" name="name">
+            <br>
+            <br>
+            <input class="male" type="radio" value="male" data-icon='' name="gender">
+            <br>
+            <br>
+            <input class="female" type="radio" value="female" data-icon='' name="gender">
+            <br>
+            <br>
+            <input class="user all" type="radio" value="all" data-icon=' ' name="gender" checked="checked">
+            <br>
+            <br>
+            <button class="reset bttn">RESET</button>
+        </div>
+    </div>
+</body>
+
+</html>
