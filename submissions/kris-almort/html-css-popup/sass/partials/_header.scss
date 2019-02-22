@@ -1,0 +1,86 @@
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0;
+  position: relative;
+  margin-bottom: 170px;
+}
+
+.top-menu {
+  display: flex;
+  padding: 0 15px;
+  align-items: center;
+
+  &__link-container {
+    line-height: 30px;
+    padding: 0 15px 0 0;
+    font-size: 13px;
+
+    &:last-child {
+      padding: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    transition: .1s;
+    color: rgba(0, 0, 0, 0.87);
+
+    &_notifications {
+      width: 20px;
+      height: 20px;
+      display: block;
+      opacity: .55;
+      cursor: pointer;
+      transition: .2s;
+      background: url("../img/icons-header.png") -694px -89px rgba(0, 0, 0, .55);
+      background-size: 508px 68px;
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, .85);
+      }
+    }
+
+    &_profile {
+      display: block;
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      background: url("../img/avatar.jpg") center center no-repeat;
+      background-size: cover;
+    }
+
+
+    &:hover {
+      text-decoration: underline;
+      opacity: .85;
+    }
+  }
+
+  &__popup-input {
+    display: none;
+
+    &:checked {
+      ~ .popup {
+        display: flex;
+      }
+    }
+  }
+
+  &__popup-trigger {
+    width: 30px;
+    height: 30px;
+    display: block;
+    background: url("../img/icons-header.png") -660px -110px;
+    background-size: 528px 70px;
+    cursor: pointer;
+    transition: .2s;
+    opacity: .55;
+
+    &:hover {
+      opacity: .85;
+    }
+  }
+}
