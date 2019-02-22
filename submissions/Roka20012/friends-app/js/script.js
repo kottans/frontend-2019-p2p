@@ -23,7 +23,7 @@ const addUsers = (users, container) => {
         vstavka += `${el.name.first.slice(1, el.name.first.length)} `;
         vstavka += `${el.name.last[0].toUpperCase()}`;
         vstavka += `${el.name.last.slice(1, el.name.last.length)}</span>`;
-        vstavka += `<span class="age">${el.dob.age}</span><span class="email">${el.phone}</span></div>`;
+        vstavka += `<span class="age">Age:${el.dob.age}</span>`;
         let user = document.createElement("div");
 
         usersContainer.innerHTML += vstavka;
@@ -120,8 +120,8 @@ const sortByNameAge = ({ target }) => {
 
         if (target === sortAgeByIncrease || target === sortAgeByDecrease) {
             sortedUsers = allUsers.sort((a, b) => {
-                a = +a.childNodes[2].textContent;
-                b = +b.childNodes[2].textContent;
+                a = +a.childNodes[2].textContent.split(":")[1];
+                b = +b.childNodes[2].textContent.split(":")[1];
 
                 return a - b;
             });

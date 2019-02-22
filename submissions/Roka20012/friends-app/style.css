@@ -101,11 +101,9 @@ div.user:hover {
 }
 
 .menu {
-  min-height: 400px;
   max-width: 200px;
   min-width: 160px;
   text-align: center;
-  background-color: #99909222;
 }
 
 input[type="radio"] {
