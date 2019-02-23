@@ -8,33 +8,54 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
-const INHABITANT = {
-    species: {
-        human: 'human'
-    },
-    genders: {
-        male: 'male',
-        female: 'female'
-    }
-};
-const Character = function (name, gender, legs, saying) {
+class Character{
+  constructor(name, gender, saying) {
   this.name = name;
   this.gender = gender;
-  this.legs = legs;
   this.saying = saying;
   }
-  const Cat = function (name, gender, legs, saying) {
-    Character.call(this, name, gender, legs, saying);
-    this.species = "cat";
+}
+class Animal extends Character {
+  constructor(name, gender, saying){
+    super(name, gender, saying);
+    this.legs = 4;
   }
-  const Dog = function (name, gender, legs, saying) {
-    Character.call(this, name, gender, legs, saying);
-    this.species = "dog";
+}
+class Cat extends Animal {
+  constructor(name, gender, saying){
+    super(name, gender, saying);
+    this.specie = "cat";
   }
+}
+class Dog extends Animal {
+  constructor(name, gender, saying){
+    super(name, gender, saying);
+    this.specie = "dog";
+  }
+}
+class Humanoid extends Character {
+  constructor(name, gender, saying){
+    super(name, gender, saying);
+    this.hands = 2;
+    this.legs = 2;
+  }
+}
+class Human extends Humanoid {
+  constructor(name, gender, saying) {
+    super(name, gender, saying);
+    this.specie = "human";
+  }
+}
+class Rat extends Humanoid {
+  constructor(name, gender, saying) {
+    super(name, gender, saying);
+    this.specie = "rat"
+  }
+}
   Character.prototype.sentence = function() {
     let sentence = [
         `Hey there, my name is <strong>${this.name}</strong> `,
-        `and I am a ${this.species}! `,
+        `and I am a ${this.specie}! `,
         `My gender is ${this.gender}, `,
         `in addition I have ${this.legs} legs`,
         ` and ${this.hands} hands.`,
@@ -45,25 +66,12 @@ const Character = function (name, gender, legs, saying) {
     }
    return sentence.join('');
 };
-  const Humanoid = function (name, gender, legs, hands, saying) {
-    Character.call(this, name, gender, legs, saying);
-    this.species = INHABITANT.species.human;
-      this.hands = hands;
-  }
-  const Rat = function (name, gender, legs, hands, saying) {
-    Humanoid.call(this, name, gender, legs, hands, saying);
-    this.species = "rat";
-  }
 
-  Humanoid.prototype = Object.create(Character.prototype);
-  Dog.prototype = Object.create(Character.prototype);
-  Cat.prototype = Object.create(Character.prototype);
-  Rat.prototype = Object.create(Humanoid.prototype);
-  const dog = new Dog("Paolo", INHABITANT.genders.male, 4, "Bark!");
-  const cat = new Cat("Sophie", INHABITANT.genders.female, 4, "Mur-meow?");
-  const man = new Humanoid("Pablito", INHABITANT.genders.male, 2, 2,  "It seems that we got a strange rat here...");
-  const rat = new Rat("Twitch", INHABITANT.genders.male, 2, 2, "Oh, HELLO!");
-  const catWoman = new Humanoid("Binokia", INHABITANT.genders.female, 2, 2, cat.saying)
+  const dog = new Dog("Paolo", "male", "Bark!");
+  const cat = new Cat("Sophie", "female", "Mur-meow?");
+  const man = new Human("Pablito", "male",  "It seems that we got a strange rat here...");
+  const rat = new Rat("Twitch", "male", "Oh, HELLO!");
+  const catWoman = new Human("Binokia", "female", cat.saying)
 
 let characters = [dog, cat, man, rat, catWoman];
 // ======== OUTPUT ========
