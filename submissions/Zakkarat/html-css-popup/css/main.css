@@ -1,0 +1,115 @@
+html {
+  font-family: Roboto;
+}
+
+.main {
+  display: flex;
+  justify-content: flex-end;
+}
+.main > a,.main > label {
+  margin-right: 18px;
+}
+a, .main > label {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #737373;
+}
+a:hover {
+  text-decoration: underline;
+  color: #4e4747;
+}
+#menu:checked ~ .menu {
+  display: flex;
+}
+.box {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+.menu {
+  display: none;
+  position: absolute;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 9px 1px #80808070;
+  width: 300px;
+  height: 400px;
+  margin-top: 2.3%;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 228px;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 6%;
+}
+.container:last-child {
+  margin-bottom: 15px;
+}
+.container:first-child {
+  height: 300px;
+}
+.box:hover ~ .menu  {
+}
+.hidden {
+  display: none;
+}
+.card {
+  flex-direction: column;
+  align-items: center;
+  width: 64px;
+  height: 87px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+.card:hover {
+  width: 64px;
+  height: 84px;
+  cursor: pointer;
+  border: 1px solid lightgrey;
+}
+.additional {
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  cursor: pointer;
+}
+.additionalm {
+  width: 100%;
+  height: 0px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+}
+.card > img {
+  width: 64px;
+  height: 64px;
+}
+input {
+  position: absolute;
+  left: -9999px;
+}
+label {
+  cursor: pointer;
+}
+#more:checked ~ .additional {
+  display: none;
+}
+#more:checked ~ .additionalm {
+  height: 1px;
+}
+#more:checked ~ .hidden {
+  display: flex;
+}
+hr {
+  padding-top: 100px;
+}
