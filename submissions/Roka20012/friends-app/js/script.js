@@ -146,14 +146,14 @@ const sortByNameAge = ({ target }) => {
 
 const searchByName = () => {
     setTimeout(() => {
-        let inputText = searchByNameInput.value;
+        let inputText = searchByNameInput.value.toLowerCase();
         getSelectedUsers();
 
         if (!inputText) showAllUsers(visibleUsers);
         else {
             if (!inputText) return;
             visibleUsersNames.forEach((el, i) => {
-                if (inputText !== usersFirstName[i].slice(0, inputText.length))
+                if (inputText !== usersFirstName[i].slice(0, inputText.length).toLowerCase())
                     visibleUsers[i].classList.add("hide");
                 else
                 if (visibleUsers[i].classList.contains("hide"))
