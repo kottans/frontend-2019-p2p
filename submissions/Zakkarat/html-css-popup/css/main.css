@@ -41,7 +41,6 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   width: 228px;
-  justify-content: space-between;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 6%;
@@ -60,14 +59,14 @@ a:hover {
 .card {
   flex-direction: column;
   align-items: center;
-  width: 64px;
-  height: 87px;
+  width: 74px;
+  height: 89px;
   text-align: center;
   border: 1px solid transparent;
 }
 .card:hover {
-  width: 64px;
-  height: 84px;
+  width: 74px;
+  height: 89px;
   cursor: pointer;
   border: 1px solid lightgrey;
 }
