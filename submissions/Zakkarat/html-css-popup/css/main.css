@@ -6,19 +6,17 @@ html {
   display: flex;
   justify-content: flex-end;
 }
-.main > a,.main > label {
+.refer, .icons {
   margin-right: 18px;
-}
-a, .main > label {
   margin-top: 10px;
   text-decoration: none;
   color: #737373;
 }
-a:hover {
+.refer:hover {
   text-decoration: underline;
   color: #4e4747;
 }
-#menu:checked ~ .menu {
+.boxes:checked ~ .menu {
   display: flex;
 }
 .box {
@@ -97,7 +95,9 @@ a:hover {
   cursor: pointer;
 }
 input {
-  display: none;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
 }
 .more:checked ~ .additional {
   display: none;
