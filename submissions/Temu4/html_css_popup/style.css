@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  font-family: sans-serif;
+  font-size: 13px;
+  width: 100%;
+  height: 100%;
+}
+
+/**  Header **/
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 5px 0 0;
+  list-style: none;
+}
+
+.header__link {
+  margin: 0 5px 0 5px;
+}
+
+.link__label,
+.link__label--apps {
+  color: rgb(22, 22, 24);
+  margin: 0 5px;
+}
+
+.link__label:link {
+  text-decoration: none;
+}
+
+.link__content {
+  opacity: 0.8;
+}
+
+/*****************/
+/*Change states on the inner element */
+:hover > .link__content {
+  opacity: 1;
+}
+
+:active > .link__content {
+  opacity: 0.8;
+}
+
+:focus > .link__content {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Removing default outline*/
+.link__label:focus,
+.link__label--apps:focus,
+.link__content:focus {
+  outline: none;
+}
+/*****************/
+
+/* Hide an element */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.link__label:hover {
+  text-decoration: underline;
+}
+
+.link__label:focus {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Focus to the link icon */
+.check__input:focus + * .link__icon {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/*Hide focus when checkbox :checked */
+.check__input:checked + * .link__icon {
+  box-shadow: none;
+}
+
+/* Opacity of the icons */
+.link__label--apps:hover > .link__content {
+  opacity: 1;
+}
+
+/* Show apps container after clicking the icon */
+.check__input:checked ~ .apps-box {
+  display: block;
+}
+
+/* Apps container style */
+.apps-box {
+  display: none;
+  right: 20px;
+  position: absolute;
+}
+
+.apps-box__mark {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgba(211, 211, 211, 0.6);
+  margin-left: 192px;
+}
+
+.apps-box__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 300px;
+  height: 450px;
+  padding-top: 20px;
+  background-color: white;
+  overflow-y: auto;
+  border: 1px solid rgba(211, 211, 211, 0.6);
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.app-item {
+  padding: 5px;
+  margin-left: 10px;
+  width: 68px;
+}
+
+.app-item:hover {
+  box-shadow: 0 0 5px rgba(211, 211, 211, 0.7);
+}
+
+.app-item__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.app-item__link:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/** Button More container**/
+.more-button {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(211, 211, 211, 0.3);
+}
+
+.more-button__label {
+  cursor: pointer;
+  text-align: center;
+  width: inherit;
+  height: inherit;
+  line-height: 40px;
+}
+
+.more-button:hover {
+  background-color: rgba(211, 211, 211, 0.4);
+}
+
+/* Focus to the button */
+.input__check--more:focus + * .more-button__label {
+  box-shadow: inset 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/*Hide focus when checkbox :checked */
+.input__check--more:checked ~ .more-button {
+  box-shadow: none;
+}
+/* Hide More button afrer clicking */
+.input__check--more:checked ~ .more-button {
+  display: none;
+}
+
+/* Show more apps container after clicking the button */
+.input__check--more:checked ~ .apps-box__more-list {
+  display: flex;
+}
+
+/* More apps style */
+.apps-box__more-list {
+  display: none;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: inherit;
+  height: 450px;
+}
+
+.divider {
+  margin-left: 15px;
+  width: 90%;
+  border-top: 1px solid rgba(211, 211, 211, 0.3);
+}
+
+.even-more {
+  text-align: center;
+  width: 100%;
+}
+.even-more__link {
+  color: black;
+  padding: 15px;
+}
+
+.even-more__link:link {
+  text-decoration: none;
+}
+
+.even-more__link:hover {
+  opacity: 0.8;
+}
+
+.even-more__link:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Search box */
+.search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0 180px 0;
+}
+
+/* Search laber letters */
+.label {
+  display: flex;
+  justify-content: center;
+}
+
+.label__letter {
+  padding: 5px;
+}
+
+/*Font for search label */
+@font-face {
+  font-family: "Product Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"),
+    url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
+      format("woff2");
+}
+
+.letter {
+  font-family: "Product Sans";
+  font-weight: 900;
+  font-size: 60px;
+  -webkit-user-select: none;
+}
+
+.letter--b {
+  color: rgb(38, 127, 252);
+}
+
+.letter--o {
+  color: rgb(245, 55, 21);
+}
+
+.letter--o2 {
+  color: rgb(255, 187, 0);
+}
+
+.letter--l {
+  color: rgb(26, 180, 66);
+}
+
+/* Search input field  */
+.search-box__input {
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-items: center;
+}
+
+.input__field {
+  min-width: 300px;
+  width: 100%;
+  height: 35px;
+  padding-left: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(211, 211, 211, 0.4);
+}
+
+/*****************/
+/* All the states on the inner element */
+:hover > .input__field {
+  background-color: rgba(211, 211, 211, 0.2);
+}
+
+:active > .input__field {
+  background-color: rgba(211, 211, 211, 0.2);
+}
+
+:focus > .input__field {
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Removing default outline only after we've added our custom one */
+.input:focus,
+.input__field:focus {
+  outline: none;
+}
+/*****************/
+
+.input__icon {
+  display: block;
+  widows: 10px;
+  height: 20px;
+  margin: 10px 0 0 -35px;
+}
+
+.search-box__button {
+  background-color: rgba(38, 127, 252, 0.9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 15%;
+  min-width: 68px;
+  min-height: 48px;
+  max-width: 88px;
+}
+
+.search-box__button:hover {
+  background-color: rgba(38, 127, 252, 1);
+}
+
+.search-box__button:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px rgb(0, 140, 255);
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(129, 129, 129);
+}
+
+/* Media queries */
+@media screen and (min-width: 600px) {
+  .letter {
+    font-size: 80px;
+  }
+  .input {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .letter {
+    font-size: 100px;
+  }
+}
