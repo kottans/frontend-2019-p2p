@@ -11,9 +11,10 @@ const descAge = document.getElementById("descAge");
 const male = document.getElementById("male");
 const female = document.getElementById("female");
 const close = document.getElementById("close");
+const searcher = document.getElementById("searchMob");
+const headerPopup = document.getElementsByClassName("headerMenu")[0];
 let staticPeople;
 let people;
-
 fetch("https://randomuser.me/api/?results=30&nat=us")
   .then(function(response) {
     if (response.ok) {
@@ -30,7 +31,7 @@ filter.addEventListener("click", function() {
   popUp();
 });
 
-outer.addEventListener("click", function(element) {
+headerPopup.addEventListener("click", function(element) {
   detectFunction(element);
 });
 
@@ -50,7 +51,7 @@ function alphabet(target) {
   if (target == descAlphabet) {
     people = people.reverse();
   }
-  render(people);
+  search(people);
 }
 function age(target) {
   let sortedArr = people.sort(function(a, b) {
@@ -59,17 +60,23 @@ function age(target) {
   if (target == descAge) {
     sortedArr = sortedArr.reverse();
   }
-  render(sortedArr);
+  search(sortedArr);
 }
 
 function genderFilter(target) {
   if (target == male) {
-    people = staticPeople.filter(elem => elem.gender == "male");
+    whoFiltered("male")
   } else {
-    people = staticPeople.filter(elem => elem.gender == "female");
+    whoFiltered("female");
   }
-  render(people);
+  search(people);
 }
+
+function whoFiltered(gender) {
+  people = staticPeople
+  people = people.filter(elem => elem.gender == gender);
+}
+
 function AddCard(people) {
   people.forEach(function(info) {
     CapitalNames(info);
@@ -96,7 +103,7 @@ function CapitalNames(info) {
 
 function search(people) {
   let search = new RegExp(document.getElementById("searchMob").value, "ig");
-  people = staticPeople.filter(
+  people = people.filter(
     char =>
       char.name.first.toLowerCase().match(search) ||
       char.name.last.toLowerCase().match(search)
@@ -112,7 +119,6 @@ function render(filtered) {
 function detectFunction(a) {
   let target = a.target;
   while (target != outer) {
-    if (target.tagName == "BUTTON") {
       switch (target) {
         case ascAlphabet:
         case descAlphabet:
@@ -129,8 +135,10 @@ function detectFunction(a) {
         case reset:
           render(staticPeople);
           people = staticPeople;
+          searcher.value = "";
           break;
         case close:
+        case modalWindow:
           popUp();
           break;
       }
@@ -138,9 +146,7 @@ function detectFunction(a) {
     }
     target = target.parentNode;
   }
-}
 
 function popUp() {
-  modalWindow.classList.toggle("modal-up");
-  modalContent.classList.toggle("modal-content-up");
+  headerPopup.classList.toggle("header-up");
 }

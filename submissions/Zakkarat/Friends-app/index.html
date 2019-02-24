@@ -12,52 +12,46 @@
       <header>
           <h1>Friends App</h1>
         <div class="filterContainer">
-          <div class="filterDec"><button type="submit" id="filter" class="filter" >Filter</button></div>
+          <div class="filterDec"><button type="submit" id="filter" class="filter" >Menu</button></div>
         </div>
       </header>
+      <div class="headerMenu">
+        <div class="innerMenu">
+                  <h2>Alphabetic sort</h2>
+                  <div class="buttonCont">
+                    <button id="ascAplphabet">Ascendence</button>
+                    <button id="descAlphabet">Descandence</button>
+                  </div>
+        </div>
+        <div class="innerMenu">
+              <h2>Age sort</h2>
+                <div class="buttonCont">
+                <button id="ascAge">Ascendence</button>
+                <button id="descAge">Descandence</button>
+        </div>
+        </div>
+        <div class="innerMenu">
+                  <h2>Gender sort</h2>
+                <div class="buttonCont">
+                  <button id="male">Male</button>
+                  <button id="female">Female</button>
+          </div>
+        </div>
+        <div class="innerMenu">
+          <h2>Search</h2>
+        <div class="buttonCont">
+              <input class="searchMob" type="text" id="searchMob" onkeyup="search(people)" name="SearchMob" placeholder="Search" />
+        </div>
+      </div>
+        <div class="innerMenu">
+          <div class="buttonCont">
+            <button id="reset">Reset</button>
+            <button id="close">Close</button>
+          </div>
+        </div>
+      </div>
       <main>
       </main>
-      <div class="modal">
-  <div class="modal-content">
-      <div class="outerCont">
-        <div class="innerCont">
-            <h2>Search</h2>
-          <div class="buttonCont">
-                <input class="searchMob" type="text" id="searchMob" onkeyup="search(people)" name="SearchMob" placeholder="Search" />
-          </div>
-        </div>
-        <div class="innerCont">
-            <h2>Alphabetic sort</h2>
-          <div class="buttonCont">
-            <button id="ascAplphabet">Ascendence</button>
-            <button id="descAlphabet">Descandence</button>
-          </div>
-        </div>
-        <div class="innerCont">
-          <h2>Age sort</h2>
-        <div class="buttonCont">
-          <button id="ascAge">Ascendence</button>
-          <button id="descAge">Descandence</button>
-        </div>
-        </div>
-        <div class="innerCont">
-          <h2>Gender sort</h2>
-        <div class="buttonCont">
-          <button id="male">Male</button>
-          <button id="female">Female</button>
-        </div>
-        </div>
-        <div class="innerCont">
-          <br>
-          <br>
-        <div class="buttonCont">
-          <button id="reset">Reset</button>
-          <button id="close">Close</button>
-        </div>
-        </div>
-    </div>
-    </div>
-  </div>
       <br>
       <script type="text/javascript" src="./app.js"></script>
   </body>
