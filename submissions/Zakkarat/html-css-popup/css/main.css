@@ -89,26 +89,22 @@ a:hover {
   justify-content: center;
   background-color: #e8e8e8;
 }
-.card > img {
+.icon {
   width: 64px;
   height: 64px;
 }
-input {
-  position: absolute;
-  left: -9999px;
-}
-label {
+.icons {
   cursor: pointer;
 }
-#more:checked ~ .additional {
+input {
   display: none;
 }
-#more:checked ~ .additionalm {
+.more:checked ~ .additional {
+  display: none;
+}
+.more:checked ~ .additionalm {
   height: 1px;
 }
-#more:checked ~ .hidden {
+.more:checked ~ .hidden {
   display: flex;
-}
-hr {
-  padding-top: 100px;
 }
