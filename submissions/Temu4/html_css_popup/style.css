@@ -112,15 +112,14 @@ body {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid rgba(211, 211, 211, 0.6);
-  margin-left: 166px;
+  margin-left: 192px;
 }
 
 .apps-box__list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-end;
-  width: 270px;
+  width: 300px;
   height: 450px;
   padding-top: 20px;
   background-color: white;
@@ -132,6 +131,7 @@ body {
 
 .app-item {
   padding: 5px;
+  margin-left: 10px;
   width: 68px;
 }
 
@@ -195,7 +195,6 @@ body {
 .apps-box__more-list {
   display: none;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: flex-end;
   width: inherit;
   height: 450px;
