@@ -1,287 +1,65 @@
-.popup {
-  display: none;
-  width: 320px;
-  height: 434px;
-  position: absolute;
-  box-sizing: border-box;
-  top: 62px;
-  right: 15px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
-  background: #ffffff;
-  flex-direction: column;
-  z-index: 50;
-
-  &:after,
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: 1;
-    width: 0;
-    height: 0;
-  }
-
-  &:after {
-    border-color: transparent;
-    border-bottom: solid #fff;
-    border-style: dashed dashed solid;
-    border-width: 0 8.5px 8.5px;
-    right: 88px;
-    top: -9px;
-  }
-
-  &:before {
-    border-color: transparent;
-    border-style: dashed dashed solid;
-    border-width: 0 8.5px 8.5px;
-    right: 88px;
-    border-bottom-color: rgba(0, 0, 0, .2);
-    top: -10px;
-  }
-}
-
-.popup__wrapper {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-}
-
-.popup-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 28px 18px 28px 28px;
-}
-
-.popup-list_hidden {
-  display: none;
-
-  .popup-list__item:first-child {
-    .popup-list__icon {;
-      background: url("../img/icons-popup.png") 0 -1449px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(2) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -2070px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(3) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1587px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(4) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -897px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(5) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -621px no-repeat;
-    }
-  }
-
-  .popup-list__item:last-child {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1863px no-repeat;
-    }
-  }
-
-}
-
-.popup-list_visible {
-  .popup-list__item:first-child {
-    .popup-list__icon {
-      background: url("../img/avatar-popup.png") center 100% no-repeat;
-
-    }
-  }
-
-  .popup-list__item:nth-child(2) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1311px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(3) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -207px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(4) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -552px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(5) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1035px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(6) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1104px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(7) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -2139px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(8) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(9) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -828px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(10) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -414px no-repeat;
-    }
-  }
-
-  .popup-list__item:nth-child(11) {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1656px no-repeat;
-    }
-  }
-
-  .popup-list__item:last-child {
-    .popup-list__icon {
-      background: url(../img/icons-popup.png) 0 -1518px no-repeat;
-    }
-  }
-
-}
-
-.popup-list__item {
-  width: 84px;
-  height: 84px;
+.search {
   display: flex;
   justify-content: center;
-
-  &:hover,
-  &:focus {
-    .popup-list__link {
-      border: 1px solid #e5e5e5;
-    }
-  }
-
+  padding: 0 15px;
 }
 
-.popup-list__icon {
-  height: 64px;
-  width: 64px;
-  display: block;
-  background-size: 64px 2410px;
+.search__wrapper {
+  width: 560px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.popup-list__text {
-  font-size: 13px;
-  transition: .1s;
-  color: rgba(0, 0, 0, 0.87);
-  text-decoration: none;
-  display: block;
+.search__img-container {
+  width: 75%;
+  padding-bottom: 30px;
+  background-size: cover;
 }
 
-.popup-list__link {
+.search__img {
   width: 100%;
   height: 100%;
-  border: 1px solid transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-
-  &:focus {
-    border: 1px solid #e5e5e5;
-    outline: none;
-  }
 }
 
+.search__field-container {
+  width: 100%;
+  position: relative;
+}
 
-.popup__input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.search__field-icon {
+  width: 28px;
+  height: 28px;
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  background: url("../img/audio.png") center no-repeat;
+  background-size: cover;
 }
 
-.popup__input:focus {
-  ~ .popup__trigger {
-    border: 1px solid #e5e5e5;
-  }
-}
 
-.popup__input:checked {
-  ~ .popup-list_hidden {
-    display: flex;
-  }
-
-  ~ .popup__trigger {
-    display: none;
-  }
-
-  ~ .divider {
-    display: block;
-  }
-
-  ~ .popup__link {
-    display: block;
-  }
-}
-
-.popup__trigger {
-  display: block;
+.search__field {
   width: 100%;
-  background: #f5f5f5;
-  cursor: pointer;
-  padding: 5px;
-  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  padding: 13px 45px 13px 30px;
   box-sizing: border-box;
-  text-align: center;
+  background: #F1F3F4;
+  border-radius: 22px;
+  transition: .2s;
+  color: #80868b;
   font-size: 14px;
-  border: 1px solid transparent;
-
-}
-
-.popup__link {
-  display: none;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  transition: .1s;
-  color: rgba(0, 0, 0, 0.87);
-  font-size: 13px;
-  line-height: 30px;
-  padding-bottom: 10px;
 
   &:hover,
   &:focus {
-    text-decoration: underline;
+    background: #e8eaed;
+  }
+
+  &:focus {
+    color: darken(#80868b, 10%)
   }
 }
 
-.divider {
-  margin: 0 auto;
-  background: #ebebeb;
-  width: 100%;
-  height: 1px;
-  display: none;
-}
