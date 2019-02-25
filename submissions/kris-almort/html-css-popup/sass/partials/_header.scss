@@ -31,6 +31,10 @@
     text-decoration: underline;
     opacity: .85;
   }
+
+  &:focus {
+    outline-color: #e5e5e5;
+  }
 }
 
 .top-menu__link_notifications {
@@ -60,14 +64,24 @@
 
 
 .top-menu__popup-input {
-  display: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
 
-  &:checked {
-    ~ .popup {
-      display: flex;
-    }
+.top-menu__popup-input:focus {
+  ~ .top-menu__popup-trigger {
+    border: 1px solid #e5e5e5;
   }
 }
+
+.top-menu__popup-input:checked {
+  ~ .popup {
+    display: flex;
+  }
+}
+
 
 .top-menu__popup-trigger {
   width: 30px;
@@ -78,6 +92,7 @@
   cursor: pointer;
   transition: .2s;
   opacity: .55;
+  border: 1px solid transparent;
 
   &:hover {
     opacity: .85;
