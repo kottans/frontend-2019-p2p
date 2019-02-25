@@ -274,4 +274,22 @@
   display: none;
 }
 
+@media screen and (max-width: 768px) {
+  .popup {
+    width: calc(100% - 30px);
+    height: auto;
+  }
+  .popup-list__item {
+    width: 100px;
+    height: 100px;
+  }
+
+}
+
+@media screen and (max-width: 565px) {
+  .popup-list__item {
+    width: 80px;
+    height: 84px;
+  }
+}
 
