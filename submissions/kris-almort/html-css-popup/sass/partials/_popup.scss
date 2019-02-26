@@ -223,6 +223,8 @@
   -moz-appearance: none;
   appearance: none;
   position: absolute;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .popup__input:focus,

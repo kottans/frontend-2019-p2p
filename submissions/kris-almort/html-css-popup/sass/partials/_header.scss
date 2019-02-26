@@ -72,6 +72,8 @@
   -moz-appearance: none;
   appearance: none;
   position: absolute;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .top-menu__popup-input:focus,
@@ -102,4 +104,20 @@
   &:hover {
     opacity: .85;
   }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin-bottom: 100px;
+  }
+
+}
+
+@media screen and (max-width: 565px) {
+  .header {
+    margin-bottom: 70px;
+  }
+
 }
