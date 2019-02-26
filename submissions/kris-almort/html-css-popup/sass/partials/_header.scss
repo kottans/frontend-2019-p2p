@@ -26,6 +26,7 @@
   text-decoration: none;
   transition: .1s;
   color: rgba(0, 0, 0, 0.87);
+  border: 1px solid white;
 
   &:hover {
     text-decoration: underline;
@@ -33,7 +34,10 @@
   }
 
   &:focus {
-    outline-color: #e5e5e5;
+    outline-color: darken(#e5e5e5, 20%);
+  }
+  &:active {
+    border: 1px solid darken(#e5e5e5, 20%);
   }
 }
 
@@ -70,9 +74,10 @@
   position: absolute;
 }
 
-.top-menu__popup-input:focus {
+.top-menu__popup-input:focus,
+.top-menu__popup-input:active{
   ~ .top-menu__popup-trigger {
-    border: 1px solid #e5e5e5;
+    border: 1px solid darken(#e5e5e5, 20%);
   }
 }
 
@@ -98,5 +103,3 @@
     opacity: .85;
   }
 }
-
-

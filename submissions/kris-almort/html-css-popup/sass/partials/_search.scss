@@ -54,7 +54,8 @@
   font-size: 14px;
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active {
     background: #e8eaed;
   }
 
@@ -69,4 +70,3 @@
   }
 
 }
-
