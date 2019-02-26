@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weapons Explorer</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main content -->
+      <main class="content" id="content">
+        <button class="toggle-button" id="toggleButton">
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <div class="topic">
+          <h2 class="topic__title" id="topicTitle">Please, choose the type</h2>
+          <div class="topic__img" id="topicImg"></div>
+          <p class="topic__description" id="topicDescription"></p>
+        </div>
+      </main>
+      <!-- Sidebar content -->
+      <nav class="container__side-menu side-menu" id="sideMenu">
+        <button class="menu-item" id="pistols">
+          Pistols<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" id="winchesters">
+          Winchesters<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" id="machineGuns">
+          Machine guns<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" id="sniperRifles">
+          Sniper rifles<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" id="grenades">
+          Grenades<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" id="ammunition">
+          Ammunition<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+      </nav>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
