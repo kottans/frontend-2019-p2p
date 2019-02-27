@@ -43,21 +43,13 @@ const topicTitle = document.getElementById('topicTitle');
 const topicImg = document.getElementById('topicImg');
 const topicDescription = document.getElementById('topicDescription');
 
-//Menu elements
-const pistols = document.getElementById('pistols');
-const winchesters = document.getElementById('winchesters');
-const machineGuns = document.getElementById('machineGuns');
-const sniperRifles = document.getElementById('sniperRifles');
-const grenades = document.getElementById('grenades');
-const ammunition = document.getElementById('ammunition');
-
-const menuElements = [
-  pistols,
-  winchesters,
-  machineGuns,
-  sniperRifles,
-  grenades,
-  ammunition
+const dataTypes = [
+  'pistols',
+  'winchesters',
+  'machineGuns',
+  'sniperRifles',
+  'grenades',
+  'ammunition'
 ];
 
 //Generator for content
@@ -67,10 +59,12 @@ const generateContent = (title, img, description) => {
   topicDescription.textContent = description;
 };
 
-//Create events
-for (let i = 0; i < menuElements.length; i++) {
-  menuElements[i].addEventListener('click', () => {
-    generateContent(titles[i], imgs[i], descriptions[i]);
-    sideMenu.classList.remove('visible');
-  });
-}
+//Create event (in 'Event Delegation' way)
+sideMenu.addEventListener('click', e => {
+  for (let i = 0; i < dataTypes.length; i++) {
+    if (event.target.getAttribute('data-type') === dataTypes[i]) {
+      generateContent(titles[i], imgs[i], descriptions[i]);
+      sideMenu.classList.remove('visible');
+    }
+  }
+});
