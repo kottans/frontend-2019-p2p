@@ -1,0 +1,188 @@
+* {
+	font: small arial sans-serif;
+	font-size: 15px;
+}
+
+.nav {
+	margin-top: 15px;
+}
+
+.menu, .menu_item, .popup__ul, .popup__li {
+	display: flex;
+	align-content: flex-end;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.menu_item {
+	margin-right: 20px;
+}
+
+p {
+	margin: 0;
+	padding-top: 5px;
+}
+
+
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.img-acc {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	padding: auto;
+}
+
+.popup__li:focus {
+	outline: 1px solid #46E9F8;
+}
+
+.bell_icon i {
+	cursor: pointer;
+	display: flex;
+	color: white;
+	padding: 5px;
+	width: 15px;
+	height: 15px;
+	background-color: darkgrey; 
+	border-radius: 50%;
+}
+
+.bell_icon i:hover {
+	background-color: black;
+}
+
+.menu_item__icon {
+	cursor: pointer;
+	color: lightgrey;
+}
+
+.menu_item__icon:hover {
+	color: black;
+}
+
+.visually__hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.check-pop:focus ~ .menu_item__label {
+	padding: 2px;
+	outline: 1px solid #46E9F8;
+}
+
+.menu_item:focus {
+	padding: 2px;
+	outline: 1px solid #46E9F8;
+}
+
+.popup {
+	overflow: hidden;
+	width: 340px;
+	max-height: 550px;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	position: absolute;
+	right: 24px;
+	top: 55px;
+	display: none;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.popup:hover {
+	overflow-y: scroll;
+}
+
+::-webkit-scrollbar{
+	left: 5px;
+	width: 0px;
+	position: absolute;
+}
+
+.check-pop:checked ~ .popup {
+	display: block;
+}
+
+.popup__ul {
+	padding: 30px;
+}
+
+.popup__ul li {
+	width: 33%;
+	height: 90px;
+	align-items: center;
+	cursor: pointer;
+	justify-content: center;
+}
+
+.popup__ul li:hover {
+	border: 2px ridge #F5F5F5;		
+}
+
+.button_more {
+	display: block;
+	background: lightgrey;
+	border: 1px solid lightgrey;
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.second-pop {
+	display: none;
+}
+
+.label-but-more {
+	display: block;
+	background: #F5F5F5;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0;
+}
+
+.horizontalline {
+	display: none;
+}
+
+.button_more:focus ~ .label-but-more{
+	outline: 1px solid #46E9F8;
+}
+
+.button_more:checked ~ .label-but-more{
+	display: none;
+}
+
+.button_more:checked ~ hr {
+	display: block;
+	color: #F5F5F5;
+	width: 82%;
+	margin: 0 20px;
+
+}
+
+.button_more:checked ~ .second-pop{
+	display: block;
+}
+
