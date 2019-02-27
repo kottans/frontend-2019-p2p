@@ -36,6 +36,7 @@
   &:focus {
     outline-color: darken(#e5e5e5, 20%);
   }
+
   &:active {
     border: 1px solid darken(#e5e5e5, 20%);
   }
@@ -72,12 +73,16 @@
   -moz-appearance: none;
   appearance: none;
   position: absolute;
-  visibility: hidden;
   opacity: 0;
 }
 
-.top-menu__popup-input:focus,
-.top-menu__popup-input:active{
+.top-menu__popup-input:focus {
+  ~ .top-menu__popup-trigger {
+    outline: 2px solid darken(#e5e5e5, 20%);
+  }
+}
+
+.top-menu__popup-input:active {
   ~ .top-menu__popup-trigger {
     border: 1px solid darken(#e5e5e5, 20%);
   }
@@ -94,10 +99,11 @@
   width: 30px;
   height: 30px;
   display: block;
-  background: url("../img/icons-header.png") -660px -110px;
+  background-position: -660px -110px;
+  background-image: url("../img/icons-header.png");
   background-size: 528px 70px;
   cursor: pointer;
-  transition: .2s;
+  transition: background-image .2s;
   opacity: .55;
   border: 1px solid transparent;
 
@@ -105,7 +111,6 @@
     opacity: .85;
   }
 }
-
 
 
 @media screen and (max-width: 768px) {
