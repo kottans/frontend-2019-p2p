@@ -7,7 +7,6 @@
       format('woff2');
 }
 
-html,
 body {
   height: 100%;
   width: 100%;
@@ -96,6 +95,7 @@ body {
   border: 1px solid white;
   border-radius: 5px;
   color: white;
+  margin-left: 20px;
 }
 
 .toggle-button:hover {
@@ -114,6 +114,7 @@ body {
 
 .topic {
   text-align: center;
+  margin: 0px 20px 20px 0px;
 }
 
 .topic__title {
@@ -126,6 +127,31 @@ body {
   background-size: 200px;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+/**Images content **/
+.img--pispols {
+  background-image: url('img/pistols.png');
+}
+
+.img--winchesters {
+  background-image: url('img/winchesters.png');
+}
+
+.img--machineGuns {
+  background-image: url('img/machine-gun.png');
+}
+
+.img--sniperRifles {
+  background-image: url('img/sniper.png');
+}
+
+.img--grenades {
+  background-image: url('img/granades.png');
+}
+
+.img--ammunition {
+  background-image: url('img/ammo.png');
 }
 
 @media screen and (min-width: 600px) {

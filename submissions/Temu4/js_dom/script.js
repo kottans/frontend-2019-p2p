@@ -21,12 +21,12 @@ const titles = [
   'Ammunition'
 ];
 const imgs = [
-  'url(img/pistols.png)',
-  'url(img/winchesters.png)',
-  'url(img/machine-gun.png)',
-  'url(img/sniper.png)',
-  'url(img/granades.png)',
-  'url(img/ammo.png)'
+  'img--pispols',
+  'img--winchesters',
+  'img--machineGuns',
+  'img--sniperRifles',
+  'img--grenades',
+  'img--ammunition'
 ];
 
 const descriptions = [
@@ -53,9 +53,8 @@ const dataTypes = [
 ];
 
 //Generator for content
-const generateContent = (title, img, description) => {
+const generateContent = (title, description) => {
   topicTitle.textContent = title;
-  topicImg.style.backgroundImage = img;
   topicDescription.textContent = description;
 };
 
@@ -63,7 +62,13 @@ const generateContent = (title, img, description) => {
 sideMenu.addEventListener('click', e => {
   for (let i = 0; i < dataTypes.length; i++) {
     if (event.target.getAttribute('data-type') === dataTypes[i]) {
-      generateContent(titles[i], imgs[i], descriptions[i]);
+      //reset img to default class
+      topicImg.classList = 'topic__img';
+      //insert title and description
+      generateContent(titles[i], descriptions[i]);
+      //add class with image
+      topicImg.classList.add(imgs[i]);
+      //hide sidebar menu (only for screens less then 600px)
       sideMenu.classList.remove('visible');
     }
   }
