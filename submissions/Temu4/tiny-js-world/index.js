@@ -43,32 +43,20 @@ const cat = {
   speach: 'Meow!'
 };
 
-//Create massage from object properties
-const createMassage = obj => {
-  let species = obj['species'];
-  let gender = obj['gender'];
-  let name = obj['name'];
-  let age = obj['age'];
-  let hands = obj['hands'];
-  let legs = obj['legs'];
-  let hobby = obj['hobby'];
-  let speach = obj['speach'];
+//Create message from object properties
+const createMessage = obj => {
+  let msg1 = `\t${obj.speach} This is <strong>${obj.name}</strong>. `;
+  let msg2 = ` is a ${obj.species} (with ${obj.hands} hands and ${
+    obj.legs
+  } legs), age: ${obj.age}.\n`;
+  let msg3 = ` enjoy of ${obj.hobby}`;
 
-  let massage = `${speach} This is <strong>${obj.name}</strong>. `;
+  let message = '';
 
-  if (gender === 'male') {
-    return (massage += `He is a ${obj.species} (with ${obj.hands} hands and ${
-      obj.legs
-    } legs), age: ${obj.age}.\n He enjoy of ${obj.hobby}.`);
-  } else if (gender === 'female') {
-    return (massage += `She is a ${obj.species} (with ${obj.hands} hands and ${
-      obj.legs
-    } legs), age: ${obj.age}.\n She enjoy of ${obj.hobby}.`);
-  }
-  return massage;
+  obj.gender === 'male' ? (person = 'He') : (person = 'She');
+
+  return (message += msg1 + person + msg2 + person + msg3);
 };
+
 // ======== OUTPUT ========
-print(createMassage(man));
-print(createMassage(woman));
-print(createMassage(dog));
-print(createMassage(cat));
+[man, woman, dog, cat].forEach(item => print(createMessage(item)));
