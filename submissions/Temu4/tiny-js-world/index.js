@@ -45,19 +45,17 @@ const cat = {
 
 //Create message from object properties
 const createMessage = obj => {
-  let msg1 = `\t${obj.speach} This is <strong>${obj.name}</strong>. `;
-  let msg2 = ` is a ${obj.species} (with ${obj.hands} hands and ${
-    obj.legs
-  } legs), age: ${obj.age}.\n`;
-  let msg3 = ` enjoy of ${obj.hobby}`;
-
-  let message = '';
   let person;
 
   obj.gender === 'male' ? (person = 'He') : (person = 'She');
 
-  return (message += msg1 + person + msg2 + person + msg3);
+  return [
+    `${obj.speach} This is <strong>${obj.name}</strong>.`,
+    person,
+    `is a ${obj.species} (with ${obj.hands} hands and ${obj.legs} legs), age: ${obj.age}.\n`,
+    person,
+    `enjoy of ${obj.hobby}.`
+  ].join(' ');
 };
-
 // ======== OUTPUT ========
 [man, woman, dog, cat].forEach(item => print(createMessage(item)));
