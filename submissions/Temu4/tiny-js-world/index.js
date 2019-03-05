@@ -52,6 +52,7 @@ const createMessage = obj => {
   let msg3 = ` enjoy of ${obj.hobby}`;
 
   let message = '';
+  let person;
 
   obj.gender === 'male' ? (person = 'He') : (person = 'She');
 
