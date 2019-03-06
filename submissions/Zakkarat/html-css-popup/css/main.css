@@ -1,10 +1,7 @@
-html {
-  font-family: Roboto;
-}
-
 .main {
   display: flex;
   justify-content: flex-end;
+  font-family: Roboto;
 }
 .refer, .icons {
   margin-right: 18px;
@@ -94,7 +91,7 @@ html {
 .icons {
   cursor: pointer;
 }
-input {
+.hideBoxes {
   -webkit-appearance: none;
   -moz-appearance:    none;
   appearance:         none;
