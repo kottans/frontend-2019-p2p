@@ -1,0 +1,128 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 0;
+  position: relative;
+  margin-bottom: 170px;
+}
+
+.top-menu {
+  display: flex;
+  padding: 0 15px;
+  align-items: center;
+}
+
+.top-menu__link-container {
+  line-height: 30px;
+  padding: 0 15px 0 0;
+  font-size: 13px;
+
+  &:last-child {
+    padding: 0;
+  }
+}
+
+.top-menu__link {
+  text-decoration: none;
+  transition: .1s;
+  color: rgba(0, 0, 0, 0.87);
+  border: 1px solid white;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: .85;
+  }
+
+  &:focus {
+    outline-color: darken(#e5e5e5, 20%);
+  }
+
+  &:active {
+    border: 1px solid darken(#e5e5e5, 20%);
+  }
+}
+
+.top-menu__link_notifications {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: .55;
+  cursor: pointer;
+  transition: .2s;
+  background: url("../img/icons-header.png") -694px -89px rgba(0, 0, 0, .55);
+  background-size: 508px 68px;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, .85);
+  }
+}
+
+.top-menu__link_profile {
+  display: block;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: url("../img/avatar.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+
+.top-menu__popup-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.top-menu__popup-input:focus {
+  ~ .top-menu__popup-trigger {
+    outline: 2px solid darken(#e5e5e5, 20%);
+  }
+}
+
+.top-menu__popup-input:active {
+  ~ .top-menu__popup-trigger {
+    border: 1px solid darken(#e5e5e5, 20%);
+  }
+}
+
+.top-menu__popup-input:checked {
+  ~ .popup {
+    display: flex;
+  }
+}
+
+
+.top-menu__popup-trigger {
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-position: -660px -110px;
+  background-image: url("../img/icons-header.png");
+  background-size: 528px 70px;
+  cursor: pointer;
+  transition: background-image .2s;
+  opacity: .55;
+  border: 1px solid transparent;
+
+  &:hover {
+    opacity: .85;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .header {
+    margin-bottom: 100px;
+  }
+
+}
+
+@media screen and (max-width: 565px) {
+  .header {
+    margin-bottom: 70px;
+  }
+
+}
