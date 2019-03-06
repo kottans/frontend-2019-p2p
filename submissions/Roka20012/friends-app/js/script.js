@@ -45,7 +45,7 @@ const getSelectedUsers = () => {
         }
     });
 
-    usersFirstName = visibleUsersNames.map(el => el.textContent.split(" ")[0]);
+    usersFirstName = visibleUsersNames.map(el => el.textContent.split(" "));
 };
 
 const checkByGender = ({ target }) => {
@@ -103,7 +103,7 @@ const resetUsers = () => {
 let targetNameAge = true;
 
 const sortByNameAge = ({ target }) => {
-    if(targetNameAge === false || targetNameAge === target) return;
+    if (targetNameAge === false || targetNameAge === target) return;
     if (target === sortAgeByIncrease || target === sortAgeByDecrease ||
         target === sortNameByIncrease || target === sortNameByDecrease) {
         sortNameByDecrease.checked = false;
@@ -113,7 +113,6 @@ const sortByNameAge = ({ target }) => {
 
         targetNameAge = target;
         target.checked = true;
-
 
         let allUsers = [...document.querySelectorAll("div.user")];
         let sortedUsers;
@@ -127,8 +126,8 @@ const sortByNameAge = ({ target }) => {
             });
         } else {
             sortedUsers = allUsers.sort((a, b) => {
-                a = a.childNodes[1].textContent.split(" ")[0];
-                b = b.childNodes[1].textContent.split(" ")[0];
+                a = a.childNodes[1].textContent.split(" ");
+                b = b.childNodes[1].textContent.split(" ");
 
                 if (a < b) return -1;
                 if (a > b) return 1;
@@ -142,7 +141,7 @@ const sortByNameAge = ({ target }) => {
         usersContainer.innerHTML = "";
         sortedUsers.forEach((el) => usersContainer.appendChild(el));
     }
-}; 
+};
 
 const searchByName = () => {
     setTimeout(() => {
@@ -153,10 +152,9 @@ const searchByName = () => {
         else {
             if (!inputText) return;
             visibleUsersNames.forEach((el, i) => {
-                if (inputText !== usersFirstName[i].slice(0, inputText.length).toLowerCase())
+                if (!usersFirstName[i].join(" ").toLowerCase().includes(inputText.toLowerCase())) {
                     visibleUsers[i].classList.add("hide");
-                else
-                if (visibleUsers[i].classList.contains("hide"))
+                } else if (visibleUsers[i].classList.contains("hide"))
                     visibleUsers[i].classList.remove("hide");
             });
         }
