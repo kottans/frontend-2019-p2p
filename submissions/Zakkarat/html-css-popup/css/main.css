@@ -59,6 +59,12 @@
   text-align: center;
   border: 1px solid transparent;
 }
+.card:focus {
+  outline: auto;
+}
+.boxes:focus + .icons, .more:focus + .additional {
+    outline: auto;
+}
 .card:hover {
   width: 74px;
   height: 89px;
