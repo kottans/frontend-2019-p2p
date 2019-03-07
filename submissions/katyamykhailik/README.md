@@ -8,7 +8,7 @@
 
 ## Linux CLI, and HTTP
 
-<img src="/task_linux_cli/command-line-codecademy.jpg" />
+<img src="/katyamykhailik/task_linux_cli/command-line-codecademy.jpg" />
 
 ## Git Collaboration
 
