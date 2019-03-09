@@ -1,16 +1,18 @@
 "use strict";
 
-const getUsers = () => {
-    const url = new URL("https://randomuser.me/api/?results=30");
-    let xhr = new XMLHttpRequest();
+// const getUsers = () => {
+//     const url = new URL("https://randomuser.me/api/?results=30");
+//     let xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url, false);
-    xhr.send();
-    if (xhr.status != 200) console.log(xhr.status + ': ' + xhr.statusText);
-    else return JSON.parse(xhr.responseText).results;
-};
+//     xhr.open('GET', url, false);
+//     xhr.send();
+//     if (xhr.status != 200) console.log(xhr.status + ': ' + xhr.statusText);
+//     else return JSON.parse(xhr.responseText).results;
+// };
 
-let users = getUsers();
+// let users = getUsers();
+
+
 let container = document.querySelector(".container");
 
 const addUsers = (users, container) => {
@@ -31,6 +33,32 @@ const addUsers = (users, container) => {
 
     container.appendChild(usersContainer);
 };
+
+let users;
+let usersContainer;
+let female;
+let male;
+let allUsers;
+let showFemale;
+let showMale;
+let showAll;
+
+fetch("https://randomuser.me/api/?results=30")
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        users = data.results;
+        addUsers(users, container);
+        usersContainer = document.querySelector(".users-container");
+        female = [...document.querySelectorAll("div.female")];
+        male = [...document.querySelectorAll("div.male")];
+        allUsers = document.querySelectorAll("div.user");
+        showFemale = document.querySelector(".female");
+        showMale = document.querySelector(".male");
+        showAll = document.querySelector(".all");
+    })
+    .catch( alert );
 
 const showAllUsers = (users) => {
     let hideUsers = users || [...document.querySelectorAll(".hide")];
@@ -62,11 +90,7 @@ const checkByGender = ({ target }) => {
     } else if (target === showAll) searchByName();
 };
 
-addUsers(users, container);
 let menu = document.querySelector(".menu");
-let female = [...document.querySelectorAll("div.female")];
-let male = [...document.querySelectorAll("div.male")];
-let allUsers = document.querySelectorAll("div.user");
 
 const sortNameByIncrease = document.querySelector(".name-up");
 const sortNameByDecrease = document.querySelector(".name-down");
@@ -74,16 +98,12 @@ const sortAgeByIncrease = document.querySelector(".age-up");
 const sortAgeByDecrease = document.querySelector(".age-down");
 const reset = document.querySelector(".reset");
 const searchByNameInput = document.querySelector(".search-by-name");
-const showFemale = document.querySelector(".female");
-const showMale = document.querySelector(".male");
-const showAll = document.querySelector(".all");
 const checkGender = [...document.querySelectorAll("input[name='gender']")];
 
 let visibleUsers;
 let visibleUsersNames;
 let usersFirstName;
 
-let usersContainer = document.querySelector(".users-container");
 
 const resetUsers = () => {
     let buttons = [...document.querySelectorAll("input[type='radio']")];
