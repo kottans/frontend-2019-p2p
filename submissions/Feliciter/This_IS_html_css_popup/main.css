@@ -1,0 +1,416 @@
+body, 
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  color: rgb(66, 66, 66);
+  font-weight:400;
+}
+
+.header {
+  margin-top: 15px;
+  transition: min-height 0.3s;
+}
+
+.nav {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+
+.nav__list {
+  min-width: 226px;
+  align-items:center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.nav__item {
+  display: inline-block;
+  line-height: 24px;
+  outline: none;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #616161;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  color: #212121;
+}
+
+.mi{
+    width: 30px;
+    height: 30px ;
+    vertical-align: middle;
+}
+
+
+.dec_circle{
+  background-image: url( 'images/account.svg') ;
+  background-size: 35px 35px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  margin: -1px;
+  overflow: hidden;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  z-index: 0;
+  padding-bottom: 5px;
+}
+
+#circle {
+   color: #000;
+   cursor: pointer;
+   text-decoration: none;
+   text-decoration: none;
+}
+
+
+
+/******/
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 200ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay.light {
+  background: rgba(255, 255, 255, 0.5);
+}
+.overlay .cancel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  background: #fff;
+  border: 1px solid #666;  
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  position: relative;
+  /* height: 360px; */
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+  width: 305px;
+  outline: none; 
+  position: absolute;
+  right: 20px;
+  top: 55px;
+
+}
+
+/**треугольник*/
+
+.tr{
+  display: block;
+  margin: 0 auto;
+  margin-left: 220px;
+  position: absolute;
+    border-color: transparent;
+  border-bottom-color: #cccc;
+  border-style: solid solid  solid;
+  border-width: 0 8.5px 8.5px;
+  z-index: 1;
+  width: 0;
+  top:-10px;
+ 
+}
+
+
+.light .popup {
+  border-color: #aaa;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+.popup h2 {
+  margin-top: 0;
+  color: #666;
+  font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 20px;
+  right: 20px;
+  opacity: 0.8;
+  transition: all 200ms;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #666;
+}
+.popup .close:hover {
+  opacity: 1;
+}
+.popup .content {
+  max-height: 600px;
+  /* overflow: auto; */
+}
+.popup p {
+  margin: 0 0 1em;
+}
+.popup p:last-child {
+  margin: 0;
+}
+
+
+/********** menu **/
+.listicons{ 
+  position: relative;
+  display: block;
+  background: #fff;
+  margin: 0;
+  /* min-height: 350px; */
+  padding: 5px;
+  padding-right: 5px;
+  text-align: center;
+  white-space: normal;
+ }
+
+ .icoitem { 
+    padding: 1px;
+    display: inline-block;
+    vertical-align: top;
+    z-index: 999;
+    height: 98px;
+    width: 86px;
+    margin: 1px;
+    padding-bottom: 2px;
+  }
+
+  .icoitem_a {
+  text-decoration: none;
+  color: black;
+  }
+
+.img{
+  display: inline-block;
+  height: 64px;
+  width: 64px;
+ }
+
+ 
+ 
+
+ .img_Z {
+  font-size: 13px;
+  margin: 8px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 84px;
+  text-overflow: ellipsis;
+  background: rgba(255,255,255,.9);
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+  
+
+.img .img_Z { 
+  display: inline-block;
+  height: 64px;
+  vertical-align: top;
+  width: 64px;
+ }
+
+
+
+/***рамки**/
+
+
+.icoitem:before,
+.icoitem:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 98px;
+  width: 86px;
+  border: lightgray solid 1px;
+  transition: all 0.2s ease-in-out;
+  opacity: 0.5;
+  visibility: hidden;
+}
+
+
+
+.icoitem:hover:before,
+.bicoitem:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/**more*/
+
+.more{
+  display: block;
+  line-height: 35px;
+  text-align: center;
+  width: 305px;
+  background: #f5f5f5;
+  cursor: pointer;
+  height: 35px;
+  overflow: hidden;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.line{
+  border-bottom: 1px solid red;
+}
+
+
+#element-target{
+  display: none;
+}
+
+
+/***/
+
+#input:focus + label {
+  outline: auto;
+  cursor: pointer;
+}
+
+
+
+div#cont {
+  display: none;
+  }
+
+
+
+/*work ext */
+#input:checked ~ div#cont {
+  display: block;
+ 
+}
+
+/*work ext */
+#input:checked ~ .more{
+  display: none;
+ 
+}
+
+
+
+.visually-hidden{
+  clear: rect(0 0 0 0);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+
+
+/***images****/
+.book{
+  background:url( 'images/svg/book.svg') no-repeat top left;
+}
+
+.brainstorm{
+  background:url( 'images/svg/brainstorm.svg') no-repeat top left;
+}
+.calculation{
+  background:url( 'images/svg/calculation.svg') no-repeat top left;
+}
+.chat{
+  background:url( 'images/svg/chat.svg') no-repeat top left;
+}
+.id-card{
+  background:url( 'images/svg/id-card.svg') no-repeat top left;
+}
+.laptop{
+  background:url( 'images/svg/laptop.svg') no-repeat top left;
+}
+.smartphone{
+  background:url( 'images/svg/smartphone.svg') no-repeat top left;
+}
+.student{
+  background:url( 'images/svg/student.svg') no-repeat top left;
+}
+.workspace{
+  background:url( 'images/svg/workspace.svg') no-repeat top left;
+}
+.writing{
+  background:url( 'images/svg/writing.svg') no-repeat top left;
+}
+.notebook{
+  background:url( 'images/svg/notebook.svg') no-repeat top left;
+}
+.painting-palette{
+  background:url( 'images/svg/painting-palette.svg') no-repeat top left;
+}
+
+
+
+.alarm-clock{
+  background:url( 'images/svg/alarm-clock.svg') no-repeat top left;
+}
+
+.desktop{
+  background:url( 'images/svg/desktop.svg') no-repeat top left;
+}
+
+.abacus{
+  background:url( 'images/svg/abacus.svg') no-repeat top left;
+}
+
+
+
+.conference{
+  background:url( 'images/svg/conference.svg') no-repeat top left;
+}
+
+.email-1{
+  background:url( 'images/svg/email-1.svg') no-repeat top left;
+}
+
+.ereader-1{
+  background:url( 'images/svg/ereader-1.svg') no-repeat top left;
+}
+
+
+
+.graduate{
+  background:url( 'images/svg/graduate.svg') no-repeat top left;
+}
+
+
+.bell{
+  background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMDAgMzAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDAgMzAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTE0OS45OTYsMEM2Ny4xNTcsMCwwLjAwMSw2Ny4xNjEsMC4wMDEsMTQ5Ljk5N1M2Ny4xNTcsMzAwLDE0OS45OTYsMzAwczE1MC4wMDMtNjcuMTYzLDE1MC4wMDMtMTUwLjAwMyAgICBTMjMyLjgzNSwwLDE0OS45OTYsMHogTTE0OS45OTksMjMyLjk1MWMtMTAuNzY2LDAtMTkuNDk5LTguNzI1LTE5LjQ5OS0xOS40OTloMzguOTk1ICAgIEMxNjkuNDk3LDIyNC4yMjYsMTYwLjc2NSwyMzIuOTUxLDE0OS45OTksMjMyLjk1MXogTTIxNS44ODksMTkzLjloLTAuMDA1di0wLjAwMWMwLDcuMjEtNS44NDMsNy42ODUtMTMuMDQ4LDcuNjg1SDk3LjE2ICAgIGMtNy4yMDgsMC0xMy4wNDYtMC40NzUtMTMuMDQ2LTcuNjg1di0xLjI0MmMwLTUuMTg1LDMuMDQ1LTkuNjI1LDcuNDItMTEuNzMxbDQuMTQyLTM1Ljc1M2MwLTI2LjE3NCwxOC41MS00OC4wMiw0My4xNTItNTMuMTc0ICAgIHYtMTMuODhjMC02LjE3LDUuMDAzLTExLjE3MywxMS4xNzYtMTEuMTczYzYuMTcsMCwxMS4xNzMsNS4wMDMsMTEuMTczLDExLjE3M1Y5MmMyNC42NDIsNS4xNTMsNDMuMTUyLDI2Ljk5Nyw0My4xNTIsNTMuMTc0ICAgIGw0LjE0MiwzNS43NThjNC4zNzUsMi4xMDksNy40MTgsNi41NDEsNy40MTgsMTEuNzI2VjE5My45eiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)
+}
