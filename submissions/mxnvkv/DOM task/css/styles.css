@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+/* font-family: 'Work Sans', sans-serif; */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/* font-family: 'Lato', sans-serif; */
+
+/*
+--------------------------------------------------------------------
+********************************************************************
+
+                                Navigation
+
+********************************************************************
+--------------------------------------------------------------------
+*/
+
+nav {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    overflow-x: hidden;
+
+    width: 0;
+    height: 100%;
+
+    transition: .7s;
+
+    background-color: #0C0C0C;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    height: auto;
+}
+
+.cross {
+    display: inline-block;
+
+    transition: .3s;
+    text-decoration: none;
+
+    color: #B2B2B2;
+
+    font-size: 50px;
+}
+
+.cross:hover {
+    color: white;
+}
+
+ul {
+    margin-top: 100px;
+    padding: 0;
+
+    text-align: center;
+}
+
+li {
+    padding: 0;
+}
+
+li:nth-child(n+2) {
+    margin-top: 30px;
+}
+
+li a {
+    transition: .3s;
+    text-decoration: none;
+
+    color: #B2B2B2;
+
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+}
+
+li a:hover {
+    color: white;
+}
+
+/*
+--------------------------------------------------------------------
+********************************************************************
+
+                                Header
+
+********************************************************************
+--------------------------------------------------------------------
+*/
+
+header {
+    width: 100%;
+    height: 100px;
+
+    color: white;
+    background-color: #010101;
+
+    font-family: 'Work Sans', sans-serif;
+}
+
+.menu-wrapper {
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100px;
+    height: 100px;
+}
+
+.menu-wrapper a {
+    position: absolute;
+
+    display: inline-block;
+    align-self: center;
+
+    width: 50px;
+    height: 50px;
+
+    background-image: url(../img/menu.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+h1 {
+    display: inline-block;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 50px;
+    line-height: 100px;
+}
+
+/*
+--------------------------------------------------------------------
+********************************************************************
+
+                                Main
+
+********************************************************************
+--------------------------------------------------------------------
+*/
+
+.main {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+
+    width: auto;
+    height: calc(100vh - 100px);
+    padding: 50px;
+
+    background-color: #7D8CA3;
+}
+
+img {
+    align-self: center;
+
+    width: 500px;
+    margin-bottom: 50px;
+
+    border: 1px solid black;
+}
+
+p {
+    color: white;
+
+    font-family: 'Lato', sans-serif;
+    line-height: 25px;
+}
+
+/*
+--------------------------------------------------------------------
+********************************************************************
+
+                            Media queries
+
+********************************************************************
+--------------------------------------------------------------------
+*/
+
+@media (max-width: 1100px) {
+    .main {
+        height: auto;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        height: 80px;
+    }
+
+    .menu-wrapper {
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu-wrapper a {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cross {
+        font-size: 40px;
+    }
+
+    ul {
+        margin-top: 50px;
+    }
+
+    li:nth-child(n+2) {
+        margin-top: 20px;
+    }
+
+    li a {
+        font-size: 25px;
+    }
+
+    h1 {
+        font-size: 35px;
+        line-height: 80px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 30px;
+    }
+}
