@@ -71,13 +71,13 @@ const generateContent = (title, img, description) => {
 
 //Create event (in 'Event Delegation' way)
 sideMenu.addEventListener('click', e => {
-  for (let i = 0; i < dataBase.length; i++) {
-    if (event.target.getAttribute('data-type') === dataBase[i]['type']) {
-      //reset img to default class
+  dataBase.forEach(element => {
+    if (event.target.getAttribute('data-type') === element['type']) {
+      //reset title img to default class
       topicImg.classList = 'topic__img';
-      generateContent(dataBase[i]['title'], dataBase[i]['img'], dataBase[i]['description']);
+      generateContent(element['title'], element['img'], element['description']);
       //hide sidebar menu (only for screens less then 600px)
       sideMenu.classList.remove('visible');
     }
-  }
+  });
 });
