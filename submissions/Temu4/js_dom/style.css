@@ -119,6 +119,7 @@ body {
 
 .topic__title {
   color: #e2e615;
+  text-transform: capitalize;
 }
 
 .topic__img {
