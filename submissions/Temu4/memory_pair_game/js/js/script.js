@@ -22,11 +22,7 @@ const imagesForCards = [
 
 //shuffle items in array
 const Shuffle = arr => {
-  for (
-    let j, x, i = arr.length;
-    i;
-    j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x
-  );
+  for (let j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
   return arr;
 };
 
@@ -47,12 +43,19 @@ let selectionArr = [];
 
 const compareCards = event => {
   if (selectionArr.length === 2) {
+    //prevent content for clicking
+    content.classList.add('disabled');
     //checking for unique class name
     //(-7 and -8 from this.length meens - delete class rotate, that adds by fn rotateCard)
     selectionArr[0].slice(0, this.length - 7) === selectionArr[1].slice(0, this.length - 8) ||
     selectionArr[0].slice(0, this.length - 8) === selectionArr[1].slice(0, this.length - 7)
-      ? hideAfterCorrectSelection()
-      : setTimeout(defaultCardsPosition, 800);
+      ? //allow content for clicking & hide cards
+        (content.classList.remove('disabled'), hideAfterCorrectSelection())
+      : //allow content for clicking & rotate reverse cards
+        setTimeout(() => {
+          content.classList.remove('disabled');
+          defaultCardsPosition();
+        }, 750);
     return (selectionArr = []);
   }
 };
@@ -86,10 +89,14 @@ const showGameScore = () => {
 };
 
 const generateGameResultMassage = () => {
-  return counter === 12
-    ? (gameResult.innerHTML = `<p><strong>Your are lucky!!!</strong></p>It's the best result!`)
-    : (gameResult.innerHTML = `<p><strong>Congratulations!</strong></p>
-    Your result is: ${counter}`);
+  let resultMassage1 = [`Awesome`, `It's the best result!`, `Your are lucky!!!`];
+  let resultMassage2 = [`Congratulation!`, `Your result is: ${counter}`, `For improving, please, try again!`];
+  let resultMassage3 = [`You can better!`, `Your result is: ${counter}`, `Try again!`];
+  for (let i = 0; i < 3; i++) {
+    if (counter === 12) gameResult.children[i].textContent = resultMassage1[i];
+    else if (counter > 12 && counter <= 20) gameResult.children[i].textContent = resultMassage2[i];
+    else gameResult.children[i].textContent = resultMassage3[i];
+  }
 };
 
 const showGameResult = () => {
@@ -107,7 +114,7 @@ const showGameResult = () => {
   ) {
     gameResult.classList.toggle('hide');
     generateGameResultMassage();
-    setTimeout(() => window.location.reload(), 10000);
+    setTimeout(() => window.location.reload(), 7000);
   }
 };
 
