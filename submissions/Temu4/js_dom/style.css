@@ -28,9 +28,6 @@ body {
   height: auto;
   background-color: transparent;
   color: #efefef;
-}
-
-.container__side-menu {
   margin-top: 25px;
   position: absolute;
   -webkit-transform: translate(-300px, 0);
