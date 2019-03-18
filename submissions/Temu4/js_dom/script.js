@@ -1,7 +1,7 @@
 //Toggle sidemenu
-const sideMenu = document.getElementById('sideMenu');
-const content = document.getElementById('content');
-const toggleButton = document.getElementById('toggleButton');
+const sideMenu = document.querySelector('.side-menu');
+const content = document.querySelector('.content');
+const toggleButton = document.querySelector('.toggle-button');
 
 toggleButton.addEventListener('click', event => {
   sideMenu.classList.toggle('visible');
@@ -58,9 +58,9 @@ const dataBase = [
 ];
 
 //Content elements
-const topicTitle = document.getElementById('topicTitle');
-const topicImg = document.getElementById('topicImg');
-const topicDescription = document.getElementById('topicDescription');
+const topicTitle = document.querySelector('.topic__title');
+const topicImg = document.querySelector('.topic__img');
+const topicDescription = document.querySelector('.topic__description');
 
 //Generator for content
 const generateContent = (title, img, description) => {
