@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MARVEL Heros</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="fonImg">
+    <main>
+        <div class="main-container">
+            <nav>
+                <div class="logo-wrap"></div>
+                <div class="menu-wrap">
+                    <ul class="menu-wrap-list-item">
+                        <li class="menu-wrap-list-item active">
+                            <a href="#" data-href="home">Home</a>
+                        </li>
+                        <li class="menu-wrap-list-item">
+                            <a href="#" data-href="heros">Heros</a>
+                        </li>
+                        <li class="menu-wrap-list-item">
+                            <a href="#" data-href="comics">Comics</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main-content">
+                <span class="load-data"></span>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+        window.onload = () => {
+            drawMainPage();
+        }
+    </script>
+</body>
+
+</html>
