@@ -1,69 +1,73 @@
 // ======== OBJECTS DEFINITIONS ========
 class Creature {
-  constructor(name, age, hobby, hands, legs, species, gender) {
-    this.name = name;
-    this.age = age;
-    this.hands = hands;
-    this.legs = legs;
-    this.hobby = hobby;
+  constructor(species, gender, name, age, hobby, legs) {
     this.species = species;
     this.gender = gender;
+    this.name = name;
+    this.age = age;
+    this.legs = legs;
+    this.hobby = hobby;
   }
 }
 
 class Human extends Creature {
-  constructor(name, age, hobby, profession) {
-    super(name, age, hobby);
-    this.species = 'human';
-    this.hands = 2;
-    this.legs = 2;
-    this.profession = profession;
+  constructor(gender, name, age, hobby, legs = 2, hands = 2) {
+    super('human', gender, name, age, hobby, legs, hands);
   }
 }
 
 class Man extends Human {
-  constructor(name, age, hobby, profession) {
-    super(name, age, hobby, profession);
-    this.gender = 'male';
-    this.greeting = this.greeting.bind(this);
+  constructor(name, age, hobby) {
+    super('male', name, age, hobby);
   }
   greeting() {
-    return `Hello! My name is <strong>${this.name}</strong>. I'm ${this.age}. Little about me:
-    I'm a ${this.species}, ${this.gender}. I have ${this.hands} hands and ${this.legs} legs. My hobby is ${this.hobby}.`;
+    return `\tHello! My name is <strong>${this.name}</strong>. I'm ${this.age}. Little about me:
+    I'm a ${this.species}, ${this.gender}. I have ${this.hands} hands and ${this.legs} legs. My hobby is ${
+      this.hobby
+    }.`;
   }
 }
 
 class Woman extends Human {
-  constructor(name, age, hobby, profession) {
-    super(name, age, hobby, profession);
-    this.gender = 'female';
+  constructor(name, age, hobby) {
+    super('female', name, age, hobby);
     this.greeting = this.greeting.bind(this);
   }
   greeting() {
-    return `Hi! I am <strong>${this.name}</strong>. I'm ${this.age}. I'm a ${this.species}, ${this.gender}.
+    return `\tHi! I am <strong>${this.name}</strong>. I'm ${this.age}. I'm a ${this.species}, ${this.gender}.
     I have ${this.hands} hands and ${this.legs} legs. I'm enjoy of ${this.hobby}.`;
   }
 }
 
 class Animal extends Creature {
-  constructor(name, age, hobby, species, skinColor) {
-    super(name, age, hobby, species);
-    this.hands = 0;
-    this.legs = 4;
-    this.species = species;
+  constructor(species, gender, name, age, skinColor, hobby, legs = 4) {
+    super(species, gender, name, age, hobby, legs);
     this.skinColor = skinColor;
-    this.greeting = this.greeting.bind(this);
   }
   greeting() {
-    return `This is a ${this.species}. Its name is <strong>${this.name}</strong>. Age: ${this.age}.
-    It has ${this.skinColor} fur, ${this.hands} hands and ${this.legs} legs. It enjoy of ${this.hobby}.`;
+    return `\tThis is a ${this.species}, ${this.gender}. Its name is <strong>${this.name}</strong>. Age: ${
+      this.age
+    }.
+    It has ${this.skinColor} fur and ${this.legs} legs. It enjoy of ${this.hobby}.`;
   }
 }
 
-const john = new Man('John', 28, 'fishing', 'engeneer');
-const anny = new Woman('Anny', 23, 'shoping', 'teacher');
-const rex = new Animal('Rex', 3, 'diging bones', 'dog', 'white with black spots');
-const sida = new Animal('Sida', 1.5, 'sleeping', 'cat', 'lightgrey');
+class Cat extends Animal {
+  constructor(gender, name, age, skinColor, hobby) {
+    super('cat', gender, name, age, skinColor, hobby);
+  }
+}
+
+class Dog extends Animal {
+  constructor(gender, name, age, skinColor, hobby) {
+    super('dog', gender, name, age, skinColor, hobby);
+  }
+}
+
+const john = new Man('John', 28, 'fishing');
+const anny = new Woman('Anny', 23, 'shoping');
+const rex = new Dog('male', 'Rex', 3, 'white with black spots', 'diging bones');
+const sida = new Cat('female', 'Sida', 1.5, 'lightgrey', 'sleeping');
 
 // // ======== OUTPUT ========
 [john, anny, rex, sida].forEach(item => print(item.greeting()));
