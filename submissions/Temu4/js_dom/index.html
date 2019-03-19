@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weapons Explorer</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Main content -->
+      <main class="content">
+        <button class="toggle-button">
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <div class="topic">
+          <h2 class="topic__title">Please, choose the type</h2>
+          <div class="topic__img"></div>
+          <p class="topic__description"></p>
+        </div>
+      </main>
+      <!-- Sidebar content -->
+      <nav class="side-menu">
+        <button class="menu-item" data-type="pistols">
+          Pistols<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" data-type="winchesters">
+          Winchesters<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" data-type="machineGuns">
+          Machine guns<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" data-type="sniperRifles">
+          Sniper rifles<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" data-type="grenades">
+          Grenades<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+        <button class="menu-item" data-type="ammunition">
+          Ammunition<i class="fas fa-fighter-jet hidden"></i>
+        </button>
+      </nav>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
