@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;  
+}
+
+header,main,nav,footer, {
+    display: block;
+}
+
+body {
+    font-family: arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #222;
+    background-color: #fff;
+}
+
+ul {
+    list-style: none;
+    list-style-type: none;
+}
+
+.header {
+    height: auto;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation {
+    float: right;
+    padding-left: 30px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.navigation__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navigation__item {
+    padding-left: 15px;
+}
+
+.navigation__item a {
+    font-size: 13px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.navigation__item a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+.navigation__item a:focus {
+    outline: 0px;
+    text-decoration: underline;
+    opacity: 0.8;
+}
+.popup-checkbox, 
+.popup-checkboxMore
+ {
+    position: absolute;
+    overflow-y: auto;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    top: 50px;
+    left: 18px;
+}
+
+.popup-label {
+    display: inline-block;
+    background-image: url('//ssl.gstatic.com/gb/images/i1_1967ca6a.png');
+    background-position: -660px -110px;
+    background-size: 528px 70px;
+    height: 30px;
+    width: 30px;
+    opacity: .55;
+    cursor: pointer;
+    margin: -9px 0px -12px 0px;
+}
+.popup-label:hover {
+    opacity: .85;
+}
+
+.popup-labelMore {
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    width: 265px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 13px;
+    color: #222;
+} 
+.popup-labelMore:hover {
+    opacity: .8;
+}
+.popup-labelMore:focus {
+    outline: 0px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.popup {
+    display: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    color: #000;
+    max-height: 460px;
+    height: auto;
+    width: 320px;
+    overflow-x: hidden;
+    position: absolute;
+    right: 15px;
+    top: 44px;
+    transition: height .2s ease-in-out;
+}
+
+.popup_area {
+    height: auto;
+    width: 265px;
+    padding: 28px 27px 2px 28px;
+    text-align: left;
+}
+
+.popup__item {
+    display: inline-block;
+    height: 84px;
+    width: 84px;
+    text-align: center;
+}
+.popup__item:hover {
+    outline: 1px solid #ccc;
+}
+.popup__item a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.popup__item a:hover {
+    text-decoration: none;
+    cursor: pointer;    
+}
+.popup__item a:focus {
+    outline: 0px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+
+.popup-checkbox:checked~.popup {
+    display: block;
+}
+
+.popup-checkbox:checked~.popup__top {
+    display: block;
+}
+
+.popup-checkbox:checked~.popup__arrow {
+    display: block;
+}
+
+.popup-checkbox:focus+.popup-label {
+    outline: 0px;
+    text-decoration: underline;
+    opacity: .8;
+}
+.popup-checkboxMore:focus+.popup-labelMore {
+    outline: 1px solid #aeb5ff;
+}
+.popup-checkboxMore:checked~.popup-labelMore {
+    display: none;
+}
+
+.popup-checkboxMore:checked~.horisontal-row {
+    display: block;
+}
+
+.popup-checkboxMore:checked~.hidden {
+    display: inline-block;
+} 
+
+.popup__top {
+    border-color: transparent;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: none;
+    position: absolute;
+    right: 67px;
+    height: 0;
+    width: 0;
+    border-bottom-color: #ccc;
+    border-bottom-color: rgb(204, 204, 204);
+    top: 36px;
+}
+
+.popup__arrow {
+    border-color: transparent;
+    border-bottom-color: #fff;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    display: none;
+    position: absolute;
+    right: 67px;
+    top: 38px;
+    height: 0;
+    width: 0;
+}
+
+.icon {  
+    display: inline-block;
+    vertical-align: top;
+    height: 58px;
+    width: 64px;
+    padding: 2px 2px 8px 2px;
+    background-image: url('https://ssl.gstatic.com/gb/images/v1_051523630.png');
+    background-size: 92px 2839px;
+}
+
+.popup__icon_text {
+    display: block;
+    line-height: 20px;
+    width: 84px;
+}
+
+.popup__icon-account{
+    background-position: 0 -415px;
+}
+.popup__icon-search{
+    background-position: 0 -1905px;
+}
+.popup__icon-maps{
+    background-position: -21px -1248px;
+}
+.popup__icon-youtube{
+    background-position: -25px -2323px;
+}
+.popup__icon-play{
+    background-position: 0 -346px;
+}
+.popup__icon-news{
+    background-position: 0 -1974px;
+}
+.popup__icon-email{
+    background-position: 0 -2737px;
+}
+.popup__icon-contacts{
+    background-position: 0 -1594px;
+}
+.popup__icon-disk{
+    background-position: 0 -519px;
+}
+.popup__icon-calendar{
+    background-position: 0 -173px;
+}
+.popup__icon-googlePlus{
+    background-position: 0 -654px;
+}
+.popup__icon-translator{
+    background-position: 0 -2181px;
+}
+.popup__icon-documents{
+    background-position: 0 -726px;
+}
+.popup__icon-blogger{
+    background-position: -17px -1179px;
+}
+.popup__icon-hangouts{
+    background-position: 0 -104px;
+}
+.popup__icon-googleKeep{
+    background-position: 0 -657px;
+}
+.popup__icon-jamboard{
+    background-position: 0 -934px;
+}
+.popup__icon-photo{
+    background-position: 0 -1518px;
+}
+
+.horisontal-row {
+    display: none;
+    margin: 20px 0;
+    border: none;
+    background-color: #ebebeb; 
+    color: #ebebeb; 
+    height: 1px;
+}
+
+.account {
+    background-image: url(https://lh3.googleusercontent.com/-eY2qDFr41oo/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rc-ZMpZqBsIDFJLyhFtL162pGnr5Q/s32-c-mo/photo.jpg);
+    background-size: 32px 32px;
+    border-radius: 50%;
+    display: block;
+    margin: -1px;
+    overflow: hidden;
+    position: relative;
+    height: 32px;
+    width: 32px;
+    z-index: 0;
+}
