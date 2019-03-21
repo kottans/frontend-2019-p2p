@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+:focus,
+.apps-menu-checkbox:focus ~ .apps-menu-button,
+.more-apps-checkbox:focus + .more-apps {
+    outline: lightblue solid 2px;
+}
+
+.more-apps-checkbox:focus +.more-apps {
+    margin-bottom: .18em;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+a:visited {
+    color: #000000;
+}
+
+
+/* Header elements */
+
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    margin-top: 1em;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header-link {
+    margin-right: 1.25em;
+    font-size: smaller;
+    color: #000000;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+.apps-menu-button {
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+}
+
+.notifications {
+    height: 1.15em;
+    width: 1.15em;
+    margin: 0 1.25em;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    background-color: transparent;
+    color: #cccccc;
+    background-image: url("../img/bell-icon.svg");
+    background-size: cover;
+}
+
+.user-avatar {
+    height: 2.25em;
+    width: 2.25em;
+    margin-right: 1.25em;
+    border-radius: 50%;
+    background-color: bisque;
+    color: #000000;
+    background-image: url("../img/user-avatar.svg");
+    background-size: cover;
+}
+
+
+/* Apps menu */
+
+.apps {
+    position: absolute;
+    display: none;
+    flex-wrap: wrap;
+    top: 3em;
+    right: .75em;
+    width: 20em;
+    max-height: 75vh;
+    justify-content: center;
+    list-style: none;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    overflow: auto;
+}
+
+.apps-menu-checkbox:checked ~ .apps {
+    display: flex;    
+}
+
+.apps-list {
+    display: inherit;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    padding: .75em 0 .75em 1.75em;
+    list-style: none;
+}
+
+.apps-list li {
+    display: inherit;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 5.25em;
+    height: 5.8em;
+    padding: 1px;
+    text-align: center;
+}
+
+.apps-list > li:hover {
+    outline: 1px solid #cccccc;
+    border-radius: 2px;
+}
+
+.apps-list > li:nth-child(n+4) {
+    margin-top: 1.5em;
+}
+
+.apps-list > li:nth-child(odd) > .app-link {
+    color: rgb(13, 110, 0);
+}
+
+.apps-list > li:nth-child(even) > .app-link {
+    color: rgb(216, 219, 0);
+}
+
+.app-link {
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.app-link-logo {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 4em;
+}
+
+.more-apps {
+    display: flex;
+    width: 100%;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.more-apps:before {
+    content: "Show more";
+}
+
+.more-apps-checkbox:checked + .more-apps:before {
+    content: "Hide";
+    padding-left: .5em;
+}
+
+.hidden-apps-list {
+    display: none;
+}
+
+.more-apps-checkbox:checked ~ .hidden-apps-list {
+    display: flex;    
+}
