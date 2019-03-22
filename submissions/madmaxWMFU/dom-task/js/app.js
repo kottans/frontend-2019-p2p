@@ -128,3 +128,4 @@ const getTemplateWrap = (img, title, link, about) => {
 }
 
 document.addEventListener("DOMContentLoaded", drawMainPage);
+
