@@ -42,5 +42,15 @@ const cat = {
     say: () => `Meeow!`,
 };
 
+const createSringTemplate = (obj) => {
+    return [
+        obj.species,
+        `<strong>${obj.name}</strong>`,
+        obj.gender,
+        obj.hands,
+        obj.legs,
+        `<em>${obj.say()}</em>`
+    ].join("; ");
+};
 // ======== OUTPUT ========
-[man, woman, dog, cat].forEach(arr => print(`${arr.species}; <strong>${arr.name}</strong>; ${arr.gender}; ${arr.hands}; ${arr.legs}; <em>${arr.say()}</em>;`, 'div'));
+[man, woman, dog, cat].forEach(arr => print(createSringTemplate(arr), 'div'));
