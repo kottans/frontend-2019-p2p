@@ -1,5 +1,7 @@
 const menuItem = document.querySelector(".menu-wrap-list-item");
 const main = document.querySelector(".main-content");
+const numbersOfHeroes = 1491;
+
 menuItem.addEventListener("click", e => {
     document.querySelector(".active").classList.remove("active");
     e.target.parentElement.classList.add("active");
@@ -13,63 +15,64 @@ menuItem.addEventListener("click", e => {
         case "heros":
             removeItems();
             showLoad();
-            const arrayHero = randomArray('characters');
-            Promise.all(arrayHero.map(url =>
-                fetch(url).then(resp => resp.json())
-            )).then(json => {
-                hideLoad();
-                json.map(item => drawHero(item.data.results));
-            });
-
+            getDataApi(getRandomArray('characters'))
+                .then(json => {
+                    hideLoad();
+                    drawItems(json, "comiclink", "Comics zone");
+                })
             break;
         case "comics":
             removeItems();
             showLoad();
-            const arrayComics = randomArray('comics');
-            Promise.all(arrayComics.map(url =>
-                fetch(url).then(resp => resp.json())
-            )).then(json => {
-                hideLoad();
-                json.map(item => drawComics(item.data.results));
-            });
-
+            getDataApi(getRandomArray('comics'))
+                .then(json => {
+                    hideLoad();
+                    drawItems(json, "detail", "Detail");
+                });
             break;
     }
 });
 
-const randomArray = type => {
+const getRandomArray = type => {
     let arrayLinks = [];
     while (arrayLinks.length < 10) {
-        let number = Math.floor((Math.random() * 1491) + 1);
+        let number = Math.floor((Math.random() * numbersOfHeroes) + 1);
+        let strLink = "";
         if (arrayLinks.indexOf(number) === -1)
-            str = `https://gateway.marvel.com/v1/public/${type}?ts=1&limit=1&offset=${number}&apikey=0cc0bbc55224cb8f34ec109ab692c2cb&hash=4e7f342316da627d9a966768f39d0702`;
-        arrayLinks.push(str);
+            strLink = `https://gateway.marvel.com/v1/public/${type}?ts=1&limit=1&offset=${number}&apikey=0cc0bbc55224cb8f34ec109ab692c2cb&hash=4e7f342316da627d9a966768f39d0702`;
+        arrayLinks.push(strLink);
     }
     return arrayLinks;
 }
 
-const removeItems = () => { document.querySelectorAll(".removeItems").forEach((val, key) => val.remove()) }
-
-const showLoad = () => { document.querySelector(".load-data").classList.add("showLoad") }
-
-const hideLoad = () => { document.querySelector(".load-data").classList.remove("showLoad") }
-
-const drawHero = arrayHero => {
-    const hero = arrayHero[0];
-    let heroName = hero.name;
-    let heroImg = `${hero.thumbnail.path}/portrait_incredible.${hero.thumbnail.extension}`;
-    let heroComics = checkUrl(hero.urls, "comiclink");
-    let heroWrap = templateWrap(heroImg, heroName, heroComics, "Comics zone");
-    main.insertAdjacentHTML("beforeEnd", heroWrap);
+const getDataApi = arrLinks => {
+    return new Promise(resolve => {
+        Promise.all(arrLinks.map(url => fetch(url).then(resp => resp.json())))
+            .then(result => resolve(result))
+            .catch(() => {
+                console.log('oops');
+                hideLoad();
+                removeItems();
+                drawErrorMsg();
+            })
+    })
 }
 
-const drawComics = arrayComics => {
-    const comics = arrayComics[0];
-    let comicsTitle = comics.title;
-    let comicsImg = `${comics.thumbnail.path}/portrait_incredible.${comics.thumbnail.extension}`;
-    let linkComics = checkUrl(comics.urls, "detail");
-    let comicsWrap = templateWrap(comicsImg, comicsTitle, linkComics, "Detail");
-    main.insertAdjacentHTML("beforeEnd", comicsWrap);
+const removeItems = () => document.querySelectorAll(".removeItems").forEach(val => val.remove());
+
+const showLoad = () => document.querySelector(".load-data").classList.add("showLoad");
+
+const hideLoad = () => document.querySelector(".load-data").classList.remove("showLoad");
+
+const drawItems = (array, type, nameLink) => {
+    array.forEach(obj => {
+        for (let hero of obj.data.results) {
+            let title = hero.name || hero.title;
+            let image = `${hero.thumbnail.path}/portrait_incredible.${hero.thumbnail.extension}`;
+            let url = checkUrl(hero.urls, type);
+            main.insertAdjacentHTML("beforeEnd", getTemplateWrap(image, title, url, nameLink));
+        }
+    })
 }
 
 const drawMainPage = () => {
@@ -83,16 +86,33 @@ const drawMainPage = () => {
     main.insertAdjacentHTML("beforeEnd", mainPage);
 }
 
+const drawErrorMsg = () => {
+    const fragment = document.createDocumentFragment();
+    const wrapError = document.createElement("div");
+    const imageError = document.createElement("img");
+    const titleError = document.createElement("h2");
+    wrapError.classList.add("removeItems");
+    wrapError.classList.add("error-wrap");
+    imageError.src = "img/error.gif";
+    imageError.classList.add("error-image");
+    titleError.innerText = "Something went wrong, try again !!!";
+    titleError.classList.add("error-title");
+    wrapError.appendChild(imageError);
+    wrapError.appendChild(titleError);
+    fragment.appendChild(wrapError);
+    main.appendChild(fragment);
+}
+
 const checkUrl = (arr, type) => {
     let link;
     arr.forEach(val => {
-        if (val.type == type)
+        if (val.type === type)
             link = val.url;
     });
     return link;
 }
 
-const templateWrap = (img, title, link, about) => {
+const getTemplateWrap = (img, title, link, about) => {
     return `
         <div class="hero-wrap removeItems">
             <div class="card-thumb-frame">
@@ -107,3 +127,4 @@ const templateWrap = (img, title, link, about) => {
         </div>`;
 }
 
+document.addEventListener("DOMContentLoaded", drawMainPage);

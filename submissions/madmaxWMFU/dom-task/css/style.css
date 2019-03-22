@@ -166,13 +166,26 @@
     color: #fff;
 }
 
+.error-wrap {
+    text-align: center;
+    color: #e0dada;
+    background-color: #145b8ddb;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.error-image {
+    max-width: 500px;
+}
+
 @media (max-width: 500px) {
     .fonImg {
         flex-direction: column;
         margin: 0px;
         padding: 0px;
     }
-    nav {
+    .navigation-wrap {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -205,5 +218,7 @@
     .menu-wrap a {
         border: none;
     }
+    .error-image {
+        width: inherit;
+    }
 }
-
