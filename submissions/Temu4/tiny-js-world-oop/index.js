@@ -65,10 +65,10 @@ class Dog extends Animal {
   }
 }
 
-const john = new Man('John', 28, 'fishing');
-const anny = new Woman('Anny', 23, 'shoping');
-const rex = new Dog('male', 'Rex', 3, 'white with black spots', 'diging bones');
-const sida = new Cat('female', 'Sida', 1.5, 'lightgrey', 'sleeping');
-
-// // ======== OUTPUT ========
-[john, anny, rex, sida].forEach(item => print(item.greeting()));
+// ======== OUTPUT ========
+[
+  new Man('John', 23, 'fishing'),
+  new Woman('Anny', 23, 'shoping'),
+  new Dog('male', 'Rex', 3, 'white with black spots', 'diging bones'),
+  new Cat('female', 'Sida', 1.5, 'lightgrey', 'sleeping')
+].forEach(item => print(item.greeting()));
