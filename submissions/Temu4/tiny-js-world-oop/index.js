@@ -11,8 +11,9 @@ class Creature {
 }
 
 class Human extends Creature {
-  constructor(gender, name, age, hobby, legs = 2, hands = 2) {
-    super('human', gender, name, age, hobby, legs, hands);
+  constructor(gender, name, age, hobby, legs = 2, hands) {
+    super('human', gender, name, age, hobby, legs);
+    this.hands = 2;
   }
 }
 
