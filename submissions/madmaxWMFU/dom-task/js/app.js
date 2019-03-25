@@ -50,7 +50,6 @@ const getDataApi = arrLinks => {
         Promise.all(arrLinks.map(url => fetch(url).then(resp => resp.json())))
             .then(result => resolve(result))
             .catch(() => {
-                console.log('oops');
                 hideLoad();
                 removeItems();
                 drawErrorMsg();
