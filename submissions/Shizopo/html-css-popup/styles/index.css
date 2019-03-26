@@ -178,6 +178,7 @@ a:visited {
 
 .hidden-apps-list {
     display: none;
+    padding-bottom: 1em;
 }
 
 .more-apps-checkbox:checked ~ .hidden-apps-list {
