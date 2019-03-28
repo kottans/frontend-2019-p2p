@@ -1,5 +1,5 @@
 /* NAV START */
-.container {
+.nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -9,7 +9,7 @@
     top: -10px;
 }
 
-.element {
+.nav__element {
     margin: 5px;
 }
 
@@ -26,7 +26,7 @@
     background-image: url(img/account.png);
 }
 
-.element a {
+.nav__element a {
     text-decoration: none;
     color: #111;
     font-size: 1em;
@@ -43,7 +43,7 @@ li {
 
 /* NAV END */
 
-/* popup-ul START*/
+/* popup__list START*/
 .popup {
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +58,7 @@ li {
     overflow-y: auto;
 }
 
-.popup-ul,
+.popup__list,
 .more-ul {
     display: flex;
     flex-wrap: wrap;
@@ -66,7 +66,7 @@ li {
     padding-bottom: 0px;
 }
 
-.popup-li {
+.popup__listst-item {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -77,7 +77,7 @@ li {
     border: 1px solid transparent;
 }
 
-.popup-li:hover {
+.popup__listst-item:hover {
     border: 1px solid #ddd;
 }
 
@@ -172,7 +172,7 @@ li {
     background-position: 0px -630px;
 }
 
-/* Draw hidden popup-ul-ul-ul */
+/* Draw hidden popup__list-ul-ul */
 
 .pop-label::before {
     display: none;
@@ -201,7 +201,7 @@ li {
     height: 30px;
 }
 
-/* hide and show popup-ul */
+/* hide and show popup__list */
 
 .pop-check:checked ~ .popup,
 .pop-check:checked ~ .pop-label::before,
