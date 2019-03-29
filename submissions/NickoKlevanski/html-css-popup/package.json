@@ -1,0 +1,27 @@
+{
+  "name": "html-css-popup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html --out-dir docs",
+    "build": "parcel build src/index.html --out-dir docs --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickoKlevanski/html-css-popup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickoKlevanski/html-css-popup/issues"
+  },
+  "homepage": "https://github.com/NickoKlevanski/html-css-popup#readme",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.17.3"
+  }
+}
