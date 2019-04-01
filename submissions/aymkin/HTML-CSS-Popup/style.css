@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 340px;
+    width: 320px;
     position: absolute;
     right: 10px;
     top: -10px;
@@ -45,7 +45,7 @@ li {
 
 /* popup__list START*/
 .popup {
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     width: 320px;
     height: 500px;
@@ -62,7 +62,7 @@ li {
 .more-ul {
     display: flex;
     flex-wrap: wrap;
-    padding: 28px;
+    padding: 20px;
     padding-bottom: 0px;
 }
 
