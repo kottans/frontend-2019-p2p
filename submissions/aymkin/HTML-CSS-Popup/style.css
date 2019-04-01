@@ -209,8 +209,6 @@ li {
 .more-text {
     font: small arial, sans-serif;
     margin: auto 0;
-    top: -25px;
-    left: 145px;
     z-index: -1;
     width: 320px;
     height: 40px;
