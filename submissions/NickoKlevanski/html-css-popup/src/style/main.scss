@@ -20,6 +20,10 @@
   &__item {
     position: relative;
     padding: 0 10px;
+
+    &:focus {
+      outline: 2px solid#4D90FE;
+    }
   }
 
   &__link {
@@ -42,6 +46,7 @@
 
   &__label {
     display: flex;
+    cursor: pointer;
 
     &--more {
       justify-content: center;
@@ -62,6 +67,10 @@
 
 .checkbox__input:checked ~ .checkbox__label--more {
   display: none;
+}
+
+.checkbox__input:checked ~ .footer-button {
+  display: block;
 }
 
 .checkbox__input:checked ~ .apps-menu__list--more-list {
@@ -142,14 +151,6 @@
     text-align: center;
     list-style: none;
     border: 1px solid transparent;
-
-    // &:hover {
-    //   border: 1px solid #e5e5e5;
-    // }
-
-    // &:focus {
-    //   outline: 2px solid #0000FF;
-    // }
   }
 
   &__link {
@@ -215,5 +216,24 @@
   &__img {
     width: 30px;
     height: 30px;
+  }
+}
+
+.footer-button {
+  display: none;
+  padding-bottom: 10px;
+  text-align: center;
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__text {
+    color: rgba(0,0,0,0.87);
+    font-size: 13px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
