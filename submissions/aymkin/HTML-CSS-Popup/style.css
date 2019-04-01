@@ -66,7 +66,7 @@ li {
     padding-bottom: 0px;
 }
 
-.popup__listst-item {
+.popup__listst-sprite {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -77,98 +77,87 @@ li {
     border: 1px solid transparent;
 }
 
-.popup__listst-item:hover {
+.popup__listst-sprite:hover {
     border: 1px solid #ddd;
 }
 
+.popup-a, .popup-a:hover {
+    border: 1px solid transparent;
+}
+
 .popup-a:focus {
-    border: 1px solid rgba(125, 125, 255, 0.5);
+    border: 1px solid rgba(90, 90, 255, 0.7);
     border-radius: 2px;
 }
 
-.item {
+.sprite {
     width: 58px;
     height: 58px;
     margin-bottom: 8px;
     cursor: pointer;
+    background-image: url(./img/allIcons.png);
 }
 
-.item-1 {
-    background-image: url(./img/allIcons.png);
+.sprite-1 {
     background-position: -3px -1450px;
 }
 
-.item-2 {
-    background-image: url(./img/allIcons.png);
+.sprite-2 {
     background-position: -3px -1314px;
 }
 
-.item-3 {
-    background-image: url(./img/allIcons.png);
+.sprite-3 {
     background-position: -3px -210px;
 }
 
-.item-4 {
-    background-image: url(./img/allIcons.png);
+.sprite-4 {
     background-position: -3px -554px;
 }
 
-.item-5 {
-    background-image: url(./img/allIcons.png);
+.sprite-5 {
     background-position: -3px -2347px;
 }
 
-.item-6 {
-    background-image: url(./img/allIcons.png);
+.sprite-6 {
     background-position: -3px -1036px;
 }
 
-.item-7 {
-    background-image: url(./img/allIcons.png);
+.sprite-7 {
     background-position: -3px -2000px;
 }
 
-.item-8 {
-    background-image: url(./img/allIcons.png);
+.sprite-8 {
 }
 
-.item-9 {
-    background-image: url(./img/allIcons.png);
+.sprite-9 {
     background-position: -3px -2070px;
 }
 
-.item-10 {
-    background-image: url(./img/allIcons.png);
+.sprite-10 {
     background-position: -3px -2210px;
 }
 
-.item-11 {
-    background-image: url(./img/allIcons.png);
+.sprite-11 {
     background-position: -3px -70px;
 }
 
-.item-12 {
-    background-image: url(./img/allIcons.png);
+.sprite-12 {
     background-position: -3px -140px;
 }
 
-.item-13 {
-    background-image: url(./img/allIcons.png);
+.sprite-13 {
     background-position: -3px -280px;
 }
 
-.item-14 {
-    background-image: url(./img/allIcons.png);
+.sprite-14 {
     background-position: -3px -350px;
 }
 
-.item-15 {
-    background-image: url(./img/allIcons.png);
+.sprite-15 {
     background-position: 0px -420px;
 }
 
-.item-16 {
-    background-image: url(./img/allIcons.png);
+.sprite-16 {
     background-position: 0px -630px;
 }
 
