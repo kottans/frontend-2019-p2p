@@ -153,22 +153,22 @@ li {
     background-position: 0px -630px;
 }
 
-.pop-label::before {
+.grey-angle {
     display: none;
     content: '';
     position: absolute;
     right: 56px;
     top: 36px;
     border: 10px solid transparent;
-    border-bottom: 10px solid #ccc;
+    border-bottom: 10px solid rgb(155, 155, 155);
 }
 
-.pop-label::after {
+.white-angle {
     display: none;
     content: '';
     position: absolute;
     right: 56px;
-    top: 38px;
+    top: 37px;
     z-index: 1;
     border: 10px solid transparent;
     border-bottom: 10px solid white;
@@ -181,8 +181,8 @@ li {
 }
 
 .pop-check:checked ~ .popup,
-.pop-check:checked ~ .pop-label::before,
-.pop-check:checked ~ .pop-label::after {
+.pop-check:checked ~ .white-angle,
+.pop-check:checked ~ .grey-angle {
     display: block;
 }
 
