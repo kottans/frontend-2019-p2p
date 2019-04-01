@@ -1,4 +1,3 @@
-/* NAV START */
 .nav {
     display: flex;
     justify-content: flex-end;
@@ -41,11 +40,7 @@ li {
     text-transform: capitalize;
 }
 
-/* NAV END */
-
-/* popup__list START*/
 .popup {
-    /* display: flex; */
     flex-wrap: wrap;
     width: 320px;
     height: 500px;
@@ -126,9 +121,6 @@ li {
     background-position: -3px -2000px;
 }
 
-.sprite-8 {
-}
-
 .sprite-9 {
     background-position: -3px -2070px;
 }
@@ -161,8 +153,6 @@ li {
     background-position: 0px -630px;
 }
 
-/* Draw hidden popup__list-ul-ul */
-
 .pop-label::before {
     display: none;
     content: '';
@@ -190,15 +180,11 @@ li {
     height: 30px;
 }
 
-/* hide and show popup__list */
-
 .pop-check:checked ~ .popup,
 .pop-check:checked ~ .pop-label::before,
 .pop-check:checked ~ .pop-label::after {
     display: block;
 }
-
-/* more button */
 
 .more-pop {
     height: 40px;
@@ -214,7 +200,6 @@ li {
     margin: 0;
     align-content: center;
     color: rgba(0, 0, 0, 0.87);
-    /* border: 1px solid red; */
     cursor: pointer;
     opacity: 0;
     position: relative;
