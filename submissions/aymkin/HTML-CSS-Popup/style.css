@@ -158,7 +158,7 @@ li {
     content: '';
     position: absolute;
     right: 56px;
-    top: 36px;
+    top: 38px;
     border: 10px solid transparent;
     border-bottom: 10px solid rgb(155, 155, 155);
 }
@@ -168,7 +168,7 @@ li {
     content: '';
     position: absolute;
     right: 56px;
-    top: 37px;
+    top: 39px;
     z-index: 1;
     border: 10px solid transparent;
     border-bottom: 10px solid white;
@@ -176,15 +176,30 @@ li {
 
 .pop-check {
     opacity: 0;
-    width: 24px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: -6px;
+    right: 6px;
 }
 
+.pop-check:focus ~ .outline {
+    border: 2px solid red;
+    border-radius: 3px;
+    height: 36px;
+    width: 36px;
+    position: absolute;
+    top: 0px;
+    right: 44px;
+    z-index: -2;
+}
+.pop-check:checked,
 .pop-check:checked ~ .popup,
 .pop-check:checked ~ .white-angle,
 .pop-check:checked ~ .grey-angle {
     display: block;
 }
+
 
 .more-pop {
     height: 40px;
