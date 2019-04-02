@@ -12,7 +12,7 @@
     margin: 5px;
 }
 
-.tiel {
+.apps {
     background-image: url(../img/tile.png);
     width: 32px;
     height: 32px;
@@ -80,8 +80,9 @@ li {
     border: 1px solid transparent;
 }
 
-.popup-a:focus {
-    border: 1px solid rgba(90, 90, 255, 0.7);
+.popup-a:focus,
+.popup-a:active {
+    border: 1px solid #ccc;
     border-radius: 2px;
 }
 
@@ -222,21 +223,22 @@ li {
 }
 
 .more-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 40px;
     font: small arial, sans-serif;
     margin: auto 0;
     z-index: -1;
-    width: 320px;
-    height: 40px;
     text-align: center;
     position: absolute;
     top: 457px;
     left: 0px;
-    background-color: #eee;
+    background-color: rgba(238, 238, 238, 0.0);
     color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
+
 
 .more-ul {
     margin-top: 0px;
@@ -248,11 +250,17 @@ li {
 }
 
 .more-button:checked {
-    display: none;
+    /* display: none; */
+    opacity: 0;
+    height: 0px;
 }
 
 .more-button:checked ~ .more-text {
     display: none;
+}
+
+.more-button:focus-within ~ .more-text{
+    background-color: #ccc;
 }
 
 .other {
