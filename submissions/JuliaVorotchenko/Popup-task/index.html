@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700" rel="stylesheet">
+
+        <title>HTML & CSS practice: Google-style Popup</title>
+</head>
+<body>
+    <!--Меню-->
+    <div class="nav-wrapper">
+        <div class="navigation">
+            <div class="nav-item text"><a href="#">Gmail</a></div>
+            <div class="nav-item text"><a href="#">Images</a></div>
+            <!--Popup-->
+            <div class="nav-item nav-item-icon grid"><a href="#" class="grid-link"><img src="img/grid.svg" alt="grid menu icon"></a>
+                <input class="grid-top" type="checkbox" id="applications" name="" value="">
+                <label for="applications"></label>
+                <div class="popup-wrapper">
+                    
+                    <div class="app-container">
+                        <ul class="app-list visible-apps">
+                            <li class="app-list-item">
+                                <a href="#" class="app-link">
+                                    <span class="app-icon"></span>
+                                    <span class="app-link-name">Mail</span>
+                                </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">YouTube</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Messenger</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Photos</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Calendar</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Translate</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Weather</span>
+                                    </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Notes</span>
+                                     </a>
+                            </li>
+                            <li class="app-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Account</span>
+                                    </a>
+                            </li>
+                        </ul>
+                        <input class="popup-input" type="checkbox" id="show-hidden-apps" name="more_apps" value="">
+                        <label class="popup-button" for="show-hidden-apps">More</label>
+                        <div class="division-line"></div>
+                        <ul class="app-list hidden-apps">
+                                <li class="app-hidden-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Contacts</span>
+                                    </a>
+                                </li>
+                                <li class="app-hidden-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Maps</span>
+                                    </a>
+                                </li>
+                                <li class="app-hidden-list-item">
+                                    <a href="#" class="app-link">
+                                        <span class="app-icon"></span>
+                                        <span class="app-link-name">Drive</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        <a class="even-more text" href="#">Even more for you</a>
+                    </div>
+                    
+                </div>
+            
+            
+            </div>
+            <!--Popup-->
+            <div class="nav-item nav-item-icon bell"><a href="#"><img src="img/bell.svg" alt="bell notification icon"></a></div>
+            <div class="nav-item nav-item-icon avatar"><a href="#"></a></div>
+        </div>
+    </div>
+
+   
+    
+    
+    <!--Меню-->
+
+    <!--Поиск-->
+    <div class="search">
+        <div class="search-wrapper">
+            <div class="search-image">
+                <img src="img/cat.svg" alt="Grey cat image" class="search-cat-img">
+            </div>
+
+            <div class="search-field">
+                <input placeholder="Search or type URL" type="text" class="search-field-string"> 
+                <span class="keyboard"><img src="img/keyboard.svg"></span>
+                <span class="microphone"><img src="img/microphone.svg"></span>
+            </div>
+
+        </div>
+
+    </div>
+ 
+
+</body>
+</html>

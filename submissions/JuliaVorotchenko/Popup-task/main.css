@@ -1,0 +1,368 @@
+
+body{
+    font-family: 'Work Sans', sans-serif;
+
+}
+a {
+    text-decoration: none; 
+    color: #31353a;
+}
+
+li {
+    list-style-type: none;
+}
+
+.nav-wrapper {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navigation {
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.nav-item {
+    padding-right: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.text {
+    text-decoration: none;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 20px;
+    color: #31353a;
+}
+
+.text:hover,
+.text:active,
+.text:focus { 
+    font-weight: 500;
+}
+
+.grid {
+    width: 28px;
+    height: 28px;
+}
+
+.bell {
+    width: 28px;
+    height: 28px;
+}
+
+.avatar {
+    padding-right: 10px;
+    display: block;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: url(img/girl.svg);
+    background-size: cover;
+}
+
+.popup-wrapper {
+    display: none;
+    width: 320px;
+    height: auto;
+    position: absolute;
+    border: 1px solid #cccc;
+    background:#edf9f6;
+    box-shadow: 0 2px 10px #dae5e2;
+    z-index: 50;
+    right: 30px;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.app-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 28px 15px 28px 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: space-around;
+}
+
+.app-list-item {
+    width: 90px;
+    height: 90px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-link {
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Work Sans', sans-serif;
+    color: #4a5b56;
+    text-decoration: none;
+    font-size: 400;
+}
+
+.app-list-item:first-child .app-icon {
+    background: url(img/gmail.svg);
+    background-size: cover;
+}
+
+.app-list-item:nth-child(2) .app-icon {
+    background: url(img/youtube.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(3) .app-icon {
+    background: url(img/hangouts.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(4) .app-icon {
+    background: url(img/photos.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(5) .app-icon {
+    background: url(img/calendar.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(6) .app-icon {
+    background: url(img/translate.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(7) .app-icon{
+    background: url(img/weather.svg);
+    background-size: contain;
+}
+
+.app-list-item:nth-child(8) .app-icon {
+    background: url(img/note.svg);
+    background-size: contain;
+}
+
+.app-list-item:last-child .app-icon{
+    background: url(img/account.svg);
+    background-size: contain;
+}
+
+.app-icon {
+    height: 55px;
+    width: 55px;
+    display: block;
+}
+
+.app-link-name {
+    font-size: 16px;
+    font-family: 'Work Sans', sans-serif;
+    display: block;
+}
+
+.app-hidden-list-item:first-child .app-icon {
+    background: url(img/phone-book.svg);
+    background-size: contain;
+}
+
+.app-hidden-list-item:nth-child(2) .app-icon {
+    background: url(img/maps-and-location.svg);
+    background-size: contain;
+}
+
+.app-hidden-list-item:last-child .app-icon {
+    background: url(img/drive.svg);
+    background-size: contain;
+}
+
+.popup-button {   
+    display: block;
+    width: 100%;
+    background: #f5f5f5;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid transparent;
+}
+
+.division-line {
+    margin: 0 auto;
+    background: #ebebeb;
+    width: 100%;
+    height: 1px;
+    
+}
+
+.popup-wrapper:after,
+.popup-wrapper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+}
+
+.popup-wrapper:after {
+  border-color: transparent;
+  border-bottom: solid #fff;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  right: 134px;
+  top: -9px;
+}
+
+.popup-wrapper:before {
+  border-color: transparent;
+  border-style: dashed dashed solid;
+  border-width: 0 8.5px 8.5px;
+  right: 134px;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  top: -10px;
+}
+
+.app-list-item:hover,
+.app-hidden-list-item:hover {
+  border: 0.5px solid rgb(173, 209, 197);
+}
+
+.app-list-item:focus,
+.app-hidden-list-item:focus {
+    border: 0.5px solid rgb(69, 231, 204);
+}
+
+.grid-top {
+    appearance: none;
+    position: relative;
+    opacity: 0;
+    bottom: 36.8px;
+    left: 4.8px;
+}
+
+.grid-top:focus ~ .app-icon {
+    outline: 2px solid #66bdf0;
+}
+
+.grid-top:active ~ .applications {
+    border: 1px solid #b2b2b2;
+
+}
+.grid-top:checked ~ .popup-wrapper,
+.grid-link:active ~ .popup-wrapper,
+.grid-link:focus ~ .popup-wrapper {
+    display: flex;
+}
+
+
+.popup-input {
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+}
+
+.popup-input:focus ~ .popup-button,
+.popup-input:active ~ .popup-button {
+    border: 1px solid #e5e5e5;
+}
+
+.hidden-apps {
+    display: none;
+  }
+.even-more {
+    display: none;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.popup-input:focus ~ .hidden-apps,
+.popup-input:active ~ .hidden-apps,
+.popup-input:focus ~ .even-more,
+.popup-input:active ~ .even-more {
+      display: flex;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+  .search-wrapper {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+
+.search-cat-img {
+    width: 260px;
+}
+
+.search-field {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.search-field-string {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: transparent;
+    outline: 0;
+    padding: 2px 45px 3px 9px;
+    margin-top: 40px;
+    box-sizing: border-box;
+    background: #F1F3F4;
+    border-radius: 22px;
+    transition: .2s;
+    color: #7c8886;
+    font-size: 14px;
+}
+  
+
+.search-field-string:hover,
+.search-field-string:active,
+.search-field-string:focus {
+    background: #edf9f6;
+} 
+  
+
+  
+
+.keyboard {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    top: 100%;
+    right: 40px;
+}
+
+.microphone {
+    width: 30px;
+    height: 25px;
+    position: absolute;
+    top: 93%;
+    right: 8px;
+}
+
+
+  
