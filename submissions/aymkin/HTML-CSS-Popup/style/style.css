@@ -18,10 +18,14 @@
     text-decoration: underline;
 }
 
-.nav__element a {
+.nav__link {
     text-decoration: none;
     color: #111;
     font-size: 1em;
+}
+
+.nav__link:hover {
+    opacity: 0.6;
 }
 
 .text {
@@ -107,8 +111,7 @@
     opacity: 1;
 }
 
-
-li {
+.popup__list-element {
     list-style: none;
 }
 
@@ -289,7 +292,7 @@ li {
     top: -50px;
 }
 
-.text a {
+.text {
     text-decoration: none;
 }
 
