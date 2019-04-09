@@ -1,0 +1,69 @@
+.input-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .input-label > span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    &:first-child,
+    &:nth-child(4) {
+      color: #4285f4;
+    }
+    &:nth-child(2),
+    &:nth-child(6) {
+      color: #ea4335;
+    }
+    &:nth-child(3),
+    &:nth-child(7) {
+      color: #fbc118;
+    }
+    &:nth-child(5) {
+      color: #34a853;
+    }
+  }
+  
+  .input-label {
+    padding-bottom: 30px;
+  }
+  
+  #main__input {
+    width: 580px;
+    height: 45px;
+    border-radius: 30px;
+    border: 1px solid rgb(216, 216, 218);
+    padding: 10px;
+    margin-bottom: 30px;
+    outline: none;
+    &:hover {
+      box-shadow: 0px 3px 20px -9px rgba(0, 0, 0, 0.75);
+    }
+  }
+  
+  .input-btn {
+    display: inline;
+    color: #5f6368;
+    background: $secondary-text;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    font-size: 14px;
+    &:first-of-type {
+      margin-right: 15px;
+    }
+    &:hover {
+      cursor: pointer;
+      border: 1px solid rgb(99, 99, 99);
+    }
+  }
+
+  .dropdown__btn--additional {
+    background: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }

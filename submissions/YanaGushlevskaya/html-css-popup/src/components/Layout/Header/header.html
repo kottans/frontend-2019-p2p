@@ -1,0 +1,83 @@
+<header class="header">
+  <nav class="header-nav">
+    <ul class="menu reset-list">
+      <li class="menu__item">
+        <a href="#" class="menu__link reset-link">Gmail</a>
+      </li>
+      <li class="menu__item">
+        <a href="#" class="menu__link reset-link">Images</a>
+      </li>
+      <li class="menu__item">
+        <input type="checkbox" id="dropdown__input" class="dropdown__input">
+        <label for="dropdown__input" class="menu__link label">
+          <i class="fas fa-th"></i></label>
+        <div class="wrapper">
+          <div class="dropdown-wrapper">
+          <ul class="dropdown__list reset-list">
+            {% set items = [ { img:'./img/docs.PNG', alt:'docs', title:'Docs' },
+            { img:'./img/translate.PNG', alt:'translate', title:'Translate' }, {
+            img:'./img/kottans.PNG', alt:'kottans', title:'Kottans' }, {
+            img:'./img/search.PNG', alt:'search', title:'Search' }, {
+            img:'./img/youtube.PNG', alt:'youtube', title:'YouTube' }, {
+            img:'./img/play.PNG', alt:'play', title:'Play' }, {
+            img:'./img/gmail.PNG', alt:'gmail', title:'Gmail' }, {
+            img:'./img/drive.PNG', alt:'drive', title:'Drive' }, {
+            img:'./img/calendar.PNG', alt:'calendar', title:'Calendar' }, {
+            img:'./img/mybusiness.PNG', alt:'mybusiness', title:'MyBusiness' } ]
+            %} {% for item in items %}
+            <li class="dropdown__item">
+              <a href="#" class="dropdown__link reset-link">
+                <img
+                  src="{{ item.img }}"
+                  alt="{{ item.alt }}"
+                  class="dropdown__img"
+                />
+                {{ item.title }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul> 
+          <input type="checkbox" id="dropdown__input--additional" class="dropdown__input--additional">
+          <label for="dropdown__input--additional" class="label--additional">
+            <div class="dropdown__btn reset-btn">More</div>
+          </label>
+          <ul class="dropdown__list dropdown__list--additional reset-list">
+            {% set items = [ { img:'./img/blogger.PNG', alt:'blogger', title:'Blogger' },
+            { img:'./img/photos.PNG', alt:'photos', title:'Photos' }, {
+            img:'./img/maps.PNG', alt:'maps', title:'Maps' }, {
+            img:'./img/account.PNG', alt:'account', title:'Account' }, {
+            img:'./img/contacts.PNG', alt:'contacts', title:'Contacts' }, {
+            img:'./img/nagouts.PNG', alt:'nagouts', title:'Hangouts' }, {
+            img:'./img/keep.PNG', alt:'keep', title:'Keep' }, {
+            img:'./img/jamboard.PNG', alt:'jamboard', title:'Jamboard' }, {
+            img:'./img/classroom.PNG', alt:'classroom', title:'Classroom' }, {
+            img:'./img/earth.PNG', alt:'earth', title:'Earth' }, {
+            img:'./img/collections.PNG', alt:'collections', title:'collections' } ]
+            %} {% for item in items %}
+            <li class="dropdown__item">
+              <a href="#" class="dropdown__link reset-link">
+                <img
+                  src="{{ item.img }}"
+                  alt="{{ item.alt }}"
+                  class="dropdown__img"
+                />
+                {{ item.title }}
+              </a>
+            </li>
+            {% endfor %}
+            <a class="dropdown__btn dropdown__btn--additional reset-btn">Even more from kottans</a>
+          </ul>
+        </div>
+        </div>
+      </li>
+      <li class="menu__item">
+        <a href="#" class="menu__link reset-link" title="Приложения Kottans"
+          ><i class="fas fa-bell"></i
+        ></a>
+      </li>
+      <li class="menu__item">
+        <a href="#" class="menu__link reset-link" title="Аккаунт Kottans'">Y</a>
+      </li>
+    </ul>
+  </nav>
+</header>
