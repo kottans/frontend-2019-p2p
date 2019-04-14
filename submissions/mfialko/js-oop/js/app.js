@@ -1,5 +1,5 @@
 
-let //borders for enemy respawn
+const //borders for enemy respawn
     enemyLeftX = -100,
     enemyRightX = 500,
     //size of step
