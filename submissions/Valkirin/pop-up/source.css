@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: 2px solid #84f71a;
+}
+
+.header,
+.nav {
+  display: block;
+  height: auto;
+}
+
+body {
+  font: 16px Arial, serif;
+  color: #000;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.header {
+  margin: 10px;
+}
+
+.nav {
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav_item {
+  padding-left: 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover,
+.button:hover,
+.ava:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.popUpControl,
+.moreControl {
+  position: absolute;
+  overflow-y: auto;
+  clip: rect(0 0 0 0);
+}
+
+.button {
+  display: inline-block;
+  background-image: url("ico/favicon.ico");
+  background-size: contain;
+}
+
+.ava > img,
+.button {
+  height: 32px;
+  width: 32px;
+}
+
+.moreButton {
+  display: block;
+  margin-left: 42px;
+  background: #a2cbd8;
+  border-radius: 7px;
+  color: #a39b9b;
+  width: 160px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 25px;
+  margin-top: 8px;
+}
+
+.moreButton:hover {
+  background: #45ccf9;
+  color: #000;
+}
+
+.box {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 65px;
+  background: #9ae2f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px #a39494;
+  width: 270px;
+  height: auto;
+  padding: 5px;
+  overflow-x: hidden;
+}
+
+.content_item {
+  display: inline-block;
+  height: 67px;
+  width: 64px;
+  text-align: center;
+  padding: 0;
+  margin: 9px;
+}
+
+.content_item:hover {
+  outline: 1px solid #2e7c2e;
+}
+
+.hide {
+  display: none;
+}
+
+.popUpControl:checked ~ .box {
+  display: block;
+}
+
+.popUpControl:checked ~ .arrow {
+  display: block;
+}
+
+.popUpControl:focus ~ .button {
+  outline: 2px solid #ff00d4;
+}
+
+.moreControl:focus ~ .moreButton {
+  outline: 1px solid #2e7c2e;
+}
+
+.moreControl:checked ~ .moreButton {
+  display: none;
+}
+
+.moreControl:checked ~ .row {
+  display: block;
+}
+
+.moreControl:checked ~ .hide {
+  display: inline-block;
+}
+
+.arrow {
+  display: none;
+  position: absolute;
+  border-color: transparent;
+  border-bottom-color: #9ae2f9;
+  border-style: solid;
+  border-width: 0 15px 15px;
+  right: 54px;
+  top: 52px;
+  z-index: 1;
+  height: 0;
+  width: 0;
+}
+
+.icon {
+  display: inline-block;
+  width: 64px;
+  height: 58px;
+}
+
+.icon_text {
+  display: block;
+}
+
+.row {
+  display: none;
+  height: 1px;
+}
