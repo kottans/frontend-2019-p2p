@@ -13,12 +13,12 @@
  * writing app.js a little simpler to work with.
  */
 
-var Engine = (function(global) {
+let Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
      * set the canvas element's height/width and add it to the DOM.
      */
-    var doc = global.document,
+    let doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
@@ -41,7 +41,7 @@ var Engine = (function(global) {
          * would be the same for everyone (regardless of how fast their
          * computer is) - hurray time!
          */
-        var now = Date.now(),
+        let now = Date.now(),
             dt = (now - lastTime) / 1000.0;
 
         /* Call our update/render functions, pass along the time delta to
@@ -98,7 +98,7 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
 
-        if ( Math.round(player.y / 80) === 0 ) {
+        if ( Math.round(player.y / stepY) === 0 ) {
             player.update();
             let i=getRandNum(0,2);
             if (i===1) {
@@ -109,19 +109,20 @@ var Engine = (function(global) {
             
         }
 
-        doc.getElementById('results').innerHTML = `High score: ${player.HighScore} \u00A0\u00A0\u00A0\u00A0 Score: ${player.score}`;
+        doc.getElementById('results').innerHTML = `High score: 
+        ${player.highScore} \u00A0\u00A0\u00A0\u00A0 Score: ${player.score}`;
     }
     
     function checkCollisions() {
         allEnemies.forEach(function(enemy) {
-            if ( Math.round(enemy.x / 100) === Math.round(player.x / 100) && 
-                 Math.round(enemy.y / 80) === Math.round(player.y / 80) ) {
+            if ( Math.round(enemy.x / stepX) === Math.round(player.x / stepX) && 
+                 Math.round(enemy.y / stepY) === Math.round(player.y / stepY) ) {
                     player.reset();
 
             }
         });
  
-        if (player.x === Math.round(gem.x/100) *100 &&  player.y === Math.round(gem.y/80)*80-20  ) {
+        if (player.x === gem.x - deltaForGem &&  player.y === gem.y - 35  ) {
             gem.get();
         }
     }
@@ -137,7 +138,7 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
-        var rowImages = [
+        let rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 4 of stone
                 'images/stone-block.png',   // Row 2 of 4 of stone
@@ -165,7 +166,7 @@ var Engine = (function(global) {
                  * so that we get the benefits of caching these images, since
                  * we're using them over and over.
                  */
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                ctx.drawImage(Resources.get(rowImages[row]), col * stepX, row * stepY);
             }
         }
         
