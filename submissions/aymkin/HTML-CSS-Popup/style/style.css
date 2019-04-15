@@ -172,7 +172,7 @@
 }
 
 .popup__list-element:hover {
-    border: 1px solid #ddd;
+    text-decoration: underline;
 }
 
 .popup-a {
