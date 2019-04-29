@@ -8,7 +8,8 @@ body{
     justify-content: flex-end;
 }
 
-div{
+.mail_button, 
+.Images {
     margin: 10px;
 }
 
@@ -22,14 +23,15 @@ div{
     display:none;  
 }
 
-ul{
+.list_1,
+.list_2 {
     list-style-type: none;
     position: relative;
     padding-inline-start: 20px;
     margin-block-end:0px;
 }
 
-li{
+.card {
     display: inline-block;
     height: 98px;
     width: 86px;
@@ -37,11 +39,11 @@ li{
     border:1px solid rgb(204, 204, 204, 0);
 }
 
-li:hover{
+.card:hover{
     border:1px solid rgb(204, 204, 204, 0.5);
 }
 
-a{
+.link {
     text-decoration: none;
     position: absolute;
     text-align: center;
@@ -50,20 +52,21 @@ a{
     color: black;
 }
 
-img{
+.icon {
     height: 64px;
     width: 64px;
     display: inline-block;
     vertical-align: top;
 }
 
-span {
+.title_btn {
     text-align: center;
     display: block;
     width: 84px;
 }
 
-input{
+#trig,
+#more {
     display: none;
 }
 
@@ -72,7 +75,7 @@ input{
     flex-direction: column-reverse;
 }
 
-label{
+.button {
       height: 37px;
       width: 37px;
       margin: 3px 10px 10px 10px;
@@ -84,21 +87,21 @@ label{
 
 }
 
-svg{
+.menu_btn {
       width: 27px;
       height: 27px;
   }
 
-label[for="trig"]:hover{
+#menu_btn:hover{
     background-color: #e6e6e6;
 }
 
-.list_2{
+.list_2_container{
     display: none;
     margin: 0px;
 }
 
-#more:checked ~ .list_2{
+#more:checked ~ .list_2_container{
     display: block;
 }
 
@@ -123,18 +126,13 @@ label[for="trig"]:hover{
     cursor: pointer;
 }
 
-svg[src="business.svg"], svg[src="adwords.svg"]{
-    width: 65px;
-    height: 65px;
-}
-
-img[src="notification.png"]{
+#ring_img {
     width: 40px;
     height:40px;
     margin-bottom: 15px;
 }
 
-img[src="profile_picture.png"]{
+#profile_img {
     width: 28px;
     height: 28px;
 }
@@ -152,16 +150,16 @@ img[src="profile_picture.png"]{
     line-height: 20px;
 }
 
-.mail_button>a:hover{
+.mail_button>.link:hover{
     text-decoration: underline;
 }  
-
-.Images>a:hover{
+.Images>.link:hover{
     text-decoration: underline;
-}
-
+}  
 .even_more{
     text-align: center;
+    height: 20px;
+    margin-bottom: 5px; 
 }
 
 .even_more:hover{
