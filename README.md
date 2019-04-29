@@ -1,5 +1,3 @@
-# coogle-style
-
 ## HTML &amp; CSS practice: Google-style Popup
 
 **That is 6th task out of 15 in [Stage 0. Self-Study](https://github.com/kottans/frontend/blob/master/contents.md)**
@@ -12,4 +10,4 @@ Requirements:
 * no external libraries or frameworks
 * browser support: Chrome only (feel free to use latest features)
 
-[demo](https://aymkin.github.io/coogle-style/)
+[demo](https://arthurgorbenko.github.io/)
