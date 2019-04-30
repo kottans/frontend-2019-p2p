@@ -18,14 +18,11 @@ const //borders for enemy respawn
     deltaForGem = 15;
 
 
-
-
 const Enemy = function(row, speed) {
     this.x = enemyLeftX;
     this.y = deltaForEnemy + (row-1)*stepY;
     this.speed = speed;
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    // The image/sprite for our enemies
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -41,13 +38,12 @@ Enemy.prototype.update = function(dt) {
     }
 };
 
-// Draw the enemy on the screen, required method for game
+// Draw the enemy on the screen
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 const Player = function() {
-
     this.x = playerPosX;
     this.y = playerPosY;
     this.score = 0;
@@ -86,7 +82,6 @@ Player.prototype.update = function() {
     });
     
 };
-
 
 
 Player.prototype.render = function() {
