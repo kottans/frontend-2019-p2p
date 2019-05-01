@@ -1,22 +1,15 @@
-# Frontend 2019 p2p homework
+# coogle-style
 
-This repo is supplementary to
-[Kottans Frontend course](https://github.com/kottans/frontend)
-and supports p2p (peer-to-peer) online learning mode.
+## HTML &amp; CSS practice: Google-style Popup
 
-Students are expected to complete course tasks one by one,
-and employ this repo to submit practical tasks for review.
+**That is 6th task out of 15 in [Stage 0. Self-Study](https://github.com/kottans/frontend/blob/master/contents.md)**
 
-One of the points of p2p learning is that students conduct
-code review for their peers so they learn not only to code
-but also to read and understand code submitted by others
-and deliver sensible and helpful feedback.
+The goal of this task is to practice coding HTML & CSS from mockup. You are expected to deepen your knowledge of HTML & CSS and discover new previously unknown features.
 
-Students are expected to benefit from mutual support.
-Offline phase course students are involved at early stages.
-Kottans mentors are involved for final review and to merge
-approved PRs to master.
+Requirements:
 
-[How to submit a task for review](./CONTRIBUTING.md).
+* no JavaScript, only HTML/CSS, use of preprocessors is allowed
+* no external libraries or frameworks
+* browser support: Chrome only (feel free to use latest features)
 
-[How to conduct code review](./code-review-guidelines.md).
+[demo](https://aymkin.github.io/coogle-style/)
