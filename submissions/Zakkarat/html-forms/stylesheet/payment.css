@@ -1,0 +1,177 @@
+.payment-method {
+  margin-top: 4%;
+  margin-right: 10%;
+  color: #6d758f;
+}
+.payment-method > .block-to-center {
+  margin-bottom: 0;
+}
+.block-to-center > .smallUploadText {
+  padding-top: 0;
+  margin-top: 0;
+}
+.underlined-a {
+  text-decoration: underline;
+}
+.payment-method > .block-to-center {
+  flex-direction: column;
+}
+.text-name {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 27%;
+  height: 45px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #d9deea;
+  font-size: 15px;
+  outline: transparent;
+  background-color: transparent;
+}
+.text::after {
+  content: "1";
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: #a4aabd;
+  border-radius: 100%;
+}
+
+.text:invalid ~ .validation-sign::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("../img/not-valid.svg") no-repeat;
+  background-size: 28px;
+  position: relative;
+  right: 39px;
+  bottom: -10px;
+}
+.text:valid ~ .validation-sign::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("../img/checked.png") no-repeat;
+  background-size: 28px;
+  position: relative;
+  right: 39px;
+  bottom: -10px;
+}
+.above-text {
+  margin-top: 0;
+  margin-bottom: 3px;
+  color: #8a95b7;
+  font-size: 12px;
+  margin-left: 2px;
+}
+.field-text {
+  display: flex;
+}
+.field-container .text-name {
+  width: 85%;
+}
+.field-container {
+  width: 32%;
+  margin-right: 3%;
+}
+
+.payment-method-choose {
+  display: flex;
+  margin-bottom: 5%;
+}
+.payholder {
+  display: flex;
+  width: 77%;
+  justify-content: space-between;
+}
+.pay {
+  width: 200px;
+  height: 80px;
+  border: 2px solid #c9d0e1;
+  background-color: white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 10%;
+}
+.input:checked + .select-pay > .checkedPay {
+  content: "";
+  display: inline;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background: url("../img/checked.png") no-repeat;
+  margin: -40px 100px;
+  z-index: 10;
+}
+.input:checked + .select-pay {
+  border: 4px solid #76a7e1;
+}
+.img-card {
+  width: 51px;
+  height: 51px;
+}
+.img-card:last-child {
+  margin-left: 3px;
+}
+.img-pay {
+  width: 102px;
+  height: 81px;
+}
+.text-card {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 90%;
+  height: 40px;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #d9deea;
+  font-size: 15px;
+  outline: transparent;
+  background-color: transparent;
+  text-align: center;
+}
+.field-card {
+  width: 45%;
+}
+.field-date {
+  width: 20%;
+}
+.field-code {
+  width: 15%;
+}
+.cc-number-img::after {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 25px;
+  background: url("../img/cc-visa-brands.svg") no-repeat;
+  background-size: 30px;
+  opacity: 0.3;
+  position: relative;
+  right: 37px;
+  bottom: -7px;
+}
+.submit-field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 6%;
+  margin-top: 3%;
+}
+.submit-text {
+  padding-top: 0;
+  margin: 0 10px;
+}
+.submit-field > .order {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
