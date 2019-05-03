@@ -39,6 +39,7 @@ body {
   width: 86px;
   padding: 5px;
   border: 1px solid rgb(204, 204, 204, 0);
+  text-align: center;
 }
 
 
@@ -56,16 +57,19 @@ body {
 }
 
 .icon {
+  background-image: url("sprites.png");
   height: 64px;
   width: 64px;
   display: inline-block;
   vertical-align: top;
+  text-decoration: none;
+  color: black;
 }
 
 .title_btn {
-  text-align: center;
-  display: block;
-  width: 84px;
+  position: relative;
+  top:60px;
+  width: 86px;
 }
 input {
   position: absolute;
@@ -173,4 +177,94 @@ input {
 
 .even_more:hover {
   text-decoration: underline;
+}
+
+/* Sprites */
+
+.quoutes {
+  background-position:center top;
+}
+
+.apps {
+  background-position: center -70px;
+}
+
+.youTube{
+  background-position: center -140px;
+}
+
+.gogleplus{
+  background-position: center -210px;
+}
+
+.blog{
+  background-position: center -280px;
+}
+
+.search{
+  background-position: center -350px;
+}
+
+.officeaps {
+  background-position: center -420px;
+}
+
+.photo {
+  background-position: center -490px;
+}
+
+.videoeditor {
+  background-position: center -560px;
+}
+
+.tools {
+  background-position: center -630px;
+}
+
+.translate {
+  background-position: center -700px;
+}
+
+.mail {
+  background-position: center -770px;
+}
+
+.board {
+  background-position: center -830px;
+}
+
+.bookmarks {
+  background-position: center -900px;
+}
+
+.calendar {
+  background-position: center -970px;
+}
+
+.diagram {
+  background-position: center -1040px;
+}
+
+.implement {
+  background-position: center -1110px;
+}
+
+.icq {
+  background-position: center -1180px;
+}
+
+.security {
+  background-position: center -1250px;
+}
+
+.tables {
+  background-position: center -1320px;
+}
+
+.maps {
+  background-position: center -1390px;
+}
+
+.documents {
+  background-position: center -1460px;
 }
