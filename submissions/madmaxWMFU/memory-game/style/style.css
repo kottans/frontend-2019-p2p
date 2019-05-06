@@ -1,0 +1,331 @@
+.main {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+.game-caption {
+    font-weight: bold;
+    text-decoration: underline;
+    color: yellowgreen;
+}
+
+.game-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.flipper, .front, .back {
+    width: 159px;
+    height: 225px;
+}
+
+.front, .back {
+    border: solid yellowgreen;
+    border-radius: 20px;
+    cursor: pointer;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.front {
+	z-index: 2;
+    transform: rotateY(0deg);    
+    background: url(../img/koloda.png) no-repeat -2228px -481px;
+    background-size: 2529px 947px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: url('../img/koloda.png') no-repeat -2228px 0;
+    background-size: 2529px 947px;
+}
+
+.rotateCard {
+    transform: rotateY(180deg); 
+}
+
+.hideCard {    
+    transform: rotateY(0deg);
+}
+
+.card0 {
+    background: url('../img/koloda.png') no-repeat 0 0;
+    background-size: 2529px 947px;
+}
+
+.card1 {
+    background: url('../img/koloda.png') no-repeat -171px 0;
+    background-size: 2529px 947px;
+}
+
+.card2 {
+    background: url('../img/koloda.png') no-repeat -342px 0;
+    background-size: 2529px 947px;
+}
+
+.card3 {
+    background: url('../img/koloda.png') no-repeat -514px 0;
+    background-size: 2529px 947px;
+}
+
+.card4 {
+    background: url('../img/koloda.png') no-repeat -685px 0;
+    background-size: 2529px 947px;
+}
+
+.card5 {
+    background: url('../img/koloda.png') no-repeat -856px 0;
+    background-size: 2529px 947px;
+}
+
+.card6 {
+    background: url('../img/koloda.png') no-repeat -1028px 0;
+    background-size: 2529px 947px;
+}
+
+.card7 {
+    background: url('../img/koloda.png') no-repeat -1199px 0;
+    background-size: 2529px 947px;
+}
+
+.card8 {
+    background: url('../img/koloda.png') no-repeat -1371px -1px;
+    background-size: 2529px 947px;
+}
+
+.card9 {
+    background: url('../img/koloda.png') no-repeat -1542px -1px;
+    background-size: 2529px 947px;
+}
+
+.card10 {
+    background: url('../img/koloda.png') no-repeat -1714px -1px;
+    background-size: 2529px 947px;
+}
+
+.card11 {
+    background: url('../img/koloda.png') no-repeat -1884px -2px;
+    background-size: 2529px 947px;
+}
+
+.card12 {
+    background: url('../img/koloda.png') no-repeat -2056px -2px;
+    background-size: 2529px 947px;
+}
+
+.card13 {
+    background: url('../img/koloda.png') no-repeat -2228px 0;
+    background-size: 2529px 947px;
+}
+
+.card14 {
+    background: url('../img/koloda.png') no-repeat 0 -240px;
+    background-size: 2529px 947px;
+}
+
+.card15 {
+    background: url('../img/koloda.png') no-repeat -171px -240px;
+    background-size: 2529px 947px;
+}
+
+.card16 {
+    background: url('../img/koloda.png') no-repeat -342px -240px;
+    background-size: 2529px 947px;
+}
+
+.card17 {
+    background: url('../img/koloda.png') no-repeat -514px -240px;
+    background-size: 2529px 947px;
+}
+
+.card18 {
+    background: url('../img/koloda.png') no-repeat -685px -240px;
+    background-size: 2529px 947px;
+}
+
+.card19 {
+    background: url('../img/koloda.png') no-repeat -856px -240px;
+    background-size: 2529px 947px;
+}
+
+.card20 {
+    background: url('../img/koloda.png') no-repeat -1028px -240px;
+    background-size: 2529px 947px;
+}
+
+.card21 {
+    background: url('../img/koloda.png') no-repeat -1199px -240px;
+    background-size: 2529px 947px;
+}
+
+.card22 {
+    background: url('../img/koloda.png') no-repeat -1371px -241px;
+    background-size: 2529px 947px;
+}
+
+.card23 {
+    background: url('../img/koloda.png') no-repeat -1543px -242px;
+    background-size: 2529px 947px;
+}
+
+.card24{
+    background: url('../img/koloda.png') no-repeat -1710px -241px;
+    background-size: 2529px 947px;
+}
+
+.card25 {
+    background: url('../img/koloda.png') no-repeat -1884px -242px;
+    background-size: 2529px 947px;
+}
+
+.card26 {
+    background: url('../img/koloda.png') no-repeat -2056px -242px;
+    background-size: 2529px 947px;
+}
+
+.card27 {
+    background: url('../img/koloda.png') no-repeat -2228px -244px;
+    background-size: 2529px 947px;
+}
+
+.card28 {
+    background: url('../img/koloda.png') no-repeat 0 -481px;
+    background-size: 2529px 947px;
+}
+
+.card29 {
+    background: url('../img/koloda.png') no-repeat -171px -481px;
+    background-size: 2529px 947px;
+}
+
+.card30 {
+    background: url('../img/koloda.png') no-repeat -342px -481px;
+    background-size: 2529px 947px;
+}
+
+.card31 {
+    background: url('../img/koloda.png') no-repeat -514px -481px;
+    background-size: 2529px 947px;
+}
+
+.card32 {
+    background: url('../img/koloda.png') no-repeat -685px -481px;
+    background-size: 2529px 947px;
+}
+
+.card33 {
+    background: url('../img/koloda.png') no-repeat -857px -481px;
+    background-size: 2529px 947px;
+}
+
+.card34 {
+    background: url('../img/koloda.png') no-repeat -1028px -481px;
+    background-size: 2529px 947px;
+}
+
+.card35 {
+    background: url('../img/koloda.png') no-repeat -1199px -481px;
+    background-size: 2529px 947px;
+}
+
+.card36 {
+    background: url('../img/koloda.png') no-repeat -1371px -481px;
+    background-size: 2529px 947px;
+}
+
+.card37 {
+    background: url('../img/koloda.png') no-repeat -1542px -481px;
+    background-size: 2529px 947px;
+}
+
+.card38 {
+    background: url('../img/koloda.png') no-repeat -1714px -481px;
+    background-size: 2529px 947px;
+}
+
+.card39 {
+    background: url('../img/koloda.png') no-repeat -1884px -481px;
+    background-size: 2529px 947px;
+}
+
+.card40 {
+    background: url('../img/koloda.png') no-repeat -2056px -481px;
+    background-size: 2529px 947px;
+}
+
+.card41 {
+    background: url('../img/koloda.png') no-repeat 0 -721px;
+    background-size: 2529px 947px;
+}
+
+.card42 {
+    background: url('../img/koloda.png') no-repeat -170px -721px;
+    background-size: 2529px 947px;
+}
+
+.card43 {
+    background: url('../img/koloda.png') no-repeat -343px -721px;
+    background-size: 2529px 947px;
+}
+
+.card44 {
+    background: url('../img/koloda.png') no-repeat -515px -721px;
+    background-size: 2529px 947px;
+}
+
+.card45 {
+    background: url('../img/koloda.png') no-repeat -685px -721px;
+    background-size: 2529px 947px;
+}
+
+.card46 {
+    background: url('../img/koloda.png') no-repeat -858px -721px;
+    background-size: 2529px 947px;
+}
+
+.card47 {
+    background: url('../img/koloda.png') no-repeat -1027px -721px;
+    background-size: 2529px 947px;
+}
+
+.card48 {
+    background: url('../img/koloda.png') no-repeat -1200px -721px;
+    background-size: 2529px 947px;
+}
+
+.card49 {
+    background: url('../img/koloda.png') no-repeat -1371px -721px;
+    background-size: 2529px 947px;
+}
+
+.card50 {
+    background: url('../img/koloda.png') no-repeat -1542px -721px;
+    background-size: 2529px 947px;
+}
+
+.card51 {
+    background: url('../img/koloda.png') no-repeat -1712px -721px;
+    background-size: 2529px 947px;
+}
+
+.card52 {
+    background: url('../img/koloda.png') no-repeat -1884px -721px;
+    background-size: 2529px 947px;
+}
+
+.card53 {
+    background: url('../img/koloda.png') no-repeat -2056px -721px;
+    background-size: 2529px 947px;
+}
