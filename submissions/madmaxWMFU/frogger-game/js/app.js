@@ -1,44 +1,73 @@
 const playerStartValue = {
     "x": 200,
     "y": 400,
-    "icon": "images/char-boy.png"
+    "icon": "images/char-boy.png",
+    "stepX": 100,
+    "stepY": 82
+};
+
+const enemyStartValue = {
+    "x": 0,
+    "icon": "images/enemy-bug.png",
+    "minX": -50,
+    "maxX": 510
+};
+
+const coordsGameGround = {
+    "min": 0,
+    "max": 400,
+    "delay": 200,
+    "conflictX": 80,
+    "conflictY": 60
 };
 
 let score = document.querySelector(".user-score");
 
-class Enemy {
-    constructor(x, y, speed) {
+class Character {
+    constructor(x, y, sprite) {
         this.x = x;
         this.y = y;
-        this.sprite = "images/enemy-bug.png";
-        this.speed = speed;
+        this.sprite = sprite;
+    }
+
+    render() {
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+}
+
+class Enemy extends Character {
+    constructor(x, y, sprite, player) {
+        super(x, y, sprite);
+        this.speed = this.getRandomSpeed();
         this.player = player;
     }
     
     update(dt) {
         this.x += this.speed * dt;
-        if(this.x > 510) {
-            this.x = -50;
-            this.speed = randomSpeed();
+        if(this.x > enemyStartValue.maxX) {
+            this.x = enemyStartValue.minX;
+            this.speed = this.getRandomSpeed();
         }
 
-        if(player.x < this.x + 80 && player.x + 80 > this.x && player.y < this.y + 60 && 60 + player.y > this.y) {
-            player.x = 200;
-            player.y = 400;
+        if(player.x < this.x + coordsGameGround.conflictX && player.x + coordsGameGround.conflictX > this.x && player.y < this.y + coordsGameGround.conflictY && coordsGameGround.conflictY + player.y > this.y) {
+            player.x = playerStartValue.x;
+            player.y = playerStartValue.y;
             minusScore();
         }
     }
 
     render() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        super.render();
+    }
+
+    getRandomSpeed() {
+        return 100 + Math.floor(Math.random() * 222);
     }
 }
 
-class Player {
-    constructor(x, y, icon) {
-        this.x = x;
-        this.y = y;
-        this.sprite = icon;
+class Player extends Character {
+    constructor(x, y, sprite) {
+        super(x, y, sprite);
     }
 
     update(dt) {
@@ -46,39 +75,38 @@ class Player {
     }
 
     render() {
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+        super.render();
     }
     
     handleInput(keyPress) {
-        if(keyPress == 'left' && this.x > 0) {
-            this.x -= 100;
+        if(keyPress == 'left' && this.x > coordsGameGround.min) {
+            this.x -= playerStartValue.stepX;
         }
 
-        if(keyPress == 'right' && this.x < 400) {
-            this.x += 100;
+        if(keyPress == 'right' && this.x < coordsGameGround.max) {
+            this.x += playerStartValue.stepX;
         }
 
-        if(keyPress == 'up' && this.y > 0) {
-            this.y -= 82;
+        if(keyPress == 'up' && this.y > coordsGameGround.min) {
+            this.y -= playerStartValue.stepY;
         }
 
-        if(keyPress == 'down' && this.y < 400) {
-            this.y += 82;
+        if(keyPress == 'down' && this.y < coordsGameGround.max) {
+            this.y += playerStartValue.stepY;
         }
       
-        if(this.y < 0) {
+        if(this.y <= coordsGameGround.min) {
             plusScore();
             setTimeout(() => {
-                this.x = 200;
-                this.y = 400;
-            }, 300);
+                this.x = playerStartValue.x;
+                this.y = playerStartValue.y;
+            }, coordsGameGround.delay);
         }
     }
 }
 
-const randomSpeed = () => 100 + Math.floor(Math.random() * 222);
 const plusScore = () => ++score.innerText;
-const minusScore = () => score.innerText <=0 ? score.innerText = 0 : --score.innerText;
+const minusScore = () => score.innerText <= 0 ? score.innerText = 0 : --score.innerText;
 
 document.addEventListener('keyup', e => {
     const allowedKeys = {
@@ -92,4 +120,4 @@ document.addEventListener('keyup', e => {
 });
 
 const player = new Player(playerStartValue.x, playerStartValue.y, playerStartValue.icon);
-const allEnemies = [63, 147, 230].map(value =>  new Enemy( 0, value, randomSpeed(), player));
+const allEnemies = [63, 147, 230].map(y =>  new Enemy(enemyStartValue.x, y, enemyStartValue.icon, player));
