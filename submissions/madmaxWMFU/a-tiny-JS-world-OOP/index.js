@@ -6,19 +6,19 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-class Objects {
-    constructor(name, gender, species, greeting) {
+class Inhabitant {
+    constructor(name, gender, greeting, species) {
         this.name = name;
         this.gender = gender;
-        this.species = species;
         this.greeting =greeting;
+        this.species = species;
     }
 
     say() {
         return this.greeting;
     }
 
-    allAbout() {
+    toString() {
         return [
             this.species,
             `<strong>${this.name}</strong>`,
@@ -28,40 +28,41 @@ class Objects {
     }
 }
 
-class Human extends Objects {
-    constructor(name, gender, species, hands, legs, greeting) {
-        super(name, gender, species, greeting);
+class Human extends Inhabitant {
+    constructor(name, gender, hands, legs, greeting, species = "human") {
+        super(name, gender, greeting, species);
         this.hands = hands;
         this.legs = legs;
     }
 
-    allAbout() {
-        let allAbout = super.allAbout();
+    toString() {
+        let allAbout = super.toString();
         let firstPart = allAbout.slice(0, 3);
         let secondPart = allAbout.slice(3, 4);
         return [...firstPart, this.hands, this.legs, ...secondPart].join("; ");
     }
 }
 
-class Animal extends Objects {
-    constructor(name, gender, species, wings, paws, greeting) {
-        super(name, gender, species, greeting);
+class Animal extends Inhabitant {
+    constructor(name, gender, wings, paws, greeting, species) {
+        super(name, gender, greeting, species);
         this.wings = wings;
         this.paws = paws;
     }
 
-    allAbout() {
-        let allAbout = super.allAbout();
+    toString() {
+        let allAbout = super.toString();
         let firstPart = allAbout.slice(0, 3);
         let secondPart = allAbout.slice(3, 4);
         return [...firstPart, this.wings, this.paws, ...secondPart].join("; ");
     }    
 }
 
-const man = new Human('Max', 'human', 'male', 2, 2, 'Hallo!'); 
-const woman = new Human('Lena', 'human', 'female', 2, 2, 'Bonjour!'); 
-const dog = new Animal('Adolf', 'male', 'dog', 0, 4, 'Woof!'); 
-const cat = new Animal('Klara', 'female', 'cat', 0, 4, 'Meeow!'); 
-
+const inhabitans = [
+    new Human('Max', 'male', 2, 2, 'Hallo!'),
+    new Human('Lena', 'female', 2, 2, 'Bonjour!'),
+    new Animal('Adolf', 'male', 0, 4, 'Woof!', 'dog'),
+    new Animal('Klara', 'female', 0, 4, 'Meeow!', 'cat')
+];
 // ======== OUTPUT ========
-[man, woman, dog, cat].forEach(arr => print(arr.allAbout(), 'div'));
+inhabitans.forEach(arr => print(arr, 'div'));
