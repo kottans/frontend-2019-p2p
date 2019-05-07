@@ -10,7 +10,10 @@ const enemyStartValue = {
     "x": 0,
     "icon": "images/enemy-bug.png",
     "minX": -50,
-    "maxX": 510
+    "maxX": 510,
+    "firstEnemy": 63,
+    "secondEnemy": 147,
+    "thirdEnemy": 230
 };
 
 const coordsGameGround = {
@@ -18,7 +21,9 @@ const coordsGameGround = {
     "max": 400,
     "delay": 200,
     "conflictX": 80,
-    "conflictY": 60
+    "conflictY": 60,
+    "minSpeed": 100,
+    "maxSpeed": 222
 };
 
 let score = document.querySelector(".user-score");
@@ -48,7 +53,10 @@ class Enemy extends Character {
             this.x = enemyStartValue.minX;
             this.speed = this.getRandomSpeed();
         }
+        this.resetPlayer();
+    }
 
+    resetPlayer() {
         if(player.x < this.x + coordsGameGround.conflictX && player.x + coordsGameGround.conflictX > this.x && player.y < this.y + coordsGameGround.conflictY && coordsGameGround.conflictY + player.y > this.y) {
             player.x = playerStartValue.x;
             player.y = playerStartValue.y;
@@ -56,12 +64,8 @@ class Enemy extends Character {
         }
     }
 
-    render() {
-        super.render();
-    }
-
     getRandomSpeed() {
-        return 100 + Math.floor(Math.random() * 222);
+        return coordsGameGround.minSpeed + Math.floor(Math.random() * coordsGameGround.maxSpeed);
     }
 }
 
@@ -72,10 +76,6 @@ class Player extends Character {
 
     update(dt) {
 
-    }
-
-    render() {
-        super.render();
     }
     
     handleInput(keyPress) {
@@ -94,7 +94,11 @@ class Player extends Character {
         if(keyPress == 'down' && this.y < coordsGameGround.max) {
             this.y += playerStartValue.stepY;
         }
-      
+        
+        this.prizePoint();
+    }
+
+    prizePoint() {
         if(this.y <= coordsGameGround.min) {
             plusScore();
             setTimeout(() => {
@@ -120,4 +124,4 @@ document.addEventListener('keyup', e => {
 });
 
 const player = new Player(playerStartValue.x, playerStartValue.y, playerStartValue.icon);
-const allEnemies = [63, 147, 230].map(y =>  new Enemy(enemyStartValue.x, y, enemyStartValue.icon, player));
+const allEnemies = [enemyStartValue.firstEnemy, enemyStartValue.secondEnemy, enemyStartValue.thirdEnemy].map(y =>  new Enemy(enemyStartValue.x, y, enemyStartValue.icon, player));
