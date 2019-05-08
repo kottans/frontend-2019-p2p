@@ -22,6 +22,7 @@
     transform-style: preserve-3d;
     position: relative;
     margin-bottom: 20px;
+    transform: rotateY(0deg);
 }
 
 .flipper, .front, .back {
@@ -33,14 +34,14 @@
     border: solid yellowgreen;
     border-radius: 20px;
     cursor: pointer;
-	backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .front {
-	z-index: 2;
+    z-index: 2;
     transform: rotateY(0deg);    
     background: url(../img/koloda.png) no-repeat -2228px -481px;
     background-size: 2529px 947px;
@@ -48,284 +49,284 @@
 
 .back {
     transform: rotateY(180deg);
-    background: url('../img/koloda.png') no-repeat -2228px 0;
+    background: url(../img/koloda.png) no-repeat;
     background-size: 2529px 947px;
 }
 
-.rotateCard {
+.rotate-card {
     transform: rotateY(180deg); 
 }
 
-.hideCard {    
-    transform: rotateY(0deg);
+.remove-card {
+    visibility: hidden;
 }
 
 .card0 {
-    background: url('../img/koloda.png') no-repeat 0 0;
-    background-size: 2529px 947px;
+    background-position-x: 0;
+    background-position-y: 0;
 }
 
 .card1 {
-    background: url('../img/koloda.png') no-repeat -171px 0;
-    background-size: 2529px 947px;
+    background-position-x: -171px;
+    background-position-y: 0;
 }
 
 .card2 {
-    background: url('../img/koloda.png') no-repeat -342px 0;
-    background-size: 2529px 947px;
+    background-position-x: -342px;
+    background-position-y: 0;
 }
 
 .card3 {
-    background: url('../img/koloda.png') no-repeat -514px 0;
-    background-size: 2529px 947px;
+    background-position-x: -514px;
+    background-position-y: 0;
 }
 
 .card4 {
-    background: url('../img/koloda.png') no-repeat -685px 0;
-    background-size: 2529px 947px;
+    background-position-x: -685px;
+    background-position-y: 0;
 }
 
 .card5 {
-    background: url('../img/koloda.png') no-repeat -856px 0;
-    background-size: 2529px 947px;
+    background-position-x: -856px;
+    background-position-y: 0;
 }
 
 .card6 {
-    background: url('../img/koloda.png') no-repeat -1028px 0;
-    background-size: 2529px 947px;
+    background-position-x: -1028px;
+    background-position-y: 0;
 }
 
 .card7 {
-    background: url('../img/koloda.png') no-repeat -1199px 0;
-    background-size: 2529px 947px;
+    background-position-x: -1199px;
+    background-position-y: 0;
 }
 
 .card8 {
-    background: url('../img/koloda.png') no-repeat -1371px -1px;
-    background-size: 2529px 947px;
+    background-position-x: -1371px;
+    background-position-y: -1px;
 }
 
 .card9 {
-    background: url('../img/koloda.png') no-repeat -1542px -1px;
-    background-size: 2529px 947px;
+    background-position-x: -1542px;
+    background-position-y: -1px;
 }
 
 .card10 {
-    background: url('../img/koloda.png') no-repeat -1714px -1px;
-    background-size: 2529px 947px;
+    background-position-x: -1714px;
+    background-position-y: -1px;
 }
 
 .card11 {
-    background: url('../img/koloda.png') no-repeat -1884px -2px;
-    background-size: 2529px 947px;
+    background-position-x: -1884px;
+    background-position-y: -2px;
 }
 
 .card12 {
-    background: url('../img/koloda.png') no-repeat -2056px -2px;
-    background-size: 2529px 947px;
+    background-position-x: -2056px;
+    background-position-y: -2px;
 }
 
 .card13 {
-    background: url('../img/koloda.png') no-repeat -2228px 0;
-    background-size: 2529px 947px;
+    background-position-x: -2228px;
+    background-position-y: 0;
 }
 
 .card14 {
-    background: url('../img/koloda.png') no-repeat 0 -240px;
-    background-size: 2529px 947px;
+    background-position-x: 0;
+    background-position-y: -240px;
 }
 
 .card15 {
-    background: url('../img/koloda.png') no-repeat -171px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -171px;
+    background-position-y: -240px;
 }
 
 .card16 {
-    background: url('../img/koloda.png') no-repeat -342px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -342px;
+    background-position-y: -240px;
 }
 
 .card17 {
-    background: url('../img/koloda.png') no-repeat -514px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -514px;
+    background-position-y: -240px;
 }
 
 .card18 {
-    background: url('../img/koloda.png') no-repeat -685px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -685px;
+    background-position-y: -240px;
 }
 
 .card19 {
-    background: url('../img/koloda.png') no-repeat -856px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -856px;
+    background-position-y: -240px;
 }
 
 .card20 {
-    background: url('../img/koloda.png') no-repeat -1028px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -1028px;
+    background-position-y: -240px;
 }
 
 .card21 {
-    background: url('../img/koloda.png') no-repeat -1199px -240px;
-    background-size: 2529px 947px;
+    background-position-x: -1199px;
+    background-position-y: -240px;
 }
 
 .card22 {
-    background: url('../img/koloda.png') no-repeat -1371px -241px;
-    background-size: 2529px 947px;
+    background-position-x: -1371px;
+    background-position-y: -241px;
 }
 
 .card23 {
-    background: url('../img/koloda.png') no-repeat -1543px -242px;
-    background-size: 2529px 947px;
+    background-position-x: -1543px;
+    background-position-y: -242px;
 }
 
 .card24{
-    background: url('../img/koloda.png') no-repeat -1710px -241px;
-    background-size: 2529px 947px;
+    background-position-x: -1710px;
+    background-position-y: -241px;
 }
 
 .card25 {
-    background: url('../img/koloda.png') no-repeat -1884px -242px;
-    background-size: 2529px 947px;
+    background-position-x: -1884px;
+    background-position-y: -242px;
 }
 
 .card26 {
-    background: url('../img/koloda.png') no-repeat -2056px -242px;
-    background-size: 2529px 947px;
+    background-position-x: -2056px;
+    background-position-y: -242px;
 }
 
 .card27 {
-    background: url('../img/koloda.png') no-repeat -2228px -244px;
-    background-size: 2529px 947px;
+    background-position-x: -2228px;
+    background-position-y: -244px;
 }
 
 .card28 {
-    background: url('../img/koloda.png') no-repeat 0 -481px;
-    background-size: 2529px 947px;
+    background-position-x: 0;
+    background-position-y: -481px;
 }
 
 .card29 {
-    background: url('../img/koloda.png') no-repeat -171px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -171px;
+    background-position-y: -481px;
 }
 
 .card30 {
-    background: url('../img/koloda.png') no-repeat -342px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -342px;
+    background-position-y: -481px;
 }
 
 .card31 {
-    background: url('../img/koloda.png') no-repeat -514px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -514px;
+    background-position-y: -481px;
 }
 
 .card32 {
-    background: url('../img/koloda.png') no-repeat -685px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -685px;
+    background-position-y: -481px;
 }
 
 .card33 {
-    background: url('../img/koloda.png') no-repeat -857px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -857px;
+    background-position-y: -481px;
 }
 
 .card34 {
-    background: url('../img/koloda.png') no-repeat -1028px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1028px;
+    background-position-y: -481px;
 }
 
 .card35 {
-    background: url('../img/koloda.png') no-repeat -1199px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1199px;
+    background-position-y: -481px;
 }
 
 .card36 {
-    background: url('../img/koloda.png') no-repeat -1371px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1371px;
+    background-position-y: -481px;
 }
 
 .card37 {
-    background: url('../img/koloda.png') no-repeat -1542px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1542px;
+    background-position-y: -481px;
 }
 
 .card38 {
-    background: url('../img/koloda.png') no-repeat -1714px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1714px;
+    background-position-y: -481px;
 }
 
 .card39 {
-    background: url('../img/koloda.png') no-repeat -1884px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -1884px;
+    background-position-y: -481px;
 }
 
 .card40 {
-    background: url('../img/koloda.png') no-repeat -2056px -481px;
-    background-size: 2529px 947px;
+    background-position-x: -2056px;
+    background-position-y: -481px;
 }
 
 .card41 {
-    background: url('../img/koloda.png') no-repeat 0 -721px;
-    background-size: 2529px 947px;
+    background-position-x: 0;
+    background-position-y: -721px;
 }
 
 .card42 {
-    background: url('../img/koloda.png') no-repeat -170px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -170px;
+    background-position-y: -721px;
 }
 
 .card43 {
-    background: url('../img/koloda.png') no-repeat -343px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -343px;
+    background-position-y: -721px;
 }
 
 .card44 {
-    background: url('../img/koloda.png') no-repeat -515px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -515px;
+    background-position-y: -721px;
 }
 
 .card45 {
-    background: url('../img/koloda.png') no-repeat -685px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -685px;
+    background-position-y: -721px;
 }
 
 .card46 {
-    background: url('../img/koloda.png') no-repeat -858px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -858px;
+    background-position-y: -721px;
 }
 
 .card47 {
-    background: url('../img/koloda.png') no-repeat -1027px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1027px;
+    background-position-y: -721px;
 }
 
 .card48 {
-    background: url('../img/koloda.png') no-repeat -1200px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1200px;
+    background-position-y: -721px;
 }
 
 .card49 {
-    background: url('../img/koloda.png') no-repeat -1371px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1371px;
+    background-position-y: -721px;
 }
 
 .card50 {
-    background: url('../img/koloda.png') no-repeat -1542px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1542px;
+    background-position-y: -721px;
 }
 
 .card51 {
-    background: url('../img/koloda.png') no-repeat -1712px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1712px;
+    background-position-y: -721px;
 }
 
 .card52 {
-    background: url('../img/koloda.png') no-repeat -1884px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -1884px;
+    background-position-y: -721px;
 }
 
 .card53 {
-    background: url('../img/koloda.png') no-repeat -2056px -721px;
-    background-size: 2529px 947px;
+    background-position-x: -2056px;
+    background-position-y: -721px;
 }
