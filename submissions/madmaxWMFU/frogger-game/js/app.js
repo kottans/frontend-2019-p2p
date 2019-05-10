@@ -3,7 +3,8 @@ const playerStartValue = {
     "y": 400,
     "icon": "images/char-boy.png",
     "stepX": 100,
-    "stepY": 82
+    "stepY": 82,
+    "startScore": 0
 };
 
 const enemyStartValue = {
@@ -25,8 +26,6 @@ const coordsGameGround = {
     "minSpeed": 100,
     "maxSpeed": 222
 };
-
-let score = document.querySelector(".user-score");
 
 class Character {
     constructor(x, y, sprite) {
@@ -53,14 +52,14 @@ class Enemy extends Character {
             this.x = enemyStartValue.minX;
             this.speed = this.getRandomSpeed();
         }
-        this.resetPlayer();
+        this.isCollision();
     }
 
-    resetPlayer() {
+    isCollision() {
         if(player.x < this.x + coordsGameGround.conflictX && player.x + coordsGameGround.conflictX > this.x && player.y < this.y + coordsGameGround.conflictY && coordsGameGround.conflictY + player.y > this.y) {
             player.x = playerStartValue.x;
             player.y = playerStartValue.y;
-            minusScore();
+            this.player.minusScore();
         }
     }
 
@@ -72,10 +71,11 @@ class Enemy extends Character {
 class Player extends Character {
     constructor(x, y, sprite) {
         super(x, y, sprite);
+        this.score = playerStartValue.startScore;
     }
 
     update(dt) {
-
+       this.prizePoint();
     }
     
     handleInput(keyPress) {
@@ -94,23 +94,24 @@ class Player extends Character {
         if(keyPress == 'down' && this.y < coordsGameGround.max) {
             this.y += playerStartValue.stepY;
         }
+    }
+
+    plusScore() {
+        this.score++;
+    }
         
-        this.prizePoint();
+    minusScore() {
+        this.score <= playerStartValue.startScore ? this.score = playerStartValue.startScore : this.score--; 
     }
 
     prizePoint() {
         if(this.y <= coordsGameGround.min) {
-            plusScore();
-            setTimeout(() => {
-                this.x = playerStartValue.x;
-                this.y = playerStartValue.y;
-            }, coordsGameGround.delay);
+            this.plusScore();
+            this.x = playerStartValue.x;
+            this.y = playerStartValue.y;
         }
     }
 }
-
-const plusScore = () => ++score.innerText;
-const minusScore = () => score.innerText <= 0 ? score.innerText = 0 : --score.innerText;
 
 document.addEventListener('keyup', e => {
     const allowedKeys = {
