@@ -1,17 +1,7 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
-
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
-
-// ======== OBJECTS DEFINITIONS ========
 class Inhabitant {
-    constructor(name, gender, greeting, species) {
-        this.name = name;
-        this.gender = gender;
-        this.greeting =greeting;
-        this.species = species;
+    constructor(props) {
+        this.name = props.name;
+        this.greeting = props.greeting;
     }
 
     say() {
@@ -23,46 +13,68 @@ class Inhabitant {
             this.species,
             `<strong>${this.name}</strong>`,
             this.gender,
+            this.hands,
+            this.legs,
             `<em>${this.say()}</em>`
-        ];
+        ].join("; ");        
+    }
+
+    checkValue(checkNum, constNum) {
+        return typeof(checkNum) != "undefined" ? checkNum : constNum;
     }
 }
 
 class Human extends Inhabitant {
-    constructor(name, gender, hands, legs, greeting, species = "human") {
-        super(name, gender, greeting, species);
-        this.hands = hands;
-        this.legs = legs;
-    }
-
-    toString() {
-        let allAbout = super.toString();
-        let firstPart = allAbout.slice(0, 3);
-        let secondPart = allAbout.slice(3, 4);
-        return [...firstPart, this.hands, this.legs, ...secondPart].join("; ");
+    constructor(props) {
+        super(props);
+        this.hands = this.checkValue(props.hands, 2);
+        this.legs = this.checkValue(props.legs, 2);
+        this.species = "human";
     }
 }
 
 class Animal extends Inhabitant {
-    constructor(name, gender, wings, paws, greeting, species) {
-        super(name, gender, greeting, species);
-        this.wings = wings;
-        this.paws = paws;
-    }
+    constructor(props) {
+        super(props);
+        this.gender = props.gender;
+        this.hands = this.checkValue(props.hands, 2);
+        this.legs = this.checkValue(props.legs, 4);
+    }   
+}
 
-    toString() {
-        let allAbout = super.toString();
-        let firstPart = allAbout.slice(0, 3);
-        let secondPart = allAbout.slice(3, 4);
-        return [...firstPart, this.wings, this.paws, ...secondPart].join("; ");
-    }    
+class Man extends Human {
+    constructor(props) {
+        super(props);
+        this.gender = "male";
+    }
+}
+
+class Woman extends Human {
+    constructor(props) {
+        super(props);
+        this.gender = "female";
+    }
+}
+
+class Dog extends Animal {
+    constructor(props) {
+        super(props);
+        this.species = "dog";        
+    }
+}
+
+class Cat extends Animal {
+    constructor(props) {
+        super(props);
+        this.species = "cat";
+    }
 }
 
 const inhabitans = [
-    new Human('Max', 'male', 2, 2, 'Hallo!'),
-    new Human('Lena', 'female', 2, 2, 'Bonjour!'),
-    new Animal('Adolf', 'male', 0, 4, 'Woof!', 'dog'),
-    new Animal('Klara', 'female', 0, 4, 'Meeow!', 'cat')
+    new Man({name: 'Max', greeting: 'Hallo!'}),
+    new Woman({name: 'Lena', greeting: 'Bonjour!'}),
+    new Dog({name: 'Adolf', gender: 'male', greeting: 'Woof!', hands: 0}),
+    new Cat({name: 'Klara', gender: 'female', greeting: 'Meeow!', hands: 0})
 ];
-// ======== OUTPUT ========
-inhabitans.forEach(arr => print(arr, 'div'));
+
+inhabitans.forEach(obj => print(obj, 'div'));
