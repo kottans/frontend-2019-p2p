@@ -18,17 +18,13 @@ class Inhabitant {
             `<em>${this.say()}</em>`
         ].join("; ");        
     }
-
-    checkValue(checkNum, constNum) {
-        return typeof(checkNum) != "undefined" ? checkNum : constNum;
-    }
 }
 
 class Human extends Inhabitant {
     constructor(props) {
         super(props);
-        this.hands = this.checkValue(props.hands, 2);
-        this.legs = this.checkValue(props.legs, 2);
+        this.hands = props.hands || 2;
+        this.legs = props.legs || 2;
         this.species = "human";
     }
 }
@@ -37,8 +33,8 @@ class Animal extends Inhabitant {
     constructor(props) {
         super(props);
         this.gender = props.gender;
-        this.hands = this.checkValue(props.hands, 2);
-        this.legs = this.checkValue(props.legs, 4);
+        this.hands = props.hands || 0;
+        this.legs = props.legs || 0;
     }   
 }
 
@@ -73,8 +69,8 @@ class Cat extends Animal {
 const inhabitans = [
     new Man({name: 'Max', greeting: 'Hallo!'}),
     new Woman({name: 'Lena', greeting: 'Bonjour!'}),
-    new Dog({name: 'Adolf', gender: 'male', greeting: 'Woof!', hands: 0}),
-    new Cat({name: 'Klara', gender: 'female', greeting: 'Meeow!', hands: 0})
+    new Dog({name: 'Adolf', gender: 'male', greeting: 'Woof!', legs: 4}),
+    new Cat({name: 'Klara', gender: 'female', greeting: 'Meeow!', legs: 4})
 ];
 
 inhabitans.forEach(obj => print(obj, 'div'));
