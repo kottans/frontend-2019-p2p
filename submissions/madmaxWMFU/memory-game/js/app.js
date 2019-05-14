@@ -1,6 +1,6 @@
-const gameField = document.querySelector(".game-field");
 let openCards = [];
-
+const hideDelay = 1000;
+const gameField = document.querySelector(".game-field");
 const arrayOfCards = (() => {
 	let cards = [];
 	for(let i = 0; i <= 53; i++) {
@@ -13,10 +13,16 @@ const getShuffledCards = (arr) => arr.sort(() => 0.5 - Math.random());
 
 const getTemplateCard = (newClass) => {
     return `
-        <div class="flipper hide-card">
+        <div class="flipper">
             <div class="front"></div>
             <div class="back ${newClass}" data-value="${newClass}"></div>
         </div>`;
+}
+
+const clearOpenCards = () => {
+	if(document.querySelectorAll(".rotate-card")) {
+		openCards = [];
+	}
 }
 
 const drawCards = (arrayOfCards) => {
@@ -25,8 +31,23 @@ const drawCards = (arrayOfCards) => {
 	playCards.forEach((card) => gameField.insertAdjacentHTML("beforeEnd", getTemplateCard(card)));
 }
 
-const hideAllSelectedCards = () => document.querySelectorAll(".flipper").forEach((item) => item.classList.remove("rotate-card"));
-const hideCheckedCards = () => document.querySelectorAll(".rotate-card").forEach((item) => item.classList.add("remove-card"));
+const hideAllSelectedCards = () => {
+	setTimeout(() => { 
+		document.querySelectorAll(".flipper").forEach((item) => item.classList.remove("rotate-card"));
+		clearOpenCards();
+	}, hideDelay);
+}
+
+const hideCheckedCards = () => {
+	setTimeout(() => { 
+		document.querySelectorAll(".rotate-card").forEach((item) => {
+			item.classList.remove("rotate-card");
+			item.classList.add("remove-card");
+		});
+		clearOpenCards();
+		countSuccessfullCard();
+	}, hideDelay);
+}
 
 const showCard = (item) => item.classList.toggle("rotate-card");
 
@@ -39,34 +60,21 @@ const countSuccessfullCard = () => {
 
 const checkCards = (selectedCards) => {
 	let unique = selectedCards.filter((el, i, a) => i === a.indexOf(el));
-	if(unique.length == 1) {
-		setTimeout(() => {
-			hideCheckedCards();
-			openCards = [];
-			countSuccessfullCard();
-		}, 1000);
-	} else {
-		setTimeout(() => {
-			hideAllSelectedCards();
-			openCards = [];
-		}, 1000);
-	}
+	let status = unique.length == 1 ? hideCheckedCards() : hideAllSelectedCards();
 }
 
 const init = () => {
 	gameField.innerHTML = "";
 	drawCards(arrayOfCards);
 	gameField.addEventListener("click", (e) => {
-		if(e.target.parentNode.classList.contains("flipper") && !e.target.parentNode.classList.contains("rotate-card")) {
-			if(openCards.length < 2) {
-				showCard(e.target.parentNode);
-			    openCards.push(e.target.nextElementSibling.dataset.value);
-		    } 
+		if(e.target.closest(".flipper") && !e.target.closest(".rotate-card") && openCards.length != 2) {
+			showCard(e.target.closest(".flipper"));
+			openCards.push(e.target.nextElementSibling.dataset.value);
 
-		    if(openCards.length == 2) {
-			    checkCards(openCards);
-		    }
-		}
+			if(openCards.length == 2) {
+				checkCards(openCards);
+			}
+		} 
 	})	
 }
 
