@@ -19,7 +19,8 @@ body {
   font-size: 3em;
 }
 
-#page-name, #dictionary-name {
+#page-name,
+#dictionary-name {
   margin-left: 40px;
 }
 
