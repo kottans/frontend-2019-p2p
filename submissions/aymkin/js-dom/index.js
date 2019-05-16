@@ -98,7 +98,7 @@ eventTarget.addEventListener('click', evt => {
   // onckick reset styles for all li elements
   lis.forEach(element => {
     element.className = 'list-element';
-  })
+  });
   for (let i = 1; i <= fruits.length; i += 1) {
     if (evt.target.textContent === fruits[i - 1].name) {
       image.setAttribute('src', fruits[i - 1].imgSrc);
