@@ -73,21 +73,23 @@ const checkCards = (selectedCards) => {
 	let status = unique.length == staticNumbers.uniqueCards ? hideCheckedCards() : hideAllSelectedCards();
 }
 
+const handleClick = (e) => {
+	if(e.target.closest(".flipper") && !e.target.closest(".rotate-card") && !isBlocked) {
+		showCard(e.target.closest(".flipper"));
+		console.log(e.target);
+		openCards.push(e.target.nextElementSibling.dataset.value);
+
+		if(openCards.length === staticNumbers.maxSelectedCards) {
+			isBlocked = true;
+			checkCards(openCards);
+		}
+	}	
+}
+
 const init = () => {
 	gameField.innerHTML = "";
 	drawCards(arrayOfCards);
-	gameField.addEventListener("click", (e) => {
-		if(e.target.closest(".flipper") && !e.target.closest(".rotate-card") && !isBlocked) {
-			showCard(e.target.closest(".flipper"));
-			console.log(e.target);
-			openCards.push(e.target.nextElementSibling.dataset.value);
-
-			if(openCards.length === staticNumbers.maxSelectedCards) {
-				isBlocked = true;
-				checkCards(openCards);
-			}
-		} 
-	})	
+	gameField.addEventListener("click", handleClick);	
 
 }
 
