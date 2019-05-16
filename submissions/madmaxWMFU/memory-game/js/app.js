@@ -1,9 +1,18 @@
 let openCards = [];
-const hideDelay = 1000;
+let isBlocked = false;
+const staticNumbers = {
+	allCardsOnFlield: 20,
+	maxSelectedCards: 2,
+	uniqueCards: 1,
+	minCard: 0,
+	maxCard: 53,
+	clearDelay: 500,
+	hideDelay: 1000
+};
 const gameField = document.querySelector(".game-field");
 const arrayOfCards = (() => {
 	let cards = [];
-	for(let i = 0; i <= 53; i++) {
+	for(let i = staticNumbers.minCard; i <= staticNumbers.maxCard; i++) {
 		cards.push(`card${i}`);
 	} 
 	return cards;
@@ -20,9 +29,10 @@ const getTemplateCard = (newClass) => {
 }
 
 const clearOpenCards = () => {
-	if(document.querySelectorAll(".rotate-card")) {
+	setTimeout(() => {
 		openCards = [];
-	}
+		isBlocked = false;
+	}, staticNumbers.clearDelay);
 }
 
 const drawCards = (arrayOfCards) => {
@@ -35,7 +45,7 @@ const hideAllSelectedCards = () => {
 	setTimeout(() => { 
 		document.querySelectorAll(".flipper").forEach((item) => item.classList.remove("rotate-card"));
 		clearOpenCards();
-	}, hideDelay);
+	}, staticNumbers.hideDelay);
 }
 
 const hideCheckedCards = () => {
@@ -46,13 +56,13 @@ const hideCheckedCards = () => {
 		});
 		clearOpenCards();
 		countSuccessfullCard();
-	}, hideDelay);
+	}, staticNumbers.hideDelay);
 }
 
 const showCard = (item) => item.classList.toggle("rotate-card");
 
 const countSuccessfullCard = () => {
-	if(document.querySelectorAll(".remove-card").length == 20) {
+	if(document.querySelectorAll(".remove-card").length === staticNumbers.allCardsOnFlield) {
     	alert("Congratulations! You found all the cards.");
     	init();
 	}
@@ -60,22 +70,25 @@ const countSuccessfullCard = () => {
 
 const checkCards = (selectedCards) => {
 	let unique = selectedCards.filter((el, i, a) => i === a.indexOf(el));
-	let status = unique.length == 1 ? hideCheckedCards() : hideAllSelectedCards();
+	let status = unique.length == staticNumbers.uniqueCards ? hideCheckedCards() : hideAllSelectedCards();
 }
 
 const init = () => {
 	gameField.innerHTML = "";
 	drawCards(arrayOfCards);
 	gameField.addEventListener("click", (e) => {
-		if(e.target.closest(".flipper") && !e.target.closest(".rotate-card") && openCards.length != 2) {
+		if(e.target.closest(".flipper") && !e.target.closest(".rotate-card") && !isBlocked) {
 			showCard(e.target.closest(".flipper"));
+			console.log(e.target);
 			openCards.push(e.target.nextElementSibling.dataset.value);
 
-			if(openCards.length == 2) {
+			if(openCards.length === staticNumbers.maxSelectedCards) {
+				isBlocked = true;
 				checkCards(openCards);
 			}
 		} 
 	})	
+
 }
 
 window.onload = init();
