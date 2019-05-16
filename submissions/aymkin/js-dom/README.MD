@@ -1,5 +1,8 @@
 # Document Object Model
 
+[Demo](https://aymkin.github.io/DOM/)
+[Code base at @aymkin repo](https://github.com/aymkin/DOM)
+
 ## That is a it's a task to practice my DOM skills
 
 Implement interactive side-menu' site without page reloads. You may choose any theme: pokemons, phones, site pages aka about/prices/goal/etc. Action menu - something like this :)
