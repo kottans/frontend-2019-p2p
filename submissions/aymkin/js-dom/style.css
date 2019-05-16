@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: monospace, serif;
+  background-color: #ccc;
+}
+
+.container {
+  max-width: 940px;
+  background-color: #ddd;
+  padding: 25px;
+}
+
+#page-name {
+  font-size: 4em;
+}
+
+#dictionary-name {
+  font-size: 3em;
+}
+
+#page-name, #dictionary-name {
+  margin-left: 40px;
+}
+
+.main {
+  display: flex;
+}
+
+#navigation {
+  list-style-type: none;
+}
+
+.list-element {
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 2em;
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.list-element:hover {
+  background-color: #fff;
+}
+
+.clicked {
+  background-color: #ccc;
+}
+
+#image {
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+}
