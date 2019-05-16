@@ -1,6 +1,7 @@
 # Document Object Model
 
 [Demo](https://aymkin.github.io/DOM/)
+
 [Code base at @aymkin repo](https://github.com/aymkin/DOM)
 
 ## That is a it's a task to practice my DOM skills
