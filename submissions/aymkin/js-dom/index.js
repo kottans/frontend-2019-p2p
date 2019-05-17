@@ -60,11 +60,12 @@ navigation.setAttribute('id', 'navigation');
 const nav = doc.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
-for (let i = 1; i <= fruits.length; i += 1) {
+for (let i = 0; i < fruits.length; i += 1) {
   const li = doc.createElement('li');
   li.setAttribute('class', 'list-element');
-  li.textContent = fruits[i - 1].name;
-  if (i - 1 === 0) {
+  console.log(fruits);
+  li.textContent = fruits[i].name;
+  if (i === 0) {
     li.setAttribute('class', 'list-element clicked');
   }
   navigation.appendChild(li);
@@ -98,12 +99,12 @@ eventTarget.addEventListener('click', evt => {
   lis.forEach(element => {
     element.className = 'list-element';
   });
-  for (let i = 1; i <= fruits.length; i += 1) {
-    if (evt.target.textContent === fruits[i - 1].name) {
+  for (let i = 0; i < fruits.length; i += 1) {
+    if (evt.target.textContent === fruits[i].name) {
       image.setAttribute('src', fruits[i - 1].imgSrc);
       evt.target.className = 'list-element clicked';
-      descriptionHeader.textContent = fruits[i - 1].name;
-      descriptionParah.textContent = fruits[i - 1].description;
+      descriptionHeader.textContent = fruits[i].name;
+      descriptionParah.textContent = fruits[i].description;
     }
   }
 });
