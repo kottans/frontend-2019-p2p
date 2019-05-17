@@ -60,16 +60,15 @@ navigation.setAttribute('id', 'navigation');
 const nav = doc.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
-for (let i = 0; i < fruits.length; i += 1) {
+fruits.forEach((val, key) => {
   const li = doc.createElement('li');
   li.setAttribute('class', 'list-element');
-  console.log(fruits);
-  li.textContent = fruits[i].name;
-  if (i === 0) {
+  li.textContent = fruits[key].name;
+  if (key === 0) {
     li.setAttribute('class', 'list-element clicked');
   }
   navigation.appendChild(li);
-}
+});
 
 const divImage = doc.createElement('div');
 divImage.setAttribute('class', 'image');
@@ -99,12 +98,13 @@ eventTarget.addEventListener('click', evt => {
   lis.forEach(element => {
     element.className = 'list-element';
   });
-  for (let i = 0; i < fruits.length; i += 1) {
-    if (evt.target.textContent === fruits[i].name) {
-      image.setAttribute('src', fruits[i - 1].imgSrc);
+
+  fruits.forEach((val, key) => {
+    if (evt.target.textContent === fruits[key].name) {
+      image.setAttribute('src', fruits[key].imgSrc);
       evt.target.className = 'list-element clicked';
-      descriptionHeader.textContent = fruits[i].name;
-      descriptionParah.textContent = fruits[i].description;
+      descriptionHeader.textContent = fruits[key].name;
+      descriptionParah.textContent = fruits[key].description;
     }
-  }
+  });
 });
