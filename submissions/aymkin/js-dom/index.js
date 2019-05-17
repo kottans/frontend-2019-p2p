@@ -34,53 +34,53 @@ const fruits = [
 const doc = document;
 
 const container = doc.createElement('div');
-container.setAttribute('class', 'container');
+container.className = 'container';
 doc.body.appendChild(container);
 
 const pageName = doc.createElement('h1');
-pageName.setAttribute('id', 'page-name');
+pageName.className = 'page-name';
 pageName.textContent = 'JS DOM';
 container.appendChild(pageName);
 
 const dictionaryName = doc.createElement('h2');
-dictionaryName.setAttribute('id', 'dictionary-name');
+dictionaryName.className = 'dictionary-name';
 dictionaryName.textContent = 'Fruit dictionary';
 container.appendChild(dictionaryName);
 
 const divMain = doc.createElement('div');
-divMain.setAttribute('class', 'main');
+divMain.className = 'main';
 container.appendChild(divMain);
 
 const divMenu = doc.createElement('div');
-divMenu.setAttribute('class', 'menu');
+divMenu.className = 'menu';
 divMain.appendChild(divMenu);
 
 const navigation = doc.createElement('ul');
-navigation.setAttribute('id', 'navigation');
+navigation.className = 'navigation';
 const nav = doc.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
 fruits.forEach((val, key) => {
   const li = doc.createElement('li');
-  li.setAttribute('class', 'list-element');
+  li.className = 'list-element';
   li.textContent = fruits[key].name;
   if (key === 0) {
-    li.setAttribute('class', 'list-element clicked');
+    li.className = 'list-element clicked';
   }
   navigation.appendChild(li);
 });
 
 const divImage = doc.createElement('div');
-divImage.setAttribute('class', 'image');
+divImage.className = 'image';
 divMain.appendChild(divImage);
 
 const image = doc.createElement('img');
-image.setAttribute('id', 'image');
+image.className = 'image';
 image.setAttribute('src', fruits[0].imgSrc);
 divImage.appendChild(image);
 
 const divDescription = doc.createElement('div');
-divDescription.setAttribute('class', 'description');
+divDescription.className = 'description';
 divMain.appendChild(divDescription);
 
 const descriptionHeader = doc.createElement('h3');
