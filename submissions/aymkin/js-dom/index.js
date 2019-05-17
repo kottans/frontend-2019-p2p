@@ -64,7 +64,6 @@ for (let i = 1; i <= fruits.length; i += 1) {
   const li = doc.createElement('li');
   li.setAttribute('class', 'list-element');
   li.textContent = fruits[i - 1].name;
-  // console.log(li);
   if (i - 1 === 0) {
     li.setAttribute('class', 'list-element clicked');
   }
