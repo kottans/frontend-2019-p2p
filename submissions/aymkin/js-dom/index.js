@@ -90,9 +90,9 @@ divDescription.appendChild(descriptionHeader);
 const descriptionParah = doc.createElement('p');
 descriptionParah.textContent = fruits[0].description;
 divDescription.appendChild(descriptionParah);
-const eventTarget = doc.querySelector('ul');
+const menuList = doc.querySelector('ul');
 
-eventTarget.addEventListener('click', evt => {
+menuList.addEventListener('click', evt => {
   const lis = doc.querySelectorAll('li');
   // onckick reset styles for all li elements
   lis.forEach(element => {
