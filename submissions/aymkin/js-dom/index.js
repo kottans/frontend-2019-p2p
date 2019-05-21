@@ -34,53 +34,53 @@ const fruits = [
 const doc = document;
 
 const container = doc.createElement('div');
-container.className = 'container';
+container.classList.add('container');
 doc.body.appendChild(container);
 
 const pageName = doc.createElement('h1');
-pageName.className = 'page-name';
+pageName.classList.add('page-name');
 pageName.textContent = 'JS DOM';
 container.appendChild(pageName);
 
 const dictionaryName = doc.createElement('h2');
-dictionaryName.className = 'dictionary-name';
+dictionaryName.classList.add('dictionary-name');
 dictionaryName.textContent = 'Fruit dictionary';
 container.appendChild(dictionaryName);
 
 const divMain = doc.createElement('div');
-divMain.className = 'main';
+divMain.classList.add('main');
 container.appendChild(divMain);
 
 const divMenu = doc.createElement('div');
-divMenu.className = 'menu';
+divMenu.classList.add('menu');
 divMain.appendChild(divMenu);
 
 const navigation = doc.createElement('ul');
-navigation.className = 'navigation';
+navigation.classList.add('navigation');
 const nav = doc.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
 fruits.forEach((val, key) => {
   const li = doc.createElement('li');
-  li.className = 'list-element';
+  li.classList.add('list-element');
   li.textContent = fruits[key].name;
   if (key === 0) {
-    li.className = 'list-element clicked';
+    li.classList.add('clicked');
   }
   navigation.appendChild(li);
 });
 
 const divImage = doc.createElement('div');
-divImage.className = 'image';
+divImage.classList.add('image');
 divMain.appendChild(divImage);
 
 const image = doc.createElement('img');
-image.className = 'image';
+image.classList.add('image');
 image.setAttribute('src', fruits[0].imgSrc);
 divImage.appendChild(image);
 
 const divDescription = doc.createElement('div');
-divDescription.className = 'description';
+divDescription.classList.add('description');
 divMain.appendChild(divDescription);
 
 const descriptionHeader = doc.createElement('h3');
@@ -96,13 +96,13 @@ menuList.addEventListener('click', evt => {
   const lis = doc.querySelectorAll('li');
   // onckick reset styles for all li elements
   lis.forEach(element => {
-    element.className = 'list-element';
+    element.classList.remove('clicked');
   });
 
   fruits.forEach((val, key) => {
     if (evt.target.textContent === fruits[key].name) {
       image.src = fruits[key].imgSrc;
-      evt.target.className = 'list-element clicked';
+      evt.target.classList.add('clicked');
       descriptionHeader.textContent = fruits[key].name;
       descriptionParah.textContent = fruits[key].description;
     }
