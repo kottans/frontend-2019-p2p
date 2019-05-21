@@ -94,7 +94,6 @@ const menuList = doc.querySelector('ul');
 
 menuList.addEventListener('click', evt => {
   const lis = doc.querySelectorAll('li');
-  // onckick reset styles for all li elements
   lis.forEach(element => {
     element.classList.remove('clicked');
   });
