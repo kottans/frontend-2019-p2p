@@ -101,7 +101,7 @@ eventTarget.addEventListener('click', evt => {
 
   fruits.forEach((val, key) => {
     if (evt.target.textContent === fruits[key].name) {
-      image.setAttribute('src', fruits[key].imgSrc);
+      image.src = fruits[key].imgSrc;
       evt.target.className = 'list-element clicked';
       descriptionHeader.textContent = fruits[key].name;
       descriptionParah.textContent = fruits[key].description;
