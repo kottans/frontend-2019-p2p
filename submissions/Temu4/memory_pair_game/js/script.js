@@ -1,5 +1,5 @@
 const content = document.querySelector('.content');
-const cards = document.getElementsByClassName('card');
+const cards = Array.from(document.querySelectorAll('.card'));
 const gameScore = document.querySelector('.gameScore');
 const gameResult = document.querySelector('.gameResult');
 
@@ -24,9 +24,7 @@ const Shuffle = arr => arr.sort(() => 0.5 - Math.random());
 
 //process cards content
 const processCardsContent = (arr, content) => {
-  for (let i = 0; i < arr.length; i++) {
-    arr[i].classList.add(content[i]);
-  }
+  arr.forEach((card, index) => card.classList.add(content[index]));
 };
 
 processCardsContent(cards, Shuffle(imagesForCards));
@@ -69,15 +67,13 @@ const rotateCard = event => {
 };
 
 const defaultCardsPosition = () => {
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].classList.contains('rotate') ? cards[i].classList.remove('rotate') : null;
-  }
+  cards.forEach(card =>
+    card.classList.contains('rotate') ? card.classList.remove('rotate') : null
+  );
 };
 
 const hideAfterCorrectSelection = () => {
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].classList.contains('rotate') ? cards[i].classList.add('hidden') : null;
-  }
+  cards.forEach(card => (card.classList.contains('rotate') ? card.classList.add('hidden') : null));
 };
 
 const showGameScore = () => {
@@ -101,17 +97,10 @@ const generateGameResultMassage = () => {
 
 const showGameResult = () => {
   let resultArr = [];
-  for (let i = 0; i < cards.length; i++) {
-    resultArr.push(cards[i].classList.contains('hidden'));
-  }
-  if (
-    resultArr.reduce((current, next) => {
-      if (current === next) {
-        return next;
-      }
-      return false;
-    })
-  ) {
+
+  cards.forEach(card => resultArr.push(card.classList.contains('hidden')));
+
+  if (resultArr.reduce((current, next) => (current === next ? next : false))) {
     gameResult.classList.toggle('hide');
     generateGameResultMassage();
     setTimeout(() => window.location.reload(), 7000);
