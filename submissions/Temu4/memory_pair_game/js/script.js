@@ -20,14 +20,14 @@ const imagesForCards = [
 ];
 
 //shuffle items in array
-const Shuffle = arr => arr.sort(() => 0.5 - Math.random());
+const shuffle = arr => arr.sort(() => 0.5 - Math.random());
 
 //process cards content
 const processCardsContent = (arr, content) => {
   arr.forEach((card, index) => card.classList.add(content[index]));
 };
 
-processCardsContent(cards, Shuffle(imagesForCards));
+processCardsContent(cards, shuffle(imagesForCards));
 
 //counter for score
 let counter = 0;
@@ -80,19 +80,14 @@ const showGameScore = () => {
   return (gameScore.textContent = `Your score is: ${counter}`);
 };
 
-const generateGameResultMassage = () => {
-  let resultMassage1 = [`Awesome`, `It's the best result!`, `Your are lucky!!!`];
-  let resultMassage2 = [
-    `Congratulation!`,
-    `Your result is: ${counter}`,
-    `For improving, please, try again!`
-  ];
-  let resultMassage3 = [`You can better!`, `Your result is: ${counter}`, `Try again!`];
-  for (let i = 0; i < 3; i++) {
-    if (counter === 12) gameResult.children[i].textContent = resultMassage1[i];
-    else if (counter > 12 && counter <= 20) gameResult.children[i].textContent = resultMassage2[i];
-    else gameResult.children[i].textContent = resultMassage3[i];
-  }
+const generateGameResultMessage = () => {
+  let message1 = `Awesome.\n It's the best result!\n Your are lucky!!!`;
+  let message2 = `Congratulation!\n Your result is: ${counter}\n For improving, please, try again!`;
+  let message3 = `You can better!\n Your result is: ${counter}\n Try again!`;
+
+  if (counter === 12) gameResult.textContent = message1;
+  else if (counter > 12 && counter <= 20) gameResult.textContent = message2;
+  else gameResult.textContent = message3;
 };
 
 const showGameResult = () => {
@@ -102,7 +97,7 @@ const showGameResult = () => {
 
   if (resultArr.reduce((current, next) => (current === next ? next : false))) {
     gameResult.classList.toggle('hide');
-    generateGameResultMassage();
+    generateGameResultMessage();
     setTimeout(() => window.location.reload(), 7000);
   }
 };
