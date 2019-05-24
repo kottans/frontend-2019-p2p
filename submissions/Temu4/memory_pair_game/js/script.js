@@ -1,8 +1,7 @@
-const content = document.getElementById('content');
-const defaultButton = document.getElementById('defaultButton');
+const content = document.querySelector('.content');
 const cards = document.getElementsByClassName('card');
-const gameScore = document.getElementById('gameScore');
-const gameResult = document.getElementById('gameResult');
+const gameScore = document.querySelector('.gameScore');
+const gameResult = document.querySelector('.gameResult');
 
 //arr wirh images (classes)
 const imagesForCards = [
@@ -21,10 +20,7 @@ const imagesForCards = [
 ];
 
 //shuffle items in array
-const Shuffle = arr => {
-  for (let j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
-  return arr;
-};
+const Shuffle = arr => arr.sort(() => 0.5 - Math.random());
 
 //process cards content
 const processCardsContent = (arr, content) => {
@@ -90,7 +86,11 @@ const showGameScore = () => {
 
 const generateGameResultMassage = () => {
   let resultMassage1 = [`Awesome`, `It's the best result!`, `Your are lucky!!!`];
-  let resultMassage2 = [`Congratulation!`, `Your result is: ${counter}`, `For improving, please, try again!`];
+  let resultMassage2 = [
+    `Congratulation!`,
+    `Your result is: ${counter}`,
+    `For improving, please, try again!`
+  ];
   let resultMassage3 = [`You can better!`, `Your result is: ${counter}`, `Try again!`];
   for (let i = 0; i < 3; i++) {
     if (counter === 12) gameResult.children[i].textContent = resultMassage1[i];
