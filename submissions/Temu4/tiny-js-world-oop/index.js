@@ -7,13 +7,13 @@ class Creature {
     this.age = age;
     this.legs = legs;
     this.hobby = hobby;
-  }
+  };
 }
 
 class Human extends Creature {
-  constructor(gender, name, age, hobby, legs = 2, hands) {
+  constructor(gender, name, age, hobby, legs = 2, hands = 2) {
     super('human', gender, name, age, hobby, legs);
-    this.hands = 2;
+    this.hands = hands;
   }
 }
 
@@ -32,7 +32,6 @@ class Man extends Human {
 class Woman extends Human {
   constructor(name, age, hobby) {
     super('female', name, age, hobby);
-    this.greeting = this.greeting.bind(this);
   }
   greeting() {
     return `\tHi! I am <strong>${this.name}</strong>. I'm ${this.age}. I'm a ${this.species}, ${this.gender}.
@@ -65,10 +64,10 @@ class Dog extends Animal {
   }
 }
 
-// ======== OUTPUT ========
-[
-  new Man('John', 23, 'fishing'),
-  new Woman('Anny', 23, 'shoping'),
-  new Dog('male', 'Rex', 3, 'white with black spots', 'diging bones'),
-  new Cat('female', 'Sida', 1.5, 'lightgrey', 'sleeping')
-].forEach(item => print(item.greeting()));
+const john = new Man('John', 28, 'fishing');
+const anny = new Woman('Anny', 23, 'shoping');
+const rex = new Dog('male', 'Rex', 3, 'white with black spots', 'diging bones');
+const sida = new Cat('female', 'Sida', 1.5, 'lightgrey', 'sleeping');
+
+// // ======== OUTPUT ========
+[john, anny, rex, sida].forEach(item => print(item.greeting()));
