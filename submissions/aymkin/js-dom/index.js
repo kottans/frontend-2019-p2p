@@ -31,37 +31,37 @@ const fruits = [
   }
 ];
 
-const doc = document;
+const DOC = document;
 
-const container = doc.createElement('div');
+const container = DOC.createElement('div');
 container.classList.add('container');
-doc.body.appendChild(container);
+DOC.body.appendChild(container);
 
-const pageName = doc.createElement('h1');
+const pageName = DOC.createElement('h1');
 pageName.classList.add('page-name');
 pageName.textContent = 'JS DOM';
 container.appendChild(pageName);
 
-const dictionaryName = doc.createElement('h2');
+const dictionaryName = DOC.createElement('h2');
 dictionaryName.classList.add('dictionary-name');
 dictionaryName.textContent = 'Fruit dictionary';
 container.appendChild(dictionaryName);
 
-const divMain = doc.createElement('div');
+const divMain = DOC.createElement('div');
 divMain.classList.add('main');
 container.appendChild(divMain);
 
-const divMenu = doc.createElement('div');
+const divMenu = DOC.createElement('div');
 divMenu.classList.add('menu');
 divMain.appendChild(divMenu);
 
-const navigation = doc.createElement('ul');
+const navigation = DOC.createElement('ul');
 navigation.classList.add('navigation');
-const nav = doc.querySelectorAll('li');
+const nav = DOC.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
 fruits.forEach((val, key) => {
-  const li = doc.createElement('li');
+  const li = DOC.createElement('li');
   li.classList.add('list-element');
   li.textContent = fruits[key].name;
   if (key === 0) {
@@ -70,30 +70,30 @@ fruits.forEach((val, key) => {
   navigation.appendChild(li);
 });
 
-const divImage = doc.createElement('div');
+const divImage = DOC.createElement('div');
 divImage.classList.add('image');
 divMain.appendChild(divImage);
 
-const image = doc.createElement('img');
+const image = DOC.createElement('img');
 image.classList.add('image');
 image.setAttribute('src', fruits[0].imgSrc);
 divImage.appendChild(image);
 
-const divDescription = doc.createElement('div');
+const divDescription = DOC.createElement('div');
 divDescription.classList.add('description');
 divMain.appendChild(divDescription);
 
-const descriptionHeader = doc.createElement('h3');
+const descriptionHeader = DOC.createElement('h3');
 descriptionHeader.textContent = fruits[0].name;
 divDescription.appendChild(descriptionHeader);
 
-const descriptionParah = doc.createElement('p');
+const descriptionParah = DOC.createElement('p');
 descriptionParah.textContent = fruits[0].description;
 divDescription.appendChild(descriptionParah);
-const menuList = doc.querySelector('ul');
+const menuList = DOC.querySelector('ul');
 
 menuList.addEventListener('click', evt => {
-  const lis = doc.querySelectorAll('li');
+  const lis = DOC.querySelectorAll('li');
   lis.forEach(element => {
     element.classList.remove('clicked');
   });
