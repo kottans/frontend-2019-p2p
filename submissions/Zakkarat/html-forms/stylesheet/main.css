@@ -150,3 +150,10 @@ form {
   font-size: 12px;
   justify-content: space-around;
 }
+
+.bold-text {
+  font-weight: bold;
+}
+.text-to-uppercase {
+  text-transform: uppercase;
+}
