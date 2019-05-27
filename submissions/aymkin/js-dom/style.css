@@ -1,0 +1,144 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: monospace, serif;
+  background-color: #ccc;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navigation {
+  list-style-type: none;
+}
+
+.list-element {
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-element:hover {
+  background-color: #fff;
+}
+
+.clicked {
+  background-color: #aaa;
+}
+
+@media (min-width: 750px) {
+  .container {
+    max-width: 940px;
+    background-color: #ddd;
+    padding: 10px;
+  }
+
+  .page-name {
+    font-size: 3em;
+  }
+
+  .dictionary-name {
+    font-size: 2em;
+  }
+
+  .page-name,
+  .dictionary-name {
+    margin-left: 30px;
+  }
+
+  .list-element {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .description {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 465px) and (max-width: 749px) {
+  .container {
+    background-color: #ddd;
+    padding: 5px;
+    max-width: 500px;
+  }
+
+  .page-name {
+    font-size: 2em;
+  }
+
+  .dictionary-name {
+    font-size: 1.5em;
+  }
+
+  .page-name,
+  .dictionary-name {
+    margin-left: 20px;
+  }
+
+  .list-element {
+    font-size: 1.5em;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .description {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 464px) {
+  .container {
+    background-color: #ddd;
+    max-width: 360px;
+  }
+
+  .page-name {
+    font-size: 1em;
+  }
+
+  .dictionary-name {
+    font-size: 1em;
+  }
+
+  .page-name,
+  .dictionary-name {
+    margin-left: 20px;
+  }
+
+  .main {
+    margin-left: 20px;
+  }
+
+  .navigation {
+    display: inline;
+  }
+
+  .list-element {
+    font-size: 1em;
+    padding: 5px;
+    margin-bottom: 8px;
+  }
+
+  .image {
+    width: 75%;
+    margin-left: 10px;
+  }
+
+  .description {
+    max-width: 400px;
+  }
+}
