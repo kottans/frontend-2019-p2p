@@ -57,7 +57,7 @@ body {
 }
 
 .icon {
-  background-image: url("sprites.png");
+  background-image: url(sprites.png);
   height: 64px;
   width: 64px;
   display: inline-block;
