@@ -42,7 +42,6 @@ body {
   text-align: center;
 }
 
-
 .card:hover {
   border: 1px solid rgb(204, 204, 204, 0.5);
 }
@@ -68,7 +67,7 @@ body {
 
 .title_btn {
   position: relative;
-  top:60px;
+  top: 60px;
   width: 86px;
 }
 input {
@@ -77,14 +76,14 @@ input {
   clip: rect(0 0 0 0);
 }
 
-#trig:focus + label {
+.trig:focus + label {
   outline: 2px solid #bac5e9;
 }
-#more:focus ~ #more_label>.more_button {
+.more:focus ~ .more_label > .more_button {
   outline: 2px solid #bac5e9;
 }
 
-#trig:checked ~ .content {
+.trig:checked ~ .content {
   display: flex;
   flex-direction: column-reverse;
 }
@@ -114,15 +113,15 @@ input {
   margin: 0px;
 }
 
-#more:checked ~ .list_2_container {
+.more:checked ~ .list_2_container {
   display: block;
 }
 
-#more:checked ~ #more_label {
+.more:checked ~ .more_label {
   display: none;
 }
 
-#more_label {
+.more_label {
   margin: 0px;
   height: 40px;
   padding: 0px;
@@ -139,13 +138,13 @@ input {
   cursor: pointer;
 }
 
-#ring_img {
+.ring_img {
   width: 40px;
   height: 40px;
   margin-bottom: 15px;
 }
 
-#profile_img {
+.profile_img {
   width: 28px;
   height: 28px;
 }
@@ -182,26 +181,26 @@ input {
 /* Sprites */
 
 .quoutes {
-  background-position:center top;
+  background-position: center top;
 }
 
 .apps {
   background-position: center -70px;
 }
 
-.youTube{
+.youTube {
   background-position: center -140px;
 }
 
-.gogleplus{
+.gogleplus {
   background-position: center -210px;
 }
 
-.blog{
+.blog {
   background-position: center -280px;
 }
 
-.search{
+.search {
   background-position: center -350px;
 }
 
