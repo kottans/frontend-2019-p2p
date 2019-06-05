@@ -1,10 +1,10 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
 
-Code repository: https://github.com/aymkin/a-tiny-JS-world/tree/tiny-js-world-oop-aymkin
+Code repository: https://github.com/aymkin/a-tiny-JS-world
 Web app: https://aymkin.github.io/a-tiny-JS-world/
    */
 
-function Inhobitant(species, name, gender, friends, say) {
+function Inhobitant(species, name, gender, say, friends = []) {
 	this.species = species;
 	this.name = name;
 	this.gender = gender;
@@ -17,63 +17,56 @@ Inhobitant.prototype.makeSound = function() {
 };
 
 Inhobitant.prototype.getFriend = function() {
-	return this.hasOwnProperty('friends')
+	return this.hasOwnProperty('friends') && this.friends.length > 0
 		? `I have friends: ${this.friends.join(', ')}.`
 		: `I have no friends`;
 };
 
-Inhobitant.prototype.getHandLegs = function() {
-	let legs = `I have ${this.legs} legs`;
-	return this.hasOwnProperty('hands')
-		? `${legs} and ${this.hands} hands`
-		: `${legs}`;
-};
 Inhobitant.prototype.getBio = function() {
 	return `I am ${this.species}, my name is <strong>${
 		this.name
-	}</strong>. ${this.getHandLegs()}. ${this.getFriend()} \nEvery day I say: ${this.makeSound()}.`;
+	}</strong>. ${this.getLimbs()}. ${this.getFriend()} \nEvery day I say: ${this.makeSound()}.`;
 };
 
-function Animal(species, name, gender, friends, say) {
-	Inhobitant.call(this, species, name, gender, friends, say);
+function Animal(species, name, gender, say, friends) {
+	Inhobitant.call(this, species, name, gender, say, friends);
 	this.legs = 4;
 }
 
 Animal.prototype = Object.create(Inhobitant.prototype);
 
-function Human(species, name, gender, friends, say) {
-	Inhobitant.call(this, species, name, gender, friends, say);
+Animal.prototype.getLimbs = function() {
+	return `I have ${this.legs} legs`;
+};
+
+function Human(species, name, gender, say, friends) {
+	Inhobitant.call(this, species, name, gender, say, friends);
 	this.legs = 2;
 	this.hands = 2;
 }
 
 Human.prototype = Object.create(Inhobitant.prototype);
 
-const woman = new Human(
-	'human',
-	'Galyna',
-	'female',
-	['man', 'cat'],
-	'Dear, do you love me?'
-);
+Human.prototype.getLimbs = function() {
+	return `I have ${this.legs} legs and ${this.hands} hands`;
+};
 
-const man = new Human(
-	'human',
-	'Alex',
-	'male',
-	['woman', 'cat'],
-	'Dear, I love borscht'
-);
-
-const cat = new Animal(
+const woman = new Human('human', 'Galyna', 'female', 'Dear, do you love me?', [
+	'man',
 	'cat',
-	'Benjamin',
-	'male',
-	['woman', 'dog'],
-	'meow-meow'
-);
+]);
 
-const dog = new Animal('dog', 'Charly', 'male', ['man', 'cat'], 'woof-woof');
+const man = new Human('human', 'Alex', 'male', 'Dear, I love borscht', [
+	'woman',
+	'cat',
+]);
+
+const cat = new Animal('cat', 'Benjamin', 'male', 'meow-meow', [
+	'woman',
+	'dog',
+]);
+
+const dog = new Animal('dog', 'Charly', 'male', 'woof-woof');
 
 [woman, man, dog, cat].forEach(inhabitant => {
 	print(inhabitant.getBio());
