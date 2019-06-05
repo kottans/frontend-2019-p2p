@@ -1,8 +1,15 @@
 let scoreCount = 0;
 
-const START = {
+const playerStartValues = {
 	x: 202,
 	y: 405,
+	sprite: 'images/char-boy.png',
+};
+
+const enemyStartValues = {
+	x: 0,
+	y: [63, 146, 229],
+	sprite: 'images/enemy-bug.png',
 };
 
 const FIELD = {
@@ -14,36 +21,38 @@ const FIELD = {
 	bottomBorder: 322,
 };
 
-const SPEED = (min = 75, max = 200) =>
-	Math.floor(Math.random() * (max - min + 1)) + min;
-
-const Creature = function (x, y) {
+const Creature = function(x, y, sprite) {
 	this.x = x;
 	this.y = y;
+	this.sprite = sprite;
 };
 
+Creature.prototype.render = function() {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
-	const Enemy = function(x, y, speed, gamer) {
-	Creature.call(this, x, y);
-	this.speed = speed;
+const Enemy = function(x, y, sprite, gamer) {
+	Creature.call(this, x, y, sprite);
+	this.speed = this.getRandSpeed();
 	this.gamer = gamer;
-	this.sprite = 'images/enemy-bug.png';
+};
+
+Enemy.prototype = Object.create(Creature.prototype);
+
+Enemy.prototype.getRandSpeed = function(min = 75, max = 200) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 Enemy.prototype.update = function(dt) {
 	this.x = this.x + this.speed * dt;
 	if (this.x >= FIELD.rightBorder + FIELD.column * 2) {
 		this.x = -101;
-		this.speed = SPEED();
+		this.speed = this.getRandSpeed();
 	}
 	if (this.isCollision()) {
-		alert(`You lost! The score is demotioned to ${scoreCount -= 1}`);
+		alert(`You lost! The score is demotioned to ${(scoreCount -= 1)}`);
 		this.gamer.beginAgain();
 	}
-};
-
-Enemy.prototype.render = function() {
-	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Enemy.prototype.isCollision = function() {
@@ -56,20 +65,17 @@ Enemy.prototype.isCollision = function() {
 	}
 };
 
-const Player = function(x, y) {
-	Creature.call(this, x, y);
-	this.sprite = 'images/char-boy.png';
+const Player = function(x, y, sprite) {
+	Creature.call(this, x, y, sprite);
 };
+
+Player.prototype = Object.create(Creature.prototype);
 
 Player.prototype.update = function() {};
 
-Player.prototype.render = function() {
-	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
 Player.prototype.beginAgain = function() {
-	this.x = START.x;
-	this.y = START.y;
+	this.x = playerStartValues.x;
+	this.y = playerStartValues.y;
 };
 
 Player.prototype.handleInput = function(key) {
@@ -85,14 +91,13 @@ Player.prototype.handleInput = function(key) {
 
 			if (this.y < 0) {
 				scoreCount++;
-				if (scoreCount < 5){
+				if (scoreCount < 5) {
 					alert(`You win ${scoreCount} times!`);
 				} else {
 					alert(`You are absolute winner with score ${scoreCount} !`);
 					scoreCount = 0;
 					alert('The new game is started');
 				}
-				
 				this.beginAgain();
 			}
 			break;
@@ -102,10 +107,29 @@ Player.prototype.handleInput = function(key) {
 	}
 };
 
-const player = new Player(START.x, START.y);
-const enemy1 = new Enemy(0, FIELD.row - 20, SPEED(), player);
-const enemy2 = new Enemy(0, FIELD.row * 2 - 20, SPEED(), player);
-const enemy3 = new Enemy(0, FIELD.row * 3 - 20, SPEED(), player);
+const player = new Player(
+	playerStartValues.x,
+	playerStartValues.y,
+	playerStartValues.sprite
+);
+const enemy1 = new Enemy(
+	enemyStartValues.x,
+	enemyStartValues.y[0],
+	enemyStartValues.sprite,
+	player
+);
+const enemy2 = new Enemy(
+	enemyStartValues.x,
+	enemyStartValues.y[1],
+	enemyStartValues.sprite,
+	player
+);
+const enemy3 = new Enemy(
+	enemyStartValues.x,
+	enemyStartValues.y[2],
+	enemyStartValues.sprite,
+	player
+);
 
 const allEnemies = [enemy1, enemy2, enemy3];
 
