@@ -112,26 +112,12 @@ const player = new Player(
 	playerStartValues.y,
 	playerStartValues.sprite
 );
-const enemy1 = new Enemy(
-	enemyStartValues.x,
-	enemyStartValues.y[0],
-	enemyStartValues.sprite,
-	player
-);
-const enemy2 = new Enemy(
-	enemyStartValues.x,
-	enemyStartValues.y[1],
-	enemyStartValues.sprite,
-	player
-);
-const enemy3 = new Enemy(
-	enemyStartValues.x,
-	enemyStartValues.y[2],
-	enemyStartValues.sprite,
-	player
-);
 
-const allEnemies = [enemy1, enemy2, enemy3];
+const allEnemies = [
+	enemyStartValues.y[0],
+	enemyStartValues.y[1],
+	enemyStartValues.y[2],
+].map(y => new Enemy(enemyStartValues.x, y, enemyStartValues.sprite, player));
 
 document.addEventListener('keyup', function(e) {
 	var allowedKeys = {
