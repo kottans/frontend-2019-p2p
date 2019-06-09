@@ -67,12 +67,12 @@ function objectsToString (obj){
     }
     return objectAsString + ";";
 }
+
 print(objectsToString(dog));
 print(objectsToString(cat));
 print(objectsToString(man));
 print(objectsToString(woman));
 print(objectsToString(womanCat));
-
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -92,5 +92,3 @@ print(objectsToString(womanCat));
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
-
-
