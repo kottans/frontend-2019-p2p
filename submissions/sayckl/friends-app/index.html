@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css"></link>
+    <title>Friends App</title>
+  </head>
+  <body>
+    <header>
+      <a href="#" class="menu-btn"><span></span></a>
+      <h1>Friends App</h1>
+      <div class="search">
+        <input type="search" class="searcher" name="search" placeholder="Search.." value="" onkeyup="search(people)">
+      </div>
+    </header>
+    <div class="body">
+      <aside>
+        <div class="names">
+          <p>Names sort</p>
+          <button type="button" name="names" class="a-z">A-Z</button>
+          <button type="button" name="names" class="z-a">Z-A</button>
+        </div>
+        <div class="age-sort">
+          <p>Age sort</p>
+          <button type="button" name="age" class="min">0-9</button>
+          <button type="button" name="age" class="max">9-0</button>
+        </div>
+        <div class="gender">
+          <p>Gender sort</p>
+          <button type="button" name="gender" class="male">Male</button>
+          <button type="button" name="gender" class="female">Female</button>
+        </div>
+        <div class="reset">
+          <button type="button" name="button" class="reset">RESET</button>
+        </div>
+      </aside>
+      <section>
+        <div class="cards">
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
