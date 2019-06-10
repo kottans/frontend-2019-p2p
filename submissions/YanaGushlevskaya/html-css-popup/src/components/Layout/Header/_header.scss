@@ -1,4 +1,4 @@
-header {
+.header {
   position: absolute;
   right: 0;
   top: 0;
@@ -6,7 +6,6 @@ header {
 
 .menu {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   margin: 0;
@@ -68,23 +67,29 @@ header {
   color: $primary-text;
 }
 
-.menu__item:nth-child(3) .menu__link,
-.fa-th {
-  color: rgba(0, 0, 0, 0.5);
-  &:hover {
-    color: $third;
-  }
-}
-
 .dropdown__input {
   position: absolute;
   opacity: 0;
+  width: 24px;
+  height: 24px;
+  z-index: -1;
+}
+
+.dropdown__input:focus + .label {
+  border: 1px solid rgb(29, 143, 250);
+  border-radius: 3px;
 }
 
 .label {
   height: 24px;
+  width: 24px;
+  color: rgba(0, 0, 0, 0.5);
   &:hover {
+    color: $third;
     cursor: pointer;
+  }
+  &:focus {
+    outline: 1px solid rgb(29, 143, 250);
   }
 }
 
@@ -113,10 +118,13 @@ header {
   }
 }
 
-.dropdown__input:checked+.label ~ .wrapper {
-  display: block;
+.dropdown__input:checked + .label {
+  color: $third;
 }
 
+.dropdown__input:checked + .label ~ .wrapper {
+  display: block;
+}
 
 .dropdown__list {
   display: flex;
@@ -132,6 +140,16 @@ header {
 .dropdown__item {
   flex-basis: 93px;
   min-height: 115px;
+  &:hover .dropdown__link {
+    border: 1px solid rgb(216, 216, 218);
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dropdown__item:hover > .dropdown__link:focus {
+  border: 1px solid transparent;
 }
 
 .dropdown__link {
@@ -178,10 +196,10 @@ header {
   &:before {
     content: "";
     height: 1px;
-    width:280px;
-    background-color:  #d8d8da;
+    width: 280px;
+    background-color: #d8d8da;
     position: absolute;
-    top:0;
+    top: 0;
   }
 }
 
@@ -190,13 +208,35 @@ header {
   opacity: 0;
 }
 
-.dropdown__input--additional:checked+.label--additional ~ .dropdown__list--additional {
+.label--additional {
+  display: block;
+  height: 33px;
+  width: 100%;
+}
+
+.dropdown__input--additional:focus + .label--additional > .dropdown__btn {
+  border: 1px solid rgb(29, 143, 250);
+  border-radius: 3px;
+  height: 33px;
+}
+
+.dropdown__input--additional:checked
+  + .label--additional
+  ~ .dropdown__list--additional {
   display: flex;
 }
 
-.dropdown__input--additional:checked+.label--additional {
+.dropdown__input--additional:checked + .label--additional {
   display: none;
 }
 
-
-
+.dropdown__btn--additional {
+  display: block;
+  background: none;
+  text-decoration: none;
+  color: #000;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
