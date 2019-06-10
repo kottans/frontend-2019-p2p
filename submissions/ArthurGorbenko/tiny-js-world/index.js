@@ -60,5 +60,5 @@ function objectsToString(obj) {
       objectAsString += obj[prop] + ", ";
     }
     return objectAsString + ";";
-  }
-  
+  };
+    
