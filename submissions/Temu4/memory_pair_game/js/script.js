@@ -2,6 +2,8 @@ const content = document.querySelector('.content');
 const cards = Array.from(document.querySelectorAll('.card'));
 const gameScore = document.querySelector('.gameScore');
 const gameResult = document.querySelector('.gameResult');
+const gameResultTitle = document.querySelector('.gameResult__title');
+const gameResultMessage = document.querySelector('.gameResult__message');
 
 //arr wirh images (classes)
 const imagesForCards = [
@@ -48,7 +50,7 @@ const compareCards = event => {
       : //allow content for clicking & rotate reverse cards
         setTimeout(() => {
           content.classList.remove('disabled');
-          defaultCardsPosition();
+          setDefaultCardsPosition();
         }, 750);
     return (selectionArr = []);
   }
@@ -66,37 +68,55 @@ const rotateCard = event => {
   }
 };
 
-const defaultCardsPosition = () => {
+const setDefaultCardsPosition = () => {
   cards.forEach(card =>
     card.classList.contains('rotate') ? card.classList.remove('rotate') : null
   );
 };
 
 const hideAfterCorrectSelection = () => {
-  cards.forEach(card => (card.classList.contains('rotate') ? card.classList.add('hidden') : null));
+  cards.forEach(card =>
+    card.classList.contains('rotate') ? card.classList.add('visually-hidden') : null
+  );
 };
 
-const showGameScore = () => {
-  return (gameScore.textContent = `Your score is: ${counter}`);
-};
+const showGameScore = () => (gameScore.textContent = `Your score is: ${counter}`);
 
 const generateGameResultMessage = () => {
-  let message1 = `Awesome.\n It's the best result!\n Your are lucky!!!`;
-  let message2 = `Congratulation!\n Your result is: ${counter}\n For improving, please, try again!`;
-  let message3 = `You can better!\n Your result is: ${counter}\n Try again!`;
+  let messages = [
+    {
+      title: `Awesome!`,
+      message: `It's the best result!\n Your are lucky!!!`
+    },
+    {
+      title: `Congratulation!`,
+      message: `Your result is: ${counter}\n For improving, please, try again!`
+    },
+    {
+      title: `You can better!`,
+      message: `You can better!\n Your result is: ${counter}\n Try again!`
+    }
+  ];
 
-  if (counter === 12) gameResult.textContent = message1;
-  else if (counter > 12 && counter <= 20) gameResult.textContent = message2;
-  else gameResult.textContent = message3;
+  if (counter === 12) {
+    gameResultTitle.textContent = messages[0].title;
+    gameResultMessage.textContent = messages[0].message;
+  } else if (counter > 12 && counter <= 20) {
+    gameResultTitle.textContent = messages[1].title;
+    gameResultMessage.textContent = messages[1].message;
+  } else {
+    gameResultTitle.textContent = messages[2].title;
+    gameResultMessage.textContent = messages[2].message;
+  }
 };
 
 const showGameResult = () => {
   let resultArr = [];
 
-  cards.forEach(card => resultArr.push(card.classList.contains('hidden')));
+  cards.forEach(card => resultArr.push(card.classList.contains('visually-hidden')));
 
   if (resultArr.reduce((current, next) => (current === next ? next : false))) {
-    gameResult.classList.toggle('hide');
+    gameResult.classList.toggle('hidden');
     generateGameResultMessage();
     setTimeout(() => window.location.reload(), 7000);
   }

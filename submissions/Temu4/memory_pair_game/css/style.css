@@ -75,6 +75,7 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
+  cursor: pointer;
 }
 
 /* rotate a card*/
@@ -87,7 +88,7 @@ body {
 }
 
 /* hide correct card pair */
-.hidden {
+.visually-hidden {
   visibility: hidden;
 }
 
@@ -122,7 +123,7 @@ body {
   font-style: italic;
 }
 
-.hide {
+.hidden {
   display: none;
 }
 
@@ -170,11 +171,13 @@ body {
 
   .title {
     font-size: 2em;
+    line-height: 0.7em;
   }
 }
 
 @media screen and (min-width: 1000px) {
   .title {
     font-size: 2.5em;
+    line-height: 0.5em;
   }
 }
