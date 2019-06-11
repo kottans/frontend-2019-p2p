@@ -83,3 +83,9 @@
   font-size: 20px;
   cursor: pointer;
 }
+.no-button-style {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  border: 0px;
+}

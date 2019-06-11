@@ -100,7 +100,14 @@
   justify-content: center;
   cursor: pointer;
   margin-right: 10%;
+  transition: 0.4s;
 }
+
+.pay:hover {
+  border: 2px solid #76a7e1;
+  transition: 0.4s;
+}
+
 .input:checked + .select-pay > .checkedPay {
   content: "";
   display: inline;

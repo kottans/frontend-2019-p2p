@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>HTML-forms</title>
     <link rel="stylesheet" href="./stylesheet/main.css" />
     <link rel="stylesheet" href="./stylesheet/header.css" />
     <link rel="stylesheet" href="./stylesheet/choose-document.css" />
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./stylesheet/payment.css" />
     <link rel="stylesheet" href="./stylesheet/footer.css" />
     <link rel="stylesheet" href="./stylesheet/normalize.css" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -21,13 +22,13 @@
     <header>
       <div class="innerHeader">
         <button class="headerButtons">Back</button>
-        <a href="#"><img class="header" src="img/logo-header.png"/></a>
+        <a href="#"><img class="header" src="img/logo-header.png" alt="logo-head"/></a>
         <button class="headerButtons">Sign in</button>
       </div>
     </header>
     <main class="adjust">
       <div class="container">
-        <form class="" action="index.html" method="post">
+        <form  action="index.html" method="post">
           <div class="upperMenu">
             <div class="orderInfo">
               <div class="left">
@@ -64,8 +65,8 @@
                   of our beloved Project Manager by phone or email.
                 </p>
                 <div class="contacts">
-                  <a href="#">+971 (0) 555 555</a>
-                  <a href="#">help@qtest.com</a>
+                  <a href="tel:+491570156">+971 (0) 555 555</a>
+                  <a href="mailto:help@qtest.com">help@qtest.com</a>
                 </div>
               </div>
             </div>
@@ -81,7 +82,7 @@
                 class="input"
               />
               <label for="website" class="radioBox"
-                ><span class="checked"></span><img src="img/website-icon.png" />
+                ><span class="checked"></span><img src="img/website-icon.png" alt="main ico"/>
                 <p><span class="bold-text">Website</span></p></label
               >
               <input
@@ -94,7 +95,7 @@
               />
               <label for="document" class="radioBox"
                 ><span class="checked"></span
-                ><img src="img/documents-icon.png" />
+                ><img src="img/documents-icon.png" alt="document ico"/>
                 <p><span class="bold-text">Documents</span></p></label
               >
               <input
@@ -105,7 +106,7 @@
                 class="input"
               />
               <label for="social" class="radioBox"
-                ><span class="checked"></span><img src="img/social-icon.png" />
+                ><span class="checked"></span><img src="img/social-icon.png" alt="social icon" />
                 <p><span class="bold-text">Social Account</span></p></label
               >
             </div>
@@ -144,6 +145,7 @@
                     tabindex="0"
                     src="./img/waste-bin.svg"
                     class="deleteFile"
+                    alt="wastebin"
                   />
                 </td>
               </tr>
@@ -156,6 +158,7 @@
                     tabindex="0"
                     src="./img/waste-bin.svg"
                     class="deleteFile"
+                    alt="wastebin"
                   />
                 </td>
               </tr>
@@ -186,16 +189,17 @@
                 </select>
               </div>
               <div class="select-button select-button-next">
-                <select name="language" class="select-button-inner" required>
+                <select name="language" class="select-button-inner">
                   <option value="english">English</option>
-                  <option value="Arabian">Arabian</option>
-                  <option value="Kudrish">Kudrish</option>
-                  <option value="Ukrainian" selected>Ukrainian</option>
+                  <option value="arabian">Arabian</option>
+                  <option value="kudrish">Kudrish</option>
+                  <option value="ukrainian" selected>Ukrainian</option>
                 </select>
               </div>
-              <button><img
+              <button type="button" class="no-button-style"><img
                 src="./img/waste-bin.svg"
                 class="deleteFile select-delete"
+                alt="wastebin"
               /></button>
               <button type="button" class="add-button">
                 Add
@@ -215,8 +219,8 @@
               <div class="tone">
                 <label for="friendly">
                   <input type="radio" name="tone" id="friendly" class="input" />
-                  <div class="select-tone tone-before chat">
-                    <span class="checkedTone"></span>Friendly / Casual
+                  <div class="select-tone tone-before chat checkedTone">
+                    Friendly / Casual
                   </div>
                 </label>
                 <label for="corporate">
@@ -227,14 +231,14 @@
                     class="input"
                     checked
                   />
-                  <div class="select-tone tone-before suitcase">
-                    <span class="checkedTone"></span>Corporate / Pro
+                  <div class="select-tone tone-before suitcase checkedTone">
+                    Corporate / Pro
                   </div>
                 </label>
                 <label for="media">
                   <input type="radio" name="tone" id="media" class="input" />
-                  <div class="select-tone tone-before media">
-                    <span class="checkedTone"></span>Media / Formal
+                  <div class="select-tone tone-before media checkedTone">
+                  Media / Formal
                   </div>
                 </label>
               </div>
@@ -248,9 +252,9 @@
                   value="50"
                 />
                 <div class="range-text">
-                  <h5 class="range-under text-to-uppercase">i got time</h5>
-                  <h5 class="range-under text-to-uppercase">average</h5>
-                  <h5 class="range-under text-to-uppercase">yesterday</h5>
+                  <p class="range-under text-to-uppercase">i got time</p>
+                  <p class="range-under text-to-uppercase">average</p>
+                  <p class="range-under text-to-uppercase">yesterday</p>
                 </div>
                 <div class="range-info">
                   <h4 class="info-header text-to-uppercase">timeline info</h4>
@@ -328,9 +332,9 @@
                     />
                     <div class="select-pay pay-before pay">
                       <span class="checkedPay"></span
-                      ><img src="./img/visa.svg" alt="" class="img-card" /><img
+                      ><img src="./img/visa.svg" alt="visa" class="img-card" /><img
                         src="./img/mastercard.svg"
-                        alt=""
+                        alt="mastercard"
                         class="img-card"
                       />
                     </div>
@@ -345,7 +349,7 @@
                     />
                     <div class="select-pay pay-before pay">
                       <span class="checkedPay"></span
-                      ><img src="./img/paypal.svg" alt="" class="img-pay" />
+                      ><img src="./img/paypal.svg" alt="paypal" class="img-pay" />
                     </div>
                   </label>
                   <label for="amazon">
@@ -357,7 +361,7 @@
                     />
                     <div class="select-pay pay-before pay">
                       <span class="checkedPay"></span
-                      ><img src="./img/amazon.svg" alt="" class="img-pay" />
+                      ><img src="./img/amazon.svg" alt="amazon" class="img-pay" />
                     </div>
                   </label>
                 </div>
@@ -368,7 +372,7 @@
                   <input
                     type="text"
                     inputmode="numeric"
-                    id="card"
+                    id="card-number"
                     class="text text-card"
                     name="card"
                     pattern="\d*"
@@ -383,12 +387,12 @@
                   <input
                     type="text"
                     inputmode="numeric"
-                    id="card"
+                    id="expiry-date"
                     placeholder="MM/YY"
                     class="text text-card"
                     name="card"
                     pattern="\d*"
-                    title="Example: 12/22"
+                    title="Example: 1222"
                     minlength="4"
                     maxlength="4"
                     required
@@ -397,9 +401,9 @@
                 <div class="field-container field-code">
                   <h5 class="above-text text-to-uppercase">code</h5>
                   <input
-                    type="text"
+                    type="password"
                     inputmode="numeric"
-                    id="card"
+                    id="cc"
                     class="text text-card"
                     name="card"
                     pattern="\d*"
@@ -452,7 +456,7 @@
           <a href="#"><p class="range-para twitter">Twitter</p></a>
           <a href="#"><p class="range-para linkedin">LinkedIn</p></a>
         </div>
-        <img src="./img/logo-footer.png" alt="" class="footer-img" />
+        <a href="#"><img src="./img/logo-footer.png" alt="footer logo" class="footer-img" /></a>
       </div>
     </footer>
   </body>

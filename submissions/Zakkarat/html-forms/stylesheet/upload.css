@@ -45,6 +45,11 @@
   align-items: center;
   cursor: pointer;
   margin-left: 10%;
+  transition: 0.4s;
+}
+
+.uploadFile:hover {
+  transition: 0.4s;
 }
 .inputFileText {
   margin-left: 5px;

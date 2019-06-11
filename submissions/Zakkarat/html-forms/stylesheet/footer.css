@@ -57,6 +57,11 @@
 .linkedin {
   margin-top: 0px;
 }
+.facebook:hover,
+.twitter:hover,
+.linkedin:hover {
+  color: #5ecac6;
+}
 .facebook::before {
   background: url("../img/facebook-logo.png") no-repeat;
 }
