@@ -49,9 +49,9 @@ const image = document.querySelector(".info_image");
 const parameters = document.querySelectorAll(".parameters");
 const menu = document.querySelector(".menu");
 
-menu.addEventListener("click",doOnClick);
+menu.addEventListener("click",selectMenuItem);
 
-function doOnClick(event){
+function selectMenuItem(event){
       let target = event.target;
       while (target != menu) {
         puppies.forEach(el =>
