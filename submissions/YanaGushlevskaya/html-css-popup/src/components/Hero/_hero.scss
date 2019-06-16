@@ -46,7 +46,7 @@
   padding: 10px;
   margin-bottom: 30px;
   outline: none;
-  &:hover {
+  &:hover, &:focus {
     box-shadow: 0px 3px 20px -9px rgba(0, 0, 0, 0.75);
   }
 }
@@ -65,5 +65,9 @@
   &:hover {
     cursor: pointer;
     border: 1px solid rgb(99, 99, 99);
+  }
+  &:focus {
+    border: 1px solid rgb(29, 143, 250);
+    border-radius: 3px;
   }
 }
