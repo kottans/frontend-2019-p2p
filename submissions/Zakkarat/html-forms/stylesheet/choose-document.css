@@ -1,0 +1,63 @@
+.documentTake {
+  margin-top: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6d758f;
+}
+
+.selectionText {
+  letter-spacing: 3.5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #c9d0e1;
+}
+
+.input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.radioInput {
+  margin-top: 2%;
+  width: 80%;
+  height: 220px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.radioBox {
+  width: 28%;
+  height: 100%;
+  min-width: 255px;
+  box-sizing: border-box;
+  display: flex;
+  border: 1.5px solid #c9d0e1;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+  color: #99a1bb;
+  letter-spacing: 1px;
+}
+
+.input:checked + .radioBox {
+  border: 4px solid #76a7e1;
+}
+
+.checked {
+  display: none;
+}
+
+.input:checked + .radioBox > .checked {
+  content: "";
+  display: inline;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background: url("../img/checked.png") no-repeat;
+  margin: -108px 126px;
+  z-index: 10;
+}
