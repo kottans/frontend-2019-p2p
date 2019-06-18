@@ -10,8 +10,8 @@
       <li class="menu__item">
         <input type="checkbox" id="dropdown__input" class="dropdown__input" />
         <label for="dropdown__input" class="menu__link label">
-          <i class="fas fa-th"></i
-        ></label>
+          <i class="fas fa-th input-icon"></i>
+        </label>
         <div class="wrapper">
           <div class="dropdown-wrapper">
             <ul class="dropdown__list reset-list">
@@ -38,43 +38,42 @@
               </li>
               {% endfor %}
             </ul>
-            <input
-              type="checkbox"
-              id="dropdown__input--additional"
-              class="dropdown__input--additional"
-            />
-            <label for="dropdown__input--additional" class="label--additional">
+
+            <input type="checkbox" id="dropdown__input--additional" class="dropdown__input--additional" />
+              <label for="dropdown__input--additional" class="label--additional">
               <div class="dropdown__btn reset-btn">More</div>
-            </label>
-            <ul class="dropdown__list dropdown__list--additional reset-list">
-              {% set items = [ { img:'./img/blogger.png', alt:'blogger',
-              title:'Blogger' }, { img:'./img/photos.png', alt:'photos',
-              title:'Photos' }, { img:'./img/maps.png', alt:'maps', title:'Maps'
-              }, { img:'./img/Account.png', alt:'account', title:'Account' }, {
-              img:'./img/contacts.png', alt:'contacts', title:'Contacts' }, {
-              img:'./img/nagouts.png', alt:'nagouts', title:'Hangouts' }, {
-              img:'./img/keep.png', alt:'keep', title:'Keep' }, {
-              img:'./img/jamboard.png', alt:'jamboard', title:'Jamboard' }, {
-              img:'./img/classroom.png', alt:'classroom', title:'Classroom' }, {
-              img:'./img/earth.png', alt:'earth', title:'Earth' }, {
-              img:'./img/collections.png', alt:'collections',
-              title:'collections' } ] %} {% for item in items %}
-              <li class="dropdown__item">
-                <a href="#" class="dropdown__link reset-link">
-                  <img
-                    src="{{ item.img }}"
-                    alt="{{ item.alt }}"
-                    class="dropdown__img"
-                  />
-                  {{ item.title }}
-                </a>
-              </li>
-              {% endfor %}
-              <a
-                href="#"
-                class="dropdown__btn dropdown__btn--additional reset-btn">Even more from kottans</a
-              >
-            </ul>
+              </label>
+              <ul class="dropdown__list dropdown__list--additional reset-list">
+                {% set items = [ { img:'./img/blogger.png', alt:'blogger',
+                title:'Blogger' }, { img:'./img/photos.png', alt:'photos',
+                title:'Photos' }, { img:'./img/maps.png', alt:'maps',
+                title:'Maps' }, { img:'./img/Account.png', alt:'account',
+                title:'Account' }, { img:'./img/contacts.png', alt:'contacts',
+                title:'Contacts' }, { img:'./img/nagouts.png', alt:'nagouts',
+                title:'Hangouts' }, { img:'./img/keep.png', alt:'keep',
+                title:'Keep' }, { img:'./img/jamboard.png', alt:'jamboard',
+                title:'Jamboard' }, { img:'./img/classroom.png',
+                alt:'classroom', title:'Classroom' }, { img:'./img/earth.png',
+                alt:'earth', title:'Earth' }, { img:'./img/collections.png',
+                alt:'collections', title:'collections' } ] %} {% for item in
+                items %}
+                <li class="dropdown__item">
+                  <a href="#" class="dropdown__link reset-link">
+                    <img
+                      src="{{ item.img }}"
+                      alt="{{ item.alt }}"
+                      class="dropdown__img"
+                    />
+                    {{ item.title }}
+                  </a>
+                </li>
+                {% endfor %}
+                <a
+                  href="#"
+                  class="dropdown__btn dropdown__btn--additional reset-btn"
+                  >Even more from kottans</a
+                >
+              </ul>
           </div>
         </div>
       </li>
