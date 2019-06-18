@@ -5,7 +5,7 @@ class Inhobitant{
     this.sayPhrase = phrase;
   }
   saying(){
-    print(this.sayPhrase);
+    alert(this.sayPhrase);
   }
 }
 
@@ -15,7 +15,7 @@ class Pet extends Inhobitant {
     this.isHungry = isHungry;
   }
   askForFood(){
-    print("I want to eat!");
+    alert("I want to eat!");
   }
 }
 
@@ -28,7 +28,7 @@ class Human extends Inhobitant {
     if(petObj.isHungry === true){
       petObj.isHungry = false;
     } else {
-      print("You are not hungry!")
+      alert("You are not hungry!")
     }
   }
 }
