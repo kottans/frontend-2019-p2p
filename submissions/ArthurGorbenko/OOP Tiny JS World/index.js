@@ -1,4 +1,4 @@
-class inhobitant{
+class Inhobitant{
   constructor(name,gender,phrase){
     this.name = name;
     this.gender = gender;
@@ -9,7 +9,7 @@ class inhobitant{
   }
 }
 
-class pet extends inhobitant {
+class Pet extends Inhobitant {
   constructor(name,gender,phrase,isHungry){
     super(name,gender,phrase);
     this.isHungry = isHungry;
@@ -19,7 +19,7 @@ class pet extends inhobitant {
   }
 }
 
-class human extends inhobitant {
+class Human extends Inhobitant {
   constructor(name,gender,phrase,dish){
     super(name,gender,phrase);
     this.favoriteDish = dish;
@@ -33,7 +33,7 @@ class human extends inhobitant {
   }
 }
 
-class metaHuman extends inhobitant {
+class MetaHuman extends Inhobitant {
   constructor(name,gender,phrase,superPower){
     super(name,gender,phrase);
     this.superPower = superPower;
@@ -44,11 +44,11 @@ class metaHuman extends inhobitant {
   }
 }
 const inhobitants = [
-  new pet("Rude","male","Meeeooow!",true),
-  new pet("Barley","male","Gav-gav",true),
-  new human("Alex","male","I am studying frontend at Kottans!","Pizza"),
-  new human("Meggy","female","Kottans - one love!","Ice сream"),
-  new metaHuman("woman-Cat","female","Meow, can i join Kottans?","Invisibilty")
+  new Pet("Rude","male","Meeeooow!",true),
+  new Pet("Barley","male","Gav-gav",true),
+  new Human("Alex","male","I am studying frontend at Kottans!","Pizza"),
+  new Human("Meggy","female","Kottans - one love!","Ice сream"),
+  new MetaHuman("woman-Cat","female","Meow, can i join Kottans?","Invisibilty")
 ]
 
 inhobitants.forEach(inhobitant =>
