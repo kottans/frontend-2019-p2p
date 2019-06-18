@@ -55,7 +55,6 @@ inhobitants.forEach(inhobitant =>
   print(objectsToString(inhobitant))
 );
 
-console.log(pet.name);
 function objectsToString(obj) {
     let objectAsString = "";
     for (prop in obj) {
