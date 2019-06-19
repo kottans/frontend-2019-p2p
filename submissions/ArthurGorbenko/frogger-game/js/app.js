@@ -10,6 +10,7 @@ const waterLevel = fieldMinHeight + blockHeight;
 const startPositionX = 200;
 const startPositionY = 300;
 const halfOfSizeImg = 50;
+const endOfField = 600;
 
 class Enemy {
   constructor(x, y) {
@@ -21,7 +22,7 @@ class Enemy {
   update(dt) {
     this.x += this.speed * dt;
 
-    if (this.x > 600) {
+    if (this.x > endOfField) {
       this.x = -100;
       this.generateSpeed(countForWonRound);
     }
@@ -71,11 +72,7 @@ class Player {
           return null;
         } else if (this.y - blockHeight < waterLevel) {
           countForWonRound++;
-          if (countForWonRound === 1) {
-            alert("Congratulations! You won " + countForWonRound + " round!");
-          } else {
-            alert("Congratulations! You won " + countForWonRound + " rounds!");
-          }
+          alert("Congratulations, you won! Score : " + countForWonRound);
           player.x = startPositionX;
           player.y = startPositionY;
           allEnemies.forEach(el => el.generateSpeed(countForWonRound)); // difficulty increase
