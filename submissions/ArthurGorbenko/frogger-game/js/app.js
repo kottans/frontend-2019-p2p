@@ -11,6 +11,7 @@ const startPositionX = 200;
 const startPositionY = 300;
 const halfOfSizeImg = 50;
 const endOfField = 600;
+const startOverField = -100; 
 
 class Enemy {
   constructor(x, y) {
@@ -36,7 +37,7 @@ class Enemy {
     }
   }
   restartEnemy() {
-    this.x = -100;
+    this.x = startOverField;
     this.generateSpeed(countForWonRound);
   }
   collisionHapped() {
