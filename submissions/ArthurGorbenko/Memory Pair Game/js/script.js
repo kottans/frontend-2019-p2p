@@ -79,7 +79,6 @@ function flip(event) {
     }
     target = target.parentNode;
   }
-  console.log(arrayOfFlipCards);
 
   if (arrayOfFlipCards.length === 2) {
     boardLock = true;
