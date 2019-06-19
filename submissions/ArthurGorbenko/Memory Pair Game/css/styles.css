@@ -1,0 +1,49 @@
+.title{
+  text-align: center;
+}
+.container {
+  width: 808px;
+  height: 808px;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  perspective: 800px;
+  position: relative;
+}
+
+.flipper {
+  border: 1px solid red;
+  border-radius: 10px 10px 10px 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.front,
+.back {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  border-radius: 10px 10px 10px 10px;
+  transform: rotateY(180deg);
+  background: url(../images/redkie.jpg) no-repeat;
+  background-position: 20px -350px;
+}
+
+.flipper.flipped {
+  transform: rotateY(180deg);
+}
