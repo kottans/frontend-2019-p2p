@@ -23,8 +23,7 @@ class Enemy {
     this.x += this.speed * dt;
 
     if (this.x > endOfField) {
-      this.x = -100;
-      this.generateSpeed(countForWonRound);
+      this.restartEnemy();
     }
 
     if (
@@ -33,12 +32,19 @@ class Enemy {
       this.y < player.y + halfOfSizeImg &&
       this.y + halfOfSizeImg > player.y
     ) {
-      alert("You are busted!");
-      countForWonRound = 0;
-      player.x = startPositionX;
-      player.y = startPositionY;
-      allEnemies.forEach(el => el.generateSpeed(countForWonRound));
+      this.collisionHapped();
     }
+  }
+  restartEnemy() {
+    this.x = -100;
+    this.generateSpeed(countForWonRound);
+  }
+  collisionHapped() {
+    alert("You are busted!");
+    countForWonRound = 0;
+    player.x = startPositionX;
+    player.y = startPositionY;
+    allEnemies.forEach(el => el.generateSpeed(countForWonRound));
   }
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -114,7 +120,7 @@ let enemyThree = new Enemy(-50, 210);
 const allEnemies = [enemyOne, enemyTwo, enemyThree];
 
 document.addEventListener("keyup", function(e) {
-  var allowedKeys = {
+  let allowedKeys = {
     37: "left",
     38: "up",
     39: "right",
