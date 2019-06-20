@@ -53,7 +53,7 @@ body  {
 .body {
 
 }
-aside {
+.sortmenu {
   z-index: 2;
   position: relative;
   background-color: skyblue;
@@ -70,7 +70,7 @@ aside {
 .show_aside {
   display: flex;
 }
-aside div{
+.sortmenu div{
   margin: 5px;
 }
 .card {
@@ -82,6 +82,7 @@ aside div{
   align-items: center;
   padding: 10px 5px;
   background-color: skyblue;
+  text-transform: capitalize;
 }
 .card:hover {
   background-color: pink;

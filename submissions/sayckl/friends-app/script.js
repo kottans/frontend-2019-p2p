@@ -1,6 +1,6 @@
 const cards = document.querySelector('.cards');
-const az = document.querySelector('.a-z');
-const za = document.querySelector('.z-a');
+const textASC = document.querySelector('.asc');
+const textDESC = document.querySelector('.desc');
 const min = document.querySelector('.min');
 const max = document.querySelector('.max');
 const male = document.querySelector('.male');
@@ -31,31 +31,20 @@ fetch("https://randomuser.me/api/?results=40&nat=us")
 
 function add(people){
   people.forEach(function(elem) {
-    capitals(elem);
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `<img src="${elem.picture.large}">
-    <div class="name">${elem.name.first} ${elem.name.last}</div>
-    <div class="age">Age: ${elem.dob.age}</div>
-    <div class="location">Location: ${elem.location.city}</div>
-    <div class="phone">Phone: ${elem.phone}</div>`
+    <span class="name">${elem.name.first} ${elem.name.last}</span>
+    <span class="age">Age: ${elem.dob.age}</span>
+    <span class="location">Location: ${elem.location.city}</span>
+    <span class="phone">Phone: ${elem.phone}</span>`
 
     cards.appendChild(div);
   });
 };
 
-function capitals(elem) {
-  elem.name.first = capitalFirstLet(elem.name.first);
-  elem.name.last = capitalFirstLet(elem.name.last);
-  elem.location.city = capitalFirstLet(elem.location.city);
-}
-
-function capitalFirstLet(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
-az.addEventListener('click', () => {
-    const ads = people.sort((a, b) => {
+textASC.addEventListener('click', () => {
+    const asc = people.sort((a, b) => {
       if (a.name.first > b.name.first) {
         return 1;
       }
@@ -64,11 +53,11 @@ az.addEventListener('click', () => {
       }
       return 0;
     });
-    search(ads);
+    search(asc);
   });
 
-za.addEventListener('click', () => {
-    const cads = people.sort((a, b) => {
+textDESC.addEventListener('click', () => {
+    const desc = people.sort((a, b) => {
         if (a.name.first < b.name.first) {
           return 1;
         }
@@ -77,7 +66,7 @@ za.addEventListener('click', () => {
         }
         return 0;
       });
-      search(cads);
+      search(desc);
   });
 
 min.addEventListener('click', () => {
@@ -108,8 +97,8 @@ reset.addEventListener('click', () => {
 
 const searcher = document.querySelector('.searcher');
 function search(people) {
-let search = new RegExp(searcher.value, "ig");
-people = people.filter( elem => elem.name.first.toLowerCase().match(search) || elem.name.last.toLowerCase().match(search));
- cards.innerHTML = '';
- add(people);
+  let search = searcher.value.toLowerCase();
+  people = people.filter( elem => elem.name.first.toLowerCase().match(search) || elem.name.last.toLowerCase().match(search));
+  cards.innerHTML = '';
+  add(people);
 };
