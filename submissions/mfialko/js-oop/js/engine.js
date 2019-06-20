@@ -100,8 +100,8 @@ let Engine = (function(global) {
 
         if ( Math.round(player.y / stepY) === 0 ) {
             player.update();
-            let i=getRandNum(0,2);
-            if (i===1) {
+            let i = getRandNum(0, 2);
+            if (i === 1) {
                 gem.update();
             } else {
                 gem.get(0);
@@ -151,7 +151,7 @@ let Engine = (function(global) {
             row, col;
 
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
