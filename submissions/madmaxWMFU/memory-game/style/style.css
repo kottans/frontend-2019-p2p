@@ -1,0 +1,334 @@
+.main {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+.game-caption {
+    font-weight: bold;
+    text-decoration: underline;
+    color: yellowgreen;
+}
+
+.game-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    margin-bottom: 20px;
+    transform: rotateY(0deg);
+}
+
+.flipper, .front, .back {
+    width: 159px;
+    height: 225px;
+}
+
+.front, .back {
+    border: solid yellowgreen;
+    border-radius: 20px;
+    cursor: pointer;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);    
+    background: url(../img/koloda.png) no-repeat -2228px -481px;
+    background-size: 2529px 947px;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: url(../img/koloda.png) no-repeat;
+    background-size: 2529px 947px;
+}
+
+.rotate-card {
+    transform: rotateY(180deg); 
+}
+
+.remove-card {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.card0 {
+    background-position-x: 0;
+    background-position-y: 0;
+}
+
+.card1 {
+    background-position-x: -171px;
+    background-position-y: 0;
+}
+
+.card2 {
+    background-position-x: -342px;
+    background-position-y: 0;
+}
+
+.card3 {
+    background-position-x: -514px;
+    background-position-y: 0;
+}
+
+.card4 {
+    background-position-x: -685px;
+    background-position-y: 0;
+}
+
+.card5 {
+    background-position-x: -856px;
+    background-position-y: 0;
+}
+
+.card6 {
+    background-position-x: -1028px;
+    background-position-y: 0;
+}
+
+.card7 {
+    background-position-x: -1199px;
+    background-position-y: 0;
+}
+
+.card8 {
+    background-position-x: -1371px;
+    background-position-y: -1px;
+}
+
+.card9 {
+    background-position-x: -1542px;
+    background-position-y: -1px;
+}
+
+.card10 {
+    background-position-x: -1714px;
+    background-position-y: -1px;
+}
+
+.card11 {
+    background-position-x: -1884px;
+    background-position-y: -2px;
+}
+
+.card12 {
+    background-position-x: -2056px;
+    background-position-y: -2px;
+}
+
+.card13 {
+    background-position-x: -2228px;
+    background-position-y: 0;
+}
+
+.card14 {
+    background-position-x: 0;
+    background-position-y: -240px;
+}
+
+.card15 {
+    background-position-x: -171px;
+    background-position-y: -240px;
+}
+
+.card16 {
+    background-position-x: -342px;
+    background-position-y: -240px;
+}
+
+.card17 {
+    background-position-x: -514px;
+    background-position-y: -240px;
+}
+
+.card18 {
+    background-position-x: -685px;
+    background-position-y: -240px;
+}
+
+.card19 {
+    background-position-x: -856px;
+    background-position-y: -240px;
+}
+
+.card20 {
+    background-position-x: -1028px;
+    background-position-y: -240px;
+}
+
+.card21 {
+    background-position-x: -1199px;
+    background-position-y: -240px;
+}
+
+.card22 {
+    background-position-x: -1371px;
+    background-position-y: -241px;
+}
+
+.card23 {
+    background-position-x: -1543px;
+    background-position-y: -242px;
+}
+
+.card24{
+    background-position-x: -1710px;
+    background-position-y: -241px;
+}
+
+.card25 {
+    background-position-x: -1884px;
+    background-position-y: -242px;
+}
+
+.card26 {
+    background-position-x: -2056px;
+    background-position-y: -242px;
+}
+
+.card27 {
+    background-position-x: -2228px;
+    background-position-y: -244px;
+}
+
+.card28 {
+    background-position-x: 0;
+    background-position-y: -481px;
+}
+
+.card29 {
+    background-position-x: -171px;
+    background-position-y: -481px;
+}
+
+.card30 {
+    background-position-x: -342px;
+    background-position-y: -481px;
+}
+
+.card31 {
+    background-position-x: -514px;
+    background-position-y: -481px;
+}
+
+.card32 {
+    background-position-x: -685px;
+    background-position-y: -481px;
+}
+
+.card33 {
+    background-position-x: -857px;
+    background-position-y: -481px;
+}
+
+.card34 {
+    background-position-x: -1028px;
+    background-position-y: -481px;
+}
+
+.card35 {
+    background-position-x: -1199px;
+    background-position-y: -481px;
+}
+
+.card36 {
+    background-position-x: -1371px;
+    background-position-y: -481px;
+}
+
+.card37 {
+    background-position-x: -1542px;
+    background-position-y: -481px;
+}
+
+.card38 {
+    background-position-x: -1714px;
+    background-position-y: -481px;
+}
+
+.card39 {
+    background-position-x: -1884px;
+    background-position-y: -481px;
+}
+
+.card40 {
+    background-position-x: -2056px;
+    background-position-y: -481px;
+}
+
+.card41 {
+    background-position-x: 0;
+    background-position-y: -721px;
+}
+
+.card42 {
+    background-position-x: -170px;
+    background-position-y: -721px;
+}
+
+.card43 {
+    background-position-x: -343px;
+    background-position-y: -721px;
+}
+
+.card44 {
+    background-position-x: -515px;
+    background-position-y: -721px;
+}
+
+.card45 {
+    background-position-x: -685px;
+    background-position-y: -721px;
+}
+
+.card46 {
+    background-position-x: -858px;
+    background-position-y: -721px;
+}
+
+.card47 {
+    background-position-x: -1027px;
+    background-position-y: -721px;
+}
+
+.card48 {
+    background-position-x: -1200px;
+    background-position-y: -721px;
+}
+
+.card49 {
+    background-position-x: -1371px;
+    background-position-y: -721px;
+}
+
+.card50 {
+    background-position-x: -1542px;
+    background-position-y: -721px;
+}
+
+.card51 {
+    background-position-x: -1712px;
+    background-position-y: -721px;
+}
+
+.card52 {
+    background-position-x: -1884px;
+    background-position-y: -721px;
+}
+
+.card53 {
+    background-position-x: -2056px;
+    background-position-y: -721px;
+}

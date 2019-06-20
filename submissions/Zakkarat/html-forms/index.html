@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML-forms</title>
+    <link rel="stylesheet" href="./stylesheet/main.css" />
+    <link rel="stylesheet" href="./stylesheet/header.css" />
+    <link rel="stylesheet" href="./stylesheet/choose-document.css" />
+    <link rel="stylesheet" href="./stylesheet/upload.css" />
+    <link rel="stylesheet" href="./stylesheet/language-choose.css" />
+    <link rel="stylesheet" href="./stylesheet/tone-time.css" />
+    <link rel="stylesheet" href="./stylesheet/payment.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/normalize.css" />
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="innerHeader">
+        <button class="headerButtons">Back</button>
+        <a href="#"><img class="header" src="img/logo-header.png" alt="logo-head"/></a>
+        <button class="headerButtons">Sign in</button>
+      </div>
+    </header>
+    <main class="adjust">
+      <div class="container">
+        <form  action="index.html" method="post">
+          <div class="upperMenu">
+            <div class="orderInfo">
+              <div class="left">
+                <div class="summary">
+                  <h3 class="summaryHeader text-to-uppercase">your order</h3>
+                  <table class="wideTable">
+                    <tbody>
+                      <tr>
+                        <th class="alignTh">Items</th>
+                        <th class="alignTh">Details</th>
+                        <th class="alignTh">Price</th>
+                        <th class="alignTh">Delivery</th>
+                      </tr>
+                      <tr>
+                        <td><span class="bold-text">2</span> documents</td>
+                        <td><span class="bold-text">2</span> languages</td>
+                        <td>$ <span class="bold-text">696.06</span></td>
+                        <td><span class="bold-text">48</span> documents*</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="right">
+                <button class="upperMenuButton order text-to-uppercase">place order</button>
+                <button type="button" class="upperMenuButton text-to-uppercase">print quote</button>
+              </div>
+            </div>
+            <div class="helpBlock">
+              <div class="textHelp">
+                <h3 class="summaryHeader text-to-uppercase">help center</h3>
+                <p class="paraHelp">
+                  If you need assistance while placing your order, contact one
+                  of our beloved Project Manager by phone or email.
+                </p>
+                <div class="contacts">
+                  <a href="tel:+491570156">+971 (0) 555 555</a>
+                  <a href="mailto:help@qtest.com">help@qtest.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="documentTake">
+            <h3 class="selectionText text-to-uppercase">select what you want to translate</h3>
+            <div class="radioInput">
+              <input
+                type="radio"
+                id="website"
+                name="translate"
+                value="website"
+                class="input"
+              />
+              <label for="website" class="radioBox"
+                ><span class="checked"></span><img src="img/website-icon.png" alt="main ico"/>
+                <p><span class="bold-text">Website</span></p></label
+              >
+              <input
+                type="radio"
+                id="document"
+                name="translate"
+                value="document"
+                class="input"
+                checked
+              />
+              <label for="document" class="radioBox"
+                ><span class="checked"></span
+                ><img src="img/documents-icon.png" alt="document ico"/>
+                <p><span class="bold-text">Documents</span></p></label
+              >
+              <input
+                type="radio"
+                id="social"
+                name="translate"
+                value="social"
+                class="input"
+              />
+              <label for="social" class="radioBox"
+                ><span class="checked"></span><img src="img/social-icon.png" alt="social icon" />
+                <p><span class="bold-text">Social Account</span></p></label
+              >
+            </div>
+          </section>
+          <section class="documentUpload">
+            <div class="allTextDocumentUpload">
+              <span class="numberSection"><span class="bold-text">1</span></span>
+              <h2 class="uploadText">Upload your documents</h2>
+              <h5 class="smallUploadText">(Doc, Docx, Text, PDF, Markdown)</h5>
+            </div>
+            <label tabindex="0" for="file" class="uploadFile"
+              ><input
+                type="file"
+                id="file"
+                name="file"
+                value="files"
+                class="inputHideFile"
+              /><span class="upload"></span
+              ><span class="inputFileText"
+                ><span class="bold-text">Upload your files</span></span
+              ></label
+            >
+            <table class="wideTable">
+              <tr>
+                <th class="th-to-left text-to-uppercase">file name</th>
+                <th class="th-to-left text-to-uppercase">file size</th>
+                <th class="th-to-left text-to-uppercase">number of words</th>
+                <th class="th-to-left text-to-uppercase">remove</th>
+              </tr>
+              <tr>
+                <td class="image-doc">buisness_operations.docx</td>
+                <td>78 kB</td>
+                <td>3894 words</td>
+                <td class="td-to-center">
+                  <img
+                    tabindex="0"
+                    src="./img/waste-bin.svg"
+                    class="deleteFile"
+                    alt="wastebin"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>buisness_financial.docx</td>
+                <td>23 kB</td>
+                <td>2123 words</td>
+                <td class="td-to-center">
+                  <img
+                    tabindex="0"
+                    src="./img/waste-bin.svg"
+                    class="deleteFile"
+                    alt="wastebin"
+                  />
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section class="documentLanguage">
+            <div class="allTextDocumentUpload">
+              <span class="numberSection"><span class="bold-text">2</span></span>
+              <h2 class="uploadText">Choose your languages pairings</h2>
+            </div>
+            <div class="block-to-center">
+              <div class="select-button select-button-from">
+                <select name="language" class="select-button-inner" required>
+                  <option value="english" selected>English</option>
+                  <option value="Arabian">Arabian</option>
+                  <option value="Kudrish">Kudrish</option>
+                  <option value="Ukrainian">Ukrainian</option>
+                </select>
+              </div>
+            </div>
+            <div class="block-to-center">
+              <div class="select-button select-button-to">
+                <select name="language" class="select-button-inner" required>
+                  <option value="english">English</option>
+                  <option value="Arabian" selected>Arabian</option>
+                  <option value="Kudrish">Kudrish</option>
+                  <option value="Ukrainian">Ukrainian</option>
+                </select>
+              </div>
+              <div class="select-button select-button-next">
+                <select name="language" class="select-button-inner">
+                  <option value="english">English</option>
+                  <option value="arabian">Arabian</option>
+                  <option value="kudrish">Kudrish</option>
+                  <option value="ukrainian" selected>Ukrainian</option>
+                </select>
+              </div>
+              <button type="button" class="no-button-style"><img
+                src="./img/waste-bin.svg"
+                class="deleteFile select-delete"
+                alt="wastebin"
+              /></button>
+              <button type="button" class="add-button">
+                Add
+              </button>
+            </div>
+          </section>
+          <section class="toneSelect">
+            <div class="allTextDocumentUpload">
+              <span class="numberSection"><span class="bold-text">3</span></span>
+              <h2 class="uploadText">Select your desired tone</h2>
+              <span class="numberSection second-elem-numb"><span class="bold-text">4</span></span>
+              <h2 class="uploadText second-elem">
+                Tell us how urgent this job is
+              </h2>
+            </div>
+            <div class="tone-time-container">
+              <div class="tone">
+                <label for="friendly">
+                  <input type="radio" name="tone" id="friendly" class="input" />
+                  <div class="select-tone tone-before chat checkedTone">
+                    Friendly / Casual
+                  </div>
+                </label>
+                <label for="corporate">
+                  <input
+                    type="radio"
+                    name="tone"
+                    id="corporate"
+                    class="input"
+                    checked
+                  />
+                  <div class="select-tone tone-before suitcase checkedTone">
+                    Corporate / Pro
+                  </div>
+                </label>
+                <label for="media">
+                  <input type="radio" name="tone" id="media" class="input" />
+                  <div class="select-tone tone-before media checkedTone">
+                  Media / Formal
+                  </div>
+                </label>
+              </div>
+              <div class="time-range">
+                <input
+                  type="range"
+                  class="time-range-button"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="50"
+                />
+                <div class="range-text">
+                  <p class="range-under text-to-uppercase">i got time</p>
+                  <p class="range-under text-to-uppercase">average</p>
+                  <p class="range-under text-to-uppercase">yesterday</p>
+                </div>
+                <div class="range-info">
+                  <h4 class="info-header text-to-uppercase">timeline info</h4>
+                  <p class="range-para">
+                    With an <span class="to-orange text-to-uppercase">average</span> timeline set
+                    up, our expert translator can take a reasonable amount of
+                    time perfecting your translation
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="payment-method">
+            <div class="allTextDocumentUpload">
+              <span class="numberSection"><span class="bold-text">5</span></span>
+              <h2 class="uploadText">Select your payment method</h2>
+            </div>
+            <div class="block-to-center">
+              <div>
+                <h5 class="smallUploadText">
+                  Already have an account with us?
+                  <a href="#" class="underlined-a">Sign in.</a>
+                </h5>
+                <h5 class="above-text text-to-uppercase">full name</h5>
+                <input
+                  type="text"
+                  id="text-name"
+                  class="text text-name"
+                  name="Full Name"
+                  placeholder="Mattew Alebard"
+                  title="Enter your name. Minimal length 3 characters."
+                  minlength="3"
+                  required
+                /><span class="validation-sign"></span>
+              </div>
+            </div>
+            <div class="block-to-center">
+              <div class="field-text">
+                <div class="field-container">
+                  <h5 class="above-text text-to-uppercase">email</h5>
+                  <input
+                    type="email"
+                    id="email"
+                    class="text text-name"
+                    name="email"
+                    placeholder="example@domain.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    title="Enter your email. Example: name@domain.com"
+                    required
+                  /><span class="validation-sign"></span>
+                </div>
+                <div class="field-container">
+                  <h5 class="above-text text-to-uppercase">choose password</h5>
+                  <input
+                    type="password"
+                    id="password"
+                    class="text text-name"
+                    name="password"
+                    placeholder="Enter your password"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                    title="Enter your password. Minimum 8 characters, UPPERCASE, lowercase and Number."
+                    minlength="6"
+                    required
+                  /><span class="validation-sign"></span>
+                </div>
+              </div>
+              <div class="payment-method-choose">
+                <div class="payholder">
+                  <label for="card">
+                    <input
+                      type="radio"
+                      name="paymethod"
+                      id="card"
+                      class="input"
+                    />
+                    <div class="select-pay pay-before pay">
+                      <span class="checkedPay"></span
+                      ><img src="./img/visa.svg" alt="visa" class="img-card" /><img
+                        src="./img/mastercard.svg"
+                        alt="mastercard"
+                        class="img-card"
+                      />
+                    </div>
+                  </label>
+                  <label for="paypal">
+                    <input
+                      type="radio"
+                      name="paymethod"
+                      id="paypal"
+                      class="input"
+                      checked
+                    />
+                    <div class="select-pay pay-before pay">
+                      <span class="checkedPay"></span
+                      ><img src="./img/paypal.svg" alt="paypal" class="img-pay" />
+                    </div>
+                  </label>
+                  <label for="amazon">
+                    <input
+                      type="radio"
+                      name="paymethod"
+                      id="amazon"
+                      class="input"
+                    />
+                    <div class="select-pay pay-before pay">
+                      <span class="checkedPay"></span
+                      ><img src="./img/amazon.svg" alt="amazon" class="img-pay" />
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="field-text">
+                <div class="field-container field-card">
+                  <h5 class="above-text text-to-uppercase">card number</h5>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="card-number"
+                    class="text text-card"
+                    name="card"
+                    pattern="\d*"
+                    title="Enter your credit card number. Example: 1234 5678 9012 4567"
+                    minlength="16"
+                    maxlength="16"
+                    required
+                  /><span class="cc-number-img"></span>
+                </div>
+                <div class="field-container field-date">
+                  <h5 class="above-text text-to-uppercase">expiry date</h5>
+                  <input
+                    type="text"
+                    inputmode="numeric"
+                    id="expiry-date"
+                    placeholder="MM/YY"
+                    class="text text-card"
+                    name="card"
+                    pattern="\d*"
+                    title="Example: 1222"
+                    minlength="4"
+                    maxlength="4"
+                    required
+                  />
+                </div>
+                <div class="field-container field-code">
+                  <h5 class="above-text text-to-uppercase">code</h5>
+                  <input
+                    type="password"
+                    inputmode="numeric"
+                    id="cc"
+                    class="text text-card"
+                    name="card"
+                    pattern="\d*"
+                    title="Example: 235"
+                    minlength="3"
+                    maxlength="3"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="submit">
+            <div class="block-to-center submit-field">
+              <input type="checkbox" required/>
+              <div>
+                <h5 class="smallUploadText submit-text">
+                  I agree to the.
+                  <a href="#" class="underlined-a"> Terms & Conditions</a>
+                </h5>
+              </div>
+              <button class="upperMenuButton order text-to-uppercase">place order</button
+              ><button type="button" class="upperMenuButton text-to-uppercase">print a quote</button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-wrapper">
+        <div class="footer-text-container">
+          <h4 class="info-header text-to-uppercase">what we do</h4>
+          <p class="range-para">
+            We provide a full range of language services including content
+            development, document, website and social media accounts
+            translations.
+          </p>
+        </div>
+        <div class="footer-text-container">
+          <h4 class="info-header text-to-uppercase">our main office</h4>
+          <p class="range-para">Dubai, UAE</p>
+          <p class="range-para">P.O.Box: 502735</p>
+          <p class="range-para">
+            Phone: <a href="#" class="phone">+971 (0) 44278128</a>
+          </p>
+        </div>
+        <div class="footer-text-container">
+          <h4 class="info-header text-to-uppercase">connect with us</h4>
+          <a href="#"><p class="range-para facebook">Facebook</p></a>
+          <a href="#"><p class="range-para twitter">Twitter</p></a>
+          <a href="#"><p class="range-para linkedin">LinkedIn</p></a>
+        </div>
+        <a href="#"><img src="./img/logo-footer.png" alt="footer logo" class="footer-img" /></a>
+      </div>
+    </footer>
+  </body>
+</html>
