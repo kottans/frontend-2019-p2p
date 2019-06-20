@@ -102,6 +102,7 @@ Player.prototype.reset = function() {
     alert("Your score: " + this.score);
     this.score = 0;   
     allEnemies.forEach(function(enemy) {
+        //slower speed, after player respawn
         enemy.speed = getRandNum(15, 85);
     }); 
 };
@@ -135,7 +136,8 @@ function getEnemies() {
     for (let i = 0; i < numOfAnimals; i++) {
         let diffSpeed = getRandNum(minStartSpeed, maxStartSpeed);
         let diffRow = getRandNum(1, 5);
-    if (i < 4) {
+    if (i < 4) {  
+        //to fill all the rows with enemies
         allEnemies[i] = new Enemy(i + 1, diffSpeed);
     } else {
         allEnemies[i] = new Enemy(diffRow, diffSpeed);}
