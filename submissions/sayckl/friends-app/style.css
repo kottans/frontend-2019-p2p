@@ -53,11 +53,7 @@ body  {
 .body {
 
 }
-<<<<<<< HEAD
-aside {
-=======
 .sortmenu {
->>>>>>> friends-app
   z-index: 2;
   position: relative;
   background-color: skyblue;
@@ -74,11 +70,7 @@ aside {
 .show_aside {
   display: flex;
 }
-<<<<<<< HEAD
-aside div{
-=======
 .sortmenu div{
->>>>>>> friends-app
   margin: 5px;
 }
 .card {
@@ -90,10 +82,7 @@ aside div{
   align-items: center;
   padding: 10px 5px;
   background-color: skyblue;
-<<<<<<< HEAD
-=======
   text-transform: capitalize;
->>>>>>> friends-app
 }
 .card:hover {
   background-color: pink;

@@ -1,11 +1,6 @@
 const cards = document.querySelector('.cards');
-<<<<<<< HEAD
-const az = document.querySelector('.a-z');
-const za = document.querySelector('.z-a');
-=======
 const textASC = document.querySelector('.asc');
 const textDESC = document.querySelector('.desc');
->>>>>>> friends-app
 const min = document.querySelector('.min');
 const max = document.querySelector('.max');
 const male = document.querySelector('.male');
@@ -36,16 +31,6 @@ fetch("https://randomuser.me/api/?results=40&nat=us")
 
 function add(people){
   people.forEach(function(elem) {
-<<<<<<< HEAD
-    capitals(elem);
-    const div = document.createElement('div');
-    div.className = 'card';
-    div.innerHTML = `<img src="${elem.picture.large}">
-    <div class="name">${elem.name.first} ${elem.name.last}</div>
-    <div class="age">Age: ${elem.dob.age}</div>
-    <div class="location">Location: ${elem.location.city}</div>
-    <div class="phone">Phone: ${elem.phone}</div>`
-=======
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `<img src="${elem.picture.large}">
@@ -53,29 +38,13 @@ function add(people){
     <span class="age">Age: ${elem.dob.age}</span>
     <span class="location">Location: ${elem.location.city}</span>
     <span class="phone">Phone: ${elem.phone}</span>`
->>>>>>> friends-app
 
     cards.appendChild(div);
   });
 };
 
-<<<<<<< HEAD
-function capitals(elem) {
-  elem.name.first = capitalFirstLet(elem.name.first);
-  elem.name.last = capitalFirstLet(elem.name.last);
-  elem.location.city = capitalFirstLet(elem.location.city);
-}
-
-function capitalFirstLet(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1);
-}
-
-az.addEventListener('click', () => {
-    const ads = people.sort((a, b) => {
-=======
 textASC.addEventListener('click', () => {
     const asc = people.sort((a, b) => {
->>>>>>> friends-app
       if (a.name.first > b.name.first) {
         return 1;
       }
@@ -84,19 +53,11 @@ textASC.addEventListener('click', () => {
       }
       return 0;
     });
-<<<<<<< HEAD
-    search(ads);
-  });
-
-za.addEventListener('click', () => {
-    const cads = people.sort((a, b) => {
-=======
     search(asc);
   });
 
 textDESC.addEventListener('click', () => {
     const desc = people.sort((a, b) => {
->>>>>>> friends-app
         if (a.name.first < b.name.first) {
           return 1;
         }
@@ -105,11 +66,7 @@ textDESC.addEventListener('click', () => {
         }
         return 0;
       });
-<<<<<<< HEAD
-      search(cads);
-=======
       search(desc);
->>>>>>> friends-app
   });
 
 min.addEventListener('click', () => {
@@ -140,15 +97,8 @@ reset.addEventListener('click', () => {
 
 const searcher = document.querySelector('.searcher');
 function search(people) {
-<<<<<<< HEAD
-let search = new RegExp(searcher.value, "ig");
-people = people.filter( elem => elem.name.first.toLowerCase().match(search) || elem.name.last.toLowerCase().match(search));
- cards.innerHTML = '';
- add(people);
-=======
   let search = searcher.value.toLowerCase();
   people = people.filter( elem => elem.name.first.toLowerCase().match(search) || elem.name.last.toLowerCase().match(search));
   cards.innerHTML = '';
   add(people);
->>>>>>> friends-app
 };
