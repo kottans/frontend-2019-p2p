@@ -10,7 +10,7 @@ const CLASSES_ADD_IMAGES = [
 ];
 
 let cards = document.getElementsByClassName("card");
-const container = document.querySelector(".container");
+const CONTAINER = document.querySelector(".container");
 
 for (let i = 0; i < cards.length; i++) {
   addElements(cards[i], i);
@@ -51,8 +51,8 @@ function generateBackGrn(elements, arrrayOfClasses) {
 let arrayOfFlipCards = [];
 let boardLock = false;
 let countForMatches = 0;
-const firstOpenedCard = 0;
-const secondOpenedCard = 1;
+const FIRST_OPENED_CARD = 0;
+const SECOND_OPENED_CARD = 1;
 const CLASS_FOR_IMAGE = 1;
 
 const flip = ({ target }) => {
@@ -60,11 +60,11 @@ const flip = ({ target }) => {
     return null;
   }
 
-  while (target != container) {
+  while (target != CONTAINER) {
     if (
       target.className === "flipper flipped" &&
       arrayOfFlipCards.length === 1 &&
-      arrayOfFlipCards[firstOpenedCard].lastChild.dataset.numberOfElement ===
+      arrayOfFlipCards[FIRST_OPENED_CARD].lastChild.dataset.numberOfElement ===
         this.lastChild.dataset.numberOfElement
     ) {
       arrayOfFlipCards = [];
@@ -85,7 +85,7 @@ const flip = ({ target }) => {
   }
 };
 
-container.addEventListener("click", flip);
+CONTAINER.addEventListener("click", flip);
 
 function toggleCard(element) {
   element.classList.toggle("flipped");
@@ -93,10 +93,10 @@ function toggleCard(element) {
 
 function checkIfSamePictures(flippedCards) {
   if (
-    flippedCards[firstOpenedCard].lastChild.classList[CLASS_FOR_IMAGE] ===
-      flippedCards[secondOpenedCard].lastChild.classList[CLASS_FOR_IMAGE] &&
-    flippedCards[firstOpenedCard].lastChild.dataset.numberOfElement !==
-      flippedCards[secondOpenedCard].lastChild.dataset.numberOfElement
+    flippedCards[FIRST_OPENED_CARD].lastChild.classList[CLASS_FOR_IMAGE] ===
+      flippedCards[SECOND_OPENED_CARD].lastChild.classList[CLASS_FOR_IMAGE] &&
+    flippedCards[FIRST_OPENED_CARD].lastChild.dataset.numberOfElement !==
+      flippedCards[SECOND_OPENED_CARD].lastChild.dataset.numberOfElement
   ) {
     countForMatches += 2;
     if (countForMatches === 16) {
