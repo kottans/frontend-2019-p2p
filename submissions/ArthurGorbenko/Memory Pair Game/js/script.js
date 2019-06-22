@@ -53,11 +53,9 @@ let boardLock = false;
 let countForMatches = 0;
 const firstOpenedCard = 0;
 const secondOpenedCard = 1;
+const CLASS_FOR_IMAGE = 1;
 
-container.addEventListener("click", flip);
-
-function flip(event) {
-  let target = event.target;
+const flip = ({ target }) => {
   if (boardLock) {
     return null;
   }
@@ -81,10 +79,13 @@ function flip(event) {
 
   if (arrayOfFlipCards.length === 2) {
     boardLock = true;
+    console.log(arrayOfFlipCards);
     checkIfSamePictures(arrayOfFlipCards);
     arrayOfFlipCards = [];
   }
-}
+};
+
+container.addEventListener("click", flip);
 
 function toggleCard(element) {
   element.classList.toggle("flipped");
@@ -92,8 +93,8 @@ function toggleCard(element) {
 
 function checkIfSamePictures(flippedCards) {
   if (
-    flippedCards[firstOpenedCard].lastChild.style.cssText ===
-      flippedCards[secondOpenedCard].lastChild.style.cssText &&
+    flippedCards[firstOpenedCard].lastChild.classList[CLASS_FOR_IMAGE] ===
+      flippedCards[secondOpenedCard].lastChild.classList[CLASS_FOR_IMAGE] &&
     flippedCards[firstOpenedCard].lastChild.dataset.numberOfElement !==
       flippedCards[secondOpenedCard].lastChild.dataset.numberOfElement
   ) {
