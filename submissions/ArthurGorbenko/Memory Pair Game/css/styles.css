@@ -47,3 +47,35 @@
 .flipper.flipped {
   transform: rotateY(180deg);
 }
+
+.slowbro {
+  background-position: 20px -525px;
+}
+
+.tangela {
+  background-position: 20px -350px;
+}
+
+.weeppinbell {
+  background-position: -390px 0px;
+}
+
+.snorlax {
+  background-position: -810px 0px;
+}
+
+.joltenon {
+  background-position: 20px -180px;
+}
+
+.pinsir {
+  background-position: -600px 0px;
+}
+
+.pidgeot {
+  background-position: -190px 0px;
+}
+
+.beedrill {
+  background-position: 20px 0px;
+}

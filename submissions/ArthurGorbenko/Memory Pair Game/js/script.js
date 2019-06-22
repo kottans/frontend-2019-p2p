@@ -1,12 +1,12 @@
-const valuesOfBackPos = [
-  "20px 0px",
-  "20px -180px",
-  "20px -350px",
-  "20px -525px",
-  "-190px 0px",
-  "-390px 0px",
-  "-600px 0px",
-  "-810px 0px"
+const CLASSES_ADD_IMAGES = [
+  "slowbro",
+  "tangela",
+  "weeppinbell",
+  "snorlax",
+  "joltenon",
+  "pinsir",
+  "pidgeot",
+  "beedrill"
 ];
 
 let cards = document.getElementsByClassName("card");
@@ -33,19 +33,18 @@ function addElements(element, i) {
 
 let backs = document.querySelectorAll(".back");
 
-generateBackGrn(backs, valuesOfBackPos);
+generateBackGrn(backs, CLASSES_ADD_IMAGES);
 
-function generateBackGrn(elements, arrayOfBackGrnds) {
+function generateBackGrn(elements, arrrayOfClasses) {
   let arrayOfElements = Array.from(elements);
   arrayOfElements.sort(function() {
     return 0.5 - Math.random();
   });
   arrayOfElements.forEach((element, index) => {
-    if (index >= arrayOfBackGrnds.length) {
-      element.style.backgroundPosition =
-        arrayOfBackGrnds[index - arrayOfBackGrnds.length];
+    if (index >= arrrayOfClasses.length) {
+      element.classList.add(arrrayOfClasses[index - arrrayOfClasses.length]);
     } else {
-      element.style.backgroundPosition = arrayOfBackGrnds[index];
+      element.classList.add(arrrayOfClasses[index]);
     }
   });
 }
