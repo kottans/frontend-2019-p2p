@@ -10,11 +10,15 @@ const CLASSES_ADD_IMAGES = [
 ];
 
 let cards = document.getElementsByClassName("card");
-const CONTAINER = document.querySelector(".container");
 
-for (let i = 0; i < cards.length; i++) {
-  addElements(cards[i], i);
-}
+generateCardsStructure(cards);
+
+function generateCardsStructure(arrOfCards){
+  for (let i = 0; i < arrOfCards.length; i++) {
+    addElements(arrOfCards[i], i);
+  }
+};
+
 
 function addElements(element, i) {
   let flipper = document.createElement("div");
@@ -51,6 +55,7 @@ function generateBackGrn(elements, arrrayOfClasses) {
 let arrayOfFlipCards = [];
 let boardLock = false;
 let countForMatches = 0;
+const CONTAINER = document.querySelector(".container");
 const FIRST_OPENED_CARD = 0;
 const SECOND_OPENED_CARD = 1;
 const CLASS_FOR_IMAGE = 1;
