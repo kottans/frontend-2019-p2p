@@ -44,7 +44,7 @@ function add(people){
 };
 
 textASC.addEventListener('click', () => {
-    const asc = people.sort((a, b) => {
+    const ascending = people.sort((a, b) => {
       if (a.name.first > b.name.first) {
         return 1;
       }
@@ -53,11 +53,11 @@ textASC.addEventListener('click', () => {
       }
       return 0;
     });
-    search(asc);
+    search(ascending);
   });
 
 textDESC.addEventListener('click', () => {
-    const desc = people.sort((a, b) => {
+    const descending = people.sort((a, b) => {
         if (a.name.first < b.name.first) {
           return 1;
         }
@@ -66,7 +66,7 @@ textDESC.addEventListener('click', () => {
         }
         return 0;
       });
-      search(desc);
+      search(descending);
   });
 
 min.addEventListener('click', () => {
