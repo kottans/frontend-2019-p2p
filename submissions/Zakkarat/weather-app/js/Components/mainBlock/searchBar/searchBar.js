@@ -5,7 +5,7 @@ import AppState from "../../../Services/AppState";
 export default class searchbar extends Component {
   constructor(host, props) {
     super(host, props);
-
+    this.processing = false;
   }
 
   componentWillMount() {
@@ -23,19 +23,29 @@ export default class searchbar extends Component {
   
   handleFavPopup() {
     const menu = document.getElementById('favourites');
+    const that = this;
+    if(!this.processing) {
     menu.classList.toggle('favorite-list')
+    this.processing = true;
     setTimeout(function(){
+      that.processing = false;
       AppState.update('FAVORITEPOP', {classList: [...menu.classList]})
     }, 900)
+  }
   }
 
   handleHistPopup() {
     const menu = document.getElementById('history');
+    const that = this;
+    if(!this.processing) {
     menu.classList.toggle('history-list');
+    const button = document.getElementById('hist')
+    this.processing = true;
     setTimeout(function(){
+      that.processing = false;
       AppState.update('HISTORYPOP', {classList: [...menu.classList]})
     }, 900)
-
+  }
   }
 
   handleAutoComplete() {

@@ -1,7 +1,68 @@
+@import 'include-media';
 $main: #0f162fe6;
 $main-dark: #081029;
 $Roboto: 'Open Sans', sans-serif;
 $Exo: 'Exo 2', sans-serif;
+$pos: 2%;
+$posout: -40%;
+@mixin sidebars($left: false) {
+    width: 241px;
+    height: 282px;
+    $trueposout: $posout;
+    @include media(">0px", "<1210px") {
+        width: 160px;
+    };
+    border-radius: 15px;
+    background-color: $main;
+    position: absolute;
+    top: 27.5%;
+    transition: 1s;
+
+    @if $left {
+        left: $posout;
+        } @else {
+        right: $posout;
+        }
+        @include media(">0px", "<845px") {
+            top: 54%;
+            width: 220px;
+        }
+}
+@mixin sidebarsAct($left: false) {
+    @if $left {
+        left: $pos;
+        } @else {
+        right: $pos;
+        }
+        @include media(">0px", "<845px") {
+            @if $left {
+                left: $pos +18%;
+                } @else {
+                right: $pos + 18%;
+                }
+                @include media(">0px", "<750px") {
+                    @if $left {
+                        left: $pos +13%;
+                        } @else {
+                        right: $pos + 13%;
+                        }
+                }
+                @include media(">0px", "<640px") {
+                    @if $left {
+                        left: $pos;
+                        } @else {
+                        right: $pos;
+                        }
+                }
+                @include media(">0px", "<460px") {
+                    @if $left {
+                        left: $pos - 2%;
+                        } @else {
+                        right: $pos - 2%;
+                        }
+                }
+        }
+}
 
 @mixin default-text {
     color: white;
@@ -35,6 +96,13 @@ body {
     height: 490px;
     background-color: $main;
     border-radius: 15px;
+    @include media(">0px", "<1210px") {
+        width: 476px;
+        @include media(">0px", "<845px") {
+            margin-top: -94%
+        }
+    }
+
 }
 
 .search-block {
@@ -144,23 +212,7 @@ body {
     margin-bottom: 8px;
 }
 
-.favorite-list-active {
-    width: 241px;
-    height: 282px;
-    border-radius: 15px;
-    background-color: $main;
-    position: absolute;
 
-    left: -20%;
-    top: 27.5%;
-    transition: 1s;
-}
-
-.favorite-list {
-    left: 21%;
-    top: 27.5%;
-    transition: 1s;
-}
 .head-side {
     color: white;
     margin: 3px;
@@ -169,7 +221,6 @@ body {
 }
 
 .city-block {
-    width: 241px;
     height: 39px;
     color: white;
     font-family: $Exo;
@@ -177,28 +228,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
-
+.city-block-text {
+    text-align: center;
+}
 .city-block:hover {
     background-color: $main-dark;
     cursor: pointer;
 }
 
-.history-list-active {
-    width: 13%;
-    height: 25%;
-    border-radius: 15px;
-    background-color: $main;
-    position: absolute;
-    top: 27.5%;
-    right: -20%;
-    transition: 1s;
-}
 
-.history-list {
-   
-    right: 21%;
-}
 .fav-button {
     width: 10%;
     height: 38px;
@@ -227,10 +267,28 @@ body {
     margin-left: 95px;
     position: absolute;
     border: 0px;
+    @include media(">0px", "<1210px") {
+        margin-left: 55px;
+    };
     cursor: pointer;
 }
 
 .city-block:hover .delete-city:hover {
     background: url('../img/cancel-hover.svg') no-repeat;
     background-size: 15px;
+}
+
+.history-list-active {
+    @include sidebars($left: false);
+}
+
+.history-list {
+    @include sidebarsAct($left: false);
+}
+.favorite-list-active {
+    @include sidebars($left: true);
+}
+
+.favorite-list {
+    @include sidebarsAct($left: true)
 }
