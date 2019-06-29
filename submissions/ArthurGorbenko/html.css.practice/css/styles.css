@@ -1,0 +1,269 @@
+body {
+  font-family: arial, sans-serif;
+  font-size: 15px;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mail_button,
+.Images {
+  margin: 10px;
+}
+
+.content {
+  height: 500px;
+  width: 350px;
+  border: 1px solid #ccc;
+  float: right;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  display: none;
+  position: absolute;
+  margin-top: 50px;
+}
+
+.list_1,
+.list_2 {
+  list-style-type: none;
+  position: relative;
+  padding-inline-start: 20px;
+  margin-block-end: 0px;
+}
+
+.card {
+  display: inline-block;
+  height: 98px;
+  width: 86px;
+  padding: 5px;
+  border: 1px solid rgb(204, 204, 204, 0);
+  text-align: center;
+}
+
+.card:hover {
+  border: 1px solid rgb(204, 204, 204, 0.5);
+}
+
+.link {
+  text-decoration: none;
+  position: absolute;
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  color: black;
+}
+
+.icon {
+  background-image: url(sprites.png);
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  vertical-align: top;
+  text-decoration: none;
+  color: black;
+}
+
+.title_btn {
+  position: relative;
+  top: 60px;
+  width: 86px;
+}
+input {
+  position: absolute;
+  overflow-y: auto;
+  clip: rect(0 0 0 0);
+}
+
+.trig:focus + label {
+  outline: 2px solid #bac5e9;
+}
+.more:focus ~ .more_label > .more_button {
+  outline: 2px solid #bac5e9;
+}
+
+.trig:checked ~ .content {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.button {
+  height: 37px;
+  width: 37px;
+  margin: 3px 10px 10px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 200px 200px 200px 200px;
+  padding-top: 4px;
+  cursor: pointer;
+}
+
+.menu_btn {
+  width: 27px;
+  height: 27px;
+}
+
+#menu_btn:hover {
+  background-color: #e6e6e6;
+}
+
+.list_2_container {
+  display: none;
+  margin: 0px;
+}
+
+.more:checked ~ .list_2_container {
+  display: block;
+}
+
+.more:checked ~ .more_label {
+  display: none;
+}
+
+.more_label {
+  margin: 0px;
+  height: 40px;
+  padding: 0px;
+}
+
+.more_button {
+  width: 350px;
+  margin: 0px;
+  height: 45px;
+  background: #e6e6e6;
+  text-align: center;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+.ring_img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.profile_img {
+  width: 28px;
+  height: 28px;
+}
+
+.ring {
+  margin: 0px;
+}
+
+.Profile {
+  margin: 0px;
+  padding-top: 5px;
+}
+.mail_button,
+.Images {
+  line-height: 20px;
+}
+
+.mail_button > .link:hover {
+  text-decoration: underline;
+}
+.Images > .link:hover {
+  text-decoration: underline;
+}
+.even_more {
+  text-align: center;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.even_more:hover {
+  text-decoration: underline;
+}
+
+/* Sprites */
+
+.quoutes {
+  background-position: center top;
+}
+
+.apps {
+  background-position: center -70px;
+}
+
+.youTube {
+  background-position: center -140px;
+}
+
+.gogleplus {
+  background-position: center -210px;
+}
+
+.blog {
+  background-position: center -280px;
+}
+
+.search {
+  background-position: center -350px;
+}
+
+.officeaps {
+  background-position: center -420px;
+}
+
+.photo {
+  background-position: center -490px;
+}
+
+.videoeditor {
+  background-position: center -560px;
+}
+
+.tools {
+  background-position: center -630px;
+}
+
+.translate {
+  background-position: center -700px;
+}
+
+.mail {
+  background-position: center -770px;
+}
+
+.board {
+  background-position: center -830px;
+}
+
+.bookmarks {
+  background-position: center -900px;
+}
+
+.calendar {
+  background-position: center -970px;
+}
+
+.diagram {
+  background-position: center -1040px;
+}
+
+.implement {
+  background-position: center -1110px;
+}
+
+.icq {
+  background-position: center -1180px;
+}
+
+.security {
+  background-position: center -1250px;
+}
+
+.tables {
+  background-position: center -1320px;
+}
+
+.maps {
+  background-position: center -1390px;
+}
+
+.documents {
+  background-position: center -1460px;
+}
+ 
