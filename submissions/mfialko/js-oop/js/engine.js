@@ -83,7 +83,8 @@ let Engine = (function(global) {
     function update(dt) {
         
         updateEntities(dt);
-        checkCollisions();
+        Enemy.prototype.checkCollisions();
+        gem.checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -104,7 +105,7 @@ let Engine = (function(global) {
             if (i === 1) {
                 gem.update();
             } else {
-                gem.get(0);
+                gem.checkCollisions(0);
             }
             
         }
@@ -113,19 +114,6 @@ let Engine = (function(global) {
         ${player.highScore} \u00A0\u00A0\u00A0\u00A0 Score: ${player.score}`;
     }
     
-    function checkCollisions() {
-        allEnemies.forEach(function(enemy) {
-            if ( Math.round(enemy.x / stepX) === Math.round(player.x / stepX) && 
-                 Math.round(enemy.y / stepY) === Math.round(player.y / stepY) ) {
-                    player.reset();
-
-            }
-        });
- 
-        if (player.x === gem.x - deltaForGem &&  player.y === gem.y - 35  ) {
-            gem.get();
-        }
-    }
     
 
     /* This function initially draws the "game level", it will then call
