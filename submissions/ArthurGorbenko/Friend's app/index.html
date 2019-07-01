@@ -1,0 +1,106 @@
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Mali&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body class="default">
+    <header class="header">
+    <h1 class="title">Friend's app</h1>
+    <div class="wrapperThemeChange">
+    <label for="dark" class="labelRadio" >Dark<input type="radio" name="themeSwitch" id="dark" class="unresetDefaultRadio" >
+      <span class="customRadioDark"></span>
+    </label>
+    <label for="bright" class="labelRadio">Light<input type="radio" name="themeSwitch" id="bright" class="unresetDefaultRadio" checked>
+      <span class="customRadioBright"></span>
+    </label>
+  </div>
+</header>
+    <main class="content">
+      <article class="container">
+        <ul class="list"></ul>
+      </article>
+      <div class="hamburgerButton">
+        <input type="checkbox" class="inputButton remove"checked>
+        <div class="wrapperMenu">
+        <aside class="menu">
+            <input
+              type="text"
+              placeholder="Search.."
+              class="searchField"
+              id="searchField"
+            />
+            <div class="wrapperGender">
+              <span class="titleGender">Gender</span>
+              <div class="wrapperRadioGender">
+                <label for="genderRadioOne" class="labelRadio">Male
+                  <input
+                    type="radio"
+                    class="defaultRadio"
+                    name="genderRadio"
+                    id="genderRadioOne"
+                    data-gender="male"/>
+                  <span class="customRadio"></span
+                ></label>
+                <label for="genderRadioTwo" class="labelRadio">Female
+                  <input
+                    type="radio"
+                    class="defaultRadio"
+                    name="genderRadio"
+                    id="genderRadioTwo"
+                    data-gender="female"/><span class="customRadio"></span
+                ></label>
+              </div>
+            </div>
+            <div class="wrapperAge">
+              <span class="titleGender">Age</span>
+              <div class="wrapperRadioAge">
+                <label for="0-9" class="labelRadio">Descending
+                  <input
+                    type="radio"
+                    name="ageRadio"
+                    id="0-9"
+                    data-render="descending"
+                    class="defaultRadio"/><span class="customRadio"></span
+                ></label>
+                <label for="9-0" class="labelRadio">Ascending
+                  <input type="radio" name="ageRadio" id="9-0" class="defaultRadio" data-render="ascending"/>
+                  <span class="customRadio"></span>
+                </label>
+              </div>
+            </div>
+            <input type="button" value="Reset" class="button reset" />
+          </aside>
+          <aside class="directMessage hideDM">
+              <form action="#" class="form">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" value="#" class="emailField" />
+                <textarea
+                  name=""
+                  id=""
+                  cols="33"
+                  rows="10"
+                  class="textArea"
+                ></textarea>
+                <input type="button" value="Send" class="sendOnCLick button" />
+              </form>
+              <span class="alertMessage remove"
+                >Your message was succesfully sended!</span
+              >
+            </aside>
+        </div>
+      <span class="hamburger first"></span>
+      <span class="hamburger second"></span>
+      <span class="hamburger third"></span>
+    </div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
+ 
