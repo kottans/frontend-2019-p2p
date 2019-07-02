@@ -1,6 +1,6 @@
 const CONSTS = {
   LIST_OF_CARDS: document.querySelector(".list"),
-  DM_FORM: document.querySelector(".direct-message"),
+  DIRECT_MESSAGE_FORM: document.querySelector(".direct-message"),
   FORM: document.querySelector(".form"),
   SEND_BUTTON: document.querySelector(".send-on-click-button"),
   SEARCH_FIELD: document.querySelector(".search-field"),
@@ -10,24 +10,21 @@ const CONSTS = {
   TEXT_AREA: document.querySelector(".textarea"),
   ALERT_MESSAGE: document.querySelector(".alert-message"),
   RESET_BUTTON: document.querySelector(".reset"),
-  HAMBURGER: document.querySelector('.hamburger.hamburger--slider'),
+  HAMBURGER: document.querySelector(".hamburger.hamburger--slider"),
   THEME_WRAPPER: document.querySelector(".wrapper-theme-change"),
   BODY: document.querySelector(".default"),
   CARDS: document.getElementsByClassName("card"),
   MENU: document.querySelector(".menu"),
   BUTTONS: document.getElementsByClassName("button"),
   DARK_INPUT: document.getElementById("dark"),
-  WRAPPER_MENU : document.querySelector('.wrapper-menu')
+  WRAPPER_MENU: document.querySelector(".wrapper-menu"),
+  MOBILE_RESOLUTION: "(max-width: 610px)"
 };
 
-let FILTERED_BY_GENDER = false;
+let filteredByGender = false;
 let radioButtons = document.querySelectorAll(".visually-hidden");
 let usersConst;
 let users;
-
-const append = (parent, child) => {
-  return parent.appendChild(child);
-};
 
 const letterToUpperCase = word => {
   return word.charAt(0).toUpperCase() + word.slice(1);
@@ -43,40 +40,42 @@ let menuToggled = false;
 
 const moveMenu = () => {
   let position = 0;
-  let middleScreen = Math.floor((window.innerWidth - CONSTS.WRAPPER_MENU.clientWidth)/2);
-  let id = setInterval(relocate,1);
-  function relocate () {
-    if(position === middleScreen){
-      clearInterval(id)
+  let middleScreen = Math.floor(
+    (window.innerWidth - CONSTS.WRAPPER_MENU.clientWidth) / 2
+  );
+  let id = setInterval(relocate, 1);
+  function relocate() {
+    if (position === middleScreen) {
+      clearInterval(id);
     } else {
       position++;
-      CONSTS.WRAPPER_MENU.style.left = position + 'px';
+      CONSTS.WRAPPER_MENU.style.left = position + "px";
     }
   }
   menuToggled = true;
-}
+};
 
 const moveContent = () => {
   CONSTS.LIST_OF_CARDS.classList.toggle("moveBottom");
-  CONSTS.HAMBURGER.classList.toggle('is-active');
-  if(!menuToggled){
-  moveMenu();
+  CONSTS.HAMBURGER.classList.toggle("is-active");
+  if (!menuToggled) {
+    moveMenu();
   } else {
-    CONSTS.WRAPPER_MENU.style.left = '600px';
+    CONSTS.WRAPPER_MENU.style.left = "600px";
     menuToggled = false;
   }
 };
 
 const writeLetter = ({ target }) => {
-  let mediaQuery = window.matchMedia("(max-width: 610px)");
+  let mediaQuery = window.matchMedia(CONSTS.MOBILE_RESOLUTION);
   if (CONSTS.FORM.classList.contains("visually-hidden")) {
     refreshDMWindow();
   }
   if (target.classList.contains("sendMessage")) {
-    CONSTS.DM_FORM.classList.remove("hide-direct-message");
+    CONSTS.DIRECT_MESSAGE_FORM.classList.remove("hide-direct-message");
     CONSTS.EMAIL_FIELD.value = target.parentElement.dataset.email;
     if (mediaQuery.matches) {
-      CONSTS.HAMBURGER.classList.remove('visually-hidden');
+      CONSTS.HAMBURGER.classList.remove("visually-hidden");
       window.scrollTo({ top: 0, behavior: "smooth" });
       if (!menuToggled) {
         moveContent();
@@ -99,14 +98,14 @@ const addLiElements = parent => {
   };
   for (prop in props) {
     props[prop].classList.add("infoFriend");
-    append(parent, props[prop]);
+    parent.append(props[prop]);
   }
   return props;
 };
 
-const createBlock = (tag, classAdd) => {
+const createBlock = (tag, classList) => {
   element = document.createElement(tag);
-  element.classList.add(...classAdd);
+  element.classList.add(...classList);
   return element;
 };
 
@@ -123,38 +122,30 @@ const createCard = user => {
   sendLetter.type = "button";
   sendLetter.value = "Send letter";
 
-  [img, listInfo, sendLetter].forEach(el => append(li, el));
+  [img, listInfo, sendLetter].forEach(el => li.append(el));
 
   let properties = addLiElements(listInfo);
 
-  properties.age.innerHTML = "<strong>Age : </strong>" + user.dob.age;
-  properties.name.innerHTML =
-    "<strong>Name : </strong>" +
-    letterToUpperCase(user.name.first) +
-    " " +
-    letterToUpperCase(user.name.last);
-  properties.phone.innerHTML = "<strong>Phone : </strong>" + user.phone;
+  properties.age.innerHTML = `<strong>Age : </strong> ${user.dob.age}`;
+  properties.name.innerHTML = `<strong>Name : </strong>
+    ${letterToUpperCase(user.name.first)}
+    ${letterToUpperCase(user.name.last)}`;
+  properties.phone.innerHTML = `<strong>Phone : </strong> ${user.phone}`;
 
-  append(CONSTS.LIST_OF_CARDS, li);
-};
-
-const refreshButtons = () => {
-  CONSTS.LIST_OF_CARDS.addEventListener("click", writeLetter);
+  CONSTS.LIST_OF_CARDS.append(li);
 };
 
 const makeDarkBackground = () => {
   CONSTS.BODY.classList.toggle("bodyDark");
   CONSTS.MENU.classList.toggle("menuDark");
-  CONSTS.DM_FORM.classList.toggle("direct-messageDark");
+  CONSTS.DIRECT_MESSAGE_FORM.classList.toggle("direct-messageDark");
 };
 
 const changeColorCards = () => {
-  for (let key = 0; key < CONSTS.CARDS.length; key++) {
-    CONSTS.CARDS[key].classList.toggle("cardDark");
-  }
-  for (let index = 0; index < CONSTS.BUTTONS.length; index++) {
-    CONSTS.BUTTONS[index].classList.toggle("button-dark");
-  }
+  let cards = [...CONSTS.CARDS];
+  cards.forEach(card => card.classList.toggle('cardDark'));
+  let buttons = [...CONSTS.BUTTONS];
+  buttons.forEach(button => button.classList.toggle('button-dark'));
 };
 
 const createNewList = people => {
@@ -168,7 +159,7 @@ const createNewList = people => {
       CONSTS.BUTTONS[index].classList.add("button-dark");
     }
   }
-  refreshButtons();
+  CONSTS.LIST_OF_CARDS.addEventListener("click", writeLetter);
 };
 
 CONSTS.SEND_BUTTON.addEventListener("click", messageSend);
@@ -177,7 +168,7 @@ const processCards = subString => {
   if (!subString || subString === " ") {
     return null;
   }
-  if (!FILTERED_BY_GENDER) {
+  if (!filteredByGender) {
     users = usersConst;
   }
   subString = subString.toLowerCase();
@@ -195,12 +186,12 @@ CONSTS.SEARCH_FIELD.addEventListener("keyup", function() {
 });
 
 const showGender = genderType => {
-  if (FILTERED_BY_GENDER) {
+  if (filteredByGender) {
     users = usersConst;
   }
   users = users.filter(user => user.gender === genderType);
   createNewList(users);
-  FILTERED_BY_GENDER = true;
+  filteredByGender = true;
   if (query) {
     processCards(query);
   }
@@ -256,7 +247,9 @@ const resetAll = () => {
 
 CONSTS.RESET_BUTTON.addEventListener("click", resetAll);
 
-document.querySelector('.hamburger.hamburger--slider').addEventListener("click", moveContent);
+document
+  .querySelector(".hamburger.hamburger--slider")
+  .addEventListener("click", moveContent);
 
 const switchTheme = ({ target }) => {
   if (target.checked) {
@@ -268,15 +261,17 @@ const switchTheme = ({ target }) => {
 CONSTS.THEME_WRAPPER.addEventListener("change", switchTheme);
 
 const init = () => {
-  let isMobile = window.matchMedia('(max-width: 599px)');
-  if(!isMobile.matches){
-    document.querySelector('.hamburger-button').classList.add('visually-hidden');
+  let isMobile = window.matchMedia("(max-width: 599px)");
+  if (!isMobile.matches) {
+    document
+      .querySelector(".hamburger-button")
+      .classList.add("visually-hidden");
   } else {
-    return ;
+    return;
   }
-}
+};
 
-document.addEventListener('DOMContentLoaded',init);
+document.addEventListener("DOMContentLoaded", init);
 
 fetch(
   "https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture"
