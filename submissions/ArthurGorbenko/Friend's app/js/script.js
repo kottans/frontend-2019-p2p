@@ -1,26 +1,27 @@
 const CONSTS = {
   LIST_OF_CARDS: document.querySelector(".list"),
-  DM_FORM: document.querySelector(".directMessage"),
+  DM_FORM: document.querySelector(".direct-message"),
   FORM: document.querySelector(".form"),
-  SEND_BUTTON: document.querySelector(".sendOnClick"),
-  SEARCH_FIELD: document.querySelector("#searchField"),
-  RADIO_AGE_FORM: document.querySelector(".wrapperRadioAge"),
-  RADIO_GENDER_FORM: document.querySelector(".wrapperRadioGender"),
-  EMAIL_FIELD: document.querySelector(".emailField"),
-  TEXT_AREA: document.querySelector(".textArea"),
-  ALERT_MESSAGE: document.querySelector(".alertMessage"),
+  SEND_BUTTON: document.querySelector(".send-on-click-button"),
+  SEARCH_FIELD: document.querySelector(".search-field"),
+  RADIO_AGE_FORM: document.querySelector(".wrapper-radio-age"),
+  RADIO_GENDER_FORM: document.querySelector(".wrapper-radio-gender"),
+  EMAIL_FIELD: document.querySelector(".email-field"),
+  TEXT_AREA: document.querySelector(".textarea"),
+  ALERT_MESSAGE: document.querySelector(".alert-message"),
   RESET_BUTTON: document.querySelector(".reset"),
-  HAMBURGER: document.querySelector(".inputButton"),
-  THEME_WRAPPER: document.querySelector(".wrapperThemeChange"),
+  HAMBURGER: document.querySelector('.hamburger.hamburger--slider'),
+  THEME_WRAPPER: document.querySelector(".wrapper-theme-change"),
   BODY: document.querySelector(".default"),
   CARDS: document.getElementsByClassName("card"),
   MENU: document.querySelector(".menu"),
   BUTTONS: document.getElementsByClassName("button"),
-  DARK_INPUT : document.getElementById("dark")
+  DARK_INPUT: document.getElementById("dark"),
+  WRAPPER_MENU : document.querySelector('.wrapper-menu')
 };
 
 let FILTERED_BY_GENDER = false;
-let radioButtons = document.querySelectorAll(".defaultRadio");
+let radioButtons = document.querySelectorAll(".visually-hidden");
 let usersConst;
 let users;
 
@@ -33,36 +34,61 @@ const letterToUpperCase = word => {
 };
 
 const refreshDMWindow = () => {
-  CONSTS.FORM.classList.remove("remove");
-  CONSTS.ALERT_MESSAGE.classList.add("remove");
+  CONSTS.FORM.classList.remove("visually-hidden");
+  CONSTS.ALERT_MESSAGE.classList.add("visually-hidden");
   CONSTS.TEXT_AREA.value = "";
 };
 
+let menuToggled = false;
+
+const moveMenu = () => {
+  let position = 0;
+  let middleScreen = Math.floor((window.innerWidth - CONSTS.WRAPPER_MENU.clientWidth)/2);
+  let id = setInterval(relocate,1);
+  function relocate () {
+    if(position === middleScreen){
+      clearInterval(id)
+    } else {
+      position++;
+      CONSTS.WRAPPER_MENU.style.left = position + 'px';
+    }
+  }
+  menuToggled = true;
+}
+
 const moveContent = () => {
   CONSTS.LIST_OF_CARDS.classList.toggle("moveBottom");
+  CONSTS.HAMBURGER.classList.toggle('is-active');
+  if(!menuToggled){
+  moveMenu();
+  } else {
+    CONSTS.WRAPPER_MENU.style.left = '600px';
+    menuToggled = false;
+  }
 };
 
 const writeLetter = ({ target }) => {
   let mediaQuery = window.matchMedia("(max-width: 610px)");
-  if (CONSTS.FORM.classList.contains("remove")) {
+  if (CONSTS.FORM.classList.contains("visually-hidden")) {
     refreshDMWindow();
   }
   if (target.classList.contains("sendMessage")) {
-    CONSTS.DM_FORM.classList.remove("hideDM");
+    CONSTS.DM_FORM.classList.remove("hide-direct-message");
     CONSTS.EMAIL_FIELD.value = target.parentElement.dataset.email;
     if (mediaQuery.matches) {
+      CONSTS.HAMBURGER.classList.remove('visually-hidden');
       window.scrollTo({ top: 0, behavior: "smooth" });
-      if (CONSTS.HAMBURGER.checked) {
-        CONSTS.HAMBURGER.checked = false;
+      if (!menuToggled) {
         moveContent();
+        menuToggled = true;
       }
     }
   }
 };
 
 const messageSend = () => {
-  CONSTS.FORM.classList.add("remove");
-  CONSTS.ALERT_MESSAGE.classList.remove("remove");
+  CONSTS.FORM.classList.add("visually-hidden");
+  CONSTS.ALERT_MESSAGE.classList.remove("visually-hidden");
 };
 
 const addLiElements = parent => {
@@ -119,7 +145,7 @@ const refreshButtons = () => {
 const makeDarkBackground = () => {
   CONSTS.BODY.classList.toggle("bodyDark");
   CONSTS.MENU.classList.toggle("menuDark");
-  CONSTS.DM_FORM.classList.toggle("directMessageDark");
+  CONSTS.DM_FORM.classList.toggle("direct-messageDark");
 };
 
 const changeColorCards = () => {
@@ -127,7 +153,7 @@ const changeColorCards = () => {
     CONSTS.CARDS[key].classList.toggle("cardDark");
   }
   for (let index = 0; index < CONSTS.BUTTONS.length; index++) {
-    CONSTS.BUTTONS[index].classList.toggle("buttonDark");
+    CONSTS.BUTTONS[index].classList.toggle("button-dark");
   }
 };
 
@@ -139,7 +165,7 @@ const createNewList = people => {
       CONSTS.CARDS[key].classList.add("cardDark");
     }
     for (let index = 0; index < CONSTS.BUTTONS.length; index++) {
-      CONSTS.BUTTONS[index].classList.add("buttonDark");
+      CONSTS.BUTTONS[index].classList.add("button-dark");
     }
   }
   refreshButtons();
@@ -230,7 +256,7 @@ const resetAll = () => {
 
 CONSTS.RESET_BUTTON.addEventListener("click", resetAll);
 
-CONSTS.HAMBURGER.addEventListener("change", moveContent);
+document.querySelector('.hamburger.hamburger--slider').addEventListener("click", moveContent);
 
 const switchTheme = ({ target }) => {
   if (target.checked) {
@@ -240,6 +266,17 @@ const switchTheme = ({ target }) => {
 };
 
 CONSTS.THEME_WRAPPER.addEventListener("change", switchTheme);
+
+const init = () => {
+  let isMobile = window.matchMedia('(max-width: 599px)');
+  if(!isMobile.matches){
+    document.querySelector('.hamburger-button').classList.add('visually-hidden');
+  } else {
+    return ;
+  }
+}
+
+document.addEventListener('DOMContentLoaded',init);
 
 fetch(
   "https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture"
