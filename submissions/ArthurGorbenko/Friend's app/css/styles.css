@@ -59,7 +59,7 @@ body {
   height: 270px;
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
-.cardDark {
+.card-dark {
   background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
   color: #ccc;
 }
@@ -240,7 +240,7 @@ body {
 }
 
 .direct-message {
-  margin-top: 10px;
+  margin-top: 90px;
   text-align: center;
   position: sticky;
   top: 400px;
@@ -262,9 +262,9 @@ body {
   visibility: hidden;
 }
 
-.moveBottom {
+.move-bottom {
   position: absolute;
-  transform: translateY(570px);
+  transform: translateY(650px);
   transition: transform 0.5s ease;
 }
 
