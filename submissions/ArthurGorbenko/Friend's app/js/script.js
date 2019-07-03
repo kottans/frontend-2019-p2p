@@ -13,14 +13,15 @@ const CONSTS = {
   HAMBURGER: document.querySelector(".hamburger.hamburger--slider"),
   THEME_WRAPPER: document.querySelector(".wrapper-theme-change"),
   BODY: document.querySelector(".default"),
-  CARDS: document.getElementsByClassName("card"),
   MENU: document.querySelector(".menu"),
-  BUTTONS: document.getElementsByClassName("button"),
-  DARK_INPUT: document.getElementById("dark"),
-  WRAPPER_MENU: document.querySelector(".wrapper-menu"),
-  MOBILE_RESOLUTION: "(max-width: 599px)",
-  SORT_BY_ASCENDING: "ascending"
+  WRAPPER_MENU: document.querySelector(".wrapper-menu")
 };
+
+const MOBILE_RESOLUTION = "(max-width: 599px)";
+const SORT_BY_ASCENDING = "ascending";
+const CARD_CLASS = "card";
+const BUTTON_CLASS = "button";
+const DARK_INPUT_ID = "dark";
 
 let filteredByGender = false;
 let radioButtons = document.querySelectorAll(".visually-hidden");
@@ -68,7 +69,7 @@ const moveContent = () => {
 };
 
 const writeLetter = ({ target }) => {
-  let mediaQuery = window.matchMedia(CONSTS.MOBILE_RESOLUTION);
+  let mediaQuery = window.matchMedia(MOBILE_RESOLUTION);
   if (CONSTS.FORM.classList.contains("visually-hidden")) {
     refreshDMWindow();
   }
@@ -142,20 +143,24 @@ const makeDarkBackground = () => {
   CONSTS.DIRECT_MESSAGE_FORM.classList.toggle("direct-messageDark");
 };
 
-const changeColorCards = () => {
-  let cards = [...CONSTS.CARDS];
+const changeColorCards = (cardsClass, buttonsClass) => {
+  let cards = document.getElementsByClassName(cardsClass);
+  cards = [...cards];
   cards.forEach(card => card.classList.toggle("card-dark"));
-  let buttons = [...CONSTS.BUTTONS];
+  let buttons = document.getElementsByClassName(buttonsClass);
+  buttons = [...buttons];
   buttons.forEach(button => button.classList.toggle("button-dark"));
 };
 
-const createNewList = people => {
+const createNewList = (people, darkId, cardsClass, buttonsClass) => {
   CONSTS.LIST_OF_CARDS.innerHTML = "";
   people.forEach(person => createCard(person));
-  if (CONSTS.DARK_INPUT.checked) {
-    let cards = [...CONSTS.CARDS];
+  if (document.getElementById(DARK_INPUT_ID).checked) {
+    let cards = document.getElementsByClassName(cardsClass);
+    cards = [...cards];
     cards.forEach(card => card.classList.add("card-dark"));
-    let buttons = [...CONSTS.BUTTONS];
+    let buttons = document.getElementsByClassName(buttonsClass);
+    buttons = [...buttons];
     buttons.forEach(button => button.classList.add("button-dark"));
   }
   CONSTS.LIST_OF_CARDS.addEventListener("click", writeLetter);
@@ -172,7 +177,7 @@ const searchPeople = subString => {
   let usersFound = users.filter(
     user => user.name.first.match(subString) || user.name.last.match(subString)
   );
-  createNewList(usersFound);
+  createNewList(usersFound, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
 };
 
 let query = "";
@@ -182,7 +187,7 @@ const showGender = genderType => {
     users = usersConst;
   }
   users = users.filter(user => user.gender === genderType);
-  createNewList(users);
+  createNewList(users, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
   filteredByGender = true;
   if (query) {
     searchPeople(query);
@@ -197,12 +202,12 @@ const genderFilter = ({ target }) => {
 
 const sortingProcess = typeOfSort => {
   const runSort = (a, b) => a.dob.age - b.dob.age;
-  if (typeOfSort === CONSTS.SORT_BY_ASCENDING) {
+  if (typeOfSort === SORT_BY_ASCENDING) {
     users.sort(runSort);
   } else {
     users.sort((a, b) => runSort(b, a));
   }
-  createNewList(users);
+  createNewList(users, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
   searchPeople(query);
 };
 
@@ -222,18 +227,18 @@ const resetAllOptions = () => {
   CONSTS.SEARCH_FIELD.value = "";
   query = "";
   resetRadio(radioButtons);
-  createNewList(usersConst);
+  createNewList(usersConst, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
 };
 
 const switchTheme = ({ target }) => {
   if (target.checked) {
     makeDarkBackground();
-    changeColorCards();
+    changeColorCards("card", "button");
   }
 };
 
 const addHamburgerOnMobile = () => {
-  let isMobile = window.matchMedia(CONSTS.MOBILE_RESOLUTION);
+  let isMobile = window.matchMedia(MOBILE_RESOLUTION);
   console.log(CONSTS.HAMBURGER);
   if (!isMobile.matches) {
     CONSTS.HAMBURGER.classList.add("visually-hidden");
@@ -257,19 +262,21 @@ const start = () => {
   });
 };
 
-const getData = (peoples) => {
+const getData = peoples => {
   usersConst = peoples;
   users = usersConst;
-  createNewList(users);
+  createNewList(users, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
   start();
 };
 
-fetch("https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture")
+fetch(
+  "https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture"
+)
   .then(res => {
-    if(res.ok){
+    if (res.ok) {
       return res.json();
     } else {
-     throw new Error(res.statusText);
+      throw new Error(res.statusText);
     }
   })
-  .then(({results})=> getData(results));
+  .then(({ results }) => getData(results));
