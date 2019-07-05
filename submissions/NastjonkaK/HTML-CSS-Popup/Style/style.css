@@ -4,19 +4,19 @@ body {
 }
 
 .nav {
- 	display: block;
- 	height: auto;
+	display: block;
+	height: auto;
 }
 
 .menu {
 	margin-right: 20px;
- 	display: flex;
-  	flex-direction: row;
+	display: flex;
+	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
 }
 
-.menu-item {
+.menuItem {
 	display: flex;
 	list-style-type: none;
 	margin-left: 20px;
@@ -28,54 +28,54 @@ body {
 	height: 24px;
 }
 
-#ava {
+.ava {
 	width: 36px;
 	height: 36px;
 }
 
-#triangle {
+.triangle {
 	display: none;
 	position: absolute;
 	top: 55px;
-	right: 128px;
-    width: 0;
-    height: 0;
-    z-index: 2;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 12px solid #d4d4d4;
+	right: 116px;
+	width: 0;
+	height: 0;
+	z-index: 2;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-bottom: 12px solid #d4d4d4;
 }
 
-#empty	{
+.empty {
 	position: absolute;
 	top: 2px;
 	left: -10px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #fff;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #fff;
 }
 
 .popUp,
 .MoreApps {
- 	position: absolute;
- 	overflow-y: auto;
- 	clip: rect(0 0 0 0);
+	position: absolute;
+	overflow-y: auto;
+	clip: rect(0 0 0 0);
 }
 
 .button {
 	margin-left: 20px;
- 	background-image: url(../Icons/dots.png);
- 	background-size: cover;
- 	cursor: pointer;
-}
-
-.menu li:hover {
+	background-image: url(../Icons/dots.png);
+	background-size: cover;
 	cursor: pointer;
 }
 
-.menu-item:hover,
+.menu:hover {
+	cursor: pointer;
+}
+
+.menuItem:hover,
 .button:hover {
 	text-decoration: underline;
 	opacity: 0.7;
@@ -85,11 +85,11 @@ body {
 	display: none;
 	position: absolute;
 	width: 280px;
-	height: 356px;
+	height: 362px;
 	top: 66px;
 	border: 1px solid #d4d4d4;
 	border-radius: 2px;
-	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 	overflow-y: auto;
 }
 
@@ -99,7 +99,7 @@ body {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-    padding: 0;
+	padding: 0;
 }
 
 .popupIconsItem,
@@ -149,17 +149,17 @@ body {
 	display: block;
 }
 
-.popUp:checked ~ #triangle {
+.popUp:checked ~ .triangle {
 	display: block;
 }
 
 .MorePopUp {
-    display: block;
-    margin-top: 10px;
-    margin-left: 0;
-    line-height: 35px;
-    text-align: center;
-    width: 280px;
+	display: block;
+	margin-top: 10px;
+	margin-left: 0;
+	line-height: 35px;
+	text-align: center;
+	width: 280px;
 	background-color: #eee;
 	font-size: 16px;
 }
@@ -187,6 +187,3 @@ body {
 .MoreApps:checked ~ .hiddenBlock {
 	display: flex;
 }
-
-
-
