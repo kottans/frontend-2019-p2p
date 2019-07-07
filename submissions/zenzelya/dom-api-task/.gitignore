@@ -1,0 +1,25 @@
+# Default
+./submissions/zenzelya/*/.gulp
+./submissions/zenzelya/*/.idea
+
+# Node
+./submissions/zenzelya/*/node_modules
+
+
+# BD, logs
+./submissions/zenzelya/*/*.log
+./submissions/zenzelya/*/*.sql
+./submissions/zenzelya/*/*.sqlite
+
+# Other
+./submissions/zenzelya/*/.log*
+./submissions/zenzelya/*/.log*
+./submissions/zenzelya/*/.log*
+./submissions/zenzelya/yarn.lock
+
+# Special
+./submissions/zenzelya/*/Thumbs.db
+./submissions/zenzelya/*/Desktop.ini
+./submissions/zenzelya/*/.DS_Store*
+./submissions/zenzelya/*/ehthumbs.db
+./submissions/zenzelya/*/Icon?
