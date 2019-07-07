@@ -3,7 +3,7 @@ import store from './store.js'
 
 const APIKEY = 'c478c3a9059337c563a4af7f91dc0c01',
 	  IMAGEURL = 'http://image.tmdb.org/t/p/';
-	  let fragmetsStore = {};
+	  
 
 document.addEventListener("DOMContentLoaded", function(event) { 
 	
@@ -24,25 +24,16 @@ function createCard(item){
 }
 
 function displayMovies(movie = 'popular'){
+	
+	let cardsListFragment = document.createDocumentFragment();
 	const CARDS = document.getElementsByClassName('js-hook--card-wrapper')[0];
+ 
+ 	store[movie].results.forEach(function(item) {
+    	cardsListFragment.appendChild(createCard(item));
+	});
 
-	if (fragmetsStore[movie]){
-		CARDS.innerHTML = '';
-		CARDS.appendChild(fragmetsStore[movie]);
-	} else{
-
-		let cardsListFragment = document.createDocumentFragment();
-	 
- 		store[movie].results.forEach(function(item) {
-    		cardsListFragment.appendChild(createCard(item));
-		});
-
- 		fragmetsStore[movie] = cardsListFragment;
-
-		CARDS.innerHTML = '';
-		CARDS.appendChild(fragmetsStore[movie]);
-		console.log(fragmetsStore[movie]);
-	}
+	CARDS.innerHTML = '';
+	CARDS.appendChild(cardsListFragment);
 }
 
 function getList(){
