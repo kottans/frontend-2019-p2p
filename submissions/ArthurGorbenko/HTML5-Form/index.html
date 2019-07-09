@@ -1,0 +1,487 @@
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="page_header">
+      <button type="button" class="button page_header_button_back">
+        <h4 class="page_header_button_back_text">Go back</h4>
+      </button>
+      <img src="images/logo-header.png" alt="logo" class="header_logo" />
+      <input
+        type="button"
+        value="Sign in"
+        class="button page_header_button_forward"
+      />
+    </header>
+    <main>
+      <form action="#" class="form">
+        <section class="form-header">
+          <section class="form-header_status">
+            <div class="wrapper_form-header_status_content">
+              <h4 class="form-header_titles form-header_status_title_text">
+                Your order
+              </h4>
+              <table class="form-header_info_table">
+                <thead>
+                  <th class="form-header_status_table_cell">ITEMS</th>
+                  <th class="form-header_status_table_cell">DETAILS</th>
+                  <th class="form-header_status_table_cell">PRICE</th>
+                  <th class="form-header_status_table_cell">DELIVERY</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="form-header_status_table_cell">2 documents</td>
+                    <td class="form-header_status_table_cell">2 languages</td>
+                    <td class="form-header_status_table_cell">$696.06</td>
+                    <td class="form-header_status_table_cell">48 hours*</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+            <section class="wrapper_form-header_status_buttons">
+              <button
+                type="submit"
+                class="button submit_button form-header_submit_button"
+              >
+                Place order
+              </button>
+              <button type="button" class="button form-header_print_button">
+                Print a quote
+              </button>
+            </section>
+          <section class="form-header_info">
+            <div class="wrapper_form-header_info_content">
+              <h4 class="form-header_titles form-header_info_title">
+                Help center
+              </h4>
+              <p class="form-header_info_text">
+                Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem
+                ipsum dolor sit amet. Lorem ipsum dolor sit amet.Lorem ipsum
+                dolor sit amet.Lorem ipsum dolor sit amet.
+              </p>
+              <div class="wrapper_form-header_info_contacts">
+                <h4>+971 (0) 555 555</h4>
+                <h5 class="form-header_info_email">
+                  <strong>help@blabla.com</strong>
+                </h5>
+              </div>
+            </div>
+          </section>
+        </section>
+        <article class="form-main">
+          <div class="form-header_radio">
+            <span class="form-header_radio_text"
+              >Select what you want to translate</span
+            >
+          </div>
+          <section class="form-radio_choice_type">
+            <input
+              type="radio"
+              name="select_document"
+              id="radio_website"
+              class="visually__hidden"
+            />
+            <label for="radio_website" class="form-radio_choice_type_label">
+              <span class="form-radio_choice_type_button">
+                <img
+                  src="images/website-icon.png"
+                  alt="website logo"
+                  class="form-radio_choice_type_image"
+                />
+                <span><b>Website</b></span>
+              </span>
+            </label>
+            <input
+              type="radio"
+              name="select_document"
+              id="radio_documents"
+              class="visually__hidden"
+            />
+            <label for="radio_documents" class="form-radio_choice_type_label">
+              <span class="form-radio_choice_type_button">
+                <img
+                  src="images/documents-icon.png"
+                  alt="website logo"
+                  class="form-radio_choice_type_image"
+                />
+                <span><b> Documents</b></span>
+              </span>
+            </label>
+            <input
+              type="radio"
+              name="select_document"
+              id="radio_social_acc"
+              class="visually__hidden"
+            />
+            <label for="radio_social_acc" class="form-radio_choice_type_label">
+              <span class="form-radio_choice_type_button">
+                <img
+                  src="images/social-icon.png"
+                  alt="website logo"
+                  class="form-radio_choice_type_image"
+                />
+                <span><b>Social account</b></span>
+              </span>
+            </label>
+          </section>
+          <section class="form-upload">
+            <span class="form-sections_headers_text form-upload_header"
+              >Upload your documents</span
+            >
+            <label for="form-upload" class="button form-upload_button_label"
+              ><span class="form-upload_button_label_text"
+                >Upload a new file</span
+              >
+              <input
+                type="file"
+                name=""
+                id="form-upload"
+                class="visually__hidden"
+              />
+            </label>
+            <table class="form-upload_table">
+              <thead>
+                <th class="form-table_cell form-table_cell_headers">
+                  File name
+                </th>
+                <th class="form-table_cell form-table_cell_headers">
+                  File size
+                </th>
+                <th class="form-table_cell form-table_cell_headers">
+                  Number of words
+                </th>
+                <th class="form-table_cell form-table_cell_headers">remove</th>
+              </thead>
+
+              <tbody>
+                <tr class="form-upload_table_row">
+                  <td class="form-table_cell form-table_cell_file_name">
+                    somedocs.doc
+                  </td>
+                  <td class="form-table_cell">78Kb</td>
+                  <td class="form-table_cell">823</td>
+                  <td class="form-table_cell form-table_cell_remove"></td>
+                </tr>
+                <tr class="form-upload_table_row">
+                  <td class="form-table_cell form-table_cell_file_name">
+                    somedocs.doc
+                  </td>
+                  <td class="form-table_cell">78Kb</td>
+                  <td class="form-table_cell">823</td>
+                  <td class="form-table_cell form-table_cell_remove"></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section class="form-language_choice">
+            <span class="form-sections_headers_text form-language_choice_header"
+              >Choose your languages pairings</span
+            >
+            <span class="form-select_custom">
+              <span class="select_from"></span>
+              <select name="" id="" class="button form-selects" required>
+                <option value="eng">English</option>
+                <option value="german">German</option>
+                <option value="сhinese">Chinese</option>
+              </select>
+            </span>
+            <div class="wrapper_form-selects">
+              <span class="select_from select_to"></span>
+              <span class="form-select_custom form-selects_bottom">
+                <select name="" id="" class="button form-selects">
+                  <option value="arabian">Arabian</option>
+                  <option value="hindi">Hindi</option>
+                  <option value="french">French</option>
+                </select>
+              </span>
+              <span class="form-selects_bottom form-select_custom">
+                <select name="" id="" class="button form-selects">
+                  <option value="hindi">Hindi</option>
+                  <option value="arabian">Arabian</option>
+                  <option value="french">French</option>
+                </select>
+                <div class="form-select_remove"></div>
+              </span>
+              <button type="button" class="button form-select_add">
+                <span class="form-select_add_text">Add</span>
+              </button>
+            </div>
+          </section>
+          <div class="form-wrapper_radio_tone_urgent">
+            <section class="form-select_tone">
+              <span class="form-sections_headers_text form-select_tone_header"
+                >Select your tone</span
+              >
+              <input
+                type="radio"
+                name="tone"
+                id="casual"
+                class="visually__hidden"
+              />
+              <label for="casual" class="button form-select_tone_radio_label">
+                <span class="form-select_tone_icon casual"
+                  >Friendly/casual</span
+                >
+              </label>
+              <input
+                type="radio"
+                name="tone"
+                id="corporate"
+                class="visually__hidden"
+              />
+              <label
+                for="corporate"
+                class="button form-select_tone_radio_label"
+              >
+                <span class="form-select_tone_icon pro">Corporate/pro</span>
+              </label>
+              <input
+                type="radio"
+                name="tone"
+                id="formal"
+                class="visually__hidden"
+              />
+              <label for="formal" class="button form-select_tone_radio_label">
+                <span class="form-select_tone_icon formal">Media/formal</span>
+              </label>
+            </section>
+            <section class="form-range_urgent">
+              <span
+                class="form-sections_headers_text form-sections_headers_text_urgent"
+              >
+                Tell us how urgent this job is
+              </span>
+              <div class="wrapper_form-range">
+                <input
+                  type="range"
+                  name="urgent"
+                  id=""
+                  min="0"
+                  max="2"
+                  step="1"
+                  value="1"
+                  class="form-range_input"
+                />
+                <div class="range_text">
+                  <span>I got time</span>
+                  <span class="orange">Average</span>
+                  <span>Yesterday</span>
+                </div>
+              </div>
+              <aside class="form-urgent_info">
+                <span class="form-urgent_info_header">Timeline info</span>
+                <p class="form-urgent_info_text">
+                  Lorem ipsum dolor sit <span class="orange">Orange</span>.Lorem
+                  ipsum dolor sit amet.Lorem ipsum dolor sit amet.
+                </p>
+              </aside>
+            </section>
+          </div>
+          <section class="form-sign_pay_method">
+            <span
+              class="form-sections_headers_text form-sign_pay_method_header"
+            >
+              Sign up and choose a payment method
+            </span>
+
+            <span class="form-sign_pay_method_link"
+              >Already have an account with us ?<a
+                href="#"
+                class="form-sign_pay_method_link"
+                >Sign in</a
+              ></span
+            >
+            <input
+              type="text"
+              id="input_enter_name"
+              name=""
+              class="form-sign_pay_method_inputs input_enter_name"
+              placeholder="Enter your name"
+              minlength="5"
+              maxlength="20"
+              pattern="^[a-zA-Z]+$"
+              required
+            />
+            <span class="input_name title"></span>
+            <div class="wrapper_form-email_password">
+              <input
+                type="email"
+                placeholder="example@domaine.com"
+                name=""
+                class="form-sign_pay_method_inputs input_email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                required
+              />
+              <span class="input_name input_email_title"></span>
+              <input
+                type="password"
+                name=""
+                class="form-sign_pay_method_inputs input_password"
+                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                title="Minimum 8 characters password,should have UPPERCASE, lowercase and Number"
+                required
+              />
+              <span class="input_name input_password_title"></span>
+            </div>
+            <div class="wrapper_form-choose_paysystem">
+              <input
+                type="radio"
+                name="payment"
+                id="visa_mastercard"
+                class="visually__hidden radio_input_payment"
+              />
+              <label for="visa_mastercard" class="form-choose_payment_radio">
+                <img
+                  src="images/mastercard.svg"
+                  alt="mastercards_icon"
+                  class="icon_paymethod"
+                />
+                <img
+                  src="images/visa.svg"
+                  alt="visa_icon"
+                  class="icon_paymethod"
+                />
+              </label>
+              <input
+                type="radio"
+                name="payment"
+                id="paypal"
+                class="visually__hidden radio_input_payment"
+              />
+              <label
+                for="paypal"
+                class="form-choose_payment_radio paypal_label"
+              >
+                <img src="images/paypal.svg" alt="" class="icon_paypal" />
+              </label>
+              <input
+                type="radio"
+                name="payment"
+                id="amazon"
+                class="visually__hidden radio_input_payment"
+              />
+              <label
+                for="amazon"
+                class="form-choose_payment_radio amazon_label"
+              >
+                <img
+                  src="images/amazon.svg"
+                  alt="amazon icon"
+                  class="icon_amazon"
+                />
+              </label>
+            </div>
+            <div class="wrapper_form-card_number">
+              <input
+                type="text"
+                class="form-sign_pay_method_inputs  input_card_number validate_on_focus"
+                placeholder="0000 0000 0000 0000"
+                minlength="16"
+                maxlength="16"
+              />
+              <span class="input_card_data_title card_number_title"></span>
+              <input
+                type="datetime"
+                class=" form-sign_pay_method_inputs  input_date validate_on_focus"
+                placeholder="DD/MM/YY"
+                maxlength="6"
+                minlength="6"
+              />
+              <span class="input_card_data_title input_date_title"></span>
+              <input
+                type="text"
+                class="form-sign_pay_method_inputs  input_code validate_on_focus"
+                inputmode="numeric"
+                placeholder="000"
+                minlength="3"
+                maxlength="3"
+              />
+              <span class="input_card_data_title input_card_code_title"></span>
+            </div>
+          </section>
+        </article>
+        <section class="form-submit">
+          <div class="wrapper_agree_checkbox">
+            <input
+              type="checkbox"
+              name=""
+              id="agree"
+              class="visually__hidden"
+              required
+            />
+            <span class="custom_checkbox"></span>
+            <label for="agree" class="form-label_agree">
+              I agree to the
+              <a href="#" class="submit_link">
+                Terms & Conditions
+              </a>
+            </label>
+          </div>
+          <input
+            type="submit"
+            value="place order"
+            class="button submit_button form-submit_input"
+          />
+          <input
+            type="button"
+            value="print a quote"
+            class="button form-submit_input form-header_print_button"
+          />
+        </section>
+      </form>
+    </main>
+    <footer class="form-footer">
+      <section class=" form-footer_block form-footer_info">
+        <span class="form-footer_info_header">What we do</span>
+        <p class="form-footer_info_text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nesciunt
+          commodi suscipit hic deserunt dolorum provident, consectetur amet,
+          quos vel maxime atque voluptas? Rerum reiciendis quod eligendi,
+          corporis labore minus.
+        </p>
+      </section>
+      <section class="form-footer_block form-footer_adress">
+        <span class="form-footer_info_header office_title">
+          Our main office
+        </span>
+        <ul class="form-footer_list">
+          <li class="form-footer_li">Dubai,UAE</li>
+          <li class="form-footer_li">P.O.Box : 502735</li>
+          <li class="form-footer_li">Phone:+971(0) 44278128</li>
+        </ul>
+      </section>
+      <section class="form-footer_block form-footer_contacts">
+        <span class="form-footer_info_header social_links">
+          Connect with us</span
+        >
+        <ul class="form-footer_list social-links-list">
+          <li class="form-footer_li">
+            <a href="#" class="footer_social_link facebook">Facebook</a>
+          </li>
+          <li class="form-footer_li">
+            <a href="" class="footer_social_link twitter">Twitter</a>
+          </li>
+          <li class="form-footer_li">
+            <a href="#" class="footer_social_link linkedin">Linkedin</a>
+          </li>
+        </ul>
+      </section>
+      <img
+        src="images/logo-footer.png"
+        alt="footer logo"
+        class="form-footer_block footer_logo"
+      />
+    </footer>
+  </body>
+</html>
