@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <link
@@ -9,19 +10,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>HTML5-Form</title>
   </head>
   <body>
     <header class="page_header">
-      <button type="button" class="button page_header_button_back">
-        <h4 class="page_header_button_back_text">Go back</h4>
-      </button>
-      <img src="images/logo-header.png" alt="logo" class="header_logo" />
-      <input
-        type="button"
-        value="Sign in"
-        class="button page_header_button_forward"
-      />
+      <a class="button page_header_button_back" href="#">
+        Go back
+      </a>
+      <a href="#" class="header_link_home"><img src="images/logo-header.png" alt="logo" class="header_logo" /></a>
+      <a href="#" class="button page_header_button_sigh">
+        Sign up
+      </a>
     </header>
     <main>
       <form action="#" class="form">
@@ -33,10 +32,10 @@
               </h4>
               <table class="form-header_info_table">
                 <thead>
-                  <th class="form-header_status_table_cell">ITEMS</th>
-                  <th class="form-header_status_table_cell">DETAILS</th>
-                  <th class="form-header_status_table_cell">PRICE</th>
-                  <th class="form-header_status_table_cell">DELIVERY</th>
+                  <th class="form-header_status_table_cell table_headers">items</th>
+                  <th class="form-header_status_table_cell table_headers">details</th>
+                  <th class="form-header_status_table_cell table_headers">price</th>
+                  <th class="form-header_status_table_cell table_headers">delivery</th>
                 </thead>
                 <tbody>
                   <tr>
@@ -49,17 +48,17 @@
               </table>
             </div>
           </section>
-            <section class="wrapper_form-header_status_buttons">
-              <button
-                type="submit"
-                class="button submit_button form-header_submit_button"
-              >
-                Place order
-              </button>
-              <button type="button" class="button form-header_print_button">
-                Print a quote
-              </button>
-            </section>
+          <section class="wrapper_form-header_status_buttons">
+            <button
+              type="submit"
+              class="button submit_button form-header_submit_button"
+            >
+              Place order
+            </button>
+            <button type="button" class="button form-header_print_button">
+              Print a quote
+            </button>
+          </section>
           <section class="form-header_info">
             <div class="wrapper_form-header_info_content">
               <h4 class="form-header_titles form-header_info_title">
@@ -71,18 +70,18 @@
                 dolor sit amet.Lorem ipsum dolor sit amet.
               </p>
               <div class="wrapper_form-header_info_contacts">
-                <h4>+971 (0) 555 555</h4>
-                <h5 class="form-header_info_email">
-                  <strong>help@blabla.com</strong>
-                </h5>
+                <a href="tel:+9710555555" class="form-header-link_phone">+971 (0) 555 555</a>
+                <a class="form-header_info_email" href="mailto:help@blabla.com">
+                  help@blabla.com
+                </a>
               </div>
             </div>
           </section>
         </section>
-        <article class="form-main">
+        <div class="form-main">
           <div class="form-header_radio">
-            <span class="form-header_radio_text"
-              >Select what you want to translate</span
+            <h1 class="form-header_radio_text"
+              >Select what you want to translate</h2
             >
           </div>
           <section class="form-radio_choice_type">
@@ -91,6 +90,7 @@
               name="select_document"
               id="radio_website"
               class="visually__hidden"
+              required
             />
             <label for="radio_website" class="form-radio_choice_type_label">
               <span class="form-radio_choice_type_button">
@@ -107,6 +107,7 @@
               name="select_document"
               id="radio_documents"
               class="visually__hidden"
+              required
             />
             <label for="radio_documents" class="form-radio_choice_type_label">
               <span class="form-radio_choice_type_button">
@@ -123,6 +124,7 @@
               name="select_document"
               id="radio_social_acc"
               class="visually__hidden"
+              required
             />
             <label for="radio_social_acc" class="form-radio_choice_type_label">
               <span class="form-radio_choice_type_button">
@@ -228,6 +230,7 @@
                 name="tone"
                 id="casual"
                 class="visually__hidden"
+                required
               />
               <label for="casual" class="button form-select_tone_radio_label">
                 <span class="form-select_tone_icon casual"
@@ -239,6 +242,7 @@
                 name="tone"
                 id="corporate"
                 class="visually__hidden"
+                required
               />
               <label
                 for="corporate"
@@ -251,6 +255,7 @@
                 name="tone"
                 id="formal"
                 class="visually__hidden"
+                required
               />
               <label for="formal" class="button form-select_tone_radio_label">
                 <span class="form-select_tone_icon formal">Media/formal</span>
@@ -340,6 +345,7 @@
                 name="payment"
                 id="visa_mastercard"
                 class="visually__hidden radio_input_payment"
+                required
               />
               <label for="visa_mastercard" class="form-choose_payment_radio">
                 <img
@@ -358,6 +364,7 @@
                 name="payment"
                 id="paypal"
                 class="visually__hidden radio_input_payment"
+                required
               />
               <label
                 for="paypal"
@@ -370,6 +377,7 @@
                 name="payment"
                 id="amazon"
                 class="visually__hidden radio_input_payment"
+                required
               />
               <label
                 for="amazon"
@@ -389,6 +397,7 @@
                 placeholder="0000 0000 0000 0000"
                 minlength="16"
                 maxlength="16"
+                required
               />
               <span class="input_card_data_title card_number_title"></span>
               <input
@@ -397,6 +406,7 @@
                 placeholder="DD/MM/YY"
                 maxlength="6"
                 minlength="6"
+                required
               />
               <span class="input_card_data_title input_date_title"></span>
               <input
@@ -406,11 +416,12 @@
                 placeholder="000"
                 minlength="3"
                 maxlength="3"
+                required
               />
               <span class="input_card_data_title input_card_code_title"></span>
             </div>
           </section>
-        </article>
+        </div>
         <section class="form-submit">
           <div class="wrapper_agree_checkbox">
             <input
