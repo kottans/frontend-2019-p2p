@@ -1,34 +1,32 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; 
-  flex-basis: 185px;
-  height: 250px;
-  max-width: 310px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 0 0 8px 0;
-
-  &__wrapper{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch; 
-    flex-wrap: wrap;
-    width: 100%;
-  }
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 185px;
+    height: 250px;
+    max-width: 310px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 0 8px 0;
 
-  &__title{
-	 width: 100%;
-   text-align: center;
-  }
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: stretch;
+        flex-wrap: wrap;
+        width: 100%;
+    }
 
-  &__description{
-    width: 100%;
-    text-align: left;
-  }
+    &__title {
+        width: 100%;
+        text-align: center;
+    }
 
+    &__description {
+        width: 100%;
+        text-align: left;
+    }
 }
-

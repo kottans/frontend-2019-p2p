@@ -1,3 +1,4 @@
+"use strict"
 
 const path = require('path')
 const webpack = require('webpack')
@@ -6,7 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 require("@babel/polyfill")
 const WebpackNotifierPlugin = require('webpack-notifier')
-const $ = require("jquery");
+const PrettierPlugin = require("prettier-webpack-plugin");
 
 const PATHS = {
   "@babel/polyfill": "./src/js",
@@ -76,6 +77,14 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].css`,
+    }),
+    new PrettierPlugin({
+      printWidth: 120,               // Specify the length of line that the printer will wrap on.
+      tabWidth: 4,                  // Specify the number of spaces per indentation-level.
+      useTabs: false,               // Indent lines with tabs instead of spaces.
+      semi: true,                   // Print semicolons at the ends of statements.
+      encoding: 'utf-8',            // Which encoding scheme to use on files
+      extensions: [ ".scss", ".html", ".js"]  // Which file extensions to process
     }),
     new WebpackNotifierPlugin({alwaysNotify: true}),
     // Copy HtmlWebpackPlugin and change index.html for another html page
