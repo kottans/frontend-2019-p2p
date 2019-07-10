@@ -22,11 +22,15 @@ const SORT_BY_ASCENDING = "ascending";
 const CARD_CLASS = "card";
 const BUTTON_CLASS = "button";
 const DARK_INPUT_ID = "dark";
+const ADDRESS =
+  "https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture";
 
 let filteredByGender = false;
 let radioButtons = document.querySelectorAll(".visually-hidden");
 let usersConst;
 let users;
+let query = "";
+let menuToggled = false;
 
 const letterToUpperCase = word => {
   return word.charAt(0).toUpperCase() + word.slice(1);
@@ -38,34 +42,11 @@ const refreshDMWindow = () => {
   CONSTS.TEXT_AREA.value = "";
 };
 
-let menuToggled = false;
-
-const moveMenu = () => {
-  let position = 0;
-  let middleScreen = Math.floor(
-    (window.innerWidth - CONSTS.WRAPPER_MENU.clientWidth) / 2
-  );
-  let id = setInterval(relocate, 1);
-  function relocate() {
-    if (position === middleScreen) {
-      clearInterval(id);
-    } else {
-      position++;
-      CONSTS.WRAPPER_MENU.style.left = position + "px";
-    }
-  }
-  menuToggled = true;
-};
-
 const moveContent = () => {
   CONSTS.LIST_OF_CARDS.classList.toggle("move-bottom");
   CONSTS.HAMBURGER.classList.toggle("is-active");
-  if (!menuToggled) {
-    moveMenu();
-  } else {
-    CONSTS.WRAPPER_MENU.style.left = "600px";
-    menuToggled = false;
-  }
+  CONSTS.WRAPPER_MENU.classList.toggle('menu-move-bottom');
+  menuToggled = false;
 };
 
 const writeLetter = ({ target }) => {
@@ -137,9 +118,9 @@ const createCard = user => {
   CONSTS.LIST_OF_CARDS.append(li);
 };
 
-const makeDarkBackground = () => {
-  CONSTS.BODY.classList.toggle("bodyDark");
-  CONSTS.MENU.classList.toggle("menuDark");
+const toogleAppTheme = () => {
+  CONSTS.BODY.classList.toggle("body-mod-dark");
+  CONSTS.MENU.classList.toggle("menu-mod-dark");
   CONSTS.DIRECT_MESSAGE_FORM.classList.toggle("direct-messageDark");
 };
 
@@ -180,7 +161,6 @@ const searchPeople = subString => {
   createNewList(usersFound, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
 };
 
-let query = "";
 
 const showGender = genderType => {
   if (filteredByGender) {
@@ -232,22 +212,10 @@ const resetAllOptions = () => {
 
 const switchTheme = ({ target }) => {
   if (target.checked) {
-    makeDarkBackground();
+    toogleAppTheme();
     changeColorCards("card", "button");
   }
 };
-
-const addHamburgerOnMobile = () => {
-  let isMobile = window.matchMedia(MOBILE_RESOLUTION);
-  console.log(CONSTS.HAMBURGER);
-  if (!isMobile.matches) {
-    CONSTS.HAMBURGER.classList.add("visually-hidden");
-  } else {
-    return;
-  }
-};
-
-document.addEventListener("DOMContentLoaded", addHamburgerOnMobile);
 
 const start = () => {
   CONSTS.HAMBURGER.addEventListener("click", moveContent);
@@ -262,21 +230,23 @@ const start = () => {
   });
 };
 
-const getData = peoples => {
-  usersConst = peoples;
+const processPeople = usersData => {
+  usersConst = usersData;
   users = usersConst;
   createNewList(users, DARK_INPUT_ID, CARD_CLASS, BUTTON_CLASS);
   start();
 };
 
-fetch(
-  "https://randomuser.me/api/?results=40&inc=gender,name,email,phone,dob,picture"
-)
-  .then(res => {
+const getData = url => {
+  fetch(url).then(res => {
     if (res.ok) {
       return res.json();
-    } else {
-      throw new Error(res.statusText);
     }
+    throw new Error(res.statusText);
+  }).then(({results}) =>{
+    processPeople(results);
   })
-  .then(({ results }) => getData(results));
+};
+
+getData(ADDRESS);
+ 
