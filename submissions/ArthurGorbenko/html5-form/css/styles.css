@@ -211,6 +211,9 @@ body {
   display: flex;
   justify-content: space-around;
 }
+.form-label-images_title{
+font-weight: 600;
+}
 .form-radio_choice_type_label {
   outline: 1px solid #cccccc;
   height: 260px;
