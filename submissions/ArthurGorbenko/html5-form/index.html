@@ -150,8 +150,9 @@
             </label>
           </section>
           <section class="form-upload">
-            <h3 class="form-sections_headers_text form-upload_header">
+            <h3 class="form-sections_headers_text">
               Upload your documents
+              <span class="form-upload_header">(Doc,Docx,Text,PDF,Markdown)</span>
             </h3>
             <label for="form-upload" class="button form-upload_button_label"
               ><span class="form-upload_button_label_text"
@@ -177,7 +178,6 @@
                 </th>
                 <th class="form-table_cell form-table_cell_headers">remove</th>
               </thead>
-
               <tbody>
                 <tr class="form-upload_table_row">
                   <td class="form-table_cell form-table_cell_file_name">
@@ -199,36 +199,40 @@
             </table>
           </section>
           <section class="form-language_choice">
-            <h3
-              class="form-sections_headers_text form-language_choice_header"
-            >
+            <h3 class="form-sections_headers_text form-language_choice_header">
               Choose your languages pairings
             </h3>
-            <span class="form-select_custom">
+            <div class="form-select_custom">
               <span class="select_from"></span>
-              <select name="" id="" class="button form-selects" required>
+              <select name="languages" class="button form-selects" required>
                 <option value="eng">English</option>
                 <option value="german">German</option>
                 <option value="сhinese">Chinese</option>
               </select>
-            </span>
+            </div>
             <div class="wrapper_form-selects">
               <span class="select_from select_to"></span>
-              <span class="form-select_custom form-selects_bottom">
-                <select name="" id="" class="button form-selects">
+              <div class="form-select_custom form-selects_bottom">
+                <select name="languages" class="button form-selects">
                   <option value="arabian">Arabian</option>
                   <option value="hindi">Hindi</option>
                   <option value="french">French</option>
                 </select>
-              </span>
-              <span class="form-selects_bottom form-select_custom">
-                <select name="" id="" class="button form-selects">
+              </div>
+              <div class="form-selects_bottom form-select_custom remove_button">
+                <select name="languages" class="button form-selects">
                   <option value="hindi">Hindi</option>
                   <option value="arabian">Arabian</option>
                   <option value="french">French</option>
                 </select>
-                <div class="form-select_remove"></div>
-              </span>
+                <button type="button" class="form-select_remove">
+                  <img
+                    src="images/waste-bin.svg"
+                    alt="icon remove"
+                    class="form-select_remove_images"
+                  />
+                </button>
+              </div>
               <button type="button" class="button form-select_add">
                 <span class="form-select_add_text">Add</span>
               </button>
@@ -236,9 +240,7 @@
           </section>
           <div class="form-wrapper_radio_tone_urgent">
             <section class="form-select_tone">
-              <h3
-                class="form-sections_headers_text form-select_tone_header"
-              >
+              <h3 class="form-sections_headers_text form-select_tone_header">
                 Select your tone
               </h3>
               <input
@@ -287,7 +289,6 @@
                 <input
                   type="range"
                   name="urgent"
-                  id=""
                   min="0"
                   max="2"
                   step="1"
@@ -310,12 +311,9 @@
             </section>
           </div>
           <section class="form-sign_pay_method">
-            <h3
-              class="form-sections_headers_text form-sign_pay_method_header"
-            >
+            <h3 class="form-sections_headers_text form-sign_pay_method_header">
               Sign up and choose a payment method
             </h3>
-
             <span class="form-sign_pay_method_link"
               >Already have an account with us ?<a
                 href="#"
@@ -323,37 +321,46 @@
                 >Sign in</a
               ></span
             >
-            <input
-              type="text"
-              id="input_enter_name"
-              name=""
-              class="form-sign_pay_method_inputs input_enter_name"
-              placeholder="Enter your name"
-              minlength="5"
-              maxlength="20"
-              pattern="^[a-zA-Z]+$"
-              required
-            />
-            <span class="input_name title"></span>
+            <label class="form-sign_pay_method_label">
+              <span class="form_label_title"> Full name</span>
+              <input
+                type="text"
+                id="input_enter_name"
+                name=""
+                class="form-sign_pay_method_inputs input_enter_name"
+                placeholder="Enter your name"
+                minlength="5"
+                maxlength="20"
+                pattern="^[a-zA-Z]+$"
+                required
+              />
+              <div class="label-logo-valid"></div>
+            </label>
             <div class="wrapper_form-email_password">
-              <input
-                type="email"
-                placeholder="example@domaine.com"
-                name=""
-                class="form-sign_pay_method_inputs input_email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                required
-              />
-              <span class="input_name input_email_title"></span>
-              <input
-                type="password"
-                name=""
-                class="form-sign_pay_method_inputs input_password"
-                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
-                title="Minimum 8 characters password,should have UPPERCASE, lowercase and Number"
-                required
-              />
-              <span class="input_name input_password_title"></span>
+              <label class="form-sign_pay_method_label">
+                <span class="form_label_title"> Email Adress</span>
+                <input
+                  type="email"
+                  placeholder="example@domaine.com"
+                  name=""
+                  class="form-sign_pay_method_inputs input_email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  required
+                />
+                <div class="label-logo-valid"></div>
+              </label>
+              <label class="form-sign_pay_method_label">
+                <span class="form_label_title">Choose a password</span>
+                <input
+                  type="password"
+                  name=""
+                  class="form-sign_pay_method_inputs input_password"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"
+                  title="Minimum 8 characters password,should have UPPERCASE, lowercase and Number"
+                  required
+                />
+                <div class="label-logo-valid"></div>
+              </label>
             </div>
             <div class="wrapper_form-choose_paysystem">
               <input
@@ -407,34 +414,42 @@
               </label>
             </div>
             <div class="wrapper_form-card_number">
-              <input
-                type="text"
-                class="form-sign_pay_method_inputs  input_card_number validate_on_focus"
-                placeholder="0000 0000 0000 0000"
-                minlength="16"
-                maxlength="16"
-                required
-              />
-              <span class="input_card_data_title card_number_title"></span>
-              <input
-                type="datetime"
-                class=" form-sign_pay_method_inputs  input_date validate_on_focus"
-                placeholder="DD/MM/YY"
-                maxlength="6"
-                minlength="6"
-                required
-              />
-              <span class="input_card_data_title input_date_title"></span>
-              <input
-                type="text"
-                class="form-sign_pay_method_inputs  input_code validate_on_focus"
-                inputmode="numeric"
-                placeholder="000"
-                minlength="3"
-                maxlength="3"
-                required
-              />
-              <span class="input_card_data_title input_card_code_title"></span>
+              <label class="form-sign_pay_method_label">
+                <span class="form_label_title">Card number</span>
+                <input
+                  type="text"
+                  class="form-sign_pay_method_inputs validate_on_focus"
+                  placeholder="0000 0000 0000 0000"
+                  autocomplete="cc-number"
+                  minlength="16"
+                  maxlength="16"
+                  required
+                />
+              </label>
+              <label class="form-sign_pay_method_label">
+                <span class="form_label_title">Expiry date</span>
+                <input
+                  type="datetime"
+                  class=" form-sign_pay_method_inputs input_date validate_on_focus"
+                  placeholder="DD/MM/YY"
+                  maxlength="6"
+                  minlength="6"
+                  autocomplete="cc-exp"
+                  required
+                />
+              </label>
+              <label class="form-sign_pay_method_label">
+                <span class="form_label_title">Code</span>
+                <input
+                  type="text"
+                  class="form-sign_pay_method_inputs input_code validate_on_focus"
+                  inputmode="numeric"
+                  placeholder="000"
+                  minlength="3"
+                  maxlength="3"
+                  required
+                />
+              </label>
             </div>
           </section>
         </div>
@@ -442,7 +457,7 @@
           <div class="wrapper_agree_checkbox">
             <input
               type="checkbox"
-              name=""
+              name="checkbox"
               id="agree"
               class="visually__hidden"
               required
@@ -468,46 +483,54 @@
       </form>
     </main>
     <footer class="form-footer">
-      <section class=" form-footer_block form-footer_info">
-        <h4 class="form-footer_info_header">What we do</h4>
-        <p class="form-footer_info_text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo nesciunt
-          commodi suscipit hic deserunt dolorum provident, consectetur amet,
-          quos vel maxime atque voluptas? Rerum reiciendis quod eligendi,
-          corporis labore minus.
-        </p>
-      </section>
-      <section class="form-footer_block form-footer_adress">
-        <h4 class="form-footer_info_header office_title">
-          Our main office
-        </h4>
-        <ul class="form-footer_list">
-          <li class="form-footer_li">Dubai,UAE</li>
-          <li class="form-footer_li">P.O.Box : 502735</li>
-          <li class="form-footer_li">Phone:+971(0) 44278128</li>
-        </ul>
-      </section>
-      <section class="form-footer_block form-footer_contacts">
-        <h4 class="form-footer_info_header social_links">
-          Connect with us
-        </h4>
-        <ul class="form-footer_list social-links-list">
-          <li class="form-footer_li">
-            <a href="#" class="footer_social_link facebook">Facebook</a>
-          </li>
-          <li class="form-footer_li">
-            <a href="" class="footer_social_link twitter">Twitter</a>
-          </li>
-          <li class="form-footer_li">
-            <a href="#" class="footer_social_link linkedin">Linkedin</a>
-          </li>
-        </ul>
-      </section>
-      <img
-        src="images/logo-footer.png"
-        alt="footer logo"
-        class="form-footer_block footer_logo"
-      />
+      <div class="wrapper_footer_content">
+        <section class=" form-footer_block form-footer_info">
+          <h4 class="form-footer_info_header">What we do</h4>
+          <p class="form-footer_info_text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
+            nesciunt commodi suscipit hic deserunt dolorum provident,
+            consectetur amet, quos vel maxime atque voluptas? Rerum reiciendis
+            quod eligendi, corporis labore minus.
+          </p>
+        </section>
+        <section class="form-footer_block form-footer_adress">
+          <h4 class="form-footer_info_header office_title">
+            Our main office
+          </h4>
+          <ul class="form-footer_list">
+            <li class="form-footer_li">Dubai,UAE</li>
+            <li class="form-footer_li">P.O.Box : 502735</li>
+            <li class="form-footer_li">
+              <a href="tel:+971044278128" class="form-footer-link_phone"
+                >Phone:+971(0) 44278128</a
+              >
+            </li>
+          </ul>
+        </section>
+        <section class="form-footer_block form-footer_contacts">
+          <h4 class="form-footer_info_header social_links">
+            Connect with us
+          </h4>
+          <ul class="form-footer_list social-links-list">
+            <li class="form-footer_li">
+              <a href="#" class="footer_social_link facebook">Facebook</a>
+            </li>
+            <li class="form-footer_li">
+              <a href="" class="footer_social_link twitter">Twitter</a>
+            </li>
+            <li class="form-footer_li">
+              <a href="#" class="footer_social_link linkedin">Linkedin</a>
+            </li>
+          </ul>
+        </section>
+        <a href="#" class="header_link_home">
+        <img
+          src="images/logo-footer.png"
+          alt="footer logo"
+          class="form-footer_block footer_logo"
+        />
+      </a>
+      </div>
     </footer>
   </body>
 </html>
