@@ -5,7 +5,10 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
     <link rel="stylesheet" href="css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -152,18 +155,15 @@
           <section class="form-upload">
             <h3 class="form-sections_headers_text">
               Upload your documents
-              <span class="form-upload_header">(Doc,Docx,Text,PDF,Markdown)</span>
+              <span class="form-upload_header"
+                >(Doc,Docx,Text,PDF,Markdown)</span
+              >
             </h3>
+            <input type="file" id="form-upload" class="visually__hidden" />
             <label for="form-upload" class="button form-upload_button_label"
               ><span class="form-upload_button_label_text"
                 >Upload a new file</span
               >
-              <input
-                type="file"
-                name=""
-                id="form-upload"
-                class="visually__hidden"
-              />
             </label>
             <table class="form-upload_table">
               <thead>
@@ -185,7 +185,12 @@
                   </td>
                   <td class="form-table_cell">78Kb</td>
                   <td class="form-table_cell">823</td>
-                  <td class="form-table_cell form-table_cell_remove"></td>
+                  <td class="form-table_cell">
+                    <button
+                      type="button"
+                      class="form-table_cell_remove"
+                    ></button>
+                  </td>
                 </tr>
                 <tr class="form-upload_table_row">
                   <td class="form-table_cell form-table_cell_file_name">
@@ -193,7 +198,12 @@
                   </td>
                   <td class="form-table_cell">78Kb</td>
                   <td class="form-table_cell">823</td>
-                  <td class="form-table_cell form-table_cell_remove"></td>
+                  <td class="form-table_cell">
+                    <button
+                      type="button"
+                      class="form-table_cell_remove"
+                    ></button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -419,7 +429,8 @@
                 <input
                   type="text"
                   class="form-sign_pay_method_inputs validate_on_focus"
-                  placeholder="0000 0000 0000 0000"
+                  placeholder="0000000000000000"
+                  pattern="[0-9]{16}"
                   autocomplete="cc-number"
                   minlength="16"
                   maxlength="16"
@@ -429,11 +440,12 @@
               <label class="form-sign_pay_method_label">
                 <span class="form_label_title">Expiry date</span>
                 <input
-                  type="datetime"
-                  class=" form-sign_pay_method_inputs input_date validate_on_focus"
-                  placeholder="DD/MM/YY"
-                  maxlength="6"
-                  minlength="6"
+                  type="text"
+                  class="form-sign_pay_method_inputs input_date validate_on_focus"
+                  placeholder="DD/MM/YYYY"
+                  pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"             
+                  maxlength="10"
+                  minlength="10"
                   autocomplete="cc-exp"
                   required
                 />
@@ -445,6 +457,7 @@
                   class="form-sign_pay_method_inputs input_code validate_on_focus"
                   inputmode="numeric"
                   placeholder="000"
+                  pattern="[0-9]{3}"
                   minlength="3"
                   maxlength="3"
                   required
@@ -489,8 +502,6 @@
           <p class="form-footer_info_text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
             nesciunt commodi suscipit hic deserunt dolorum provident,
-            consectetur amet, quos vel maxime atque voluptas? Rerum reiciendis
-            quod eligendi, corporis labore minus.
           </p>
         </section>
         <section class="form-footer_block form-footer_adress">
@@ -523,13 +534,15 @@
             </li>
           </ul>
         </section>
-        <a href="#" class="header_link_home">
-        <img
-          src="images/logo-footer.png"
-          alt="footer logo"
-          class="form-footer_block footer_logo"
-        />
-      </a>
+        <div class="form-footer_block wrapper_footer-logo">
+          <a href="#" class="header_link_home">
+            <img
+              src="images/logo-footer.png"
+              alt="footer logo"
+              class="footer_logo"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   </body>
