@@ -1108,25 +1108,73 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
   outline: 2px solid #6ea9df;
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
+  
   .form-radio_choice_type_label {
     width: 100%;
   }
+
   .form-upload_table {
     margin: 1em 0;
   }
+
   .button {
-    width: auto;
+    margin: 0;
   }
+
+  .form-selects {
+    width: 200px;
+  }
+
+  .form-selects_bottom {
+    margin: 1em 0;
+  }
+
+  .form-radio_choice_type_label::after {
+    visibility: hidden;
+  }
+
+  .form-select_tone_radio_label::after {
+    visibility: hidden;
+  }
+
+  .form-choose_payment_radio::after {
+    visibility: hidden;
+  }
+
+  .label-logo-valid {
+    margin-left: 12em;
+  }
+
+  .form-select_custom,
+  .wrapper_form-selects {
+    padding: 0;
+  }
+
+  .form-select_tone_radio_label {
+    margin-left: 0px;
+  }
+
   .form-language_choice {
     padding: 0;
   }
+  
+  .form-sign_pay_method {
+    padding-left: 0;
+  }
+
   .form-sign_pay_method_inputs {
     width: auto;
   }
+
   .form-choose_payment_radio {
     width: auto;
   }
+
+  .form-label_agree::before,
+   .form-label_agree::after {
+     margin-left: 0;
+   }
 }
 
 @media (max-width: 599px) {
@@ -1212,15 +1260,11 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
   .wrapper_agree_checkbox:hover {
     outline: 2px solid #6ea9df;
   }
-  .form-label_agree::before,
-  .form-label_agree::after {
-    margin-left: 5em;
-  }
 
   .input_password_title::before {
     margin-left: 0;
   }
-  
+
   .form-footer_block {
     margin: 2em auto;
   }
@@ -1238,6 +1282,7 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
 }
 
 @media (min-width: 600px) {
+
   .form {
     width: 100%;
   }
@@ -1278,7 +1323,6 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
     margin: 0 auto;
   }
 
-
   .form-upload_table {
     overflow-x: auto;
   }
@@ -1297,7 +1341,6 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
 
   .wrapper_form-email_password {
     display: block;
-    
   }
 
   .wrapper_form-choose_paysystem {
@@ -1392,8 +1435,8 @@ input[type="checkbox"]:checked ~ .form-label_agree::after {
     margin-left: 4em;
   }
 
-  .form-upload_table {
-    margin: 1em auto;
+  .wrapper_form-email_password {
+    display: flex;
   }
 
   .form-label_agree::before,
