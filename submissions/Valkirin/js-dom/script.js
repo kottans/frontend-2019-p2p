@@ -1,4 +1,4 @@
-const habbits = [
+const habits = [
   {
     name: "Proactivity",
     img: "./img/proactivity.jpg",
@@ -43,61 +43,36 @@ const habbits = [
   }
 ];
 
-const container = document.createElement("div");
-container.classList.add("container");
-document.body.appendChild(container);
+const docFrag = document.createDocumentFragment();
 
-const content = document.createElement("div");
-content.classList.add("content");
-container.appendChild(content);
+const container = document.querySelector(".container");
+const contentTitle = document.querySelector(".content_title");
+const contentDescription = document.querySelector(".description_text");
+const containerImg = document.querySelector(".content_img");
+const contentImg = document.querySelector(".source_img");
+const navigation = document.querySelector(".navigation");
 
-const contentTitle = document.createElement("h2");
-contentTitle.classList.add("content_title");
-contentTitle.textContent = habbits[0].name;
-content.appendChild(contentTitle);
+const addContent = (name, img, description) => {
+  contentTitle.textContent = name;
+  contentDescription.textContent = description;
+  contentImg.src = img;
+  containerImg.appendChild(contentImg);
+  container.appendChild(containerImg);
+};
 
-const descriptionPar = document.createElement("p");
-descriptionPar.classList.add("description_text");
-descriptionPar.textContent = habbits[0].description;
-content.appendChild(descriptionPar);
-
-const menu = document.createElement("div");
-container.appendChild(menu);
-
-const navigation = document.createElement("ul");
-navigation.classList.add("navigation");
-menu.appendChild(navigation);
-
-habbits.forEach((val, key) => {
+habits.forEach(val => {
   const createListName = document.createElement("li");
   createListName.classList.add("listel");
-  createListName.textContent = habbits[key].name;
-  navigation.appendChild(createListName);
-});
+  createListName.textContent = val.name;
+  docFrag.appendChild(createListName);
 
-const containerImg = document.createElement("div");
-containerImg.classList.add("content_img");
-container.appendChild(containerImg);
-
-const contentImg = document.createElement("img");
-contentImg.classList.add("image");
-contentImg.setAttribute("src", habbits[0].img);
-containerImg.appendChild(contentImg);
-
-const changeMenu = document.querySelector("ul");
-
-changeMenu.addEventListener("click", evt => {
-  const getList = document.querySelectorAll("li");
-  getList.forEach(element => {
-    element.classList.remove("clicked");
-  });
-
-  habbits.forEach((val, key) => {
-    if (evt.target.textContent === habbits[key].name) {
-      contentImg.src = habbits[key].img;
-      evt.target.classList.add("clicked");
-      contentTitle.textContent = habbits[key].name;
-      descriptionPar.textContent = habbits[key].description;
-    }
+  createListName.addEventListener("click", e => {
+    let habit = habits.find(element => {
+      return e.target.textContent === element["name"];
+    });
+    document.body.style.background = "none";
+    addContent(habit["name"], habit["img"], habit["description"]);
   });
 });
+
+navigation.appendChild(docFrag);
