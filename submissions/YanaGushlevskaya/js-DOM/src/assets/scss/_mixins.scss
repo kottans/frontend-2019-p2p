@@ -1,0 +1,49 @@
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-extra: 1200px;
+
+@mixin small {
+  @media screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media screen and (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin extra {
+  @media screen and (min-width: $breakpoint-extra) {
+    @content;
+  }
+}
+
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: $size / 16 + rem;
+}
