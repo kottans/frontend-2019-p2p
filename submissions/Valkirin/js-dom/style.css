@@ -6,6 +6,7 @@
 }
 
 body {
+  background: #e89e0b;
   height: 100%;
   width: 100%;
 }
@@ -60,13 +61,13 @@ body {
 }
 
 .content_title {
-  color: #63f700;
+  color: #000;
+  font-family: FreeMono;
 }
 
 .description_text {
   position: absolute;
   line-height: 30px;
-  font-weight: bold;
 }
 
 .content_img {
@@ -75,20 +76,15 @@ body {
   opacity: 0.3;
 }
 
-.image {
+.source_img {
   width: 100vw;
   height: 100vh;
 }
 
-.clicked {
-  background: #b19612;
-}
-
 @media screen and (max-width: 500px) {
   body {
-    background: rgb(247, 184, 102);
+    background: #e89e0b !important;
   }
-
   .container {
     justify-content: center;
     flex-direction: column-reverse;
