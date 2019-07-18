@@ -1,0 +1,116 @@
+.main {
+    width: 55%;
+    height: auto;
+    max-width: 1000px;
+    max-height: auto;
+    margin: auto;
+    padding-left: 0.8vw;
+    padding-top: 0.8vw;
+    text-align: center;
+    position: relative;
+}
+* {
+    box-sizing: border-box;
+}
+span {
+    font-size: 3.1vw;
+    
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+    perspective: 1000px;
+    display: inline-block;
+    margin-right: 0.8vw;
+    margin-bottom: 0.8vw;  
+    vertical-align: top;  
+    
+}
+	
+.flipper.open { 
+    transform: rotateY(180deg);      
+}
+
+.flip-container, .front, .back {
+	width: 10vw;
+    height: 10vw;   
+}    
+    .front, .back {
+        /* border: 0.5vw solid green; */
+        border-radius: 1.0vw;
+        box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    }
+
+
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    background-color: rgb(147, 184, 231);
+	/* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);    
+    background-size: contain;
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media (max-aspect-ratio: 1/1) and (max-width: 1000px) {
+    .main {
+        width: 100%;
+        height: 100%;
+        padding-left: 1vw;
+        padding-top: 10vh;
+        padding-bottom: 16.5vh;
+    }
+    span {
+        display: block;
+        margin-bottom: 7vh;
+        font-size: 8vw;
+        font-family: Segoe UI, sans-serif;
+        text-decoration: underline;
+        color: green;
+    }
+    .flip-container, .front, .back {
+        width: 20vw;
+        height: 20vw;
+    }  
+    .flip-container { 
+        margin-right: 1vw;
+        margin-bottom: 1vh;  
+    }
+}
+
+@media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 8/5) and (max-width: 1000px) {
+    .main {
+        width: 90%;
+    }
+    .flip-container, .front, .back {
+        width: 20vw;
+        height: 20vw;
+    }  
+}
