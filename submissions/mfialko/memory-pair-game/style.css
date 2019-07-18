@@ -36,7 +36,6 @@ span {
     height: 10vw;   
 }    
     .front, .back {
-        /* border: 0.5vw solid green; */
         border-radius: 1.0vw;
         box-shadow: 1px 1px 1px rgba(0,0,0,.5);
     }
