@@ -1,0 +1,94 @@
+.documentUpload {
+  margin-top: 4%;
+  margin-right: 10%;
+  color: #6d758f;
+}
+
+.allTextDocumentUpload {
+  display: flex;
+}
+.uploadText {
+  margin-top: 20px;
+  padding-right: 20px;
+  font-size: 30px;
+}
+.numberSection {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 30px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  margin-left: 3.7%;
+}
+
+.smallUploadText {
+  padding-top: 15px;
+  color: #b8c2da;
+}
+
+.inputHideFile {
+  display: none;
+}
+
+.uploadFile {
+  width: 220px;
+  height: 60px;
+  border: 2px solid #c9d0e1;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10%;
+  transition: 0.4s;
+}
+
+.uploadFile:hover {
+  transition: 0.4s;
+}
+.inputFileText {
+  margin-left: 5px;
+}
+.upload {
+  background: url(../img/upload-to-cloud-button.svg) no-repeat;
+  background-position: center;
+  background-size: 90%;
+  width: 30px;
+  height: 30px;
+}
+
+.uploadFile {
+  justify-content: center;
+}
+
+.uploadFile:hover {
+  border: 1.5px solid #76a7e1;
+}
+
+.deleteFile {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.documentUpload > .wideTable {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  margin-top: 30px;
+  border-radius: 5px;
+  border: 1px solid #d9deea;
+  margin-left: 10%;
+  width: 90%;
+}
+.th-to-left {
+  text-align: left;
+}
+
+.td-to-center {
+  padding-left: 22px;
+}

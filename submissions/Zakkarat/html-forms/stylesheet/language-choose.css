@@ -1,0 +1,91 @@
+.documentLanguage {
+  margin-top: 4%;
+  color: #6d758f;
+}
+.select-button {
+  position: relative;
+  max-width: 160px;
+  margin-left: 6%;
+  height: 60px;
+}
+.select-button-next {
+  margin-left: 2%;
+}
+.select-button-inner {
+  padding: 1em 0.2em 1em 1em;
+  width: 160px;
+  height: 100%;
+  border: 2px solid #c9d0e1;
+  border-radius: 5px;
+  background-color: white;
+  overflow: hidden;
+  text-align: center;
+  -webkit-appearance: none;
+  cursor: pointer;
+  color: #6d758f;
+}
+.select-button::after {
+  content: "▼";
+  width: 48px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 2px solid #c9d0e1;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  pointer-events: none;
+}
+.select-button-from::before {
+  content: "FROM";
+  position: absolute;
+  top: 35%;
+  left: -40%;
+  font-size: 14px;
+}
+.select-button-to::before {
+  content: "TO";
+  position: absolute;
+  top: 35%;
+  left: -34%;
+  font-size: 14px;
+}
+.select-button-inner::-ms-expand {
+  display: none;
+}
+.block-to-center {
+  margin-left: 10%;
+  margin-bottom: 2%;
+  display: flex;
+}
+.select-delete {
+  margin: 2%;
+  margin-left: 1%;
+}
+.add-button {
+  width: 80px;
+  border: 2px solid #c9d0e1;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  -webkit-appearance: none;
+  cursor: pointer;
+  background-color: white;
+  color: #6d758f;
+}
+.add-button::before {
+  content: "+";
+  position: relative;
+  margin-right: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.no-button-style {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  border: 0px;
+}
