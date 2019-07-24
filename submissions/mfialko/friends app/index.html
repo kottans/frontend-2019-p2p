@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  
+  <body>
+    <div class="container">
+      <input type="checkbox" id="menu" class="search-button"></button>
+      <label for="menu" class="label-menu"><span>Search</span></label>
+      
+      <div class="aside">
+        <form name="form" class="form">
+          <div class="asideSelect">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" class="select">
+              <option value="" selected disabled hidden></option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+        
+          <div class="asideSelect">
+            <label for="sortAlphabetically">Alphabetical sort</label>
+            <select id="sort" name="sortAlphabetically" class="select">
+              <option value="" selected disabled hidden></option>
+              <option value="ascending">Ascending</option>
+              <option value="descending">Descending</option>
+            </select>
+          </div>
+        
+          <div class="asideDiv">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            <span class="focus-border"></span>
+          </div>
+
+          <div class="asideDiv">
+            <label for="name">City</label>
+            <input type="text" id="city" name="city">
+            <span class="focus-border"></span>
+          </div>
+        
+          <div class="asideDiv age">
+            <div>
+              <label for="name">Min age</label>
+              <input type="text" id="minAge" name="minAge">
+              <span class="focus-border"></span>
+            </div>
+            <div>
+              <label for="name">Max age</label>
+              <input type="text" id="maxAge" name="maxAge">
+              <span class="focus-border"></span>    
+            </div>
+          </div>
+
+          <div>
+            <button type="button" class="button">Clear selection</button>
+          </div>
+
+        </form>
+      </div>  
+
+      <div class="main"></div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+
+</html>

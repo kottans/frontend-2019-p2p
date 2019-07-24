@@ -1,0 +1,20 @@
+{
+    "name": "friends-app",
+    "version": "1.0.0",
+    "description": "Friends app",
+    "main": "index.html",
+    "author": "Mikhail Fialko",
+    "license": "MIT",
+    "private": false,
+    "scripts": {
+        "start": "parcel ./index.html",
+        "prebuild-dev": "shx rm -rf dist/",
+        "build-dev": "parcel build ./index.html --no-minify --public-url ./",
+        "prebuild": "shx rm -rf dist/",
+        "build": "parcel build ./index.html --public-url ./",
+        "publish": "push-dir --dir=dist --branch=gh-pages"
+    },
+    "devDependencies": {
+        "shx": "^0.3.2"
+    }
+}
