@@ -10,6 +10,3 @@ const getJson = url =>
 export const fetchPeople = () => 
     getJson('https://randomuser.me/api/?results=25&nat=fr')
         .then(({results}) => results);
-
-
-

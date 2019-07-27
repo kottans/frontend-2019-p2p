@@ -16,7 +16,6 @@ export const sort = ({currentTarget}, list, render) => {
     list = filterByCity(list, state.filterCityBy);
     list = filterByName(list, state.filterNameBy);
 
-    
     render(list);
 } 
 

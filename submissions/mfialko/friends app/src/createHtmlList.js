@@ -37,7 +37,4 @@ export const createHtmlList = (list) => {
     
     return users;  
 }
-
-
-
   

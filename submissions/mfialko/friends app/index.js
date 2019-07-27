@@ -3,9 +3,9 @@ import { createHtmlList } from './src/createHtmlList.js';
 import { sort } from './src/sort.js';
 
 let usersOnPage = 20;
-let filterForm = document.querySelector('form');
-let resetButton = document.querySelector('.button');
-let main = document.querySelector('.main');
+const filterForm = document.querySelector('form');
+const resetButton = document.querySelector('.button');
+const main = document.querySelector('.main');
 
 fetchPeople()
     .then(list => createHtmlList(list))
@@ -34,7 +34,6 @@ function reset() {
 };
 
 function render(usersHtml, page = 1) {
-    
     let pagesHtml = paginate(usersHtml, usersOnPage);
     if (pagesHtml.length === 0) {
         pagesHtml.push(`<div class='emptyList'>Not found</div>`);
@@ -62,8 +61,6 @@ function paginate(array, itemsOnPage) {
     let sets = {};
     let set = [];
     let setCounter = 0;
-    
-
     for (let i = 0; i < array.length; i++) {
         set.push(array[i]);
         if((i + 1) % itemsOnPage === 0 || (i + 1) >= array.length) {
@@ -75,6 +72,5 @@ function paginate(array, itemsOnPage) {
     let pagesHtml = Object.values(sets).map(arr => {
         return arr.map(e => e.textHtml).join('');
     });
-
     return pagesHtml;
 }
