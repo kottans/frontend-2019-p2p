@@ -13,8 +13,8 @@ const rigger = require('gulp-rigger');
 
 gulp.task('css', () => {
   return gulp
-    .src('src/main.scss') //какой файл берем
-    .pipe(plumber()) //вызов плагина
+    .src('src/main.scss')
+    .pipe(plumber())
     .pipe(maps.init())
     .pipe(
       sass({
@@ -34,7 +34,7 @@ gulp.task('css', () => {
     )
     .pipe(maps.write())
     .pipe(plumber.stop())
-    .pipe(gulp.dest('dist/css')) // куда сохраняем
+    .pipe(gulp.dest('dist/css'))
     .pipe(sync.stream());
 });
 
@@ -80,21 +80,7 @@ gulp.task('js', () => {
     .pipe(sync.stream());
 });
 
-/* gulp.task('modules', () => {
-  sources = [
-    './node_modules/nouislider/distribute/nouislider.min.js',
-    './node_modules/nouislider/distribute/nouislider.min.css'
-  ];
-  return gulp
-    .src(sources)
-    .pipe(gulp.dest('dist/modules/'))
-    .pipe(sync.stream());
-});
-
-gulp.task('copy-modules', ['modules']); */
-
 gulp.task('reload', () => {
-  //для компиляции при сохранении файла
   sync({
     server: {
       baseDir: 'dist/'

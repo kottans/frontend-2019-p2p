@@ -7,7 +7,7 @@ class cuisine {
   }
 }
 
-const db = [
+const dataBase = [
   new cuisine(
     'Американская кухня',
     'img/american.png',
@@ -36,35 +36,49 @@ const db = [
 
 const cuisineTemplate = ({ title, src, alt, description }) => {
   return `<h2 class="description__title">${title}</h2>
-  <figure>
-    <img src="${src}" alt="${alt}" class="decription__img" />
-    <figcaption>
-      <p class="description__img-description">
-      ${description}
-      </p>
-    </figcaption>
-  </figure>`;
+      <figure>
+        <img src="${src}" alt="${alt}" class="decription__img" />
+        <figcaption>
+          <p class="description__img-description">
+          ${description}
+          </p>
+        </figcaption>
+      </figure>`;
 };
 
 const nav = document.querySelector('.nav');
 const menu = document.querySelector('.nav__list');
+const description = document.createElement('div');
 let windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-const description = document.createElement('div');
-description.className = 'description';
+menu.addEventListener('click', createElement);
 
-menu.addEventListener('click', ev => {
-  let button = ev.target.textContent;
-  db.forEach(element => {
-    if (element.title == button && windowWidth > 768) {
+function createElement({ target }) {
+  let button = target.textContent;
+  dataBase.forEach(cuisineItem => {
+    if (cuisineItem.title === button && windowWidth > 768) {
       nav.after(description);
-      const child = cuisineTemplate(element);
+      const child = cuisineTemplate(cuisineItem);
       description.innerHTML = child;
-    } else if (element.title == button && windowWidth < 768) {
-      let target = ev.target;
+    } else if (cuisineItem.title === button && windowWidth < 768) {
       target.after(description);
-      const child = cuisineTemplate(element);
+      const child = cuisineTemplate(cuisineItem);
       description.innerHTML = child;
     }
   });
-});
+  description.classList = 'description';
+}
+
+function addMenuDescription() {
+  let menuLocation;
+  windowWidth > 768
+    ? (menuLocation = 'слева') && nav.after(description)
+    : (menuLocation = 'снизу') && nav.before(description);
+  let menuDescription = `<img src='img/map.jpg' class='basic-img' alt='map'/>
+  <p class='basic-description'> Выберите страну, о кухне которой хотите узнать больше, в меню ${menuLocation}. </p>`;
+  description.innerHTML = menuDescription;
+  description.classList = 'description description--basic';
+}
+
+addMenuDescription();
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJpbmRleC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLz0gc3JjL2NvbXBvbmVudHMvSGVyby9oZXJvLmpzXHJcbiJdLCJmaWxlIjoiaW5kZXguanMifQ==

@@ -1,6 +1,6 @@
-## Task: menu with ability to load some predefined html content related to own menu item into right-positioned <main> content container.
+Task: menu with ability to load some predefined html content related to own menu item into right-positioned <main> content container.
 
-[DEMO]()
+[DEMO](https://yanagushlevskaya.github.io/DOM-task/dist/)
 
 ## Simple Boilerplate-starter  
 ## Installation  

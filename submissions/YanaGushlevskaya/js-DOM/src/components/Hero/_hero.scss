@@ -37,9 +37,10 @@ nav,
 
 .wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   @include medium {
+    flex-direction: row;
     justify-content: space-between;
   }
 }
@@ -81,7 +82,7 @@ figure {
   margin: 0;
   @include medium {
     display: block;
-}
+  }
 }
 
 .description {
@@ -90,8 +91,8 @@ figure {
   padding: 10px;
   margin-bottom: 30px;
   @include medium {
-      max-width: 70%;
-      padding: 20px;
+    max-width: 70%;
+    padding: 20px;
   }
 }
 
@@ -113,7 +114,6 @@ figure {
   @include large {
     width: 300px;
   }
-
 }
 
 .description__img-description {
@@ -122,4 +122,32 @@ figure {
   @include medium {
     padding: 0 20px 0 0;
   }
+}
+
+.basic-img {
+  display:none;
+  @include medium {
+    display: block;
+    width: 50%;
+  }
+}
+
+.basic-description {
+  @include font-size(12); 
+  font-weight: bold;
+  text-align: center;
+  line-height: 2;
+  margin: 0;
+  @include medium {
+    @include font-size(16);
+    width: 50%;
+  }
+}
+
+.description--basic {
+  @extend .description;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
