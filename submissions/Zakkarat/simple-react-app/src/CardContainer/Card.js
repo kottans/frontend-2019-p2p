@@ -1,7 +1,6 @@
 import React from 'react'
 
-const Card = (props) => {
-    return (
+const Card = (props) =>  (
         <div className='card'>
             <img className="img-card" src={props.image} alt={`${props.name}`}/>
             <h3 className="text-card">{props.name}</h3>
@@ -10,6 +9,5 @@ const Card = (props) => {
             <h4 className="text-card">Species: {props.species}</h4>
         </div>
     )
-}
 
 export default Card;

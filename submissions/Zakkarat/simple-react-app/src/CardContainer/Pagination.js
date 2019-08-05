@@ -1,9 +1,9 @@
 import React from "react";
 
-const Pagination = props => {
+const Pagination = (props) => {
   const buttons = ["Prev", "Next"];
-    const onClick = (e) => {
-        const value = e.target.id.toLowerCase();
+    const onClick = ({target}) => {
+        const value = target.id.toLowerCase();
         props.handleClick(props[`${value}`])
     }
 

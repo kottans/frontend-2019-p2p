@@ -11,20 +11,22 @@ const CardContainer = props => {
     prev: "",
     curr: defaultUrl
   });
-const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    if(props.filters) {
-      setPage({curr: props.filters});
+    if (props.filters) {
+      setPage({ curr: props.filters });
     } else {
-      setPage({curr: defaultUrl});
+      setPage({ curr: defaultUrl });
     }
-  }, [props.filters])
+  }, [props.filters]);
 
   useEffect(() => {
     setIsLoading(true);
     let ignore = false;
     const fetchData = async () => {
-      const result = await axios(`${page.curr}`).catch(() => {return null});
+      const result = await axios(`${page.curr}`).catch(() => {
+        return null;
+      });
       if (!ignore && result) {
         setData(result.data);
         setPage(result.data.info);
@@ -32,17 +34,23 @@ const [isLoading, setIsLoading] = useState(false);
     };
 
     fetchData();
-    setIsLoading(false)
+    setIsLoading(false);
     return () => {
       ignore = true;
-      
     };
   }, [page.curr]);
 
   const handleClick = newPage => {
     setPage({ curr: newPage });
   };
-  return (isLoading ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> :
+  return isLoading ? (
+    <div class="lds-ring">
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  ) : (
     <>
       <div className="card-container">
         {data.results.map(character => (
