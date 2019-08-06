@@ -34,6 +34,8 @@ const dataBase = [
   )
 ];
 
+const tabletResolution = 768;
+
 const cuisineTemplate = ({ title, src, alt, description }) => {
   return `<h2 class="description__title">${title}</h2>
       <figure>
@@ -56,11 +58,11 @@ menu.addEventListener('click', createElement);
 function createElement({ target }) {
   let button = target.textContent;
   dataBase.forEach(cuisineItem => {
-    if (cuisineItem.title === button && windowWidth > 768) {
+    if (cuisineItem.title === button && windowWidth > tabletResolution) {
       nav.after(description);
       const child = cuisineTemplate(cuisineItem);
       description.innerHTML = child;
-    } else if (cuisineItem.title === button && windowWidth < 768) {
+    } else if (cuisineItem.title === button && windowWidth < tabletResolution) {
       target.after(description);
       const child = cuisineTemplate(cuisineItem);
       description.innerHTML = child;
@@ -71,7 +73,7 @@ function createElement({ target }) {
 
 function addMenuDescription() {
   let menuLocation;
-  windowWidth > 768
+  windowWidth > tabletResolution
     ? (menuLocation = 'слева') && nav.after(description)
     : (menuLocation = 'снизу') && nav.before(description);
   let menuDescription = `<img src='img/map.jpg' class='basic-img' alt='map'/>
