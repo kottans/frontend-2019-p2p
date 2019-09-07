@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: rgb(65, 65, 65);
+}
+
+.site-header {
+    margin: 15px;
+    height: auto;
+}
+
+.nav {
+    position: relative;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.menu__item {
+    font-size: 13px;
+    text-align: center;
+}
+
+.icon-apps {
+    display: inline-block;
+    opacity: 0.5;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.icon-notification {
+    opacity: 1;
+    width: 28px;
+    height: 28px;
+}
+
+.icon-account {
+    width: 36px;
+    height: 36px;
+    opacity: 0.8;
+}
+
+.checkbox-menu,
+.checkbox-hidden {
+    position: absolute;
+    overflow-y: auto;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    top: 50px;
+    left: 18px;
+}
+
+.label {
+    display: inline-block;
+    margin: 2px 10px 0 10px;
+}
+
+.popup {
+    display: none;
+    width: 320px;
+    height: auto;
+    max-height: 520px;
+    position: absolute;
+    right: 15px;
+    top: 60px;
+    padding-right: -10px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+    overflow-x: hidden;
+    transition: height 0.2s ease-out;
+}
+
+.popup__menu {
+    width: 265px;
+    margin-right: -50px;
+    margin-left: 25px;
+    margin-top: 30px;
+
+}
+
+.popup__item {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    height: 84px;
+    width: 84px;
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: rgb(71, 71, 71);
+    cursor: pointer;
+    padding: 5px 0;
+    margin: 0 5px;
+}
+
+.nav__icon {
+    width: 42px;
+    height: 42px;
+}
+
+.label-hidden-menu {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    width: 325px;
+    height: 40px;
+    margin-left: -30px;
+    padding-top: 10px;
+    background-color: rgba(150, 147, 147, 0.116);
+}
+
+.popup-hidden {
+    display: none;
+    padding-top: 5px;
+}
+
+.additional-link {
+    display: block;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    margin: 15px
+}
+
+.checkbox-menu:checked~.popup {
+    display: block;
+}
+
+.checkbox-hidden:checked~.popup-hidden {
+    display: block;
+}
+
+.checkbox-hidden:checked~.label-hidden-menu {
+    visibility: hidden;
+}
+
+/*white-triangle*/
+.checkbox-menu:checked+.label::before {
+    z-index: 999;
+    content: '';
+    position: absolute;
+    right: 112px;
+    top: 37px;
+    border: 15px solid transparent;
+    border-bottom: 10px solid rgb(255, 255, 255);
+}
+
+/*grey-triangle*/
+.checkbox-menu:checked+.label::after {
+    z-index: 998;
+    content: '';
+    position: absolute;
+    right: 112px;
+    top: 36px;
+    border: 15px solid transparent;
+    border-bottom: 10px solid #ccc;
+}
+
+/*horizontal-row*/
+.checkbox-hidden:checked~.popup-hidden::before {
+    z-index: 9;
+    content: '';
+    width: 90%;
+    position: absolute;
+    top: 475px;
+    right: 15px;
+    border-bottom: 1px solid #ccc
+}
+
+.menu__item:focus {
+    text-decoration: underline
+}
+
+.checkbox-menu:focus~.label {
+    outline: 1px solid rgba(170, 170, 170, 0.315)
+}
+
+.checkbox-hidden:focus~.label-hidden-menu {
+    text-decoration: underline;
+}
+
+.nav__link:focus {
+    text-decoration: underline;
+    outline-color: rgba(204, 204, 204, 0);
+}
+
+.link:focus {
+    outline: 1px solid rgba(170, 170, 170, 0.315)
+}
+
+.icon-notification:hover {
+    opacity: 0.7
+}
+
+.icon-account:hover {
+    opacity: 0.7;
+}
+
+.menu__item:hover {
+    text-decoration: underline
+}
+
+.popup__item:hover {
+    outline: 1px solid rgba(114, 114, 114, 0.315);
+}
+
+.label:hover {
+    outline: 1px solid #ccc
+}
+
+.label-hidden-menu:hover {
+    background-color: rgba(201, 201, 201, 0.356);
+}
+
+.additional-link:hover {
+    text-decoration: underline
+}
+
+.popup__item:active {
+    outline: 1px solid rgba(170, 170, 170, 0.315)
+}
