@@ -1,0 +1,323 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #686BB1;
+}
+
+body, ul, ol, h1, h2, h3, h4, h5, h6, hr, p, figure, nav, button, input {
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*main menu*/
+.navigation {
+  padding: 10px 10px 0 0;
+}
+
+.navigation__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.list__item {
+  margin-left: 15px;
+  align-items: center;
+}
+
+.list__item_link:hover {
+  text-decoration: underline;
+}
+
+.item__apps {
+  background-image: url("../img/icons8-squared-menu-48.png");
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.list__item_circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.list__item_circle:hover {
+  background-color: #F8F9FA;
+}
+
+.check__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.item__bell_img {
+  background-image: url("../img/icons8-bell-48.png");
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.item__avatar_img {
+  background-image: url("../img/man.png");
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/*PopUp Content*/
+.popup {
+  display: block;
+  position: absolute;
+  top: 70px;
+  width: 340px;
+  height: auto;
+  max-height: 520px;
+  padding-top: 48px;
+  border: 2px solid #C0C0C0;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+  overflow-x: hidden;
+}
+
+.popup__menu,
+.popup__menu-continue {
+  margin-left: 25px;
+  margin-right: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.popup__item {
+  width: 88px;
+  height: 88px;
+  padding: 10px 0 10px 0;
+  margin-bottom: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item__link {
+    width: 48px;
+    height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.item__text {
+    text-align: center;
+}
+
+.item__icon {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+/*More Button*/
+.more__label {
+    cursor: pointer;
+}
+
+.more__input {
+    display: none;
+}
+
+.more__btn {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCCCCC;
+}
+
+/*Popup Divider */
+.popup__divider {
+    display: none;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 25px;
+    height: 1px;
+    background-color: #CCCCCC;
+}
+
+/*After MoreBtn content*/
+.popup__menu-continue {
+    display: none;
+}
+
+/*Even More Link*/
+.even-more__link {
+    display: none;
+    width: 100%;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+
+/*Settings for visibility*/
+.more__input:checked ~ .popup__menu-continue {
+    display: flex;
+}
+
+.more__input:checked ~ .more__label {
+    display: none;
+}
+
+.more__input:checked ~ .popup__divider {
+    display: flex;
+}
+
+.more__input:checked ~ .even-more__link {
+    display: flex;
+
+}
+
+/*Settings for state hover/active*/
+.popup__item:hover {
+    outline: 1px solid #E4E4E4;
+}
+
+.even-more__link:hover {
+    text-decoration: underline;
+}
+
+/*Icons Images*/
+.icon__docs {
+    background: url("../img/docs.png") no-repeat center center;
+}
+
+.icon__translate {
+    background: url("../img/translate.png") no-repeat center center;
+}
+
+.icon__plus {
+    background: url("../img/o-plus.png") no-repeat center center;
+}
+
+.icon__search {
+    background: url("../img/search.png") no-repeat center center;
+}
+
+.icon__tube {
+    background: url("../img/youtube.png") no-repeat center center;
+    background-size: contain;
+}
+
+.icon__play {
+    background: url("../img/play.png") no-repeat center center;
+}
+
+.icon__omail {
+    background: url("../img/omail.png") no-repeat center center;
+}
+
+.icon__drive {
+    background: url("../img/drive.png") no-repeat center center;
+}
+
+.icon__calendar {
+    background: url("../img/calendar.png") no-repeat center center;
+}
+
+.icon__mybusinnes {
+    background: url("../img/business.png") no-repeat center center;
+}
+
+.icon__blogger {
+  background: url("../img/blogger.png") no-repeat center center;;
+}
+
+.icon__photos {
+    background: url("../img/photos.png") no-repeat center center;;
+}
+
+.icon__map {
+    background: url("../img/map.png") no-repeat center center;;
+}
+
+.icon__account {
+    background: url("../img/account.png") no-repeat center center;;
+}
+
+.icon__contacts {
+    background: url("../img/contacts.png") no-repeat center center;;
+}
+
+.icon__keep {
+    background: url("../img/keep.png") no-repeat center center;;
+}
+
+.icon__earth {
+    background: url("../img/earth.png") no-repeat center center;;
+}
+
+.icon {
+    background-size: contain;
+}
