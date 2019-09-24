@@ -157,6 +157,14 @@ body {
     font-size: 16px;
 }
 
+label.MorePopUp {
+    cursor: pointer;
+}
+
+label.MorePopUp:hover {
+    background-color: #d19e9e;
+}
+
 .more-items {
     display: none;
     border-top: 3px solid #eee;
@@ -172,4 +180,8 @@ body {
 
 .MoreApps:checked~.more-items {
     display: flex;
+}
+
+img:focus {
+    outline: 2px solid blue;
 }
