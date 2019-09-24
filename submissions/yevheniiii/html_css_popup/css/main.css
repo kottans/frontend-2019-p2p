@@ -34,35 +34,12 @@ body {
     height: 36px;
 }
 
-.popup-triangle {
-    display: none;
-    position: absolute;
-    top: 55px;
-    right: 116px;
-    width: 0;
-    height: 0;
-    z-index: 2;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 12px solid #d4d4d4;
-}
-
-.empty {
-    position: absolute;
-    top: 2px;
-    left: -10px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #fff;
-}
-
 .pop-up,
 .MoreApps {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     position: absolute;
-    overflow-y: auto;
-    clip: rect(0 0 0 0);
 }
 
 .button {
@@ -70,6 +47,20 @@ body {
     background-image: url(../images/burger-menu.png);
     background-size: cover;
     cursor: pointer;
+}
+
+.pop-up:checked~label:after {
+    content: '';
+    width: 0;
+    height: 0;
+    top: 51px;
+    right: 123px;
+    position: absolute;
+    border-style: solid;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #d4d4d4;
+    border-color: transparent transparent #e6e6e6 transparent;
 }
 
 .menu:hover {
@@ -116,6 +107,7 @@ body {
 
 .inside-item a:hover {
     outline: 1px solid #a1a1a1;
+    cursor: pointer;
 }
 
 .space:hover {
@@ -154,10 +146,6 @@ body {
     display: block;
 }
 
-.pop-up:checked~.popup-triangle {
-    display: block;
-}
-
 .MorePopUp {
     display: block;
     margin-top: 10px;
@@ -169,16 +157,9 @@ body {
     font-size: 16px;
 }
 
-.more-items,
-.line {
+.more-items {
     display: none;
-}
-
-.line {
-    color: #eee;
-    width: 200px;
-    margin-left: 40px;
-    opacity: 0.5;
+    border-top: 3px solid #eee;
 }
 
 .MoreApps:checked~.MorePopUp {
