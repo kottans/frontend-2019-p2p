@@ -27,6 +27,7 @@ body {
     display: flex;
     list-style-type: none;
     margin-left: 20px;
+    margin-bottom: 8px;
 }
 
 .menu img,
@@ -48,14 +49,28 @@ body {
     position: absolute;
 }
 
-.button {
-    background-image: url(../images/burger-menu.png);
-    background-size: cover;
+.MoreApps:after {
+    content: "More";
+    display: block;
+    margin-top: 10px;
+    margin-left: 0;
+    line-height: 35px;
+    text-align: center;
+    width: 273px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.pop-up:checked~label:after {
-    content: '';
+.pop-up {
+    background: url(../images/burger-menu.png);
+    background-size: cover;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.pop-up:checked ~ label:after {
+    content: "";
     width: 0;
     height: 0;
     top: 51px;
@@ -110,7 +125,6 @@ body {
     padding: 5px 5px 0 5px;
 }
 
-
 .inside-item a:hover {
     outline: 1px solid #a1a1a1;
     cursor: pointer;
@@ -148,27 +162,8 @@ body {
     text-align: center;
 }
 
-.pop-up:checked~.iconsContainer {
+.pop-up:checked ~ .iconsContainer {
     display: block;
-}
-
-.MorePopUp {
-    display: block;
-    margin-top: 10px;
-    margin-left: 0;
-    line-height: 35px;
-    text-align: center;
-    width: 280px;
-    background-color: #eee;
-    font-size: 16px;
-}
-
-label.MorePopUp {
-    cursor: pointer;
-}
-
-label.MorePopUp:hover {
-    background-color: #d19e9e;
 }
 
 .more-items {
@@ -176,18 +171,20 @@ label.MorePopUp:hover {
     border-top: 3px solid #eee;
 }
 
-.MoreApps:checked~.MorePopUp {
+.MoreApps:checked {
     display: none;
 }
 
-.MoreApps:checked~.line {
+.MoreApps:checked ~ .line {
     display: inline-block;
 }
 
-.MoreApps:checked~.more-items {
+.MoreApps:checked ~ .more-items {
     display: flex;
 }
 
-.nav-item a:focus, .button:focus, .MorePopUp:focus {
+.nav-item a:focus,
+.pop-up:focus,
+.MoreApps:focus {
     outline: 2px solid brown;
 }
