@@ -1,94 +1,106 @@
- body{
+body{
     margin: 0;
     font-family: 'Raleway', sans-serif;
 }
 
-.section{
-    position: absolute;
-    right:50px;
-    top: 3px;
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px;
 }
-.menu-btn{
 
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
+nav a.li, .menu-btn{
+    margin-left: 20px;
+}
+
+a.lImg, a.lMail, .fig a{
+    text-decoration: none;
+    color: black;
+}
+
+a.lImg{
+    order: 1;
+}
+
+a.lMail{
+    order: 2;
+}
+
+
+.menu-btn{ 
+    order: 3;
+    width: 21px;
+    height: 21px;
+    z-index: -1;
+}
+
+.menu-btn:focus, .menu-label:focus{
+    outline: 3px solid #FA7244;
+
+}
+
+.menu-btn:checked ~ .block{
+    display: block;   
+}
+
+
+a.lDoe{
+    order: 4;
+}
+
+.img-Doe{   
     border-radius: 50%;
-    position: relative;
-    
+    width: 35px;
+    height: 35px;
 }
-.menu-btn span,
-.menu-btn span::before,
-.menu-btn span::after {
+
+.menu-label{
+    display: block;
     position: absolute;
-    top: 50%;
-    margin-top : -1px;
-    left: 50%;
-    margin-left: -10px;
-    width: 20px;
-    height: 2px;
-    background-color: gray;
-}
-
-.menu-btn span::before,
-.menu-btn span::after{
-    content: '';
-    
-}
-
-.menu-btn span::before{
-    transform: translateY(-5px);
-}
-
-.menu-btn span::after{
-    transform: translateY(5px)
+    top: 13px;
+    right: 62px;
+    width: 23px;
+    height: 23px;
+    background-size: 100%;
+    background-image: url('img/icons8-материал-sharp-96\ \(3\).png');
+    background-repeat: cover;
+    cursor: pointer;   
 }
 
 
- .block {
-     display: none;
-     top: 50px;
-     right: 10px;
-    width: 270px;
-    height: 420px;
+.block {
+    display: none;
+    top: 50px;
+    right: 10px;
+    width: 276px;
+    height: 417px;
     border: .8px solid #ccc;
-    padding: 0;
     position: absolute;
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
-   }
-   .block::before, .block::after {
+    box-shadow: 0 2px 10px rgba(0,0,0,.2),
+                 0 0 4px rgba(0, 0, 0, .4) inset; 
+}
+
+.block::before, .block::after {
     content: ''; 
     position: absolute;
-    left: 195px; top: -20px;
-    border: 10px solid transparent;
+    left: 201px; top: -20px;
+    border: 13px solid transparent;
     transform: rotate(180deg);
-    border-top: 10px solid #ccc;
-   }
-
-   .block::after{
-    border-top: 10px solid white;
-    top: -19px; 
-    transform: rotate(180deg);
-    z-index: 9000;
-   }
-
-.open{
-    display: block;
+    border-top: 11px solid #ccc;
 }
 
-#Doe{
-    border-radius: 50%;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+.block::after{
+    border-top: 9px solid white;
+    top: -18px; 
+    transform: rotate(180deg);
+    z-index: 9000;
+    
 }
 
 .container img{
   width: 60px;
   height: 60px;
-  
-
 }
 
 figure{
@@ -98,9 +110,6 @@ figure{
     height: 65px;
 }
 
-figure:hover{
-    outline: 1px solid #ccc;
-}
 
 figcaption{
     margin-top: -12px; 
@@ -115,7 +124,7 @@ figcaption{
     
 }
 
-#fig{
+.fig{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -123,31 +132,56 @@ figcaption{
     
 }
 
-#fig a{
-    text-decoration: none;
-    color: black;
-}
-#more{
-    position: relative;
-    display: block;
-    background-color: #f7f7f7;
-    border: none;
-    width: 270px;
-    height: 26px;
-    color: black;
-    text-decoration: none;
-    padding-top: 14px;
-    text-align: center;
-    font-size: .7em;
-
-}
-
-#more:visited{
-    color: black;
-}
-
-
 .hidden{
     display: none;
+}
+
+.more:checked ~ .hidden{
+    display: block;
+}
+
+.more:focus{
+    outline:7px solid #FA7244;
+}
+
+.more{
+    display: block;
+    width: 270px;
+    height: 28px;
+    z-index:-2;
+}
+
+.mor-label{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    font-size: .8em;
+    padding-left: 113px;
+    padding-top: 10px;  
+    width: 157px;
+    height: 23px;
+    background: #ebe9e6;
+    z-index: 11;
+    margin-top: -35px;
+    border: 1.2px solid #ebe9e6;
+}
+
+.more:checked ~ .mor-label, .more:checked{
+    display: none;
+}
+
+.mor-label:hover{
+    cursor: pointer;
+}
+span.hr{
+    margin: 0 auto;
+    padding-top: 10px;
+    display: none;
+    width: 234px;
+    border-bottom: 1px solid #ebe9e6;
+}
+
+.more:checked ~ .hr{
+    display: block;
 }
 
