@@ -1,0 +1,187 @@
+body{
+    margin: 0 10px;
+    font-family: 'Raleway', sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
+
+nav a.li, .menu-btn{
+    margin-left: 20px;
+    
+
+}
+
+ul>li>a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu-btn{ 
+    width: 21px;
+    height: 21px;
+    z-index: -1;
+    margin-top: -1px;
+}
+  
+figure:hover, 
+.mor-label:hover{
+    outline: 2px solid #FA7244;
+
+}
+
+.menu-btn:focus{
+    outline: 3px solid #FA7244;
+}
+.menu-btn:checked ~ .block{
+    display: block;   
+}
+
+
+.img-Doe{   
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    margin-top: -6px;
+    
+}
+
+.menu-label{
+    display: block;
+    position: absolute;
+    top: 14px;
+    right: 67px;
+    width: 23px;
+    height: 23px;
+    background-size: 100%;
+    background-image: url('img/icons8-материал-sharp-96\ \(3\).png');
+    background-repeat: cover;
+    cursor: pointer;   
+}
+
+
+.block {
+    display: none;
+    top: 50px;
+    right: 10px;
+    width: 276px;
+    height: 416px;
+    border: .8px solid #ccc;
+    position: absolute;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2),
+                 0 0 4px rgba(0, 0, 0, .4) inset; 
+}
+
+.block::before, .block::after {
+    content: ''; 
+    position: absolute;
+    left: 196px; top: -20px;
+    border: 13px solid transparent;
+    transform: rotate(180deg);
+    border-top: 11px solid #ccc;
+}
+
+.block::after{
+    border-top: 9px solid white;
+    top: -18px; 
+    transform: rotate(180deg);
+    z-index: 9000;
+    
+}
+
+.block img{
+    width: 60px;
+    height: 60px;
+}  
+
+ul{
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+figure{
+    text-align: center;
+    margin: 15px 10px;
+    width: 65px;
+    height: 65px;
+}
+
+
+figcaption{
+    margin-top: -12px; 
+    text-align: center;
+    font-size: .7em;
+}
+
+.container{
+    width: inherit;
+    height: inherit;
+    overflow: auto;
+    
+}
+
+.hidden{
+    display: none;
+    
+}
+
+.more:checked ~ .hidden{
+    display: block;
+}
+
+.more:focus{
+    outline:7px solid #FA7244;
+}
+
+.more{
+    display: block;
+    width: 270px;
+    height: 28px;
+    z-index:-2;
+}
+
+.mor-label{
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    font-size: .8em;
+    padding-left: 113px;
+    padding-top: 10px;  
+    width: 156px;
+    height: 23px;
+    background: #ebe9e6;
+    z-index: 11;
+    margin-top: -35px;
+    border: 1.2px solid #ebe9e6;
+}
+
+.more:checked ~ .mor-label, .more:checked{
+    display: none;
+}
+
+.mor-label:hover{
+    cursor: pointer;
+}
+span.hr{
+    margin: 0 auto;
+    padding-top: 10px;
+    display: none;
+    width: 234px;
+    border-bottom: 1px solid #ebe9e6;
+}
+
+.more:checked ~ .hr{
+    display: block;
+}
+   
+li{ 
+    display: inline;
+    float: left;
+}
