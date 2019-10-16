@@ -1,0 +1,99 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.card {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 250px;
+  border-radius: 20px;
+}
+
+.img-card {
+  width: 150px;
+  height: 150px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.text-card {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.page-buttons {
+  width: 25%;
+  height: 25px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.text-card {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+@media only screen and (min-width: 500px) {
+  .card {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 321px;
+    border-radius: 20px;
+  }
+  .page-buttons {
+    width: 15%;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
