@@ -1,7 +1,7 @@
 const allFriends = {
     currentList: [],
     changeList: [],
-    countFriends: 52,
+    numberOfFriends: 52,
     minAge: 0,
     maxAge: 150
 };
@@ -11,13 +11,14 @@ const sorts = document.querySelector(".sort-input");
 const filters = document.querySelector(".search-filter-options");
 const resetFilters = document.querySelector(".reset-button");
 
-const getDataApi = async () => {
-    const response = await fetch(`https://randomuser.me/api/?results=${allFriends.countFriends}`);
-    const data = await response.json();
-    allFriends.currentList = data.results;
-    allFriends.changeList = [...allFriends.currentList]; 
-    renderFriendsList(allFriends.currentList);
-}      
+const loadJson = () => {
+    return fetch(`https://randomuser.me/api/?results=${allFriends.numberOfFriends}`)
+    .then(response => {
+        if(response.ok) return response.json();
+            throw new Error(response.status);
+    })
+    .then(data => dat.results);
+}     
 
 const drawFriendsCards = (user) => {
     let temp = `<div class="user-card shadow-profile ${user.gender === "male" ? "shadow-profile__male" : "shadow-profile__female"}">
@@ -36,6 +37,8 @@ const drawFriendsCards = (user) => {
 }
 
 const cleanFriendsZone = () => friendZone.innerHTML = "";
+
+const errorMessage = () => friendZone.insertAdjacentHTML("beforeEnd", '<h4 class="friends-zone__error">No internet connection. Please try again!)</h4>');
 
 const renderFriendsList = (allFriends) => allFriends.forEach(friend => drawFriendsCards(friend));
 
@@ -92,10 +95,20 @@ const resetSearchValues = () => {
     renderFriendsList(allFriends.currentList);
 };
 
-sorts.addEventListener("click", getSortList);
-filters.addEventListener("change", getFilterList);
-resetFilters.addEventListener("click", resetSearchValues);
+const init = async () => {
+    try {
+        allFriends.currentList = await loadJson();
+        allFriends.changeList = [...allFriends.currentList]; 
+        sorts.addEventListener("click", getSortList);
+        filters.addEventListener("change", getFilterList);
+        resetFilters.addEventListener("click", resetSearchValues);
+        cleanFriendsZone();
+        renderFriendsList(allFriends.currentList);
+    } catch {
+        errorMessage();
+    }
+}
 
 window.onload = function() {
-    getDataApi();
+    init();
 }
