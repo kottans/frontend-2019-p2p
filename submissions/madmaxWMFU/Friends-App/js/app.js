@@ -6,6 +6,13 @@ const allFriends = {
     maxAge: 150
 };
 
+const searchValue = {
+    name: "",
+    gender: "all",
+    ageTill: allFriends.minAge,
+    ageTo: allFriends.maxAge
+};
+
 const friendZone = document.querySelector(".friends-zone");
 const sorts = document.querySelector(".sort-input");
 const filters = document.querySelector(".search-filter-options");
@@ -51,12 +58,10 @@ const functionFilterList = {
 const getFilterList = () => {
     sorts.value = "none";
     allFriends.changeList = [...allFriends.currentList];
-    const searchValue = {
-        name: document.querySelector(".search-input-name").value || "",
-        gender: document.querySelector("[name='search-input-gender']:checked").value || "all",
-        ageTill: document.querySelector(".search-input-age-start").value || allFriends.minAge,
-        ageTo: document.querySelector(".search-input-age-end").value || allFriends.maxAge
-    };
+    searchValue.name = document.querySelector(".search-input-name").value;
+    searchValue.gender = document.querySelector("[name='search-input-gender']:checked").value;
+    searchValue.ageTill = document.querySelector(".search-input-age-start").value;
+    searchValue.ageTo = document.querySelector(".search-input-age-end").value;
 
     Object.keys(functionFilterList).forEach((filter) => {
         const newArray = functionFilterList[filter](allFriends.changeList, searchValue);
