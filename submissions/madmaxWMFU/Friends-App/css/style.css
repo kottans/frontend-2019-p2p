@@ -18,8 +18,13 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     flex-grow: 1;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 30px 0;
+}
+
+.friends-zone> h4 {
+    color: #d62f2f;
+    margin-top: 50px;
 }
 
 .friends-search {
@@ -163,14 +168,14 @@ body {
     width: inherit;
 }
 
-.shadow-profile__male {
-    -webkit-box-shadow: 0px 0px 34px 5px rgba(197,220,235,1);
-    -moz-box-shadow: 0px 0px 34px 5px rgba(197,220,235,1);
-    box-shadow: 0px 0px 34px 5px rgba(197,220,235,1);
+.shadow-profile__male:hover {
+    -webkit-box-shadow: 0px 0px 34px 5px #36b0ff;
+    -moz-box-shadow: 0px 0px 34px 5px #36b0ff;
+    box-shadow: 0px 0px 34px 5px #36b0ff;
 }
 
-.shadow-profile__female {
-    -webkit-box-shadow: 0px 0px 34px 5px rgba(235,197,202,1);
-    -moz-box-shadow: 0px 0px 34px 5px rgba(235,197,202,1);
-    box-shadow: 0px 0px 34px 5px rgba(235,197,202,1);
+.shadow-profile__female:hover {
+    -webkit-box-shadow: 0px 0px 34px 5px #ff8191;
+    -moz-box-shadow: 0px 0px 34px 5px #ff8191;
+    box-shadow: 0px 0px 34px 5px #ff8191;
 }

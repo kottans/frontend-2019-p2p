@@ -7,19 +7,20 @@ const allFriends = {
 };
 
 const friendZone = document.querySelector(".friends-zone");
-const filters = document.querySelector(".filters-input");
-const sorts = document.querySelector(".search-sort-options");
+const sorts = document.querySelector(".sort-input");
+const filters = document.querySelector(".search-filter-options");
 const resetFilters = document.querySelector(".reset-button");
 
 const getDataApi = async () => {
     const response = await fetch(`https://randomuser.me/api/?results=${allFriends.countFriends}`);
     const data = await response.json();
     allFriends.currentList = data.results;
+    allFriends.changeList = [...allFriends.currentList]; 
     renderFriendsList(allFriends.currentList);
 }      
 
 const drawFriendsCards = (user) => {
-    let temp = `<div class="user-card shadow-profile">
+    let temp = `<div class="user-card shadow-profile ${user.gender === "male" ? "shadow-profile__male" : "shadow-profile__female"}">
                     <div class="user-card__img">
                         <img src="${user.picture.large}" alt="My friend">
                     </div>
@@ -38,24 +39,24 @@ const cleanFriendsZone = () => friendZone.innerHTML = "";
 
 const renderFriendsList = (allFriends) => allFriends.forEach(friend => drawFriendsCards(friend));
 
-const funcFilterList = {
-    filterByGender(list, {gender}) { return gender !== "all" ? list.filter((person) => person.gender === gender) : allFriends.currentList},
-    filterByAge(list, {ageTill, ageTo}) { return list.filter((person) => ageTill <= person.dob.age && person.dob.age <= ageTo)},
-    filterByName(list, {name}) { return name != "" ? list.filter((person) => new RegExp(name, 'i').test(person.name.first)) : null}
+const functionFilterList = {
+    filterByGender: (list, {gender}) => gender !== "all" ? list.filter((person) => person.gender === gender) : allFriends.currentList,
+    filterByAge: (list, {ageTill, ageTo}) => list.filter((person) => ageTill <= person.dob.age && person.dob.age <= ageTo),
+    filterByName: (list, {name}) => name != "" ? list.filter((person) => new RegExp(name, 'i').test(person.name.first)) : null
 }
 
 const getFilterList = () => {
+    sorts.value = "none";
     allFriends.changeList = [...allFriends.currentList];
     const searchValue = {
         name: document.querySelector(".search-input-name").value || "",
         gender: document.querySelector("[name='search-input-gender']:checked").value || "all",
-        ageTill: document.querySelector(".search-input-age1").value || allFriends.minAge,
-        ageTo: document.querySelector(".search-input-age2").value || allFriends.maxAge
+        ageTill: document.querySelector(".search-input-age-start").value || allFriends.minAge,
+        ageTo: document.querySelector(".search-input-age-end").value || allFriends.maxAge
     };
-    let funcName = ["filterByName", "filterByGender", "filterByAge"];
 
-    funcName.forEach((func) => {
-        let newArray = funcFilterList[func](allFriends.changeList, searchValue);
+    Object.keys(functionFilterList).forEach((filter) => {
+        const newArray = functionFilterList[filter](allFriends.changeList, searchValue);
         if(newArray != null) allFriends.changeList = newArray;
     });
 
@@ -83,18 +84,18 @@ const getSortList = ({target}) => {
 };
 
 const resetSearchValues = () => {
-    filters.options[0].selected = true;
+    sorts.value = "none";
     document.querySelector(".search-input-name").value = "";
-    document.querySelector(".search-input-age1").value = allFriends.minAge;
-    document.querySelector(".search-input-age2").value = allFriends.maxAge;
-    document.querySelectorAll("[name='search-input-gender']")[2].checked = true;
+    document.querySelector(".search-input-age-start").value = allFriends.minAge;
+    document.querySelector(".search-input-age-end").value = allFriends.maxAge;
+    document.querySelector("[name='search-input-gender'][value='all']").checked = true;
     renderFriendsList(allFriends.currentList);
 };
 
-filters.addEventListener("click", getSortList);
-sorts.addEventListener("change", getFilterList);
+sorts.addEventListener("click", getSortList);
+filters.addEventListener("change", getFilterList);
 resetFilters.addEventListener("click", resetSearchValues);
 
 window.onload = function() {
-    getDataApi()
+    getDataApi();
 }

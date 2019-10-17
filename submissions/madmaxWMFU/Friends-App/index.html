@@ -18,7 +18,7 @@
             <div class="search-wrap-options">
                 <div>
                     <label class="search-label-options" for="sort-select">Sort by:</label>
-                    <select id="sort-select" class="search-input-options input-height filters-input" name="search-input-options">
+                    <select id="sort-select" class="search-input-options input-height sort-input" name="search-input-options">
                         <option value="none">-</option>
                         <option value="nameAsc">name from A to Z</option>
                         <option value="nameDesc">name from Z to A</option>
@@ -26,16 +26,16 @@
                         <option value="ageDesc">age from Max to Min</option>
                     </select>
                 </div>
-                <div class="search-sort-options">
+                <div class="search-filter-options">
                     <div>
                         <label class="search-label-options" for="sort-name">By name:</label>
                         <input id="sort-name" type="text" class="search-input-options search-input-name" name="search-input-name">
                     </div>
                     <div class="search-options__age">
                         <label class="search-label-options" for="">By age:</label>
-                        <input type="text" class="search-input-age search-input-age1" name="search-input-age" value="0">
+                        <input type="text" class="search-input-age search-input-age-start" name="search-input-age" value="0">
                         <span> - </span>
-                        <input type="text" class="search-input-age search-input-age2" name="search-input-age" value="123">
+                        <input type="text" class="search-input-age search-input-age-end" name="search-input-age" value="150">
                     </div>
                     <div>
                         <label class="search-label-options" for="">By gender:</label>
@@ -44,7 +44,7 @@
                             <label for="male">Male</label><br>
                             <input type="radio" id="female" value="female" name="search-input-gender">
                             <label for="female">Female</label><br>
-                            <input type="radio" id="all" value="all" name="search-input-gender">
+                            <input type="radio" id="all" value="all" name="search-input-gender" checked="">
                             <label for="all">All</label>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                 <button class="search-input-options input-height reset-button" name="search-input-reset">Reset</button>
             </div>
         </div>
-        <div id="listingTable" class="friends-zone"></div>
+        <div class="friends-zone"></div>
     </main>
 <script src="./js/app.js"></script>
 </body>
