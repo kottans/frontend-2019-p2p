@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav>ul>li>a{
+    text-decoration: none;
+    color: black;  
+    position: relative;
+    left: 20px;
+    transition: all .1s ease-in-out;
+}
+
+li{
+    padding: 10px 0;
+}
+ 
+nav>ul>li:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+nav>ul{
+    list-style-type: none;
+    margin-top: 80px;
+    height: 100vh;
+    padding: 0;
+    margin-top: 70px;   
+}
+
+nav{
+    width: 230px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    z-index: 1000;
+    outline: 1px solid black;
+}
+
+div.container{
+    position: relative;
+    width: 70%;
+    left: 25%;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+}
+
+img{
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    margin-right: 40px;
+    transition: all .1s ease-in-out;
+    cursor: pointer;
+}
+
+img:hover{
+    transform: scale(1.02);
+}
+
+div.likeafragment{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.descriptions{
+    width: 800px;
+    margin-top: 50px;
+}
+
+.status-bar{
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    position: fixed;
+    color: white;
+    text-transform: uppercase;
+    z-index: 3000;
+}
+
+.status-bar h2{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+blockquote {
+    margin: 0;
+    margin-top: 120px;
+    background: white;
+    color: black;
+    padding: 30px 30px 30px 90px;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    }
+    
+blockquote p {
+    margin: 0 0 16px;
+    font-size: 22px;
+    letter-spacing: .05em;
+    line-height: 1.4;
+}
+
+blockquote cite {
+    font-style: normal;
+}
+
+
+
+
+@media (max-width: 1050px) {
+    div.container{
+        transform: scale(.9);
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+    img{
+        width: 300px;
+        height: 400px;
+    }
+ 
+ }
+
+@media (max-width: 850px){
+    img{
+        width: 400px;
+        height: 500px;
+    }
+    div.likeafragment{
+        flex-direction: column-reverse;
+        align-self: center;
+        width: 100%;
+        margin-left: 180px; 
+    }
+
+    body{
+        overflow-x: hidden; 
+    }
+
+    div.descriptions div{
+        width: 400px;
+    }
+}
+
+@media(max-width: 600px){
+    nav{
+        align-items: center;
+        text-align: center;
+        position: relative;
+        width: 100%;
+        height: 230px;
+        outline: none;
+    }
+
+  
+    div.likeafragment{
+        margin-left: -20px;
+         margin-top: -110px;
+         align-items: center; 
+    }
+
+    .descriptions{
+        width: 100%;
+        margin-right: 110px;
+        text-align: justify;
+
+    }
+
+    img{
+        margin-right: 70px;
+    }
+
+    blockquote{
+        margin-top: -30px;
+        padding: 30px 30px 30px 0px;
+    }
+    
+}
