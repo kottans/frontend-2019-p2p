@@ -148,8 +148,8 @@ header {
 
 .list__item {
     text-align: center;
-    width: 84px;
-    margin: 8px 1px;
+    width: 81px;
+    margin: 8px 0;
 }
 
 .list__item a {
