@@ -1,94 +1,134 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Comfortaa:400,700&subset=latin,cyrillic');
 
 body{
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    background: #F5F5F7; 
 }
 
-nav>ul>li>a{
+.main-container{
+    display: grid;
+    grid-template-areas: 'head head'
+                         'nav main';
+    grid-template-columns: 230px  1fr;
+    grid-template-rows: 60px auto;
+}
+
+.status-bar ul li {
+    padding-top: 3px;
+    float: left;
+    padding-right: 20px;
+
+}
+
+.status-bar a{
+    color: white;
+    text-decoration: none;
+    font-size: .8em;
+    padding-bottom: 4px;
+
+}
+
+.status-bar img{
+    position: absolute;
+    width:30px;
+    height:35px;
+    left: 200px;
+    top: 8px;
+}
+
+.nav>ul>li>a{
     text-decoration: none;
     color: black;  
-    position: relative;
-    left: 20px;
-    transition: all .1s ease-in-out;
+    margin-left: 20px;
 }
 
 li{
-    padding: 10px 0;
+    padding: 10px 0 ;
+    transition: all .1s ease-in-out;
 }
- 
-nav>ul>li:hover{
+
+ul>li:hover{
     cursor: pointer;
-    transform: scale(1.02);
+    transform: scale(1.03);    
 }
 
-nav>ul{
+ul{
     list-style-type: none;
-    margin-top: 80px;
-    height: 100vh;
     padding: 0;
-    margin-top: 70px;   
+    margin-top: 20x;   
 }
 
-nav{
-    width: 230px;
+.nav{
+    width: 230px; 
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    z-index: 1000;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    grid-area: nav;
     outline: 1px solid black;
+    background-color: #F5F5F7;
 }
 
-div.container{
-    position: relative;
-    width: 70%;
-    left: 25%;
-    top: 70px;
+.container{
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: start;
+    grid-area: main;
+    margin: 30px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 20px;
+    height: calc(100vh - 160px);
+    overflow-y: scroll;
 }
 
-img{
-    width: 100%;
+.container img{
+    margin-top: -50px;
     max-width: 400px;
-    height: 500px;
+    width: 100%;
+    height: 480px;
     margin-right: 40px;
     transition: all .1s ease-in-out;
     cursor: pointer;
+    position: relative;
 }
 
-img:hover{
+.container img:hover{
     transform: scale(1.02);
 }
 
 div.likeafragment{
-    width: 100%;
+    margin-top: 40px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
+    height: 700px;
+    width: 100%;
 }
 
 .descriptions{
-    width: 800px;
-    margin-top: 50px;
+    width: 100%;
 }
 
 .status-bar{
     width: 100%;
     height: 60px;
-    background-color: black;
+    background-color: #323232;
     position: fixed;
     color: white;
     text-transform: uppercase;
-    z-index: 3000;
+    grid-area: head;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 2000;
 }
 
 .status-bar h2{
-    margin-top: 15px;
+    font-family: 'Comfortaa', cursive;
+    margin-top: 17px;
     margin-left: 20px;
 }
 
@@ -101,7 +141,8 @@ blockquote {
     position: relative;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    }
+    margin-bottom: 120px;
+}
     
 blockquote p {
     margin: 0 0 16px;
@@ -114,77 +155,118 @@ blockquote cite {
     font-style: normal;
 }
 
+/* 
+*
+*
+* @media
+*
+*
+ */
 
-
-
-@media (max-width: 1050px) {
-    div.container{
-        transform: scale(.9);
+@media(max-width: 1052px){
+    .container img {
+        min-width: 360px;
+        height:440px;
+        margin-right: 20px;
     }
-
+    
+    .container p {
+        font-size: .95em;
+    }
 }
 
-
-@media (max-width: 1000px) {
-    img{
-        width: 300px;
-        height: 400px;
+@media(max-width: 970px){
+    .container img {
+        min-width: 320px;
+        height:400px;
+        margin-right: 10px;
     }
- 
- }
+}
 
-@media (max-width: 850px){
-    img{
-        width: 400px;
-        height: 500px;
+@media(max-width: 890px){
+    .container img {
+        min-width: 320px;
+        height:440px;
+        margin-right: 10px;
     }
+
     div.likeafragment{
-        flex-direction: column-reverse;
-        align-self: center;
-        width: 100%;
-        margin-left: 180px; 
-    }
-
-    body{
-        overflow-x: hidden; 
-    }
-
-    div.descriptions div{
-        width: 400px;
-    }
-}
-
-@media(max-width: 600px){
-    nav{
         align-items: center;
-        text-align: center;
+        flex-direction: column-reverse;
+    }
+}
+
+@media(max-width: 700px){
+    .container img{
+        min-width: 280px;
+        height: 380px;
         position: relative;
-        width: 100%;
-        height: 230px;
-        outline: none;
     }
 
-  
-    div.likeafragment{
-        margin-left: -20px;
-         margin-top: -110px;
-         align-items: center; 
+    .container p {
+        font-size: 1em;
+    }
+}
+
+@media(max-width: 630px){
+    .main-container{
+        grid-template-areas: 'head'
+                             'nav'
+                             'main';
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 40px 1fr;
     }
 
-    .descriptions{
-        width: 100%;
-        margin-right: 110px;
-        text-align: justify;
-
+    .nav{
+        text-align: center;
+        width: 100%; 
+        position: none;
     }
 
-    img{
-        margin-right: 70px;
+    .container img{
+        max-width: 300px;
+    }
+
+    .ul-menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .container{
+        z-index: 1000;
+        max-height: calc(100vh - 200px);
     }
 
     blockquote{
-        margin-top: -30px;
-        padding: 30px 30px 30px 0px;
+        margin-top: 90px;
     }
-    
 }
+
+@media(max-width: 471px){
+    .about{
+        display: none;
+    }
+
+    .container img{
+        height: 320px;
+    }
+
+    .status-bar img{
+        top: 10px; 
+    }
+}
+
+@media(max-width: 321px){
+    .container img{
+        margin-top: 10px;
+        max-width: 270px;
+    }
+    .descriptions{
+        width: 100%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
