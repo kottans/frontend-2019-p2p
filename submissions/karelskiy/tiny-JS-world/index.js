@@ -30,10 +30,11 @@ const population = [
         legs: 2,
         hands: 2,
         saying: 'Ehi, buongiorno'
-    }
-    
-];
+    }];
 
-population.forEach(el => {
-    print(`${el['species']}; ${el['name']}; ${el['gender']}; ${el['legs']}; ${el['hands']}; ${el['saying']}`);
-})
+population.forEach(el => print(['species', 'name', 'gender', 'legs', 'hands', 'saying']
+  .filter(prop => el[prop] !== undefined) // test if el has the property defined and unlist the prop if not
+  .map(prop => el[prop]) // convert prop names into their values
+  .join('; '))
+);
+ 
