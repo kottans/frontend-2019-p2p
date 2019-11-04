@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frieds App</title>
+    <link  rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <main class="friends">
+        <div class="friends-search">
+            <div class="friends-search-header"> 
+                <div class="search-wrap-icon">
+                    <span>Search options</span>
+                </div>
+            </div>
+            <div class="search-wrap-options">
+                <div>
+                    <label class="search-label-options" for="sort-select">Sort by:</label>
+                    <select id="sort-select" class="search-input-options input-height sort-input" name="search-input-options">
+                        <option value="none">-</option>
+                        <option value="nameAsc">name from A to Z</option>
+                        <option value="nameDesc">name from Z to A</option>
+                        <option value="ageAsc">age from Min to Max</option>
+                        <option value="ageDesc">age from Max to Min</option>
+                    </select>
+                </div>
+                <div class="search-filter-options">
+                    <div>
+                        <label class="search-label-options" for="sort-name">By name:</label>
+                        <input id="sort-name" type="text" class="search-input-options search-input-name" name="search-input-name">
+                    </div>
+                    <div class="search-options__age">
+                        <label class="search-label-options" for="">By age:</label>
+                        <input type="text" class="search-input-age search-input-age-start" name="search-input-age" value="0">
+                        <span> - </span>
+                        <input type="text" class="search-input-age search-input-age-end" name="search-input-age" value="150">
+                    </div>
+                    <div>
+                        <label class="search-label-options" for="">By gender:</label>
+                        <div class="search-options__gender">
+                            <input type="radio" id="male" value="male" name="search-input-gender">
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="female" value="female" name="search-input-gender">
+                            <label for="female">Female</label><br>
+                            <input type="radio" id="all" value="all" name="search-input-gender" checked="">
+                            <label for="all">All</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="search-input-options input-height reset-button" name="search-input-reset">Reset</button>
+            </div>
+        </div>
+        <div class="friends-zone"></div>
+    </main>
+<script src="./js/app.js"></script>
+</body>
+</html>
