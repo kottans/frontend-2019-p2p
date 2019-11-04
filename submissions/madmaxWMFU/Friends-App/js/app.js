@@ -62,7 +62,7 @@ const getFilterList = {
         }
     },
     filterByAge: (list, {ageTill, ageTo}) => {
-        return list.filter((person) => ageTill <= person.dob.age && person.dob.age <= ageTo);
+        return list.filter(({ dob }) => ageTill <= dob.age && dob.age <= ageTo);
     },
     filterByName: (list, {name}) => {
         if(name != "") {
