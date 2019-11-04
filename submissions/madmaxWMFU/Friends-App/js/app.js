@@ -6,7 +6,7 @@ const allFriends = {
     maxAge: 150
 };
 
-const searchValue = {
+const searchValues = {
     name: "",
     gender: "all",
     ageTill: allFriends.minAge,
@@ -18,17 +18,17 @@ const sorts = document.querySelector(".sort-input");
 const filters = document.querySelector(".search-filter-options");
 const resetFilters = document.querySelector(".reset-button");
 const searchName = document.querySelector(".search-input-name");
-const searchGender = document.querySelectorAll("[name='search-input-gender']");
+const searchGender = Array.from(document.querySelectorAll("[name='search-input-gender']"));
 const searchAgeTill = document.querySelector(".search-input-age-start");
 const searchAgeTo = document.querySelector(".search-input-age-end");
 
 const loadFriends = () => {
     return fetch(`https://randomuser.me/api/?results=${allFriends.numberOfFriends}`)
-    .then(response => {
-        if(response.ok) return response.json();
-            throw new Error(response.status);
-    })
-    .then(data => data.results);
+        .then(response => {
+            if(response.ok) return response.json();
+                throw new Error(response.status);
+        })
+        .then(data => data.results);
 }     
 
 const drawFriendsCards = (user) => {
@@ -49,43 +49,78 @@ const drawFriendsCards = (user) => {
 
 const cleanFriendsZone = () => friendZone.innerHTML = "";
 
-const showErrorMessage = () => friendZone.insertAdjacentHTML("beforeEnd", '<h4 class="friends-zone__error">No internet connection. Please try again!)</h4>');
+const showErrorMessage = () => friendZone.insertAdjacentHTML("beforeEnd", '<h4 class="friends-zone__error">Something went wrong...</h4>');
 
 const renderFriendsList = (allFriends) => allFriends.forEach(drawFriendsCards);
 
 const getFilterList = {
-    filterByGender: (list, {gender}) => gender !== "all" ? list.filter((person) => person.gender === gender) : allFriends.currentList,
-    filterByAge: (list, {ageTill, ageTo}) => list.filter((person) => ageTill <= person.dob.age && person.dob.age <= ageTo),
-    filterByName: (list, {name}) => name != "" ? list.filter((person) => person.name.first.toLowerCase().indexOf(name.toLowerCase()) != -1) : []
+    filterByGender: (list, {gender}) => {
+        if(gender !== "all") {
+          return list.filter((person) => person.gender === gender); 
+        } else {
+            return allFriends.currentList;
+        }
+    },
+    filterByAge: (list, {ageTill, ageTo}) => {
+        return list.filter((person) => ageTill <= person.dob.age && person.dob.age <= ageTo);
+    },
+    filterByName: (list, {name}) => {
+        if(name != "") {
+            return list.filter((person) => person.name.first.toLowerCase().includes(name));
+        } else {
+            return allFriends.changeList;
+        }
+    }
 }
 
-const getGenderValue = () => Array.from(searchGender).find(item => item.checked === true).value;
+const getGenderValue = () => searchGender.find(item => item.checked === true).value;
 
-const filterList = () => {
+const applyFilters = () => {
+    Object.keys(getFilterList).forEach((filter) => {
+        allFriends.changeList = getFilterList[filter](allFriends.changeList, searchValues);
+    });
+}
+
+const renderFilterList = () => {
     sorts.value = "none";
     allFriends.changeList = [...allFriends.currentList];
-    searchValue.name = searchName.value;
-    searchValue.gender = getGenderValue();
-    searchValue.ageTill = searchAgeTill.value;
-    searchValue.ageTo = searchAgeTo.value;
+    searchValues.name = searchName.value;
+    searchValues.gender = getGenderValue();
+    searchValues.ageTill = searchAgeTill.value;
+    searchValues.ageTo = searchAgeTo.value;
    
-    Object.keys(getFilterList).forEach((filter) => allFriends.changeList = getFilterList[filter](allFriends.changeList, searchValue));
-
+    applyFilters();
     cleanFriendsZone();
     renderFriendsList(allFriends.changeList);  
 }
 
 const sortByName = (a, b) => a.name.first < b.name.first ? -1 : 1;
 
-const getSortNameOptionList = (option) => allFriends.changeList.sort((firstPerson, secondPerson) => option === "nameAsc" ? sortByName(firstPerson, secondPerson) : sortByName(secondPerson, firstPerson));
+const getSortByNameList = (option) => {
+    return allFriends.changeList.sort((firstPerson, secondPerson) => {
+        if(option === "nameAsc") {
+            return sortByName(firstPerson, secondPerson);
+        } else {
+            return sortByName(secondPerson, firstPerson);
+        }
+    });
+} 
 
 const sortByAge = (a, b) => a.dob.age - b.dob.age;
 
-const getSortAgeOptionList = (option) => allFriends.changeList.sort((firstPerson, secondPerson) => option === "ageAsc" ? sortByAge(firstPerson, secondPerson) : sortByAge(secondPerson, firstPerson));
+const getSortByAgeList = (option) => {
+    return allFriends.changeList.sort((firstPerson, secondPerson) => {
+        if(option === "ageAsc") {
+            return sortByAge(firstPerson, secondPerson); 
+        } else {
+            return sortByAge(secondPerson, firstPerson);
+        }
+    });
+}
 
-const sortList = ({target}) => {
+const renderSortFriendList = ({target}) => {
     if(target.value != "none")
-        allFriends.changeList = target.value.indexOf("name") != -1 ? getSortNameOptionList(target.value) : getSortAgeOptionList(target.value);
+        allFriends.changeList = target.value.includes("name") ? getSortByNameList(target.value) : getSortByAgeList(target.value);
         cleanFriendsZone();
         renderFriendsList(allFriends.changeList);
 }
@@ -95,7 +130,7 @@ const resetSearchValues = () => {
     searchName.value = "";
     searchAgeTill.value = allFriends.minAge;
     searchAgeTo.value = allFriends.maxAge;
-    Array.from(searchGender).find(item => item.value === "all").checked = true;
+    searchGender.find(item => item.value === "all").checked = true;
     renderFriendsList(allFriends.currentList);
 };
 
@@ -103,8 +138,8 @@ const init = async () => {
     try {
         allFriends.currentList = await loadFriends();
         allFriends.changeList = [...allFriends.currentList]; 
-        sorts.addEventListener("click", sortList);
-        filters.addEventListener("change", filterList);
+        sorts.addEventListener("click", renderSortFriendList);
+        filters.addEventListener("change", renderFilterList);
         resetFilters.addEventListener("click", resetSearchValues);
         cleanFriendsZone();
         renderFriendsList(allFriends.currentList);
