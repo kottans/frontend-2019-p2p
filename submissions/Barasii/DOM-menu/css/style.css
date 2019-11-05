@@ -4,14 +4,18 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.5;
-    color: #222;
-    background-color: #000;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.5;
+	color: #222;
+	background-color: #000;
 	background-size: cover;
-    height: -webkit-fill-available;
+	height: -webkit-fill-available;
+}
+
+.background {
+	background-image: url('../img/fiogrid.jpg');
 }
 
 .container {

@@ -6,14 +6,12 @@ const CLASS = {
 	li: 'menu-row',
 	a: 'menu-link',
 	figure: 'brand',
-	img: 'brand-link'
+	img: 'brand-link',
+	home: 'home',
+	background: 'background'
 }
 
-const automobile = [ 
-	{
-		concern: "INFORMER",
-		brand: "Today's car market is filled with a variety of brands. But not everyone knows that most automobile brands do not exist independently, and almost every major automobile concern is behind it. Do you know?"
-	},
+const automobiles = [ 
 	{
 		concern: "VOLKSWAGEN AUTO GROUP (VAG)",
 		brand: ["volkswagen", "audi", "seat", "skoda", "bentley", "lamborghini", "porshe", "bugatti", "scania", "man"]
@@ -32,72 +30,96 @@ const automobile = [
 	},
 ];
 
-const insertWelcome = () => {
-	let brand =  document.querySelector('.frame');
-	brand.insertAdjacentHTML('afterbegin', `<h6 class="info">${automobile[0].brand}</h6>`);
+const drawBrands = (arr) => {
+	arr.forEach((item) => {
+		const mainFrame =  document.querySelector('.frame');
+		const logo = document.createElement('figure');
+		const img = document.createElement('img');
+		logo.classList.add(CLASS.figure);
+		img.src = `img/${item}.png`;
+		img.alt = `logo ${item}`;
+		img.classList.add(CLASS.img);
+		logo.append(img);	
+		mainFrame.append(logo);	
+	})
 }
 
-const deleteImg = () => {
-	document.querySelector(".frame").innerHTML="";
+const deleteImg = () => document.querySelector(".frame").innerHTML="";
+
+const showBrands = ({target}) => {
+	if(!target.classList.contains(CLASS.home)) {
+		automobiles.forEach((item) => {
+			if(target.innerText === item.concern) {
+				deleteImg();
+				drawBrands(item.brand);
+			}
+		})	
+	} else {
+		showHome();
+	} 
 }
 
-document.body.style.backgroundImage = "url('img/fiogrid.jpg')";
+const showHome = () => {
+	deleteImg();
 
-const container = document.createElement('div');
-const menu = document.createElement('nav');
-const frame = document.createElement('main');
-const list = document.createElement('ul');
+	const frame = document.querySelector('main');
+	frame.insertAdjacentHTML('afterbegin', `<h6 class="info">Today's car market is filled with a variety of brands. But not everyone knows that most automobile brands do not exist independently, and almost every major automobile concern is behind it. Do you know?</h6>`);
+}
 
-container.classList.add(CLASS.BLOCK);
-menu.classList.add(CLASS.leftPart);
-frame.classList.add(CLASS.rightPart);
-list.classList.add(CLASS.ul);
+const drawMenuList = () => {
+	const fragment = [];
 
-window.document.body.appendChild(container);
-container.appendChild(menu);
-container.appendChild(frame);
-menu.appendChild(list);
-insertWelcome();
+	automobiles.forEach((linkMenu) => {
+		const rowList = document.createElement('li');
+		const link = document.createElement('a');
+		
+		rowList.classList.add(CLASS.li);
+		link.classList.add(CLASS.a);		
+		link.href = '#';
+		link.innerText = linkMenu.concern;
+		rowList.append(link);	
+		fragment.push(rowList);	
+	})
 
+	return fragment;
+}
 
-const appendLiA = automobile.forEach(e => {
+const drawBodyContent = () => {
+	const body = document.querySelector('body');
+	const container = document.createElement('div');
+	const menu = document.createElement('nav');
+	const list = document.createElement('ul');
+	const frame = document.createElement('main');
 	const rowList = document.createElement('li');
 	const link = document.createElement('a');	
-	rowList.classList.add(CLASS.li);
-	link.href = '#';
-	link.classList.add(CLASS.a);
-	link.insertAdjacentHTML('afterbegin', `${e.concern}`);			
-	list.appendChild(rowList);	
-	let menuRow = document.querySelectorAll('.menu-row');
-	Array.from(menuRow).forEach(e => {
-			e.appendChild(link);			
-	});
-});
- 
 
-let menuLink = document.querySelectorAll('.menu-link');
-const appendFigureImg = Array.from(menuLink).forEach(e => {	
-	e.addEventListener("click", (event) => {
-		let target = event.target;
-		for (let i=1; i<automobile.length; i++){
-			if (target.innerHTML == automobile[i].concern) {
-				deleteImg();
-				automobile[i].brand.forEach(b => {
-					let brand =  document.querySelector('.frame');
-					const logo = document.createElement('figure');
-					const img = document.createElement('img');
-					logo.classList.add(CLASS.figure);
-					img.src = `img/${b}.png`;
-					img.alt = `logo ${b}`;
-					img.classList.add(CLASS.img);
-					logo.appendChild(img);	
-					brand.appendChild(logo);	
-				});
-			}
-			else if (target.innerHTML == automobile[0].concern) {
-				deleteImg();
-				insertWelcome();
-			};
-		};
-	});
-});
+	container.classList.add(CLASS.BLOCK);
+	menu.classList.add(CLASS.leftPart);
+	list.classList.add(CLASS.ul);
+	frame.classList.add(CLASS.rightPart);
+	body.classList.add(CLASS.background);
+
+	container.append(menu);
+	container.append(frame);
+	menu.append(list);
+	rowList.classList.add(CLASS.li);
+	link.classList.add(CLASS.a);		
+	link.classList.add(CLASS.home);		
+	link.href = '#';
+	link.innerText = "INFORMER";
+	rowList.append(link);
+	list.append(rowList);
+	list.append(...drawMenuList());
+	body.append(container);
+}
+
+const init = () => {
+	drawBodyContent();
+	showHome();
+	const menuLink = document.querySelector('.menu-list');
+	menuLink.addEventListener("click", showBrands);
+}
+
+window.onload = () => {
+	init();
+}
