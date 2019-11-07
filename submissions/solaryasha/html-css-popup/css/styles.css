@@ -1,0 +1,193 @@
+body {
+    font-size: 15px;
+    font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+.navigation {
+    display: block;
+    height: auto;
+}
+
+.nav_menu {
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.menu_card {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-left: 20px;
+}
+.menu_card a {
+    text-decoration: none;
+    color: black;
+}
+.menu_card img {
+    width: 32px;
+    height: 32px;
+}
+.avatar img {
+    width: 32px;
+    height: 32px;
+}
+.iconsBox {
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: 480px;
+    top: 70px;
+    right: 50px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-color: rgba(0,0,0,.2);
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.visibleIcons,
+.hiddenIcons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 0px;
+    list-style-type: none;
+}
+.popupItem,
+.hidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+    padding: 5px 5px 0 5px;
+}
+.popupItem a {
+    text-decoration: none;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+.popupItem img,
+.hiddenIcons img {
+    display: flex;
+    
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.popupItem figure {
+    margin: 10px;
+}
+.menu-icon {
+    background-image: url(../img/apps.jpg);
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+.bell img{
+    width: 20px;
+    height: 20px;
+}
+.menu-btn,
+.moreApps {
+    position: absolute;
+    clip: rect(0 0 0 0);
+}
+.menu-btn:checked ~ .iconsBox {
+    display: block;
+}
+.evenMore {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.menuMoreButton {
+    display: block;
+    width: 298px;
+    text-align: center;
+    background-color:#f5f5f5;
+    margin-top: 41px;
+    line-height: 35px;
+}
+.dividingLine {
+    color: #eee;
+    width: 250px;
+    margin-left: 20px;
+    opacity: 0.5;
+}
+.dividingLine,
+.hiddenIcons {
+    display: none;
+}
+.moreApps:checked ~ .menuMoreButton {
+    display: none;
+}
+.moreApps:checked ~ .dividingLine {
+    display: inline-block;
+}
+.moreApps:checked ~ .hiddenIcons {
+    display: flex;
+}
+.popupItem a:hover {
+    outline: 1px solid gray;
+}
+.menu_card:hover,
+.evenMore:hover {
+    text-decoration: underline;
+}
+.bell:hover,
+.avatar:hover {
+    opacity: 0.7;
+}
+
+.menu_card a:focus,
+.popupItem img:focus {
+    outline: 2px solid rgb(94, 158, 214);
+}
+
+.menu-btn:focus + .menu-icon {
+    outline: 2px solid rgb(94, 158, 214);
+}
+
+.moreApps:focus + .menuMoreButton{
+    border: 1px solid rgb(94, 158, 214);
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 150px auto;
+    max-width: 500px;
+    height: 90vh;
+    align-items: center;
+}
+.logo {
+    width: 400px;
+    height: auto;
+    margin-left: -50px;
+}
+.searchBox {
+    border: 1px solid #dfe1e5;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px 0 rgba(32, 33, 36, .28);
+    height: 40px;
+    width: 100%;
+    cursor: text;
+    font-size: 16px;
+    padding-left: 30px;
+    
+}
+.searchBox:focus {
+    outline: none;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+}
