@@ -8,40 +8,32 @@
 // Define your objects here
 class Inhabitant {
     constructor(species, name, gender, legs, hands, saying) {
-        this.species = species;
-        this.name = name;
-        this.gender = gender;
-        this.legs = legs;
-        this.hands = hands;
-        this.saying = saying
+      this.species = species;
+      this.name = name;
+      this.gender = gender;
+      this.legs = legs;
+      this.hands = hands;
+      this.saying = saying;
     }
-}
-
-const man = new Inhabitant('human', 'Leonid', 'male', '2', '2', 'Hello everyone!')
-const woman = new Inhabitant('human', 'Daria', 'female', '2', '2', 'Good day!')
-const dog = new Inhabitant('dog', 'Archi', 'male', '4', '0', 'Woof-woof')
-const cat = new Inhabitant('cat', 'Co-co', 'female', '4', '0', 'Meow')
-const catWoman = new Inhabitant('cat-woman', 'Kitty', 'female', '2', '2')
-man.friends = [woman.name, dog.name].join(', ')
-woman.friends = [cat.name]
-cat.friends = [man.name, woman.name].join(', ')
-dog.friends = [man.name, woman.name, cat.name].join(', ')
-catWoman.saying = cat.saying;
-catWoman.friends = cat.friends
-
-const showIn = function (obj) {
-    let result = ''
-    for (let key in obj) {
-        result += `${key}: ${obj[key]}; `
+  }
+  
+  const man = new Inhabitant("human", "Leonid", "male", "2", "2", "Hello!");
+  const woman = new Inhabitant("human", "Daria", "female", "2", "2", "Good day!");
+  const dog = new Inhabitant("dog", "Archi", "male", "4", "0", "Woof-woof");
+  const cat = new Inhabitant("cat", "Co-co", "female", "4", "0", "Meow");
+  const catWoman = new Inhabitant("cat-woman", "Kitty", "female", "2", "2");
+  catWoman.saying = cat.saying;
+  const inhabitant = [man, woman, cat, dog, catWoman];
+  
+  const showInfo = function(obj) {
+    let result = "";
+    for (let i in obj) {
+      result += `${i}: ${obj[i]}; `;
     }
-    return result
-}
-
-print(showIn(man))
-print(showIn(woman))
-print(showIn(cat))
-print(showIn(dog))
-print(showIn(catWoman))
+    return result;
+  };
+  
+  inhabitant.forEach(i => print(showInfo(i)));
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
