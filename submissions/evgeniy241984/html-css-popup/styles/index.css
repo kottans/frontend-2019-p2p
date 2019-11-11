@@ -211,19 +211,12 @@ a {
     background-color: #CCCCCC;
 }
 
-/*Popup Divider */
-.popup__divider {
-    display: none;
-    width: 80%;
-    margin-left: 10%;
-    margin-bottom: 25px;
-    height: 1px;
-    background-color: #CCCCCC;
-}
-
 /*After MoreBtn content*/
 .popup__menu-continue {
     display: none;
+    border-top: #CCCCCC solid 1px;
+    padding-top: 25px;
+
 }
 
 /*Even More Link*/
