@@ -1,5 +1,3 @@
-var gameScore = 0;
-
 const ENEMY = {
   speed: 100,
   varianceSpeed: 222,
@@ -22,22 +20,26 @@ const CANVAS = {
   halfCell: 50
 };
 
-var Draw = function() {};
-
-Draw.prototype.render = function() {
+var Character = function(x, y) {
+  this.x = x;
+  this.y = y;
+};
+Character.prototype.constructor = Character;
+Character.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 var Enemy = function(x, y, speed, player) {
-  this.x = x;
-  this.y = y;
+  Character.call(this, x, y);
+  this.sprite = "images/car.png";
   this.speed = speed;
   this.player = player;
-  this.sprite = "images/car.png";
 };
-
-Enemy.prototype = Object.create(Draw.prototype);
+Enemy.prototype = Object.create(Character.prototype);
 Enemy.prototype.constructor = Enemy;
+Enemy.prototype.toRender = function() {
+  this.render();
+};
 
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
@@ -53,24 +55,31 @@ Enemy.prototype.update = function(dt) {
     player.y > this.y - CANVAS.halfCell &&
     player.y < this.y + CANVAS.halfCell
   ) {
-    player.startPosition();
+    player.goToStart();
   }
 };
 
-var Player = function() {
-  this.startPosition();
+var Player = function(x, y) {
+  Character.call(this, x, y);
+  this.score = 0;
   this.sprite = "images/char-cat-girl.png";
 };
-Player.prototype = Object.create(Draw.prototype);
+
+Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
+Player.prototype.toRender = function() {
+  this.render();
+};
+
 Player.prototype.update = function() {
   if (this.y <= 0) {
-    displayStats();
-    this.startPosition();
+    this.score++;
+    this.displayStats();
+    this.goToStart();
   }
 };
 
-Player.prototype.startPosition = function() {
+Player.prototype.goToStart = function() {
   this.x = PLAYER.startX;
   this.y = PLAYER.startY;
 };
@@ -87,13 +96,12 @@ Player.prototype.handleInput = function(keyUp) {
   }
 };
 
-var displayStats = function() {
-  gameScore++;
-  document.getElementById("currentStats").innerHTML = "Score: " + gameScore;
+Player.prototype.displayStats = function() {
+  document.getElementById("currentStats").innerHTML = "Score: " + this.score;
 };
 
+var player = new Player(PLAYER.startX, PLAYER.startY);
 var allEnemies = ENEMY.location.map(y => new Enemy(0, y, 200, player));
-var player = new Player();
 
 document.addEventListener("keyup", function(e) {
   var allowedKeys = {
