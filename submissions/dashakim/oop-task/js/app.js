@@ -1,6 +1,8 @@
 var gameScore = 0;
 
 const ENEMY = {
+  startPos: 0,
+  startSpeed: 200,
   speed: 100,
   varianceSpeed: 222,
   location: [70, 155, 235]
@@ -40,9 +42,6 @@ var Enemy = function(x, y, speed, player) {
 };
 Enemy.prototype = Object.create(Character.prototype);
 Enemy.prototype.constructor = Enemy;
-Enemy.prototype.toRender = function() {
-  this.render();
-};
 
 Enemy.prototype.update = function(dt) {
   this.x += this.speed * dt;
@@ -70,12 +69,9 @@ var Player = function(x, y, addScore) {
 
 Player.prototype = Object.create(Character.prototype);
 Player.prototype.constructor = Player;
-Player.prototype.toRender = function() {
-  this.render();
-};
 
 Player.prototype.update = function() {
-  if (this.y <= 0) {
+  if (this.y <= CANVAS.top) {
     this.addScore();
     this.goToStart();
   }
@@ -98,21 +94,16 @@ Player.prototype.handleInput = function(keyUp) {
   }
 };
 
-function addScoreBy() {
-  return function() {
-    return gameScore++;
-  };
-}
-var count = addScoreBy();
-
 var displayStats = function() {
-  count();
+  gameScore++;
   return (document.getElementById("currentStats").innerHTML =
     "Score: " + gameScore);
 };
 
 var player = new Player(PLAYER.startX, PLAYER.startY, displayStats);
-var allEnemies = ENEMY.location.map(y => new Enemy(0, y, 200, player));
+var allEnemies = ENEMY.location.map(
+  y => new Enemy(ENEMY.startPos, y, ENEMY.startSpeed, player)
+);
 
 document.addEventListener("keyup", function(e) {
   var allowedKeys = {
