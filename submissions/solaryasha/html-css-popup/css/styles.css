@@ -1,12 +1,14 @@
+* { 
+    box-sizing: border-box;
+} 
 body {
     font-size: 15px;
     font-family: 'Segoe UI', 'Roboto', arial, sans-serif;
-    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    outline: none;
 }
 
-* {
-    box-sizing: border-box;
-}
 .navigation {
     display: block;
     height: auto;
@@ -59,6 +61,7 @@ body {
     padding-left: 0px;
     list-style-type: none;
 }
+
 .popupItem,
 .hidden {
     display: flex;
@@ -102,7 +105,8 @@ body {
 .menu-btn,
 .moreApps {
     position: absolute;
-    clip: rect(0 0 0 0);
+    appearance: none;
+    -webkit-appearance: none;
 }
 .menu-btn:checked ~ .iconsBox {
     display: block;
@@ -119,25 +123,18 @@ body {
     margin-top: 41px;
     line-height: 35px;
 }
-.dividingLine {
-    color: #eee;
-    width: 250px;
-    margin-left: 20px;
-    opacity: 0.5;
-}
-.dividingLine,
 .hiddenIcons {
     display: none;
 }
 .moreApps:checked ~ .menuMoreButton {
     display: none;
 }
-.moreApps:checked ~ .dividingLine {
-    display: inline-block;
-}
+
 .moreApps:checked ~ .hiddenIcons {
     display: flex;
-}
+    border-top: 1px groove #eee;
+    margin-top: 20px;
+} 
 .popupItem a:hover {
     outline: 1px solid gray;
 }
@@ -146,7 +143,8 @@ body {
     text-decoration: underline;
 }
 .bell:hover,
-.avatar:hover {
+.avatar:hover,
+.menu-icon:hover {
     opacity: 0.7;
 }
 
@@ -168,7 +166,6 @@ body {
     flex-direction: column;
     margin: 150px auto;
     max-width: 500px;
-    height: 90vh;
     align-items: center;
 }
 .logo {
