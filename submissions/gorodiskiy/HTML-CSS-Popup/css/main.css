@@ -56,8 +56,13 @@ label[for="more"] {
     padding: 10px 20px;
     background-color: #1E7B0B;
     color: #fff;
+    border:1px solid transparent;
 }
-
+label[for="more"]:hover, label[for="more"]:focus{
+  background-color: #fff;
+  color:#1E7B0B;
+  border-color: #1E7B0B;
+}
 input[type="checkbox"] {
     display: none;
     -webkit-appearance: none;
@@ -182,5 +187,3 @@ figure img {
     max-width: 150px;
     margin-bottom: 16px;
 }
-
-/*  */
