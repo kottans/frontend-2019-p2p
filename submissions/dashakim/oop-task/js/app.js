@@ -93,9 +93,11 @@ Player.prototype.handleInput = function(keyUp) {
     this.y = this.y + PLAYER.stepY;
   }
 };
-
+var addScore = function() {
+  return gameScore++
+}
 var displayStats = function() {
-  gameScore++;
+  addScore()
   return (document.getElementById("currentStats").innerHTML =
     "Score: " + gameScore);
 };
