@@ -7,33 +7,73 @@
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 class Inhabitant {
-    constructor(species, name, gender, legs, hands, saying) {
-      this.species = species;
-      this.name = name;
-      this.gender = gender;
-      this.legs = legs;
-      this.hands = hands;
-      this.saying = saying;
-    }
+  constructor(name, gender) {
+    this.resident = this.constructor.name;
+    this.name = name;
+    this.gender = gender;
   }
-  
-  const man = new Inhabitant("human", "Leonid", "male", "2", "2", "Hello!");
-  const woman = new Inhabitant("human", "Daria", "female", "2", "2", "Good day!");
-  const dog = new Inhabitant("dog", "Archi", "male", "4", "0", "Woof-woof");
-  const cat = new Inhabitant("cat", "Co-co", "female", "4", "0", "Meow");
-  const catWoman = new Inhabitant("cat-woman", "Kitty", "female", "2", "2");
-  catWoman.saying = cat.saying;
-  const inhabitant = [man, woman, cat, dog, catWoman];
-  
-  const showInfo = function(obj) {
-    let result = "";
-    for (let i in obj) {
-      result += `${i}: ${obj[i]}; `;
+  toSring() {
+    return Object.entries(this)
+      .map(([prop, value]) => `${prop}: <b>${value}</b>`)
+      .join("; ");
+  }
+}
+const SayCatMixin = superclass =>
+  class extends superclass {
+    constructor(name, gender, saying) {
+      super(name, gender, saying);
+      this.saying = "Meow";
     }
-    return result;
   };
-  
-  inhabitant.forEach(i => print(showInfo(i)));
+class Human extends Inhabitant {
+  constructor(name, gender, saying) {
+    super(name, gender);
+    this.hands = 2;
+    this.legs = 2;
+    this.saying = saying;
+  }
+}
+class Man extends Human {
+  constructor(name, saying) {
+    super(name, "male", saying);
+  }
+}
+class Woman extends Human {
+  constructor(name, saying) {
+    super(name, "female", saying);
+  }
+}
+class Animal extends Inhabitant {
+  constructor(name, gender, saying) {
+    super(name, gender);
+    this.paws = 4;
+    this.saying = saying;
+  }
+}
+class Dog extends Animal {
+  constructor(name, gender, saying) {
+    super(name, gender, saying);
+  }
+}
+class Cat extends SayCatMixin(Animal) {
+  constructor(name, gender) {
+    super(name, gender);
+  }
+}
+class catWoman extends SayCatMixin(Woman) {
+  constructor(name, saying) {
+    super(name, saying);
+  }
+}
+let inhabitants = [
+  new Man("Jack", "I hope you're having a wonderful day"),
+  new Woman("Sara", "Hey Jack, good to see you!"),
+  new Dog("Archi", "male", "Woof-woof!"),
+  new Cat("Felix", "male"),
+  new catWoman("Selina")
+];
+inhabitants.forEach(i => print(i.toSring()));
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
