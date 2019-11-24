@@ -60,7 +60,7 @@ class Cat extends SayCatMixin(Animal) {
     super(name, gender);
   }
 }
-class catWoman extends SayCatMixin(Woman) {
+class CatWoman extends SayCatMixin(Woman) {
   constructor(name, saying) {
     super(name, saying);
   }
@@ -70,7 +70,7 @@ let inhabitants = [
   new Woman("Sara", "Hey Jack, good to see you!"),
   new Dog("Archi", "male", "Woof-woof!"),
   new Cat("Felix", "male"),
-  new catWoman("Selina")
+  new CatWoman("Selina")
 ];
 inhabitants.forEach(i => print(i.toSring()));
 
