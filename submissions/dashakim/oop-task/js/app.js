@@ -1,20 +1,20 @@
 var gameScore = 0;
 
-const ENEMY = {
+var ENEMY = {
   startPos: 0,
   startSpeed: 200,
   speed: 100,
   varianceSpeed: 222,
   location: [70, 155, 235]
 };
-const PLAYER = {
+var PLAYER = {
   startX: 200,
   startY: 404,
   stepX: 101,
   stepY: 83
 };
 
-const CANVAS = {
+var CANVAS = {
   begin: -60,
   end: 510,
   leftSide: 0,
