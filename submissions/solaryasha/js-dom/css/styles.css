@@ -1,0 +1,141 @@
+:root {
+    --yellow: #ffc600;
+    --black: #272727;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+html,body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Roboto', arial, sans-serif;
+    color: white;
+    background: linear-gradient(110deg, #f93d66, #6d47d9);
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+.menu-tabs {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 50px;
+    grid-gap: 20px;   
+}
+.nav {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-gap: 20px;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+}
+.nav-tab{
+    background: var(--yellow);
+    color: var(--black);
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+.nav-tab:hover{
+    opacity: 0.6;
+}
+.info-content{
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    grid-template-rows: 50px 1fr;
+    grid-gap: 20px;
+    background:rgba(255,255,255,0.2);
+    border-radius: 5px;
+    justify-items: center;
+    align-content: center;
+    padding: 20px 50px;
+}
+.template-header{
+    grid-column: span 2;
+    text-align: center;
+}
+
+.info-content img{
+    grid-row: 2;
+    width: 100%;
+}
+
+.template-text {
+     padding: 0px 50px;
+}
+@media (max-width: 1150px){
+    .menu-tabs{
+        grid-template-areas: "tabs tabs"
+                            "info info";
+    }
+    .nav {
+        grid-area: tabs;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(50px,1fr));
+        
+    }
+    .nav-tab {
+        height: 100%;
+        
+    }
+    .info-content {
+        grid-area: info;
+    }
+}
+
+ @media (max-width: 750px){
+    .menu-tabs{
+        padding: 0;
+        grid-gap: 20px;
+        margin: 100px 5px;
+    }
+    .nav{
+        padding: 0;
+    }
+    .info-content{
+        padding: 0;
+    
+    }
+    } 
+@media (max-width: 600px){
+    .menu-tabs{
+        margin:0;
+    }
+    .nav{
+        padding: 0;
+        grid-gap: 0;
+            
+            
+    }
+    .info-content{
+        padding: 20px;
+        margin: 0;
+        grid-template-areas:"header header"
+                            "text text"
+                            "image image";
+    }
+
+    .template-header{
+        grid-area: header;
+    }
+    .template-image{
+        grid-area: image;
+
+    }
+    .info-content img{
+        width: 100%;
+    }
+    
+    .template-text {
+        grid-area: text;
+    }
+    } 
+@media (max-width: 500px){
+        .nav{
+        font-size: 10px;
+    }
+    }
