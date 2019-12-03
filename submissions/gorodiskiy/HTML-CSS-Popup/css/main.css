@@ -55,7 +55,7 @@ label[for="more"] {
     text-align: center;
     padding: 10px 20px;
     background-color: #1E7B0B;
-    color: #fff; 
+    color: #fff;
     border:1px solid transparent;
 }
 label[for="more"]:hover, label[for="more"]:focus{
@@ -91,7 +91,14 @@ input[name="open-box"]{
 input[name="open-box"]:checked~.box {
     display: block;
 }
+input[name="more"]{
+  position: absolute;
+  height:40px;
+  width:100%;
+  display: block;
+  margin: -40px 0 0 0;
 
+}
 input[name="more"]:checked~.list--two {
     display: flex;
 }
