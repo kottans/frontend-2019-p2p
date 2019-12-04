@@ -4,13 +4,19 @@ class Inhabitant {
     this.species = props.species;
     this.gender = props.gender;
     this.saying = props.saying;
-    // this.friends = []
+    this.friends = [];
+  }
+  setFriends(friends) {
+    this.friends = friends;
+  }
+  getFriends() {
+    return this.friends.map(friend => friend.name).join(", ");
   }
   toSay() {
     return this.saying;
   }
   toString() {
-    return `I'm ${this.species}, my name is ${this.name}; gender: ${this.gender}. `;
+    return `I'm ${this.species}; My name is ${this.name}; gender: ${this.gender}; `;
   }
 }
 const SayCatMixin = superclass =>
@@ -32,7 +38,7 @@ class Human extends Inhabitant {
       super.toString() +
       `I have ${this.hands} hands and ${
         this.legs
-      } legs. Saying: ${super.toSay()} `
+      } legs; Saying: ${super.toSay()}; My friends: ${super.getFriends()};`
     );
   }
 }
@@ -55,7 +61,10 @@ class Animal extends Inhabitant {
   }
   toString() {
     return (
-      super.toString() + `I have ${this.paws} paws. Saying: ${super.toSay()} `
+      super.toString() +
+      `I have ${
+        this.paws
+      } paws; Saying: ${super.toSay()}; My friends: ${super.getFriends()};`
     );
   }
 }
@@ -76,12 +85,19 @@ class CatWoman extends SayCatMixin(Woman) {
     super(props);
   }
 }
-let inhabitants = [
-  new Man({ name: "Jack", saying: "I hope you're having a wonderful day" }),
-  new Woman({ name: "Sara", saying: "Hey Jack, good to see you!" }),
-  new Cat({ name: "Felix", gender: "male", saying: "Meow" }),
-  new Dog({ name: "Archi", gender: "male", saying: "Woof-woof!" }),
-  new CatWoman({ name: "Selina" })
-];
 
+let man = new Man({
+  name: "Jack",
+  saying: "I hope you're having a wonderful day"
+});
+let woman = new Woman({ name: "Sara", saying: "Hey Jack, good to see you!" });
+let cat = new Cat({ name: "Felix", gender: "male", saying: "Meow" });
+let dog = new Dog({ name: "Archi", gender: "male", saying: "Woof-woof!" });
+let catWoman = new CatWoman({ name: "Selina" });
+man.setFriends([cat, dog, woman, catWoman]);
+woman.setFriends([man, cat]);
+dog.setFriends([woman, man]);
+cat.setFriends([woman]);
+catWoman.setFriends([cat]);
+let inhabitants = [man, woman, cat, dog, catWoman];
 inhabitants.forEach(i => print(i));
