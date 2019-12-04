@@ -1,67 +1,87 @@
 class Inhabitant {
-  constructor(name, gender) {
-    this.resident = this.constructor.name;
-    this.name = name;
-    this.gender = gender;
+  constructor(props) {
+    this.name = props.name;
+    this.species = props.species;
+    this.gender = props.gender;
+    this.saying = props.saying;
+    // this.friends = []
   }
-  toSring() {
-    return Object.entries(this)
-      .map(([prop, value]) => `${prop}: <b>${value}</b>`)
-      .join("; ");
+  toSay() {
+    return this.saying;
+  }
+  toString() {
+    return `I'm ${this.species}, my name is ${this.name}; gender: ${this.gender}. `;
   }
 }
 const SayCatMixin = superclass =>
   class extends superclass {
-    constructor(name, gender, saying) {
-      super(name, gender, saying);
-      this.saying = "Meow";
+    constructor(props) {
+      super(props);
+      this.saying = props.saying || "Meow";
     }
   };
 class Human extends Inhabitant {
-  constructor(name, gender, saying) {
-    super(name, gender);
+  constructor(props) {
+    super(props);
+    this.species = props.species || "Human";
     this.hands = 2;
     this.legs = 2;
-    this.saying = saying;
+  }
+  toString() {
+    return (
+      super.toString() +
+      `I have ${this.hands} hands and ${
+        this.legs
+      } legs. Saying: ${super.toSay()} `
+    );
   }
 }
 class Man extends Human {
-  constructor(name, saying) {
-    super(name, "male", saying);
+  constructor(props) {
+    super(props);
+    this.gender = props.gender || "male";
   }
 }
 class Woman extends Human {
-  constructor(name, saying) {
-    super(name, "female", saying);
+  constructor(props) {
+    super(props);
+    this.gender = props.gender || "female";
   }
 }
 class Animal extends Inhabitant {
-  constructor(name, gender, saying) {
-    super(name, gender);
+  constructor(props) {
+    super(props);
     this.paws = 4;
-    this.saying = saying;
+  }
+  toString() {
+    return (
+      super.toString() + `I have ${this.paws} paws. Saying: ${super.toSay()} `
+    );
   }
 }
 class Dog extends Animal {
-  constructor(name, gender, saying) {
-    super(name, gender, saying);
+  constructor(props) {
+    super(props);
+    this.species = props.species || "Dog";
   }
 }
 class Cat extends SayCatMixin(Animal) {
-  constructor(name, gender) {
-    super(name, gender);
+  constructor(props) {
+    super(props);
+    this.species = props.species || "Cat";
   }
 }
 class CatWoman extends SayCatMixin(Woman) {
-  constructor(name, saying) {
-    super(name, saying);
+  constructor(props) {
+    super(props);
   }
 }
 let inhabitants = [
-  new Man("Jack", "I hope you're having a wonderful day"),
-  new Woman("Sara", "Hey Jack, good to see you!"),
-  new Dog("Archi", "male", "Woof-woof!"),
-  new Cat("Felix", "male"),
-  new CatWoman("Selina")
+  new Man({ name: "Jack", saying: "I hope you're having a wonderful day" }),
+  new Woman({ name: "Sara", saying: "Hey Jack, good to see you!" }),
+  new Cat({ name: "Felix", gender: "male", saying: "Meow" }),
+  new Dog({ name: "Archi", gender: "male", saying: "Woof-woof!" }),
+  new CatWoman({ name: "Selina" })
 ];
-inhabitants.forEach(i => print(i.toSring()));
+
+inhabitants.forEach(i => print(i));
