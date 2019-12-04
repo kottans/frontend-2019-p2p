@@ -61,9 +61,9 @@ Enemy.prototype.update = function(dt) {
   }
 };
 
-var Player = function(x, y, addScore) {
+var Player = function(x, y,displayStats) {
   Character.call(this, x, y);
-  this.addScore = addScore;
+  this.displayStats = displayStats
   this.sprite = "images/char-cat-girl.png";
 };
 
@@ -72,7 +72,7 @@ Player.prototype.constructor = Player;
 
 Player.prototype.update = function() {
   if (this.y <= CANVAS.top) {
-    this.addScore();
+    displayStats(addScore);
     this.goToStart();
   }
 };
@@ -96,8 +96,8 @@ Player.prototype.handleInput = function(keyUp) {
 var addScore = function() {
   return gameScore++
 }
-var displayStats = function() {
-  addScore()
+var displayStats = function(add) {
+  add()
   return (document.getElementById("currentStats").innerHTML =
     "Score: " + gameScore);
 };
