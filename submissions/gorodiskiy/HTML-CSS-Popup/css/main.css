@@ -64,7 +64,7 @@ label[for="more"]:hover{
   border-color: #1E7B0B;
 }
 input[type="checkbox"] {
-    display: none;
+    appearance: none;
     -webkit-appearance: none;
 }
 
@@ -86,6 +86,7 @@ input[name="open-box"]{
   width: 18px;
   height: 18px;
   margin: 0;
+  cursor: pointer;
   display: inline-block;
 }
 input[name="open-box"]:checked~.box {
