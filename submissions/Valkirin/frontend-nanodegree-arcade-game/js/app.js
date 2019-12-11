@@ -6,14 +6,34 @@ var playerSpawnY = 400;
 var horizontalStep = 100;
 var verticalStep = 83;
 var stepZone = 400;
+var finishZone = 60;
+var startX = 0;
+var firstEnemyLine = 60;
+var secondEnemyLine = 140;
+var thirdEnemyLine = 220;
+var enemySpeed = 800;
+
+var Person = function(x, y, sprite) {
+  this.x = x;
+  this.y = y;
+  this.sprite = sprite;
+};
+
+Person.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 var Enemy = function(x, y, speed, player) {
+  Person.call(this, x, y);
   this.x = x;
   this.y = y;
   this.speed = speed;
   this.sprite = 'images/enemy-bug.png';
   this.player = player;
 };
+
+Enemy.prototype = Object.create(Person.prototype);
+Enemy.prototype.constructor = Enemy;
 
 Enemy.prototype.update = function(dt) {
   this.x += +(this.speed * dt);
@@ -24,43 +44,35 @@ Enemy.prototype.update = function(dt) {
   }
 
   if (
-    player.x > this.x - enemySize &&
-    player.x < this.x + enemySize &&
-    player.y > this.y - enemySize &&
-    player.y < this.y + enemySize
+    this.player.x > this.x - enemySize &&
+    this.player.x < this.x + enemySize &&
+    this.player.y > this.y - enemySize &&
+    this.player.y < this.y + enemySize
   ) {
-    player.x = playerSpawnX;
-    player.y = playerSpawnY;
+    this.player.x = playerSpawnX;
+    this.player.y = playerSpawnY;
   }
 };
 
-Enemy.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-var enemyLocation = [60, 140, 220];
-
-var allEnemies = enemyLocation.map(y => new Enemy(0, y, 300, player));
-
 var Player = function(x, y) {
+  Person.call(this, x, y);
   this.x = x;
   this.y = y;
   this.sprite = 'images/char-boy.png';
 };
 
+Player.prototype = Object.create(Person.prototype);
+Player.prototype.constructor = Player;
+
 Player.prototype.update = function() {
-  if (this.y < 60) {
+  if (this.y < finishZone) {
     this.x = playerSpawnX;
     this.y = playerSpawnY;
   }
 };
 
-Player.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
 Player.prototype.handleInput = function(key) {
-  if (key === 'left' && this.x > 0) {
+  if (key === 'left' && this.x > startX) {
     this.x = this.x - horizontalStep;
   } else if (key === 'right' && this.x != stepZone) {
     this.x = this.x + horizontalStep;
@@ -72,6 +84,12 @@ Player.prototype.handleInput = function(key) {
 };
 
 var player = new Player(playerSpawnX, playerSpawnY);
+
+var enemyLocation = [firstEnemyLine, secondEnemyLine, thirdEnemyLine];
+
+var allEnemies = enemyLocation.map(
+  y => new Enemy(startX, y, enemySpeed, player)
+);
 
 document.addEventListener('keyup', function(e) {
   var allowedKeys = {
