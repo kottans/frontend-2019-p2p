@@ -17,5 +17,3 @@ const images = [
   "img/skype.svg",
   "img/dribbble.svg"
 ];
-
-images.map(i=>i.split('.').slice(0,1).join('').substr(4))

@@ -1,6 +1,6 @@
-const section = document.querySelector("section");
+const section = document.querySelector("section.memory-game");
 
-const imagesNames = function(currentImg) {
+const getImagesNamesForAltAttribute = function(currentImg) {
   return currentImg
     .split(".")
     .slice(0, 1)
@@ -8,58 +8,60 @@ const imagesNames = function(currentImg) {
     .substr(4);
 };
 
-const createFrontFaceCard = function(div) {
+const createFrontFaceCard = function(cardsContainer) {
   const frontImage = document.createElement("img");
   frontImage.classList.add("front-face");
   frontImage.setAttribute("src", frontImageQuestion);
   frontImage.setAttribute("alt", "icon-question");
-  div.appendChild(frontImage);
+  cardsContainer.appendChild(frontImage);
 };
 
-const createBackFaceCard = function(div, el) {
+const createBackFaceCard = function(cardsContainer, currentImg) {
   const backImage = document.createElement("img");
   backImage.classList.add("back-face");
-  backImage.setAttribute("src", el);
-  backImage.setAttribute("alt", imagesNames(el));
-  div.appendChild(backImage);
+  backImage.setAttribute("src", currentImg);
+  backImage.setAttribute("alt", getImagesNamesForAltAttribute(currentImg));
+  cardsContainer.appendChild(backImage);
 };
 
-const createCard = function(storage) {
-  storage.map(i => {
+const createCards = function(storage) {
+  storage.map(e => {
     const divMemoryCard = document.createElement("div");
     divMemoryCard.classList.add("memory-card");
     section.appendChild(divMemoryCard);
-    divMemoryCard.dataset.framework = imagesNames(i);
+    divMemoryCard.dataset.framework = getImagesNamesForAltAttribute(e);
     createFrontFaceCard(divMemoryCard);
-    createBackFaceCard(divMemoryCard, i);
+    createBackFaceCard(divMemoryCard, e);
   });
 };
 
-createCard(images);
+createCards(images);
 
-const card = document.querySelectorAll(".memory-card");
+const cards = document.querySelectorAll(".memory-card");
 let lockBoard = false;
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
-function flipCard() {
+const flipCard = e => {
   if (lockBoard) return;
-  if (this === firstCard) return;
-  this.classList.add("flip");
+  const target = e.target.parentElement;
+  target.classList.add("flip");
+
   if (!hasFlippedCard) {
+    //first click
     hasFlippedCard = true;
-    firstCard = this;
-
-    return;
+    firstCard = target;
+  } else {
+    //second click
+    hasFlippedCard = false;
+    secondCard = target;
+    checkForMatch();
   }
-
-  secondCard = this;
-  checkForMatch();
-}
+};
 
 function checkForMatch() {
   let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
-  isMatch ? disableCards() : unflipCards();
+  isMatch ? disableCards() : flipBack();
 }
 
 function disableCards() {
@@ -67,7 +69,8 @@ function disableCards() {
   secondCard.removeEventListener("click", flipCard);
   resetBoard();
 }
-function unflipCards() {
+
+function flipBack() {
   lockBoard = true;
   setTimeout(() => {
     firstCard.classList.remove("flip");
@@ -75,16 +78,19 @@ function unflipCards() {
     resetBoard();
   }, 500);
 }
+
 function resetBoard() {
   [hasFlippedCard, lockBoard] = [false, false][(firstCard, secondCard)] = [
     null,
     null
   ];
 }
+
 (function shuffle() {
-  card.forEach(card => {
+  cards.forEach(cards => {
     let random = Math.floor(Math.random() * 16);
-    card.style.order = random;
+    cards.style.order = random;
   });
 })();
-card.forEach(card => card.addEventListener("click", flipCard));
+
+cards.forEach(card => card.addEventListener("click", flipCard));
