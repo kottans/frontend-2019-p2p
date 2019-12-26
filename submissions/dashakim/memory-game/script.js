@@ -1,6 +1,6 @@
 const section = document.querySelector("section.memory-game");
 
-const getImagesNamesForAltAttribute = function(currentImg) {
+const getImageName = function(currentImg) {
   return currentImg
     .split(".")
     .slice(0, 1)
@@ -20,7 +20,7 @@ const createBackFaceCard = function(cardsContainer, currentImg) {
   const backImage = document.createElement("img");
   backImage.classList.add("back-face");
   backImage.setAttribute("src", currentImg);
-  backImage.setAttribute("alt", getImagesNamesForAltAttribute(currentImg));
+  backImage.setAttribute("alt", getImageName(currentImg));
   cardsContainer.appendChild(backImage);
 };
 
@@ -29,7 +29,7 @@ const createCards = function(storage) {
     const divMemoryCard = document.createElement("div");
     divMemoryCard.classList.add("memory-card");
     section.appendChild(divMemoryCard);
-    divMemoryCard.dataset.framework = getImagesNamesForAltAttribute(e);
+    divMemoryCard.dataset.framework = getImageName(e);
     createFrontFaceCard(divMemoryCard);
     createBackFaceCard(divMemoryCard, e);
   });
@@ -45,8 +45,8 @@ let firstCard, secondCard;
 const flipCard = e => {
   if (lockBoard) return;
   const target = e.target.parentElement;
+  if (target === firstCard) return;
   target.classList.add("flip");
-
   if (!hasFlippedCard) {
     //first click
     hasFlippedCard = true;
