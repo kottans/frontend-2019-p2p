@@ -42,10 +42,9 @@ let lockBoard = false;
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
-const flipCard = e => {
+const flipCard = ({target}) => {
   if (lockBoard) return;
-  const target = e.target;
-  if(!section === target) return;
+  if(section === target) return;
   if (target === firstCard) return;
   target.classList.add("flip");
   if (!hasFlippedCard) {
