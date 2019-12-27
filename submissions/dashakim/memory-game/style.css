@@ -42,6 +42,7 @@ body {
   position: absolute;
   /* background: #21202f; */
   backface-visibility: hidden;
+  pointer-events: none;
 }
 .back-face {
   transform: rotateY(180deg);

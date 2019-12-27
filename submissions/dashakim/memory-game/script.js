@@ -44,7 +44,8 @@ let firstCard, secondCard;
 
 const flipCard = e => {
   if (lockBoard) return;
-  const target = e.target.parentElement;
+  const target = e.target;
+  if(!section === target) return;
   if (target === firstCard) return;
   target.classList.add("flip");
   if (!hasFlippedCard) {
@@ -93,4 +94,4 @@ function resetBoard() {
   });
 })();
 
-cards.forEach(card => card.addEventListener("click", flipCard));
+section.addEventListener("click", flipCard);
