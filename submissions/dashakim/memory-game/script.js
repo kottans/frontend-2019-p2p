@@ -42,9 +42,10 @@ let lockBoard = false;
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
-const flipCard = ({target}) => {
+const flipCard = ({ target }) => {
+  if (target.classList.contains("flip")) return;
   if (lockBoard) return;
-  if(section === target) return;
+  if (section === target) return;
   if (target === firstCard) return;
   target.classList.add("flip");
   if (!hasFlippedCard) {
@@ -80,10 +81,10 @@ function flipBack() {
 }
 
 function resetBoard() {
-  [hasFlippedCard, lockBoard] = [false, false][(firstCard, secondCard)] = [
-    null,
-    null
-  ];
+  hasFlippedCard = false;
+  lockBoard = false;
+  firstCard = null;
+  secondCard = null
 }
 
 (function shuffle() {
