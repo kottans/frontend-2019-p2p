@@ -1,6 +1,6 @@
 body {
 	font-size: 16px;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 	background-color: rgb(117, 117, 117);
 	color: #fff;
 }
@@ -8,7 +8,8 @@ body {
 .container {
 	margin: 5% auto;
 	width: 80%;
-	background-image: linear-gradient(rgba(0,0,0, 0.7), rgba(0,0,0, 0.7)), url("../Sourse/Europe.jpg");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url("../Sourse/Europe.jpg");
 	background-size: 100%;
 	background-position: center;
 	border: 2px solid #bbb;
@@ -45,8 +46,7 @@ body {
 	text-align: center;
 }
 
-.countries li:hover,
-.countries li:active {
+.countries li:hover {
 	color: black;
 	background-color: #2cf5f5;
 }
@@ -65,44 +65,35 @@ body {
 	line-height: 1.5;
 }
 
-
 @media screen and (max-width: 950px) {
-
 	.content {
 		padding-bottom: 15%;
 	}
 
 	.countries li {
-		font-size: 80%;
+		font-size: 13px;
 	}
 	.shortDescription {
-		font-size: 90%;
+		font-size: 14px;
 	}
-
-	.countryName {
-		font-size: 100%;
-	}
-
 }
 
 @media screen and (max-width: 700px) {
-
 	.content {
 		padding-bottom: 15%;
 	}
 
-	.countries li, .shortDescription {
-		font-size: 70%;
+	.countries li,
+	.shortDescription {
+		font-size: 11px;
 	}
 
 	.countryName {
-		font-size: 90%;
+		font-size: 14px;
 	}
-
 }
 
 @media screen and (max-width: 550px) {
-
 	.menu {
 		margin-top: 0;
 	}
@@ -111,12 +102,12 @@ body {
 		padding-bottom: 5%;
 	}
 
-	.countries li, .shortDescription {
-		font-size: 50%;
+	.countries li,
+	.shortDescription {
+		font-size: 8px;
 	}
 
 	.countryName {
-		font-size: 70%;
+		font-size: 11px;
 	}
-
 }
