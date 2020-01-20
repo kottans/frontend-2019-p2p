@@ -44,10 +44,8 @@ const countries = [
   }
 ];
 
-function changeContent(el) {
-  let { name, img, description } = countries.find(
-    obj => obj.id === el.target.id
-  );
+function changeContent({ target }) {
+  let { name, img, description } = countries.find(({ id }) => id === target.id);
   document.querySelector(".countryName").innerHTML = name;
   document.querySelector(".shortDescription").innerHTML = description;
   container.style.backgroundImage = img;
