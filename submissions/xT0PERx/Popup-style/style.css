@@ -1,0 +1,94 @@
+/*                                         Верхнее меню с 5 блоками  */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 1em;
+    text-align: center;
+    padding: 5px;
+}
+
+.container div {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+label img:hover {
+    border: 1px solid #1d92bd;
+    border-radius: 20%;
+}
+
+.icons div:hover {
+    border: 1px solid #1d92bd;
+}
+
+.main_tullbar input {
+    /* прячу поле для галочки */
+    visibility: hidden;
+}
+
+/*                                           Общий блок с иконками */
+
+.main_tullbar {
+    position: relative;
+}
+
+.container .icons {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: 50px;
+    right: -120px;
+    box-shadow: -1px 15px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container .icons div {
+    display: inline-block;
+    margin: 5px;
+}
+
+.icons {
+    overflow-y: auto;
+    height: 410px;
+    max-height: 410px;
+    display: none; /*  Скрываю общий блок с иконками */
+}
+
+input:checked + .icons {
+    display: block; /*   Показываю при клике*/
+}
+/*                                                       2-й блок "MORE" */
+
+.icons2 {
+    display: none;
+}
+
+input:checked ~ .icons2 {
+    display: block;
+}
+
+.icons2 div:hover {
+    display: inline-block;
+    border: 1px solid #1d92bd;
+}
+.icons2 div {
+    display: block;
+}
+
+.icons label {
+    display: block;
+    background-color: darkgrey;
+    height: auto;
+}
+
+#second:checked~  label{
+    display: none;
+}
+                                              
