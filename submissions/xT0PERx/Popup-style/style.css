@@ -4,8 +4,19 @@
     flex-direction: row;
     justify-content: flex-end;
     font-size: 1em;
-    text-align: center;
     padding: 5px;
+}
+
+.container ol {
+    display: flex;
+    flex-flow: wrap row;
+}
+.container li {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    text-align: center;
 }
 
 .container div {
@@ -15,30 +26,103 @@
     cursor: pointer;
 }
 
-img {
-    width: 40px;
-    height: 40px;
-}
-
-label img:hover {
-    border: 1px solid #1d92bd;
-    border-radius: 20%;
-}
-
-.icons div:hover {
-    border: 1px solid #1d92bd;
-}
-
-.main_tullbar input {
-    /* прячу поле для галочки */
-    visibility: hidden;
-}
-
-/*                                           Общий блок с иконками */
-
 .main_tullbar {
     position: relative;
 }
+
+img {
+    width: 32px;
+    height: 32px;
+}
+
+.menu {
+    position: absolute;
+    background-image: url(./images/Menu.png);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    right: 4px;
+    top: 3px;
+}
+
+.check_input {
+    -webkit-appearance: none;
+}
+
+/*                                                      Normal */
+
+.mail p,
+.images p,
+.menu,
+.menu_more,       
+.home img,
+.avatar img {
+    text-decoration: none;
+    border: 1.5px solid transparent;
+}
+
+.menu {
+    border: 1.5px solid white
+}
+
+.mail,
+.images,
+.home,
+.avatar {
+    text-decoration: none;
+}
+.icons div {
+    border: 1.5px solid transparent;
+}
+
+.icons2 div {
+    border: 1.5px solid transparent;
+}
+
+.check_input,
+.second {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin: -1px;
+}
+
+/*                                                       Focus  */
+
+.check_input:focus + .menu,
+.second:focus + .menu_more {
+    border: 1.5px solid #4e91fc;
+    border-radius: 1.5px;
+}
+
+/*                                                       Hover */
+.mail p:hover,
+.images p:hover,
+.home img:hover,
+.avatar img:hover {
+    text-decoration: none;
+    border: 1.5px solid lightblue;
+}
+
+.icons div:hover {
+    border: 1.5px solid #1d92bd;
+}
+
+.icons2 div:hover {
+    border: 1.5px solid #1d92bd;
+}
+
+.menu:hover {
+    border: 1.5px solid #4e91fc;
+}
+
+/*                                                       Active */
+.mail:active,
+.images:active {
+    text-decoration: none;
+}
+
+/*                                           Общий блок с иконками */
 
 .container .icons {
     position: absolute;
@@ -48,10 +132,12 @@ label img:hover {
     right: -120px;
     box-shadow: -1px 15px 12px 0px rgba(0, 0, 0, 0.75);
 }
-
+.icons div {
+    border: 1.5px solid rgba(37, 26, 26, 0.001);
+}
 .container .icons div {
     display: inline-block;
-    margin: 5px;
+    margin: 3px;
 }
 
 .icons {
@@ -61,34 +147,36 @@ label img:hover {
     display: none; /*  Скрываю общий блок с иконками */
 }
 
-input:checked + .icons {
-    display: block; /*   Показываю при клике*/
+.check_input:checked ~ .icons {
+    display: block;
 }
+.main_tullbar input {
+    /* прячу поле для галочки */
+    -webkit-appearance: none;
+}
+
 /*                                                       2-й блок "MORE" */
 
 .icons2 {
     display: none;
+    overflow-y: auto;
 }
 
 input:checked ~ .icons2 {
     display: block;
 }
 
-.icons2 div:hover {
-    display: inline-block;
-    border: 1px solid #1d92bd;
-}
 .icons2 div {
     display: block;
 }
 
 .icons label {
     display: block;
-    background-color: darkgrey;
-    height: auto;
+    background-color: rgba(233, 221, 221, 0.877);
+    height: 40px;
+    width: 99%;
 }
 
-#second:checked~  label{
+.second:checked ~ label {
     display: none;
 }
-                                              
