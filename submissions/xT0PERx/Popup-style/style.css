@@ -1,182 +1,162 @@
 /*                                         Верхнее меню с 5 блоками  */
 .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    font-size: 1em;
-    padding: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 1em;
+  padding: 5px;
 }
 
 .container ol {
-    display: flex;
-    flex-flow: wrap row;
+  display: flex;
 }
 .container li {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    text-align: center;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  flex-direction: row;
+  align-items: center;
 }
 
 .container div {
-    width: 80px;
-    height: 80px;
-    margin: 5px;
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .main_tullbar {
-    position: relative;
+  position: relative;
 }
 
 img {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .menu {
-    position: absolute;
-    background-image: url(./images/Menu.png);
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    right: 4px;
-    top: 3px;
+  position: absolute;
+  background-image: url(./images/Menu.png);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  right: 4px;
+  top: 3px;
 }
 
 .check_input {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 /*                                                      Normal */
 
-.mail p,
-.images p,
 .menu,
-.menu_more,       
-.home img,
-.avatar img {
-    text-decoration: none;
-    border: 1.5px solid transparent;
+.menu_more,
+.menu_items img {
+  text-decoration: none;
+  border: 1.5px solid transparent;
 }
 
 .menu {
-    border: 1.5px solid white
+  border: 1.5px solid white;
 }
 
-.mail,
-.images,
-.home,
-.avatar {
-    text-decoration: none;
+.menu_items {
+  text-decoration: none;
+  border: 1.5px solid transparent;
 }
-.icons div {
-    border: 1.5px solid transparent;
+.popup_icons {
+  border: 1.5px solid transparent;
+  display: inline-table;
+  text-align: center;
+  margin: 3px;
 }
-
-.icons2 div {
-    border: 1.5px solid transparent;
-}
-
-.check_input,
-.second {
-    opacity: 0;
-    height: 0;
-    width: 0;
-    margin: -1px;
+.popup_icons a {
+  text-decoration: none;
 }
 
 /*                                                       Focus  */
 
 .check_input:focus + .menu,
 .second:focus + .menu_more {
-    border: 1.5px solid #4e91fc;
-    border-radius: 1.5px;
+  border: 1.5px solid #4e91fc;
+  border-radius: 1.5px;
+}
+
+.menu_items:focus,
+.menu_items img:focus {
+  border: 1.5px solid #4e91fc;
+}
+.icons div:focus {
+  border: 1.5px solid #4e91fc;
 }
 
 /*                                                       Hover */
-.mail p:hover,
-.images p:hover,
-.home img:hover,
-.avatar img:hover {
-    text-decoration: none;
-    border: 1.5px solid lightblue;
+
+.menu_items:hover {
+  text-decoration: none;
+  border: 1.5px solid #4e91fc;
 }
 
 .icons div:hover {
-    border: 1.5px solid #1d92bd;
+  border: 1.5px solid #4e91fc;
 }
 
 .icons2 div:hover {
-    border: 1.5px solid #1d92bd;
+  border: 1.5px solid #1d92bd;
 }
 
 .menu:hover {
-    border: 1.5px solid #4e91fc;
-}
-
-/*                                                       Active */
-.mail:active,
-.images:active {
-    text-decoration: none;
+  border: 1.5px solid #4e91fc;
 }
 
 /*                                           Общий блок с иконками */
 
 .container .icons {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    top: 50px;
-    right: -120px;
-    box-shadow: -1px 15px 12px 0px rgba(0, 0, 0, 0.75);
-}
-.icons div {
-    border: 1.5px solid rgba(37, 26, 26, 0.001);
-}
-.container .icons div {
-    display: inline-block;
-    margin: 3px;
+  position: absolute;
+  width: 320px;
+  height: 430px;
+  top: 50px;
+  right: -120px;
+  box-shadow: -1px 15px 12px 0px rgba(0, 0, 0, 0.75);
+  padding: 0.1em;
 }
 
 .icons {
-    overflow-y: auto;
-    height: 410px;
-    max-height: 410px;
-    display: none; /*  Скрываю общий блок с иконками */
+  overflow-y: auto;
+  height: 430px;
+  max-height: 430px;
+  display: none; /*  Скрываю общий блок с иконками */
 }
 
 .check_input:checked ~ .icons {
-    display: block;
+  display: block;
 }
 .main_tullbar input {
-    /* прячу поле для галочки */
-    -webkit-appearance: none;
+  /* прячу поле для галочки */
+  -webkit-appearance: none;
 }
 
 /*                                                       2-й блок "MORE" */
 
 .icons2 {
-    display: none;
-    overflow-y: auto;
+  display: none;
+  overflow-y: auto;
 }
 
 input:checked ~ .icons2 {
-    display: block;
-}
-
-.icons2 div {
-    display: block;
+  display: block;
 }
 
 .icons label {
-    display: block;
-    background-color: rgba(233, 221, 221, 0.877);
-    height: 40px;
-    width: 99%;
+  display: block;
+  background-color: rgba(233, 221, 221, 0.877);
+  text-align: center;
+  height: 35px;
+  width: 99%;
 }
 
 .second:checked ~ label {
-    display: none;
+  display: none;
 }
