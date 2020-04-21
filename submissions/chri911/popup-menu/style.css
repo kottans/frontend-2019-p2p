@@ -1,0 +1,173 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+a{
+    text-decoration: none;
+    
+}
+.container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 15px;
+    align-items: center;
+    color: #5f5c5f;
+    }
+.container > div{
+        margin-right: 20px;
+    }
+#popup,
+.notes,
+.user{
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.notes{
+    background-image: url(images/bell.png);
+}    
+.user{
+    background-image: url(images/photo.jpg);
+    border-radius: 50%;
+} 
+#popup{
+    background-image: url(images/apps.jpg);
+    display: block;
+}
+.popup1{
+    position: relative;
+    height: 100%;
+}
+#isexpanded, .popup__menu, #expanded{
+    display: none;
+    
+}
+#isexpanded:checked ~ * .popup__menu{
+        display: block;
+        width: 345px;
+    border: 1px solid #4b454b;
+    position: absolute;
+    top: 49px;
+    right: -55px;
+    box-shadow: 0px 26px 37px -4px rgba(0,0,0,0.74);
+    padding-top: 20px;
+    scroll-behavior: smooth; 
+} 
+.popup__menu::before,.popup__menu::after{
+    content: ''; 
+    position: absolute;
+    right: 60px; 
+    top: -9px;
+    width: 17px;
+    height: 17px;
+    z-index: -1; 
+    transform: rotate(45deg); 
+    background: #fff;
+    border-left: 1px solid #4b454b;
+    border-top: 1px solid #4b454b;
+}
+.popup__menu::before{
+    z-index: 1; 
+}
+ .flex{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#isexpanded:checked ~ * #popup{
+    border: 2px solid rgb(119, 159, 235); 
+    border-radius: 4px;
+}
+label{
+    cursor: pointer;
+}
+.item{
+    padding: 20px;
+    max-width: 95px;
+    max-height: 111px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item:hover{
+    border: 1px solid rgb(151, 149, 149);
+}
+.item:focus{
+    border: 2px solid rgb(68, 196, 247);
+    border-radius: 2px;
+}
+.item img{
+    width: 55px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}  
+.photo img{
+    width: 40px;
+    height: 60px;
+}
+.apps img{
+    width: 60px;
+    height: 60px;
+}
+.collection img{
+    width: 38px;
+    height: 47px;
+}
+.ring img{
+    width: 55px;
+    height: 55px;
+}
+.text{
+    padding-top: 15px;
+    text-align: center;
+}
+#more-btn, .more-btn{
+    background-color: #e4e0e4;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+}
+.more__items{
+    display: none;
+}
+#expanded:checked ~ * .more__items{
+    display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        width: 345px;
+        border-top: 1px solid #4b454b;
+        margin-top: 30px;
+        padding-top: 30px;
+        padding-right: 15px;
+}
+#expanded:checked ~ * .popup__menu-wrapper{
+    overflow-y: scroll;
+    height: 450px; 
+    overflow-x: hidden; 
+}
+#expanded:checked ~ * .more-btn1{
+    display: none;
+}
+ .more-btn{
+     display: none;
+}
+#expanded:checked ~ * .more-btn{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    display: block;
+    background-color: #fff;
+}
