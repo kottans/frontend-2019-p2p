@@ -1,0 +1,129 @@
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+a {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    margin: 20px;
+}
+
+.nav-link {
+    margin-top: 2px;
+}
+
+.bell-icon {
+    width: 20px;
+    margin-top: 3px;
+}
+
+.account-icon {
+    width: 32px;
+    margin-top: -4px;
+}
+
+.apps-button,
+.list-item,
+.more-apps-button {
+    cursor: pointer;
+}
+
+.apps-checkbox,
+.more-apps-checkbox,
+.disabled-item,
+.dividing-line,
+.more-from-kottans,
+.more-apps-checkbox:checked ~ .more-apps-button {
+    display: none;
+}
+
+.apps-box {
+    display: none;
+    width: 325px;
+    height: 360px;
+    overflow: auto;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    right: 90px;
+    margin-top: 35px;
+}
+
+.apps-checkbox:checked ~ .apps-button {
+    outline: 2px solid #75b8bf;
+    height: 24px;
+}
+
+.apps-checkbox:checked ~ .apps-box {
+    display: block;
+}
+
+.more-apps-checkbox:checked ~ .dividing-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #7f8485;
+    margin: 10px 0 10px 0;
+}
+
+.list-item,
+.more-apps-checkbox:checked ~ .disabled-item,
+.more-apps-checkbox:checked ~ .more-from-kottans {
+    display: grid;
+    padding: 10px;
+    margin: 4px;
+}
+
+.list-item:hover,
+.disabled-item:hover {
+    outline: 1px solid #abb1b3;
+}
+
+.list-item:focus,
+.disabled-item:focus {
+    outline: 2px solid #75b8bf;
+}
+
+.apps-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.app-icon {
+    width: 60px;
+}
+
+.app-name {
+    font-size: 12px;
+    margin: auto;
+}
+
+.more-apps-button {
+    background-color: #e1f1f5;
+    color: #4a4a4a;
+    width: 100%;
+    height: 41px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-from-kottans {
+    color: #037996;
+    font-size: 12px;
+}
