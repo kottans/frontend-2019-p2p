@@ -24,6 +24,10 @@ a {
     margin-top: 2px;
 }
 
+.nav-link:hover{
+    text-decoration: underline;
+}
+
 .bell-icon {
     width: 20px;
     margin-top: 3px;
@@ -40,8 +44,17 @@ a {
     cursor: pointer;
 }
 
+.apps-button {
+    height: 24px;
+}
+
 .apps-checkbox,
-.more-apps-checkbox,
+.more-apps-checkbox {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
 .disabled-item,
 .dividing-line,
 .more-from-kottans,
@@ -54,7 +67,7 @@ a {
     width: 325px;
     height: 360px;
     overflow: auto;
-    background: #fff;
+    background: #fafafa;
     border: 1px solid rgba(0, 0, 0, .2);
     box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
     position: absolute;
@@ -82,19 +95,27 @@ a {
 .list-item,
 .more-apps-checkbox:checked ~ .disabled-item,
 .more-apps-checkbox:checked ~ .more-from-kottans {
-    display: grid;
-    padding: 10px;
-    margin: 4px;
+    padding: 5px;
+    margin: 9px;
+    display: block;
+    border-radius: 10px;
 }
 
 .list-item:hover,
-.disabled-item:hover {
-    outline: 1px solid #abb1b3;
+.disabled-item:hover,
+.apps-button:hover,
+.more-from-kottans:hover {
+    box-shadow: 0 0 10px 0 rgba(117,184,191,1);
 }
 
 .list-item:focus,
 .disabled-item:focus {
     outline: 2px solid #75b8bf;
+}
+
+.list-item:active,
+.disabled-item:active {
+    background-color: #e1f1f5;;
 }
 
 .apps-list {
@@ -109,8 +130,9 @@ a {
 }
 
 .app-name {
+    display: block;
+    text-align: center;
     font-size: 12px;
-    margin: auto;
 }
 
 .more-apps-button {
@@ -121,6 +143,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.more-apps-button:hover {
+    background-color: #75b8bf;
+    color: #fafafa;
 }
 
 .more-from-kottans {
