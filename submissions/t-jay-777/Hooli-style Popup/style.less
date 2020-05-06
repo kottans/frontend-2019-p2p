@@ -1,0 +1,189 @@
+@width: 100vw;
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	color: black;
+	font: 'Arial', sans-serif;
+}
+
+.container {
+	width: @width;
+	margin: 0 auto;
+}
+
+.nav {
+	.nav-menu {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: flex-end;
+		margin: 15px;
+		li {
+			display: flex;
+			justify-content: center;
+			list-style-type: none;
+			margin: 1em;
+			a img:hover {
+				outline: 1px sold #00CED1;
+			}
+		}
+		a {
+			text-decoration: none;
+			color: #000000;
+		}
+		a:hover {
+			text-decoration-line: underline;
+		}
+		a img {
+			height: 1.5em;
+		}
+		.nav-submenu a img:hover {
+			outline: 1px solid #00CED1;
+		}
+	}
+}
+
+.popup::before {
+	content: '';
+	width: 1em;
+	height: 1em;
+	border: solid transparent;
+	position: absolute;
+	top: 9%;
+	/*
+	border-top: 1px solid #969599c2;
+    border-right: 1px solid #969599c2;
+	top: -8%
+    left: 50%;*/
+	background-color: #fff;
+	z-index: 99;
+	transform: rotate(-45deg);
+}
+
+.popup-menu-1 {
+	overflow-y: overlay;
+}
+
+.popup-menu {
+	max-width: @width/3;
+	height: 500px;
+	position: absolute;
+	top: 10%;
+	right: 15px;
+	background-color: #fff;
+	transition: opacity 300ms;
+	visibility: hidden;
+	opacity: 0;
+	border: 1px solid #a3a2a7c2;
+	box-shadow: 0 2px 10px #555557c2;
+	overflow-y: scroll;
+	.nonscroll {
+		display: grid;
+		grid-template-columns: repeat(3, 30%);
+		grid-gap: 2em 1em;
+		justify-content: space-between;
+		padding-top: 1em;
+		padding-left: 0.5em;
+		li {
+			display: grid;
+			margin: 0.5em;
+			justify-items: center;
+			a {
+				align-self: center;
+				padding: 0.5em;
+			}
+			a img {
+				height: 2em;
+				align-content: center;
+			}
+			span {
+				align-content: center;
+			}
+		}
+		li:hover {
+			outline: 1px solid #1E90FF;
+		}
+	}
+	.non-scroll-more {
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		width: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+	}
+	.non-scroll-more:focus + .label-more {
+		border: 1px solid #4682B4;
+	}
+	.label-more {
+		height: 40px;
+		background-color: #f5f5f5;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.non-scroll-more ~ .label-more::before {
+		content: 'More';
+	}
+	.non-scroll-more:checked ~ .label-more::before {
+		content: '';
+		width: 200px;
+		height: 1px;
+		background-color: #778899;
+	}
+	.non-scroll-more:checked ~ .label-more {
+		background-color: #fff;
+	}
+	.non-scroll-more:checked ~ .scroll {
+		display: grid;
+		grid-template-columns: repeat(3, 30%);
+		grid-gap: 2em 1em;
+		justify-content: space-between;
+		padding-left: 0.5em;
+		padding-bottom: 1.5em;
+		li {
+			display: grid;
+			margin: 0.5em;
+			justify-items: center;
+			max-width: 3em;
+			a {
+				align-self: center;
+				padding: 0.5em;
+			}
+			a img {
+				height: 2em;
+				align-content: center;
+			}
+			span {
+				align-content: center;
+			}
+		}
+		li:hover {
+			outline: 1px solid #1E90FF;
+		}
+		#scroll-from {
+			grid-column-start: 1;
+			grid-column-end: 4;
+			grid-row-start: 3;
+			justify-self: center;
+		}
+	}
+	.scroll {
+		display: none;
+	}
+}
+
+.popup-menu:target {
+	visibility: visible;
+	opacity: 1;
+	pointer-events: auto;
+}

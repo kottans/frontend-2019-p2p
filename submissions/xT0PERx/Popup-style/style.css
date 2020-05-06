@@ -1,0 +1,163 @@
+/*                                         Верхнее меню с 5 блоками  */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.container ol {
+  display: flex;
+}
+.container li {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container div {
+  width: 80px;
+  height: 80px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.main_tullbar {
+  position: relative;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+}
+
+.menu {
+  position: absolute;
+  background-image: url(./images/Menu.png);
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  right: 4px;
+  top: 3px;
+}
+
+.check_input {
+  -webkit-appearance: none;
+}
+
+/*                                                      Normal */
+
+.menu,
+.menu_more,
+.menu_items img {
+  text-decoration: none;
+  border: 1.5px solid transparent;
+}
+
+.menu {
+  border: 1.5px solid white;
+}
+
+.menu_items {
+  text-decoration: none;
+  border: 1.5px solid transparent;
+}
+.popup_icons {
+  border: 1.5px solid transparent;
+  display: inline-table;
+  text-align: center;
+  margin: 3px;
+}
+.popup_icons a {
+  text-decoration: none;
+  display: block;
+}
+
+/*                                                       Focus  */
+
+.check_input:focus + .menu,
+.second:focus + .menu_more {
+  border: 1.5px solid #4e91fc;
+  border-radius: 1.5px;
+}
+
+.menu_items:focus,
+.menu_items img:focus {
+  border: 1.5px solid #4e91fc;
+}
+.icons div:focus {
+  border: 1.5px solid #4e91fc;
+}
+
+/*                                                       Hover */
+
+.menu_items:hover {
+  text-decoration: none;
+  border: 1.5px solid #4e91fc;
+}
+
+.icons div:hover {
+  border: 1.5px solid #4e91fc;
+}
+
+.icons2 div:hover {
+  border: 1.5px solid #1d92bd;
+}
+
+.menu:hover {
+  border: 1.5px solid #4e91fc;
+}
+
+/*                                           Общий блок с иконками */
+
+.container .icons {
+  position: absolute;
+  width: 320px;
+  height: 430px;
+  top: 50px;
+  right: -120px;
+  box-shadow: -1px 15px 12px 0px rgba(0, 0, 0, 0.75);
+  padding: 0.1em;
+}
+
+.icons {
+  overflow-y: auto;
+  height: 430px;
+  max-height: 430px;
+  display: none; /*  Скрываю общий блок с иконками */
+}
+
+.check_input:checked ~ .icons {
+  display: block;
+}
+.main_tullbar input {
+  /* прячу поле для галочки */
+  -webkit-appearance: none;
+}
+
+/*                                                       2-й блок "MORE" */
+
+.icons2 {
+  display: none;
+  overflow-y: auto;
+}
+
+input:checked ~ .icons2 {
+  display: block;
+}
+
+.icons label {
+  display: block;
+  background-color: rgba(233, 221, 221, 0.877);
+  text-align: center;
+  height: 35px;
+  width: 99%;
+}
+
+.second:checked ~ label {
+  display: none;
+}
