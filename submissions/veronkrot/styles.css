@@ -3,11 +3,6 @@ body {
     font-size: 16px;
 }
 
-a {
-    color: #4a4a4a;
-    text-decoration: none;
-}
-
 .header {
     display: flex;
     justify-content: flex-end;
@@ -21,7 +16,11 @@ a {
 }
 
 .nav-link {
+    color: #4a4a4a;
+    text-decoration: none;
     margin-top: 2px;
+    height: 18px;
+    padding: 2px;
 }
 
 .nav-link:hover{
@@ -29,13 +28,12 @@ a {
 }
 
 .bell-icon {
-    width: 20px;
-    margin-top: 3px;
+    height: 23px;
 }
 
 .account-icon {
-    width: 32px;
-    margin-top: -4px;
+    height: 28px;
+    margin-top: -1px;
 }
 
 .apps-button,
@@ -45,7 +43,11 @@ a {
 }
 
 .apps-button {
-    height: 24px;
+    display: inline-block;
+    background-image: url("icons/apps.jpg");
+    background-size: contain;
+    height: 27px;
+    width: 27px;
 }
 
 .apps-checkbox,
@@ -75,11 +77,6 @@ a {
     margin-top: 35px;
 }
 
-.apps-checkbox:checked ~ .apps-button {
-    outline: 2px solid #75b8bf;
-    height: 24px;
-}
-
 .apps-checkbox:checked ~ .apps-box {
     display: block;
 }
@@ -104,12 +101,25 @@ a {
 .list-item:hover,
 .disabled-item:hover,
 .apps-button:hover,
-.more-from-kottans:hover {
+.more-from-kottans:hover,
+.more-apps-button:hover {
     box-shadow: 0 0 10px 0 rgba(117,184,191,1);
 }
 
+.more-apps-button:hover {
+    background-color: #75b8bf;
+    color: #fafafa;
+    border-radius: 5px;
+}
+
 .list-item:focus,
-.disabled-item:focus {
+.nav-link:focus,
+.disabled-item:focus,
+.more-from-kottans:focus,
+.account-icon:focus,
+.bell-icon:focus,
+.apps-checkbox:focus ~ .apps-button,
+.more-apps-checkbox:focus ~ .more-apps-button{
     outline: 2px solid #75b8bf;
 }
 
@@ -136,18 +146,12 @@ a {
 }
 
 .more-apps-button {
-    background-color: #e1f1f5;
     color: #4a4a4a;
-    width: 100%;
-    height: 41px;
+    width: 29%;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.more-apps-button:hover {
-    background-color: #75b8bf;
-    color: #fafafa;
 }
 
 .more-from-kottans {
