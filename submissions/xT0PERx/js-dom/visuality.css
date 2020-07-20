@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.menu-list {
+  list-style-type: none;
+  padding: 5px 0px 5px 0px;
+  background-color: rgb(248, 248, 248);
+  min-width: 100px;
+}
+
+.menu-title {
+  padding: 20px 20px 20px 20px;
+  border: solid 0.3em;
+  background-color: #e0ac1c;
+  border-color: silver;
+  border-radius: 50px 0 0 50px;
+  font-weight: bold;
+  margin: 1em;
+}
+
+.menu-item-1,
+.menu-item-2,
+.menu-item-3,
+.menu-item-4,
+.menu-item-5 {
+  padding: 20px 20px 20px 20px;
+  background-color: rgba(182, 160, 90, 0.486);
+  border-bottom: solid 0.2em;
+  border-radius: 30px 0 0 30px;
+  border-bottom-color: silver;
+  cursor: pointer;
+  margin: 1em;
+}
+#content {
+  padding: 20px 20px 20px 20px;
+  background-color: rgb(248, 248, 248);
+}
+
+.content .img-content {
+  width: 200px;
+  height: 190px;
+  float: right;
+  margin: 7px 0 7px 7px;
+}
+
+.content-style {
+  border: solid;
+  border-color: burlywood;
+  margin: 10px 20px 20px 10px;
+}
+
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+p {
+  margin-top: 0.5em; /* Отступ сверху */
+  margin-bottom: 1em; /* Отступ снизу */
+}
+
+@media screen and (min-width: 300px) {
+  .menu {
+    width: 25%;
+  }
+
+  .content {
+    width: 50%;
+  }
+}
