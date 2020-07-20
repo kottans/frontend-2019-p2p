@@ -1,0 +1,160 @@
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 260px;
+    margin: 20px;
+}
+
+.nav-link {
+    color: #4a4a4a;
+    text-decoration: none;
+    margin-top: 2px;
+    height: 18px;
+    padding: 2px;
+}
+
+.nav-link:hover{
+    text-decoration: underline;
+}
+
+.bell-icon {
+    height: 23px;
+}
+
+.account-icon {
+    height: 28px;
+    margin-top: -1px;
+}
+
+.apps-button,
+.list-item,
+.more-apps-button {
+    cursor: pointer;
+}
+
+.apps-button {
+    display: inline-block;
+    background-image: url("icons/apps.jpg");
+    background-size: contain;
+    height: 27px;
+    width: 27px;
+}
+
+.apps-checkbox,
+.more-apps-checkbox {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.disabled-item,
+.dividing-line,
+.more-from-kottans,
+.more-apps-checkbox:checked ~ .more-apps-button {
+    display: none;
+}
+
+.apps-box {
+    display: none;
+    width: 325px;
+    height: 360px;
+    overflow: auto;
+    background: #fafafa;
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    right: 90px;
+    margin-top: 35px;
+}
+
+.apps-checkbox:checked ~ .apps-box {
+    display: block;
+}
+
+.more-apps-checkbox:checked ~ .dividing-line {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #7f8485;
+    margin: 10px 0 10px 0;
+}
+
+.list-item,
+.more-apps-checkbox:checked ~ .disabled-item,
+.more-apps-checkbox:checked ~ .more-from-kottans {
+    padding: 5px;
+    margin: 9px;
+    display: block;
+    border-radius: 10px;
+}
+
+.list-item:hover,
+.disabled-item:hover,
+.apps-button:hover,
+.more-from-kottans:hover,
+.more-apps-button:hover {
+    box-shadow: 0 0 10px 0 rgba(117,184,191,1);
+}
+
+.more-apps-button:hover {
+    background-color: #75b8bf;
+    color: #fafafa;
+    border-radius: 5px;
+}
+
+.list-item:focus,
+.nav-link:focus,
+.disabled-item:focus,
+.more-from-kottans:focus,
+.account-icon:focus,
+.bell-icon:focus,
+.apps-checkbox:focus ~ .apps-button,
+.more-apps-checkbox:focus ~ .more-apps-button{
+    outline: 2px solid #75b8bf;
+}
+
+.list-item:active,
+.disabled-item:active {
+    background-color: #e1f1f5;;
+}
+
+.apps-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.app-icon {
+    width: 60px;
+}
+
+.app-name {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+.more-apps-button {
+    color: #4a4a4a;
+    width: 29%;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-from-kottans {
+    color: #037996;
+    font-size: 12px;
+}
