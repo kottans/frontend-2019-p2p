@@ -1,11 +1,12 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 .menu-list {
+  text-transform: uppercase;
   list-style-type: none;
-  padding: 5px 0px 5px 0px;
+  padding: 5px;
   min-width: 100px;
 }
 
@@ -14,7 +15,7 @@
 }
 
 .menu-title {
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   border: solid 0.3em;
   border-color: silver;
   font-weight: bold;
@@ -23,7 +24,7 @@
 
 .menu-title p {
   text-align: end;
-  padding: 25px 25px 25px 25px;
+  padding: 25px;
   margin: 1em;
   background-color: lightgray;
 }
@@ -33,7 +34,7 @@
 .menu-item-3,
 .menu-item-4,
 .menu-item-5 {
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   background-color: rgba(182, 160, 90, 0.486);
   border-bottom: solid 0.2em;
   border-radius: 30px 0 0 30px;
@@ -51,14 +52,16 @@
 
 .content-style {
   display: flex;
+  position: absolute;
   flex-flow: row wrap;
+  height: 527px;
   border: solid 0.3em;
   border-color: rgba(182, 160, 90, 0.486);
   margin: 0.5em 10px 0.5em 10px;
 }
 
 .clearfix:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
@@ -70,7 +73,7 @@
 
 .content {
   width: 50%;
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   background-color: white;
 }
 
@@ -84,7 +87,7 @@
   position: absolute;
   border: solid 0.3em;
   border-color: rgba(182, 160, 90, 0.486);
-  margin: 0.5em 10px 0.5em 10px;
+  margin: 0.5em 10px;
   padding: 1em 2em 1.5em 1em;
   font-weight: bold;
   height: 527px;
