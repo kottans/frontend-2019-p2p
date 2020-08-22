@@ -1,3 +1,11 @@
 body {
     text-align: center;
 }
+
+.scoreboard {
+    margin-top: 50px;
+    color: #3a9500;
+    font-size: 30px;
+    font-weight: bold;
+}
+
