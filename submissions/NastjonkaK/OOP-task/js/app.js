@@ -7,26 +7,26 @@ let points = 0;
 renderScore(points);
 
 const GAME_FIELD = {
-    MIN_X: 0,
-    MIN_Y: 0,
-    MAX: 400,
-    WIDTH: 500,
-    CELL_WIDTH: 100,
-    CELL_HEIGHT: 80,
+    minX: 0,
+    minY: 0,
+    max: 400,
+    width: 500,
+    cellWidth: 100,
+    cellHeight: 80,
 };
 
 const ENEMY_CONFIG = {
-    ENEMY_START_X: -100,
-    FIRST_ENEMY_START_Y: 65,
-    SECOND_ENEMY_START_Y: 145,
-    THIRD_ENEMY_START_Y: 230,
-    ENEMY_MAX_SPEED: 100,
-    ENEMY_MIN_SPEED: 50
+    enemyStartX: -100,
+    firstEnemyStartY: 65,
+    secondEnemyStartY: 145,
+    thirdEnemyStartY: 230,
+    enemyMaxSpeed: 100,
+    enemyMinSpeed: 50
 };
 
 const PLAYER_START_POSITION = {
-    PLAYER_START_X: 200,
-    PLAYER_START_Y: 400
+    playerSartX: 200,
+    playerSartY: 400
 };
 
 class Personage {
@@ -44,25 +44,25 @@ class Personage {
 class Enemy extends Personage {
     constructor(x, y, player, sprite = 'images/enemy-bug.png') {
         super(x, y, sprite);
-        this.speed = Math.floor(Math.random() * (ENEMY_CONFIG.ENEMY_MAX_SPEED - ENEMY_CONFIG.ENEMY_MIN_SPEED) + ENEMY_CONFIG.ENEMY_MIN_SPEED);
+        this.speed = Math.floor(Math.random() * (ENEMY_CONFIG.enemyMaxSpeed - ENEMY_CONFIG.enemyMinSpeed) + ENEMY_CONFIG.enemyMinSpeed);
         this.player = player;
     }
 
     update(dt) {
         this.x += this.speed * dt;
-        if (this.x > GAME_FIELD.WIDTH) {
-            this.x = ENEMY_CONFIG.ENEMY_START_X;
-        }
         this.contactCheck();
     }
 
     contactCheck() {
-        if ((Math.round(this.x / GAME_FIELD.CELL_WIDTH) === Math.round(this.player.x / GAME_FIELD.CELL_WIDTH)) &&
-            (Math.round(this.y / GAME_FIELD.CELL_HEIGHT) === Math.round(this.player.y / GAME_FIELD.CELL_HEIGHT))) {
+        if (this.x > GAME_FIELD.width) {
+            this.x = ENEMY_CONFIG.enemyStartX;
+        }
+        if ((Math.round(this.x / GAME_FIELD.cellWidth) === Math.round(this.player.x / GAME_FIELD.cellWidth)) &&
+            (Math.round(this.y / GAME_FIELD.cellHeight) === Math.round(this.player.y / GAME_FIELD.cellHeight))) {
             points = 0;
             renderScore(points);
-            this.player.x = PLAYER_START_POSITION.PLAYER_START_X;
-            this.player.y = PLAYER_START_POSITION.PLAYER_START_Y;
+            this.player.x = PLAYER_START_POSITION.playerSartX;
+            this.player.y = PLAYER_START_POSITION.playerSartY;
         }
     }
 }
@@ -77,32 +77,32 @@ class Player extends Personage {
     }
 
     handleInput(key) {
-        if (key == 'left' && this.x > GAME_FIELD.MIN_X) {
-            this.x -= GAME_FIELD.CELL_WIDTH;
-        } else if (key == 'right' && this.x < (GAME_FIELD.WIDTH - GAME_FIELD.CELL_WIDTH)) {
-            this.x += GAME_FIELD.CELL_WIDTH;
+        if (key == 'left' && this.x > GAME_FIELD.minX) {
+            this.x -= GAME_FIELD.cellWidth;
+        } else if (key == 'right' && this.x < (GAME_FIELD.width - GAME_FIELD.cellWidth)) {
+            this.x += GAME_FIELD.cellWidth;
         } else if (key == 'up') {
-            this.y -= GAME_FIELD.CELL_HEIGHT;
-        } else if (key == 'down' && this.y < GAME_FIELD.MAX) {
-            this.y += GAME_FIELD.CELL_HEIGHT;
+            this.y -= GAME_FIELD.cellHeight;
+        } else if (key == 'down' && this.y < GAME_FIELD.max) {
+            this.y += GAME_FIELD.cellHeight;
         };
     }
 
     increasePoints() {
-        if (this.y < GAME_FIELD.MIN_Y) {
+        if (this.y < GAME_FIELD.minY) {
             points++;
             renderScore(points);
-            this.x = PLAYER_START_POSITION.PLAYER_START_X;
-            this.y = PLAYER_START_POSITION.PLAYER_START_Y;
+            this.x = PLAYER_START_POSITION.playerSartX;
+            this.y = PLAYER_START_POSITION.playerSartY;
         }
     }
 
 }
 
-let player = new Player(PLAYER_START_POSITION.PLAYER_START_X, PLAYER_START_POSITION.PLAYER_START_Y);
-const enemyFirst = new Enemy(ENEMY_CONFIG.ENEMY_START_X, ENEMY_CONFIG.FIRST_ENEMY_START_Y, player);
-const enemySecond = new Enemy(ENEMY_CONFIG.ENEMY_START_X, ENEMY_CONFIG.SECOND_ENEMY_START_Y, player);
-const enemyThird = new Enemy(ENEMY_CONFIG.ENEMY_START_X, ENEMY_CONFIG.THIRD_ENEMY_START_Y, player);
+let player = new Player(PLAYER_START_POSITION.playerSartX, PLAYER_START_POSITION.playerSartY);
+const enemyFirst = new Enemy(ENEMY_CONFIG.enemyStartX, ENEMY_CONFIG.firstEnemyStartY, player);
+const enemySecond = new Enemy(ENEMY_CONFIG.enemyStartX, ENEMY_CONFIG.secondEnemyStartY, player);
+const enemyThird = new Enemy(ENEMY_CONFIG.enemyStartX, ENEMY_CONFIG.thirdEnemyStartY, player);
 const allEnemies = [enemyFirst, enemySecond, enemyThird];
 
 
