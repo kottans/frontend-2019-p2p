@@ -49,7 +49,7 @@ const man = {
   name: "Mark",
   gender: "male",
   legs: 2,
-  hands: 2,
+  handsText: 2,
   saying: "What's up?",
 };
 
@@ -58,7 +58,7 @@ const woman = {
   name: "Alice",
   gender: "female",
   legs: 2,
-  hands: 2,
+  handsText: 2,
   saying: "Hi!",
   friends: [cat.name, dog.name, man.name],
 };
@@ -67,26 +67,28 @@ const catWoman = {
   name: "Wonder Alice",
   gender: "female",
   legs: 2,
-  hands: 2,
+  handsText: 2,
   __proto__: cat,
 };
 
-function preparePrint(obj) {
-  const { species, name, gender, legs, saying } = obj;
-  const hands = obj.hasOwnProperty("hands") ? `hands: ${obj.hands};` : "";
-  const friends =
-    obj.hasOwnProperty("friends") && obj.friends.length > 0
-      ? `friends: ${obj.friends};`
-      : "";
-
+function preparePrint({
+  species,
+  name,
+  gender,
+  legs,
+  handsText,
+  saying,
+  friends,
+}) {
+  const hasFriends = friends && friends.length > 0;
   return `
-   <strong>${species}</strong>;
-   name: <strong>${name}</strong>;
-   gender: ${gender}; 
-   legs: ${legs};
-   saying: ${saying};
-   ${hands}
-   ${friends}`;
+  <strong>${species}</strong>;
+  name: <strong>${name}</strong>;
+  gender: ${gender}; 
+  legs: ${legs};
+  saying: ${saying};
+  ${handsText ? `hands: ${handsText}` : ""}
+  ${hasFriends ? `friends: ${friends}` : ""}`;
 }
 
 [cat, dog, man, woman, catWoman].forEach((item) =>
