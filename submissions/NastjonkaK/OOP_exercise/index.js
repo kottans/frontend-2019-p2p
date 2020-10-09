@@ -1,97 +1,85 @@
 class Creature {
-  constructor(name, saying) {
+  constructor(type, gender, name, saying) {
+    this.type = type,
+    this.gender = gender,
     this.name = name,
     this.saying = saying
   }
 
-  introduction() {
+  toIntroduce() {
      return `\Hello! I am a ${this.type}, ${this.gender}. My name is ${this.name}.`
     }
 
-  say(){
+  toSay(){
     return `\And I want to say: "${this.saying}".`
   }
 }
 
 class Animal extends Creature {
-  constructor(name, gender, paws, saying) {
-    super(name, saying);
-    this.gender = gender,
+  constructor(type, gender, name, paws, saying) {
+    super(type, gender, name, saying);
     this.paws = paws
   }
 
-  greeting() {
-    return `\ ${this.introduction()} I have ${this.paws} paws and a tail. ${this.say()}`;
+  toGreet() {
+    return `\ ${this.toIntroduce()} I have ${this.paws} paws and a tail. ${this.toSay()}`;
   }
 }
 
 class Human extends Creature {
-  constructor(name, legs, hands, saying) {
-    super(name, saying);
-    this.type = "human",
+  constructor(name, gender, legs, hands, saying) {
+    super('human', gender, name, saying);
     this.legs = legs,
     this.hands = hands
   }
 
-  greeting() {
-    return `\ ${this.introduction()}  I have ${this.legs} legs and ${this.hands} hands. ${this.say()}`;
+  toGreet() {
+    return `\ ${this.toIntroduce()}  I have ${this.legs} legs and ${this.hands} hands. ${this.toSay()}`;
   }
 }
 
-const MyMixin = (superclass) => class extends superclass {
-    constructor(name, gender,legs, paws) {
-      super(name, gender, legs, paws);
-      this.saying = "meow-meow"
-    }
-};
-
 class Man extends Human {
-  constructor(name, legs, hands, saying) {
-    super(name, legs, hands, saying);
-    this.type = 'man',
-    this.gender = 'male'
+  constructor(name, saying, legs = 2, hands = 2) {
+    super(name, 'male', legs, hands, saying);
   }
 }
 
 class Woman extends Human {
-  constructor(name, legs, hands, saying) {
-    super(name, legs, hands, saying);
-    this.type = 'woman',
-    this.gender = 'female'
+  constructor(name, saying, legs = 2, hands = 2) {
+    super(name, 'female', legs, hands, saying);
   }
 }
 
 
 class Dog extends Animal {
-  constructor(name, gender, paws) {
-    super(name, gender, paws);
-    this.type = "dog",
-    this.saying = "woof-woof"
+  constructor(name, gender, paws = 4) {
+    super('dog', gender, name, paws, 'woof-woof');
   }
 }
 
-class Cat extends MyMixin(Animal) {
-  constructor(name, gender, paws) {
-    super(name, gender, paws);
-    this.type = "cat"
+class Cat extends Animal {
+  constructor(name, gender, paws = 4) {
+    super('cat', gender, name, paws, 'meow-meow');
   }
 }
 
-class HumanCat extends MyMixin(Woman) {
-  constructor(name, gender, legs, hands) {
-    super(name, gender, legs, hands);
-    this.type = "human-cat"
+class WomanCat extends Cat {
+  constructor(name, gender = 'female', legs = 2, hands = 2, saying) {
+    super(name, gender, saying);
+    this.legs = legs,
+    this.hands = hands,
+    this.type = 'woman-cat'
   }
 
-  greeting() {
-    return `\ ${this.introduction()} I have ${this.legs} legs, ${this.hands} hands and a tail. ${this.say()}`;
+  toGreet() {
+    return `\ ${this.toIntroduce()} I have ${this.legs} legs, ${this.hands} hands and a tail. ${this.toSay()}`;
   }
 }
 
-const dog = new Dog('Charlie', 'male', '4');
-const cat = new Cat('Luna', 'female', '4');
-const man = new Man('Max', '2', '2', 'Hello everybody!');
-const woman = new Woman('Emma', '2', '2', 'Have a nice day!');
-const womanCat = new HumanCat('Phoebe', '2', '2');
+const dog = new Dog('Charlie', 'male', 3);
+const cat = new Cat('Luna', 'female');
+const man = new Man('Max','Hello everybody!');
+const woman = new Woman('Emma', 'Have a nice day!');
+const womanCat = new WomanCat('Phoebe');
 
-[dog, cat, man, woman, womanCat].forEach(el => print(el.greeting()));
+[dog, cat, man, woman, womanCat].forEach(el => print(el.toGreet()));
