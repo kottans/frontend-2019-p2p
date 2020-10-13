@@ -50,7 +50,6 @@ class Enemy extends Personage {
 
     update(dt) {
         this.x += this.speed * dt;
-        this.contactCheck();
     }
 
     contactCheck() {
