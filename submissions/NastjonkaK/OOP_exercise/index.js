@@ -6,11 +6,11 @@ class Creature {
     this.saying = saying
   }
 
-  toIntroduce() {
+  getIntroducing() {
      return `\Hello! I am a ${this.type}, ${this.gender}. My name is ${this.name}.`
     }
 
-  toSay(){
+  getSaying(){
     return `\And I want to say: "${this.saying}".`
   }
 }
@@ -21,8 +21,8 @@ class Animal extends Creature {
     this.paws = paws
   }
 
-  toGreet() {
-    return `\ ${this.toIntroduce()} I have ${this.paws} paws and a tail. ${this.toSay()}`;
+  getGreeting() {
+    return `\ ${this.getIntroducing()} I have ${this.paws} paws and a tail. ${this.getSaying()}`;
   }
 }
 
@@ -33,8 +33,8 @@ class Human extends Creature {
     this.hands = hands
   }
 
-  toGreet() {
-    return `\ ${this.toIntroduce()}  I have ${this.legs} legs and ${this.hands} hands. ${this.toSay()}`;
+  getGreeting() {
+    return `\ ${this.getIntroducing()}  I have ${this.legs} legs and ${this.hands} hands. ${this.getSaying()}`;
   }
 }
 
@@ -71,8 +71,8 @@ class WomanCat extends Cat {
     this.type = 'woman-cat'
   }
 
-  toGreet() {
-    return `\ ${this.toIntroduce()} I have ${this.legs} legs, ${this.hands} hands and a tail. ${this.toSay()}`;
+  getGreeting() {
+    return `\ ${this.getIntroducing()} I have ${this.legs} legs, ${this.hands} hands and a tail. ${this.getSaying()}`;
   }
 }
 
@@ -82,4 +82,4 @@ const man = new Man('Max','Hello everybody!');
 const woman = new Woman('Emma', 'Have a nice day!');
 const womanCat = new WomanCat('Phoebe');
 
-[dog, cat, man, woman, womanCat].forEach(el => print(el.toGreet()));
+[dog, cat, man, woman, womanCat].forEach(el => print(el.getGreeting()));
