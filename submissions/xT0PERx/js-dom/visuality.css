@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 .menu-list {
   text-transform: uppercase;
@@ -41,7 +41,7 @@
   margin: 15px;
 }
 
-.selected-li {
+.selected-item {
   background-color: lightslategrey;
 }
 
@@ -63,14 +63,14 @@
 }
 
 .clearfix:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
 
 .content-style p {
-  margin-top: 0.5em; /* Отступ сверху */
-  margin-bottom: 1em; /* Отступ снизу */
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .content {
