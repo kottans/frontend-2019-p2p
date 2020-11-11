@@ -29,42 +29,28 @@ const contentMenu = [
 const menu = document.querySelector(".menu-list");
 
 const whatContentShow = function () {
-  menu.addEventListener("click", function (event) {
-    const li = event.target.closest("li");
+  menu.addEventListener("click", function ({ target }) {
+    const item = target.closest("li");
+    if (!item) return;
+    if (!menu.contains(item)) return;
 
-    if (!li) return;
-
-    if (!menu.contains(li)) return;
-
-    switch (li.className) {
-      case "menu-item-1":
-        showContent("menu-item-1");
-        break;
-      case "menu-item-2":
-        showContent("menu-item-2");
-        break;
-      case "menu-item-3":
-        showContent("menu-item-3");
-        break;
-      case "menu-item-4":
-        showContent("menu-item-4");
-        break;
-      case "menu-item-5":
-        showContent("menu-item-5");
-        break;
-    }
-    selectedItem(li);
+    contentMenu.forEach((el) => {
+      if (item.classList.contains(el.nameClassFromArr)) {
+        showContent(el.nameClassFromArr);
+      }
+    });
+    selectedItem(item);
   });
 };
 
-function selectedItem(tagName) {
+function selectedItem(menuItem) {
   for (let i = 0; i < menu.children.length; i++) {
     if (menu.children[i].classList.contains("selected-item")) {
       menu.children[i].classList.remove("selected-item");
     }
   }
-  if (!tagName.classList.contains("selected-item")) {
-    tagName.classList.add("selected-item");
+  if (!menuItem.classList.contains("selected-item")) {
+    menuItem.classList.add("selected-item");
   }
 }
 

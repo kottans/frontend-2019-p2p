@@ -20,7 +20,7 @@
   height: 527px;
 }
 
-.menu p {
+h2 {
   text-align: end;
   padding: 25px;
   margin: 10px;
@@ -62,12 +62,6 @@
   margin: 5px 10px;
 }
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .content-style p {
   margin-top: 0.5em;
   margin-bottom: 1em;
@@ -85,7 +79,7 @@
   }
 }
 .mainInfo {
-  display: flex;
+  display: grid;
   position: absolute;
   border: solid 0.3em;
   border-color: rgba(182, 160, 90, 0.486);
@@ -94,9 +88,8 @@
   font-weight: bold;
   height: 527px;
 }
-.mainInfo p {
+h1 {
   text-align: center;
-  font-size: 1.5em;
   max-width: 850px;
 }
 .mainInfo img {
