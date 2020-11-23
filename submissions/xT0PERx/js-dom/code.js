@@ -33,7 +33,7 @@ const whatContentShow = function () {
     const item = target.closest("li");
     if (!item) return;
     if (!menu.contains(item)) return;
-    showContent(item.classList[0]); //нормальная практика? Или может что подскажешь?
+    showContent(item.classList[0]);
     selectedItem(item);
   });
 };
