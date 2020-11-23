@@ -33,32 +33,23 @@ const whatContentShow = function () {
     const item = target.closest("li");
     if (!item) return;
     if (!menu.contains(item)) return;
-
-    contentMenu.forEach((el) => {
-      if (item.classList.contains(el.nameClassFromArr)) {
-        showContent(el.nameClassFromArr);
-      }
-    });
+    showContent(item.classList[0]); //нормальная практика? Или может что подскажешь?
     selectedItem(item);
   });
 };
 
 function selectedItem(menuItem) {
-  for (let i = 0; i < menu.children.length; i++) {
-    if (menu.children[i].classList.contains("selected-item")) {
-      menu.children[i].classList.remove("selected-item");
-    }
+  if (menu.querySelector(".selected-item") !== null) {
+    menu.querySelector(".selected-item").classList.remove("selected-item");
   }
-  if (!menuItem.classList.contains("selected-item")) {
-    menuItem.classList.add("selected-item");
-  }
+  menuItem.classList.add("selected-item");
 }
 
 const element = document.querySelector("#content");
 
 function showContent(nameClass) {
   while (element.firstChild) {
-    element.removeChild(element.firstChild);
+    element.innerHTML = "";
   }
 
   const fragment = document.createDocumentFragment();
