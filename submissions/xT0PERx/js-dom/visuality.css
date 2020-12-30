@@ -27,11 +27,11 @@ h2 {
   background-color: lightgray;
 }
 
-.menu-item-1,
-.menu-item-2,
-.menu-item-3,
-.menu-item-4,
-.menu-item-5 {
+.item-1,
+.item-2,
+.item-3,
+.item-4,
+.item-5 {
   padding: 20px;
   background-color: rgba(182, 160, 90, 0.486);
   border-bottom: solid 3px;

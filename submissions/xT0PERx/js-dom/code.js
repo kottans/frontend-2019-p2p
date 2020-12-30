@@ -33,13 +33,13 @@ const whatContentShow = function () {
     const item = target.closest("li");
     if (!item) return;
     if (!menu.contains(item)) return;
-    showContent(item.classList[0]);
+    showContent(item.dataset.item);
     selectedItem(item);
   });
 };
 
 function selectedItem(menuItem) {
-  if (menu.querySelector(".selected-item") !== null) {
+  if (menu.querySelector(".selected-item")) {
     menu.querySelector(".selected-item").classList.remove("selected-item");
   }
   menuItem.classList.add("selected-item");
@@ -48,9 +48,7 @@ function selectedItem(menuItem) {
 const element = document.querySelector("#content");
 
 function showContent(nameClass) {
-  while (element.firstChild) {
-    element.innerHTML = "";
-  }
+  element.innerHTML = "";
 
   const fragment = document.createDocumentFragment();
   const div = document.createElement("div");
