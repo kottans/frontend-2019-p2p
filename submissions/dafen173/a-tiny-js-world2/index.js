@@ -1,92 +1,72 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
-
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
-
-// ======== OBJECTS DEFINITIONS ========
-// Define your objects here
 
 
-class Person {
-  constructor(gender, name, species) {
-    this.species = species;
+class Creatures {
+  constructor(name, saying, gender, legs) {
+    this.name = name;
+    this.saying = saying;
     this.gender = gender;
-    this.name = name;  
+    this.legs = legs;  
   } 
-  setFriends(friends){
-    this.friends = friends;
-  } 
-  
-  sayAsAnimal(){
-    if (this.species === 'cat') {
-      this.speach = 'Meow';
-    } else if (this.species === 'cat-woman') {
-      this.speach = 'Meow'
-    } else {
-      this.speach = 'Wohw whow whow'
-    }
+
+  say() {
+    return 'Hi! I am ' + this.species + '. My name is ' + this.name + '. My gender is ' + this.gender 
+        + '. I have ' + this.legs + ' legs' + '. I want to say ' + this.saying + '.' ; 
   }
 }
 
-class Human extends Person {
-  constructor(gender, name, species){
-    super(gender, name, species);
-    this.species = species || 'human';
+class Animal extends Creatures {
+  constructor(name, saying, gender, legs = 4) {
+    super(name, saying, gender, legs);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, saying, gender, legs) {
+    super(name, saying, gender, legs);
+    this.species = 'dog';
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, saying, gender, legs) {
+    super(name, saying, gender, legs);
+    this.species = 'cat';
+  }
+}
+
+class Person extends Creatures {
+  constructor(name, saying, gender, legs = 2) {
+    super(name, saying, gender, legs);
     this.hands = 2;
-    this.legs = 2;
-    this.speach = 'Hello, people!';
+    this.species = 'human';
   }
 }
 
-class Animal extends Person {
-  constructor(gender, name, species){
-    super(gender, name, species);
-    this.hands = 0;
-    this.legs = 4;
+class Man extends Person {
+  constructor(name, saying, gender, legs) {
+    super(name, saying, gender, legs);
+    this.gender = 'male';
   }
 }
 
-var man = new Human('male', 'Kurt');
-var woman = new Human('female', 'Courtney');
-var catwoman = new Human('female', 'Halle', 'cat-woman');
-var cat = new Animal('female', 'Marta', 'cat');
-var dog = new Animal('male', 'Perlin', 'dog');
+class Woman extends Person {
+  constructor(name, saying, gender, legs) {
+    super(name, saying, gender, legs);
+    this.gender = 'female';
+  }
+}
 
-man.setFriends([woman, catwoman, dog]);
-woman.setFriends([man, cat]);
-catwoman.setFriends([cat, man, woman]);
-dog.setFriends([man, woman]);
-cat.setFriends([catwoman, woman]);
-dog.sayAsAnimal();
-cat.sayAsAnimal();
-catwoman.sayAsAnimal();
-
-[man, woman, dog, catwoman, cat].forEach(el => {
-  print(`Hi! I am ${el.species}; My name is ${el.name};
-    My gender is ${el.gender}; I have ${el.legs} legs;
-    I have ${el.hands} hands; I want to say ${el.speach} to my friends ${el.friends.map(fr => fr.name).join(', ')}`);
-});
+let allCreatures = [new Dog('Perlin', 'Wohw-wohw', 'male' ), 
+          new Cat('Marta', 'Meow-meow', 'female'),
+          new Woman('Courtney','Hello'), 
+          new Woman('Halle', 'Meow'),
+          new Man('Kurt', 'Hello')]
 
 
-// ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+allCreatures.forEach(el => {
+  print(el.say());
+})
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
 
 
