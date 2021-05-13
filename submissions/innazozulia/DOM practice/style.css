@@ -1,0 +1,167 @@
+body {
+  display: flex;
+  justify-content:start;
+  font-family: 'Itim', cursive;
+  background-color: rgb(252, 220, 220);
+}
+.main{
+  display: flex;
+}
+.navigation{
+  list-style-type: none;
+}
+.list-element{
+  cursor: pointer;
+}
+.list-element:hover{
+background-color: rgb(241, 82, 108);
+}
+.image{
+padding: 25px;
+}
+@media (min-width: 750px) {
+  .container {
+    max-width: 970px;
+    padding: 10px;
+  }
+  .page-name {
+    font-size: 3em;
+  }
+  .dictionary-name {
+    font-size: 2em;
+  }
+  .page-name,
+  .dictionary-name {
+    margin-left: 30px;
+  }
+  .list-element {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  .description {
+    max-width: 300px;
+  }
+}
+@media (max-width: 1000px){
+  .menu{
+    padding: 5px;
+    margin-bottom: 3px;
+  }
+  .image{
+    padding: 5px;
+  }
+  p{
+    width: 250px;
+    padding-right: 5px;
+    margin-right: 5px;
+  }
+  .list-element{
+    padding: 2px;
+  }
+}
+@media(max-width: 950px){
+  .image{
+    padding: 5px;
+    width: 90%;
+    margin: 10px;
+  }
+  p{
+    width: 80%;
+  }
+  .list-element{
+    padding: 1px;
+  }
+
+}
+@media (min-width: 645px) and (max-width: 800px) {
+    .page-name {
+    font-size: 2em;
+  }
+  .dictionary-name {
+    font-size: 1.5em;
+  } 
+  .page-name,
+  .dictionary-name {
+    margin-left: 20px;
+  }
+  .list-element {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+    padding-right: 15px;
+    width: 100%;
+  }
+} 
+@media(max-width: 650px){
+  .image {
+   width: 100%;
+   width: 300px;
+   height: 300px;
+   padding-right: 15px;
+  }
+  .list-element {
+    padding: 1px;
+    margin-bottom: 5px;
+  }
+}
+@media(max-width: 580px){
+  .list-element {
+    padding: 1px;
+    margin-bottom: 2px;
+  }
+  .image {
+    width: 100%;
+    width: 200px;
+    height: 200px;
+    padding-right: 10px;
+   }
+  .description{
+    padding-left: 10px;
+  }
+}
+@media  (max-width: 485px) { 
+  .page-name {
+    font-size: 1em;
+  }
+  .dictionary-name {
+    font-size: 1em;
+  }
+  .page-name,
+  .dictionary-name {
+    margin-left: 20px;
+  }
+  .navigation {
+    display: inline;
+  }
+  .image {
+    height: 150px;
+    width: 100%;
+    margin-left: 10px;
+  }
+  p{
+    display: flex;
+  }
+} 
+@media (max-width: 420px){
+  .menu{
+    padding-right: 1px;
+    font-size: 10px;
+  }
+  .image{
+    width: 100%;
+    padding:5px;
+    margin:5px;
+  }
+.p{
+  display: flex;
+}
+.description{
+  padding-left: 5px;
+  margin-left: 5px;
+  font-size: 10px;
+}
+}
