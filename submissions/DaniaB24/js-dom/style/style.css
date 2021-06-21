@@ -1,0 +1,118 @@
+@import "./content.css";
+
+body {
+  margin: 0;
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  width: 100%;
+}
+
+.dota-2 {
+  width: 100%;
+  margin: 0;
+}
+
+nav {
+  width: 20%;
+}
+
+.header-name {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 30px 0px;
+  padding: 21px;
+  font-size: 37px;
+  font-family: cursive;
+  background-color: mediumpurple;
+}
+
+#list-of-creature {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.creature-dota {
+  padding: 15px;
+  box-shadow: 0 0 2px black;
+  border: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 40px 0px 0px 22px;
+  font-size: 23px;
+  background-color: mediumpurple;
+  font-family: cursive;
+  cursor: pointer;
+}
+
+.main-block {
+  width: 60%;
+  background-color: mediumpurple;
+  margin: 30px 0px 0 90px;
+  border-radius: 8px;
+}
+.content {
+  width: 100%;
+  margin: 0;
+}
+.content-block {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.content-block__header {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 20px auto;
+  font-size: 27px;
+  font-family: cursive;
+}
+
+.content-block__img {
+  width: 25%;
+  height: 192px;
+  float: left;
+  margin: 0 5px 5px 0;
+  border-radius: 10px;
+}
+
+.content-block__paragraph {
+  width: 94%;
+  margin: 0px 0px 5px 0px;
+  font-size: 22px;
+  text-align: justify;
+}
+
+@media (max-width: 750px) {
+  .creature-dota {
+    font-size: 17px;
+  }
+  #list-of-creature {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 10px;
+  }
+  .content-block__header {
+    font-size: 15px;
+  }
+  .content-block__img {
+    width: 20%;
+  }
+  .content-block__paragraph {
+    font-size: 17px;
+  }
+  .main-block {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 300px;
+  }
+}

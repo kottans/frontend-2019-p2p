@@ -1,0 +1,62 @@
+const dota = {
+  pudge: {
+    name: "Pudge",
+    image: "/img/pudge.png",
+    description:
+      "Pudge — это герой с ближним типом атаки, основным атрибутом которого является сила.Его первая способность,  Meat Hook, бросает окровавленный крюк в определенную область или юнита. Крюк зацепится за первого юнита, в которого попадет, притащит его к Pudge и нанесет урон, если это враг. Вторая способность,  Rot, токсичное облако, вызванное из-за гноения, постоянно наносит урон и замедляет противников, ранит не только вражеских юнитов, но и самого Pudge. Пассивная способность,  Flesh Heap, дает Pudge дополнительное сопротивление магии, а также дополнительную силу, которая увеличивается, когда Pudge убивает вражеского героя, или тот умирает поблизости. Способность начинает накапливать заряды уже до того, как будет выучена, но получить силу герой сможет, только изучив ее. Ультимативной способностью,  Dismember, Pudge начинает заживо пожирать вражеского юнита, обездвиживая его и нанося периодический урон. ",
+  },
+  bristleback: {
+    name: "Bristleback",
+    image: "/img/brist.png",
+    description:
+      "Bristleback — это герой с ближним типом атаки, основным атрибутом которого является сила.Герой известен своим набором синергичных, упрощенных, и в то же время эффективных заклинаний с низкими затратами маны и временем перезарядки. Хотя каждое произнесение его заклинаний само по себе имеет относительно слабую силу, их применения имеют кумулятивный эффект, что делает Bristleback тем более смертоносным, чем дольше он остается живым в бою; это напрямую отражается в его ультимативной способности,  Warpath, которая увеличивает скорость передвижения и урон от атак героя в зависимости от количества заклинаний, которые он недавно использовал. Герой может по нарастанию замедлять своих врагов и уменьшать их броню с помощью  Viscous Nasal Goo и поражать их шквалом  Quill Spray, что делает его эффективным преследователем при ганках. Из-за его низкого прироста силы он, на первый взгляд, кажется менее живучим, чем большинство героев класса Strength attribute symbol.png сила, но его фирменная пассивная способность  Bristleback существенно снижает весь урон, который герой получает с боков и особенно со спины, что делает его очень сложной целью для убийства, если он отвернут от своих врагов.",
+  },
+  "s-f": {
+    name: "Shadow Fiend",
+    image: "/img/Sf.png",
+    description:
+      "Shadow Fiend — это герой с дальним типом атаки, основным атрибутом которого является Ловкость. Первые три способности,  Shadowraze, разрывают участок земли перед Shadow Fiend, нанося урон всем врагам в зоне действия. Разница между этими способностями заключается в дальности применения. Первая пассивная способность,  Necromastery, крадет душу каждого убитого врага, давая бонус к урону атак. После смерти половина из них теряется. Вторая пассивная способность,  Presence of the Dark Lord, снижает броню ближайших врагов. Ультимативная способность,  Requiem of Souls, выпускает собранные души, которые наносят урон всем существам вокруг, также они снижают наносимый ими урон и накладывают эффект страха. Если Shadow Fiend погибает, то способность автоматически срабатывает вне зависимости от ее готовности, но не применяет страх и действует вполсилы.",
+  },
+  "q-of-p": {
+    name: "Queen of Pain",
+    image: "/img/Qp.png",
+    description:
+      "Queen of Pain — герой с дальним типом атаки и основным атрибутом интеллект. Она использует свои способности, чтобы приблизиться к врагам и нанести им огромный урон по области. Благодаря этой возможности, а также умению легко преследовать одиночные цели, обычно стоит на средней линии и играет роль ганкер и полу-фарм.  Blink — это основа набора способностей героини. Именно он позволяет ей врываться в драки и избегать их. Заняв атакующую позицию, Акаша со  Scream of Pain и  Sonic Wave способна сразу сокрушить целую команду. Погоня за блуждающими врагами — ещё одна сильная сторона Queen of Pain: с  Shadow Strike она никому не оставит шанса убежать. Акаша очень ловко совершает убийства в ранней игре, и при правильной сборке превращается в отличного героя полу-фарм.",
+  },
+};
+const listOfCreature = document.querySelector("#list-of-creature");
+const contentBlock = document.querySelector("#content-block");
+function manageCreatureList(creatureId) {  
+  contentBlock.innerHTML = '';
+  const creatureData = dota[creatureId];
+  const fragment = document.createDocumentFragment();
+  
+  const header = document.createElement("h2");
+  header.className = 'content-block__header';
+  header.innerHTML = creatureData.name;
+  fragment.appendChild(header);
+  
+  const image = document.createElement("img");
+  image.className = 'content-block__img';
+  image.src = creatureData.image;
+  fragment.appendChild(image);
+  
+  const paragraph = document.createElement("p");
+  paragraph.className = 'content-block__paragraph';
+  paragraph.innerHTML = creatureData.description;
+  fragment.appendChild(paragraph);
+
+  contentBlock.appendChild(fragment);
+  let mainBlock = document.querySelector("main");
+  mainBlock.className = "main-block";
+  mainBlock.appendChild(fragment);
+}
+
+listOfCreature.addEventListener("click", (event) => {
+  if (event.target.parentNode.id === "list-of-creature") {
+    const creatureId = event.target.id;
+    manageCreatureList(creatureId);
+  }
+});
+
+const addInfo = document.querySelector("description-of-creature");
