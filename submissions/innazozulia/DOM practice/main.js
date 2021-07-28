@@ -1,5 +1,3 @@
-const Document = document;
-
 const pokemons = [
   {
     name: 'Bulbasaur',
@@ -77,77 +75,59 @@ const pokemons = [
     description: 'Rattata is cautious in the extreme. Even while it is asleep, it constantly listens by moving its ears around. It is not picky about where it lives—it will make its nest anywhere.'
   },
 ];
-
-const container = Document.createElement('div');
-container.classList.add('container');
-Document.body.appendChild(container);
-
-const pageName = Document.createElement('h1');
-pageName.classList.add('page-name');
-pageName.textContent = "Choose your Pokemon";
-container.appendChild(pageName);
-
-const character = Document.createElement('div');
-character.classList.add('dictionary-name');
-character.textContent = "The Character";
-container.appendChild(character);
-
-const divMain = Document.createElement('div');
-divMain.classList.add('main');
-container.appendChild(divMain);
-
-const divMenu = Document.createElement('div');
-divMenu.classList.add('menu');
+const container = document.querySelector('.container');
+const pageName = document.querySelector('.page-name');
+const character = document.querySelector('.dictionary-name');
+const divMain = document.querySelector('.main');
+const divMenu = document.querySelector('.menu'); 
 divMain.appendChild(divMenu);
-
-const navigation = Document.createElement('ul');
-navigation.classList.add('navigation');
-const nav = Document.querySelectorAll('li');
+const navigation = document.querySelector('.navigation');
+const nav = document.querySelectorAll('li');
 divMenu.appendChild(navigation);
 
 pokemons.forEach((val, key) => {
-  const li = Document.createElement('li');
+  const li = document.createElement('li');
   li.classList.add('list-element');
   li.textContent = pokemons[key].name;
-  if(key == 0){
-    li.classList.add('clicked');
-    }
-    navigation.appendChild(li);
+  navigation.appendChild(li);
 });
 
-const divImage = Document.createElement('div');
+const divImage = document.createElement('div');
 divImage.classList.add('image');
 divMain.appendChild(divImage);
 
-const image = Document.createElement('img');
+const image = document.createElement('img');
 image.classList.add('image');
 image.setAttribute('src', pokemons[0].imgSrc);
 divImage.appendChild(image);
 
-const divDescription = Document.createElement('div');
+const divDescription = document.createElement('div');
 divDescription.classList.add('description');
 divMain.appendChild(divDescription);
 
-const descriptionMain = Document.createElement('h3');
+const descriptionMain = document.createElement('h3');
 descriptionMain.textContent = pokemons[0].name;
 divDescription.appendChild(descriptionMain);
 
-const description = Document.createElement('p');
+const description = document.createElement('p');
 description.textContent = pokemons[0].description;
 divDescription.appendChild(description);
 
-const menuList = Document.querySelector('ul');
+const menuList = document.querySelector('ul');
+
 menuList.addEventListener('click', event => {
-  const li = Document.querySelectorAll('li');
+  const li = document.querySelectorAll('li');
   li.forEach(element => {
-    element.classList.remove('cliked');
+    element.classList.remove('clicked');
   });
-  pokemons.forEach((val, key) => {
+  pokemons.find((val, key) => {
     if(event.target.textContent === pokemons[key].name){
       image.src = pokemons[key].imgSrc;
-      event.target.classList.add('cliked');
+      event.target.classList.add('clicked');
       descriptionMain.textContent = pokemons[key].name;
       description.textContent = pokemons[key].description;
     }
   });
 });
+
+

@@ -1,6 +1,5 @@
 body {
-  display: flex;
-  justify-content:start;
+
   font-family: 'Itim', cursive;
   background-color: rgb(252, 220, 220);
 }
@@ -165,3 +164,4 @@ padding: 25px;
   font-size: 10px;
 }
 }
+
