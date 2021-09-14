@@ -1,0 +1,163 @@
+/*common styles*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  list-style-type: none;
+  color: #000;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+.navigation {
+  width: 400px;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+.title {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+  font-size: 18px;
+}
+.bell__image {
+  width: 20px;
+  height: 25px;
+}
+.user-photo__image {
+  width: 30px;
+  border-radius: 45%;
+}
+.apps__button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: url(icons/popup-button.png) no-repeat;
+}
+
+/* styles for apps menu */
+.apps-menu {
+  position: absolute;
+  top: 65px;
+  right: 45px;
+  visibility: hidden;
+  border: #808080 solid 1px;
+  border-radius: 10px;
+  width: 290px;
+  height: 430px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  padding: 9px 5px 9px 5px;
+}
+.apps-menu__main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.apps-menu-more {
+  display: none;
+}
+.icons {
+  max-width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+.apps-menu__item {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  width: 30%;
+  height: 90px;
+  text-align: center;
+}
+.apps-menu__item-title {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  text-align: center;
+  height: 18px;
+}
+
+/* "Checked" states styles */
+.apps__button:checked ~ .apps-menu {
+  visibility: visible;
+}
+.check__input:checked ~ .apps-menu-more {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.check__input:checked ~ .apps-menu-more-button {
+  display: none;
+}
+/* styles for "More"button */
+.check__input {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.apps-menu-more-button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 5px 3px;
+  text-align: center;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+}
+.apps-menu-footer {
+  padding: 20px 0 5px 0;
+}
+
+/*Hover and Focus*/
+.nav-item:hover {
+  text-decoration: underline;
+}
+.apps__button:hover {
+  background-color: #b4b4b4;
+  opacity: 0.5;
+  border-radius: 45%;
+  cursor: pointer;
+}
+.apps-menu__item:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #c4dbf7;
+}
+.apps-menu__item:active {
+  border: #9ac8fc solid 1px;
+  border-radius: 5px;
+  background-color: #aac7eb;
+}
+.apps-menu-more-button:hover {
+  cursor: pointer;
+  background-color: #c0c1c2;
+}
+.check__input:focus ~ .apps-menu-more-button {
+  background-color: #aac7eb;
+}
+.apps-menu-footer:hover {
+  text-decoration: underline;
+}
+.bell__image:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 502px) {
+  .title {
+    display: none;
+  }
+}
