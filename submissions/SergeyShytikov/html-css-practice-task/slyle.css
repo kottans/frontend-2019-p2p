@@ -11,19 +11,21 @@
 }
 
 /* header */
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
 .navigation {
   width: 400px;
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  float: right;
   padding: 20px;
 }
 .title {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  float: left;
   padding: 30px;
   font-size: 18px;
 }
@@ -152,4 +154,10 @@
 }
 .bell__image:hover {
   opacity: 0.5;
+}
+
+@media (max-width: 502px) {
+  .title {
+    display: none;
+  }
 }
