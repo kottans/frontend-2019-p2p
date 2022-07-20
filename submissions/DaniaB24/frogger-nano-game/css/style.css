@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+}
+#score {
+    position: absolute;
+    font-size: 22px;
+    left:  47%;
+    bottom: 86%;
+    color: lawngreen;
+    font-family: monospace;
+}
