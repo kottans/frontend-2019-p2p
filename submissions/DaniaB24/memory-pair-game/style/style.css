@@ -1,7 +1,10 @@
 @font-face {
   font-family: "waltographui";
-  src: url("/fonts/7fonts.ru_waltographui-webfont.woff2") format("woff2"),
-    url("/fonts/7fonts.ru_waltographui-webfont.woff") format("woff");
+  font-style: normal;
+  src:url("/fonts/7fonts.ru_waltographui-webfont.woff2"),
+    url("/fonts/7fonts.ru_waltographui-webfont.woff2") format("woff2"),
+    url("/fonts/7fonts.ru_waltographui-webfont.woff") format("woff"),
+    url("/fonts/7fonts.ru_waltographui-webfont.ttf") format("truetype"),
 }
 html,
 body {
