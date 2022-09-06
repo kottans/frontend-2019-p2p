@@ -1,4 +1,7 @@
-let heroFromDota = [
+const container = document.querySelector(".content-block");
+const listOfCreatures = document.querySelector("#list-of-creatures");
+
+let dotaHeroes = [
   {
     id: "pudge",
     name: "Pudge",
@@ -29,10 +32,8 @@ let heroFromDota = [
   },
 ];
 
-const allHero = [...heroFromDota];
-const containerOfHero = document.querySelector(".content-block");
 function createCard(hero) {
-  containerOfHero.innerHTML = `
+  container.innerHTML = `
   <div class="contentBlock">
     <h2 class="name-of-hero">${hero.name}</h2>
     <img src="${hero.image}"class="hero-image">
@@ -40,12 +41,10 @@ function createCard(hero) {
   </div>
   `;
 }
-
-const listOfCreature = document.querySelector("#list-of-creatures");
-listOfCreature.addEventListener("click", function handleHeroClick(e) {
-  const clonedHero = allHero.forEach((hero) => {
-    if (e.target.id === hero.id) {
-      createCard(hero);
-    }
+function handleHeroClick(e) {
+  console.log("hi");
+  dotaHeroes.forEach((hero) => {
+    if (e.target.id === hero.id) createCard(hero);
   });
-});
+}
+listOfCreatures.addEventListener("click", handleHeroClick);
