@@ -41,9 +41,9 @@ function createCard(hero) {
   </div>
   `;
 }
-function handleHeroClick({target}) {
+function handleHeroClick(e) {
   dotaHeroes.forEach((hero) => {
-    if (target.id === hero.id) createCard(hero);
+    if (e.target.id === hero.id) createCard(hero);
   });
 }
 listOfCreatures.addEventListener("click", handleHeroClick);
