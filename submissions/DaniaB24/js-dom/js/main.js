@@ -1,4 +1,4 @@
-let dota = [
+let heroFromDota = [
   {
     id: "pudge",
     name: "Pudge",
@@ -7,7 +7,7 @@ let dota = [
       "Pudge — это герой с ближним типом атаки, основным атрибутом которого является сила.Его первая способность,  Meat Hook, бросает окровавленный крюк в определенную область или юнита. Крюк зацепится за первого юнита, в которого попадет, притащит его к Pudge и нанесет урон, если это враг. Вторая способность,  Rot, токсичное облако, вызванное из-за гноения, постоянно наносит урон и замедляет противников, ранит не только вражеских юнитов, но и самого Pudge. Пассивная способность,  Flesh Heap, дает Pudge дополнительное сопротивление магии, а также дополнительную силу, которая увеличивается, когда Pudge убивает вражеского героя, или тот умирает поблизости. Способность начинает накапливать заряды уже до того, как будет выучена, но получить силу герой сможет, только изучив ее. Ультимативной способностью,  Dismember, Pudge начинает заживо пожирать вражеского юнита, обездвиживая его и нанося периодический урон. ",
   },
   {
-    id: "Bristleback",
+    id: "bristleback",
     name: "Bristleback",
     image: "/img/brist.png",
     description:
@@ -28,40 +28,24 @@ let dota = [
       "Queen of Pain — герой с дальним типом атаки и основным атрибутом интеллект. Она использует свои способности, чтобы приблизиться к врагам и нанести им огромный урон по области. Благодаря этой возможности, а также умению легко преследовать одиночные цели, обычно стоит на средней линии и играет роль ганкер и полу-фарм.  Blink — это основа набора способностей героини. Именно он позволяет ей врываться в драки и избегать их. Заняв атакующую позицию, Акаша со  Scream of Pain и  Sonic Wave способна сразу сокрушить целую команду. Погоня за блуждающими врагами — ещё одна сильная сторона Queen of Pain: с  Shadow Strike она никому не оставит шанса убежать. Акаша очень ловко совершает убийства в ранней игре, и при правильной сборке превращается в отличного героя полу-фарм.",
   },
 ];
-const listOfCreature = document.querySelector("#list-of-creature");
-listOfCreature.addEventListener("click", function (character) {
-  console.log(character.target);
-});
-const contentBlock = document.createElement("div");
-contentBlock.className = "contentBlock";
-const headerCreatures = document.createElement("h2");
-const imageCreatures = document.createElement("img");
-const paragraphP = document.createElement("p");
-function ifClicked(creature) {
-  if (creature.target.id === "pudge") {
-    headerCreatures.innerHTML = dota[0].name;
-    imageCreatures.src = dota[0].image;
-    paragraphP.innerHTML = dota[0].description;
-  } else if (creature.target.id === "bristleback") {
-    headerCreatures.innerHTML = dota[1].name;
-    imageCreatures.src = dota[1].image;
-    paragraphP.innerHTML = dota[1].description;
-  } else if (creature.target.id === "shadowFiend") {
-    headerCreatures.innerHTML = dota[2].name;
-    imageCreatures.src = dota[2].image;
-    paragraphP.innerHTML = dota[2].description;
-  } else if (creature.target.id === "queenOfpain") {
-    headerCreatures.innerHTML = dota[3].name;
-    imageCreatures.src = dota[3].image;
-    paragraphP.innerHTML = dota[3].description;
-  }
-  contentBlock.appendChild(headerCreatures);
-  contentBlock.appendChild(imageCreatures);
-  contentBlock.appendChild(paragraphP);
-  let mainBlock = document.querySelector("main");
-  mainBlock.className = "mainBlock";
-  mainBlock.appendChild(contentBlock);
-}
-listOfCreature.addEventListener("click", (creature) => ifClicked(creature));
 
-const addInfo = document.querySelector("description-of-creature");
+const allHero = [...heroFromDota];
+const containerOfHero = document.querySelector(".content-block");
+function createCard(hero) {
+  containerOfHero.innerHTML = `
+  <div class="contentBlock">
+    <h2 class="name-of-hero">${hero.name}</h2>
+    <img src="${hero.image}"class="hero-image">
+    <p class="hero-description">${hero.description}</p>
+  </div>
+  `;
+}
+
+const listOfCreature = document.querySelector("#list-of-creatures");
+listOfCreature.addEventListener("click", function handleHeroClick(e) {
+  const clonedHero = allHero.forEach((hero) => {
+    if (e.target.id === hero.id) {
+      createCard(hero);
+    }
+  });
+});

@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   background-color: lightblue;
   display: flex;
   flex-wrap: wrap;
@@ -8,12 +9,14 @@ body {
 header {
   width: 100%;
 }
-
-nav {
-  width: 20%;
+section {
+  width: 25%;
 }
-
+aside {
+  width: 65%;
+}
 .header-name {
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 0px 0px 30px 0px;
@@ -23,46 +26,40 @@ nav {
   background-color: mediumpurple;
 }
 
-#list-of-creature {
-  width: 100%;
-  margin: 0;
-  display: flex;
+#list-of-creatures {
   flex-direction: column;
 }
 
 .creature-dota {
-  padding: 15px;
-  box-shadow: 0 0 2px black;
-  border: 10px;
-  list-style: none;
-  display: flex;
-  justify-content: center;
+  padding: 15px 0px 15px 0px;
+  box-shadow: 5px 5px 5px #842695;
+  text-align: center;
+  width: 75%;
   border-radius: 5px;
-  margin: 40px 0px 0px 22px;
-  font-size: 23px;
+  margin: 40px 20px 0px 22px;
+  font-size: 20px;
   background-color: mediumpurple;
   font-family: cursive;
   cursor: pointer;
+  list-style-type: none;
 }
 
-.mainBlock {
-  width: 60%;
-  background-color: mediumpurple;
-  margin: 30px 0px 0 90px;
-  border-radius: 8px;
-}
+.content-block {
+  display: flex;
+  justify-content: flex-end;
 
-.content {
-  width: 100%;
-  margin: 0;
 }
 
 .contentBlock {
-  width: 100%;
-  padding-left: 20px;
+  background-color: mediumpurple;
+  width: 80%;
+  box-shadow: 5px 5px 5px #842695;
+  border-radius: 8px;
+  margin: 30px 30px 0 90px;
+  padding: 5px 30px 15px 30px;
 }
 
-.contentBlock h2 {
+.name-of-hero {
   display: flex;
   justify-content: center;
   margin: 15px auto 20px auto;
@@ -70,44 +67,79 @@ nav {
   font-family: cursive;
 }
 
-.contentBlock img {
-  width: 20%;
-  height: 192px;
+.hero-image {
+  width: 200px;
+  height: 200px;
   float: left;
   margin: 0 5px 5px 0;
   border-radius: 10px;
 }
 
-.contentBlock p {
-  width: 94%;
+.hero-description {
   margin: 0px 0px 5px 0px;
   font-size: 22px;
   text-align: justify;
 }
 
 @media (max-width: 750px) {
+  .content-block {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+
+  }
+  .list-of-creatures {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .header-name {
+    font-size: 25px;
+  }
+  .hero-description {
+    font-size: 15px;
+    text-align: justify;
+  }
   .creature-dota {
+    padding: 15px;
     font-size: 17px;
   }
-  #list-of-creature {
+  #list-of-creatures {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    font-size: 10px;
+    margin: 0 auto;
+    padding: 0;
   }
-  .contentBlock h2 {
+  .name-of-hero {
     font-size: 18px;
   }
-  .contentBlock img {
-    width: 48%;
+  .hero-image {
+    width: 160px;
+    height: 160px;
   }
-  .contentBlock p {
+  .hero-description {
     font-size: 17px;
   }
-  .mainBlock {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    top: 300px;
+
+  .contentBlock {
+    margin: 60px auto;
+    padding: 5px 30px 15px 30px;
+  }
+}
+@media (max-width: 540px) {
+  .header-name {
+    font-size: 18px;
+  }
+  .hero-description {
+    font-size: 13px;
+  }
+  .creature-dota {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .contentBlock {
+    margin: 60px auto;
+    padding: 5px 30px 15px 30px;
   }
 }
