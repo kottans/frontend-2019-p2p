@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: lightblue;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  width: 100%;
+}
+section {
+  width: 25%;
+}
+aside {
+  width: 65%;
+}
+.header-name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 30px 0px;
+  padding: 21px;
+  font-size: 37px;
+  font-family: cursive;
+  background-color: mediumpurple;
+}
+
+#list-of-creatures {
+  flex-direction: column;
+}
+
+.creature-dota {
+  padding: 15px 0px 15px 0px;
+  box-shadow: 5px 5px 5px #842695;
+  text-align: center;
+  width: 75%;
+  border-radius: 5px;
+  margin: 40px 20px 0px 22px;
+  font-size: 20px;
+  background-color: mediumpurple;
+  font-family: cursive;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.content-block {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.contentBlock {
+  background-color: mediumpurple;
+  width: 80%;
+  box-shadow: 5px 5px 5px #842695;
+  border-radius: 8px;
+  margin: 30px 30px 0 90px;
+  padding: 5px 30px 15px 30px;
+}
+
+.name-of-hero {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto 20px auto;
+  font-size: 27px;
+  font-family: cursive;
+}
+
+.hero-image {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 0 5px 5px 0;
+  border-radius: 10px;
+}
+
+.hero-description {
+  margin: 0px 0px 5px 0px;
+  font-size: 22px;
+  text-align: justify;
+}
+
+@media (max-width: 750px) {
+  .content-block {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+
+  }
+  .list-of-creatures {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .header-name {
+    font-size: 25px;
+  }
+  .hero-description {
+    font-size: 15px;
+    text-align: justify;
+  }
+  .creature-dota {
+    padding: 15px;
+    font-size: 17px;
+  }
+  #list-of-creatures {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .name-of-hero {
+    font-size: 18px;
+  }
+  .hero-image {
+    width: 160px;
+    height: 160px;
+  }
+  .hero-description {
+    font-size: 17px;
+  }
+
+  .contentBlock {
+    margin: 60px auto;
+    padding: 5px 30px 15px 30px;
+  }
+}
+@media (max-width: 540px) {
+  .header-name {
+    font-size: 18px;
+  }
+  .hero-description {
+    font-size: 13px;
+  }
+  .creature-dota {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .contentBlock {
+    margin: 60px auto;
+    padding: 5px 30px 15px 30px;
+  }
+}
