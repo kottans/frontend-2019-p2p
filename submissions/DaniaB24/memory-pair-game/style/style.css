@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "waltographui";
+  font-style: normal;
+  src:url("/fonts/7fonts.ru_waltographui-webfont.woff2"),
+    url("/fonts/7fonts.ru_waltographui-webfont.woff2") format("woff2"),
+    url("/fonts/7fonts.ru_waltographui-webfont.woff") format("woff"),
+    url("/fonts/7fonts.ru_waltographui-webfont.ttf") format("truetype"),
+}
+html,
+body {
+  overflow: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url(../images/backgroung2.png) center center / cover no-repeat;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.header {
+  /* position: relative; */
+  max-width: 100%;
+  margin: 40px;
+}
+
+.header_h1 {
+  display: flex;
+  justify-content: center;
+  border: 4px solid #f7cf18;
+  color: #f1c40e;
+  margin: 0px auto;
+  padding: 0 auto;
+  padding-top: 35px;
+  font-size: 45px;
+  text-align: center;
+  background: #8d547e;
+  font-family: "waltographui";
+  border-radius: 60px;
+  width: 45%;
+  height: 130px;
+}
+
+.container {
+  margin: 0;
+}
+
+.board_game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 650px;
+  height: 650px;
+  margin: 0 auto;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.memory_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: calc(25% - 20px);
+  height: calc(33% - 20px);
+  position: relative;
+  border: 4px solid #f7cf18;
+  border-radius: 5px;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin: 10px;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.memory_card:active {
+  -webkit-transform: scale(0.97);
+  -ms-transform: scale(0.97);
+  transform: scale(0.97);
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.memory_card.flip {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.front_card,
+.back_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: #8d547e;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.front_card {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+.back_card {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+@media (max-width: 1980px) and (min-width: 1280px) {
+  .board_game {
+    width: 650px;
+    height: 600px;
+    margin: 30px auto;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 1280px) {
+  .header_h1 {
+    padding-top: 25px;
+    font-size: 35px;
+    width: 40%;
+    height: 100px;
+  }
+}
+@media (max-width: 1280px) {
+  .board_game {
+    width: 650px;
+    height: 500px;
+    margin: 30px auto;
+  }
+
+  .front_card,
+  .back_card {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header_h1 {
+    padding-top: 20px;
+    font-size: 25px;
+    width: 40%;
+    height: 80px;
+  }
+}
+@media (min-width: 500px) and (max-width: 840px) {
+  .board_game {
+    width: 450px;
+    height: 450px;
+    margin: 20px auto;
+  }
+
+  .front_card,
+  .back_card {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .header_h1 {
+    padding-top: 15px;
+    font-size: 22px;
+    width: 50%;
+    height: 80px;
+  }
+}
+@media (max-width: 520px) and (min-width: 450px) {
+  .board_game {
+    width: 400px;
+    height: 350px;
+    margin: 50px auto;
+  }
+
+  .header_h1 {
+    font-size: 18px;
+    width: 60%;
+    height: 60px;
+    padding: 15px 10px 0px 10px;
+  }
+}
+@media (max-width: 450px) and (min-width: 300px) {
+  .board_game {
+    width: 380px;
+    height: 450px;
+    margin: 10px auto;
+  }
+
+  .header_h1 {
+    font-size: 13px;
+    width: 60%;
+    height: 50px;
+    padding: 15px 10px 0px 10px;
+  }
+}
