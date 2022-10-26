@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Popup</title>
+</head>
+<body>
+    <header class="menu">
+        <nav>
+            <ul class="menu-items">
+                <li class="menu-item">
+                    <a href="#">
+                        Mail
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        Images
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <div class="menu-item__inner">
+                        <input class="menu-item__input" type="checkbox"/>
+                        <img class="menu-item-img" src="./icons/popup-button.png" alt="submenu-icon"/>
+                        <div class="tooltip-block">
+                            <div class="tooltip">
+                                <ul class="tooltip-items">
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/calendar.png" width="45" height="45" alt=""/>    
+                                            </div>
+                                            <span>Calendar</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/mail.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Mail</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/news.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>News</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/maps.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Map</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/files.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Files</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/contacts.png" width="45" height="45" alt=""/>    
+                                            </div>
+                                            <span>Contacts</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img  src="./icons/tanslation.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Translate</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/videos.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Videos</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/search.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Search</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/photos.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Photo</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/apps.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Apps</span>
+                                        </a>
+                                    </li>
+                                    <li class="tooltip-item">
+                                        <a href="#">
+                                            <div class="tooltip-item-icon">
+                                                <img src="./icons/documents.png" width="45" height="45" alt=""/>
+                                            </div>
+                                            <span>Document</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <input class="tooltip-more__input" id="more-input" type="checkbox"/>
+                                <label class="tooltip-more-btn" for="more-input">More</label>
+                                <div class="tooltip-more-box">
+                                    <diV class="tooltip-more">
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/chat.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Chat</span>
+                                            </a>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/classroom.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Classroom</span>
+                                            </a>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/collection.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Collection</span>
+                                            </a>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/mars.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Mars</span>
+                                            </a>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/blogs.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Blogs</span>
+                                            </a>
+                                        </div>
+                                        <div class="tooltip-item">
+                                            <a href="#">
+                                                <div class="tooltip-item-icon">
+                                                    <img src="./icons/promo.png" width="45" height="45" alt=""/>
+                                                </div>
+                                                <span>Promos</span>
+                                            </a>
+                                        </div>
+                                    </diV>
+                                    <a class="tooltip-more-link" href="https://kottans.org/">Even more from Kottans</a>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <img class="menu-item-img" src="./icons/bell.png" alt=""/>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#">
+                        <img class="menu-item-img" src="./icons/sinchUK.png" alt=""/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
