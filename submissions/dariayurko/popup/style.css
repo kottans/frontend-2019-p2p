@@ -53,36 +53,50 @@ body {
 
 .header {
    margin-top: 50px;
+   padding: 0 15px;
 }
 
 .nav {
+   padding: 0 30px 0 0;
    background: #FFFFFF;
    border-radius: 10px;
    box-shadow: 0px 1px 2px #0000008d;
-   padding: 0px 0px;
    display: flex;
-   column-gap: 30px;
+   column-gap: 50px;
    align-items: center;
    justify-content: space-between;
    position: relative;
 }
 
+
+.nav__links {
+   list-style: none;
+   display: flex;
+}
 .nav__item {
-   padding: 0px 30px;
-   display: inline-block;
    letter-spacing: 0.15px;
    line-height: 2.5;
+}
+.nav__link {
+   display: inline-block;
+   padding: 0 30px;
    color: #000000c7;
+   text-decoration: none;
 }
 
-.nav__item:hover {
+.nav__link:hover {
    background-color: #e89ae838;
+}
+
+@media (max-width: 991px) {
+   .nav__links {
+      flex-wrap: wrap;
+   }
 }
 
 .popup-button {
    width: 30px;
    height: 30px;
-   margin-right: 30px;
    position: relative;
 }
 
@@ -111,21 +125,39 @@ body {
 
 .modal-window { 
    position: absolute;
-   right: 0;
+   right: -30px;
    top: 100px;
    min-width: 450px;
-   height: 426px;
+   height: 428px;
    overflow-y: auto;
    background: #ffffff;
    opacity: 0;
 }
 
+@media (max-width: 767.98px) {
+   .modal-window {
+      top: 100px;
+   }
+}
+@media (max-width: 540.98px) {
+   .modal-window {
+      top: 140px;
+      min-width: 350px;
+   }
+}
+@media (max-width: 400.98px) {
+   .modal-window {
+      top: 200px;
+      min-width: 290px;
+   }
+}
+
 .modal-window__items {
    display: flex;
-   justify-content: space-between;
    flex-wrap: wrap;
    justify-content: center;
    row-gap:50px;
+   column-gap: 10px;
    margin: 50px 0;
 }
 
@@ -146,6 +178,7 @@ body {
    height:70px;
    overflow: hidden;
 }
+
 
 .item__img {
    width: 100%;
@@ -188,12 +221,13 @@ body {
 .item:hover,
 .more-label:hover
  {
-   border: 1px solid rgb(148, 144, 144);
+   /* border: 1px solid rgb(148, 144, 144); */
+   outline: 1px solid rgb(148, 144, 144);
 }
 
 .more-input:focus + .more-label,
 .popup-button__input:focus + .popup-button__lable {
-   outline: 1px solid rgb(103, 103, 208);
+   outline: 2px solid rgb(103, 103, 208);
 }
 
 .modal-window__link {
