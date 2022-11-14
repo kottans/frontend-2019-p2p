@@ -97,7 +97,7 @@ body {
    left: 0;
    width: 30px;
    height: 30px;
-   background: url(../images/icons/popup-button.png) 0 0 / 30px no-repeat;
+   background: url(images/icons/popup-button.png) 0 0 / 30px no-repeat;
 }
 
 .popup-button__lable:hover {
