@@ -9,7 +9,8 @@
    </head>
    <body>
       <div class="wrapper">
-         <header class="header header__container">
+         <header class="header"></header>
+         <main class="main main__container">
             <nav class="nav">             
                <ul class="nav__links">
                   <li class="nav__item">
@@ -30,8 +31,9 @@
                </ul>
 
                <div class="popup-button">
-                  <input class="popup-button__input" type="checkbox" name="popup" id="popup">               
-                  <label class="popup-button__lable" for="popup"></label>                 
+                  <input checked class="popup-button__input" type="checkbox" name="popup" id="popup"> 
+                  <label class="popup-button__lable" for="popup"></label>  
+                             
                   <div class="modal-window">
                      <ul class="modal-window__items">
                         <li class="modal-window__element">
@@ -73,7 +75,7 @@
                      </ul>
 
                      <input class="more-input" type="checkbox" id="more-input">
-                     <label class="more-label" for="more-input">More</label>
+                     <label class="more-label link-style" for="more-input">More</label>
 
                      <ul class="modal-window__items modal-window__items_extra">
                         <li class="modal-window__element">
@@ -112,13 +114,12 @@
                               <p class="item__name">Github</p>
                            </a>
                         </li>               
-                        <a href="#" class="modal-window__link">learn more</a>
+                        <a class="modal-window__link link-style" href="#" >Learn more</a>
                      </ul>                                 
                   </div> 
                </div>                            
             </nav>
-         </header>
-         <main class="main"></main>
+         </main>
          <footer class="footer"></footer>
       </div>  
    </body>
