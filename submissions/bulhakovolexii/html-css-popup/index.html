@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooli-style popup</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.png">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar">
+            <div class="navbar__container">
+                <a href="https://github.com/bulhakovolexii" class="name__link">Hooli</a>
+                <ul class="menu__list">
+                    <li class="menu__item"><a href="#">Mail</a></li>
+                    <li class="menu__item"><a href="#">Images</a></li>
+                    <li class="menu__item">
+                        <input type="checkbox" id="popup__check" class="popup__check">
+                        <label for="popup__check" class="popup__btn">
+                            <img src="./icons/cubes.svg" alt="Popup button">
+                        </label>
+                        <div class="popup-menu">
+                            <div class="popup-menu__container">
+                                <ul class="popup-menu__list">
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/apps.svg" alt="Apps" class="popup-menu__icon">Apps</a></li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/calendar.svg" alt="Calendar"
+                                                class="popup-menu__icon">Calendar</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/news.svg" alt="News" class="popup-menu__icon">News</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/files.svg" alt="Files" class="popup-menu__icon">Files</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/search.svg" alt="Search"
+                                                class="popup-menu__icon">Search</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/e-mail.svg" alt="Email" class="popup-menu__icon">Email</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/translate.svg" alt="Translate"
+                                                class="popup-menu__icon">Translate</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/school.svg" alt="School"
+                                                class="popup-menu__icon">School</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/photos.svg" alt="Photos"
+                                                class="popup-menu__icon">Photos</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/chat.svg" alt="Chat" class="popup-menu__icon">Chat</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/videos.svg" alt="Videos"
+                                                class="popup-menu__icon">Videos</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/map.svg" alt="Map" class="popup-menu__icon">Map</a>
+                                    </li>
+                                </ul>
+                                <input id="popup-more__check" type="checkbox" class="popup-more__check">
+                                <label for="popup-more__check" class="popup-more__btn">More</label>
+                                <ul class="popup-more__list">
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/noto_american-football.svg" alt="Games"
+                                                class="popup-menu__icon">Games</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/fluent-emoji-flat_taxi.svg" alt="Taxi"
+                                                class="popup-menu__icon">Taxi</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/emojione_hamburger.svg" alt="Food"
+                                                class="popup-menu__icon">Food</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/emojione-v1_admission-tickets.svg" alt="Cinema"
+                                                class="popup-menu__icon">Cinema</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/emojione_bank.svg" alt="Bank"
+                                                class="popup-menu__icon">Bank</a>
+                                    </li>
+                                    <li class="popup-menu__item"><a href="#" class="popup-menu__link"><img
+                                                src="./icons/map_pet-store.svg" alt="Pets"
+                                                class="popup-menu__icon">Pets</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu__item">
+                        <a href="https://github.com/bulhakovolexii" class="menu__avatar"><img src="./icons/avatar.jpg"
+                                alt="Avatar photo"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="main">
+            <div class="main__container">
+                <div class="greeting">
+                    <h1 class="greeting__title">Web developer and software engineer</h1>
+                    <p class="greeting__descr">Enterprise software solutions for business growth and performance</p>
+                    <a href="#" class="greeting__btn">View more</a>
+                </div>
+                <div class="spring__container">
+                    <img src="./icons/spring.png" alt="Spring" class="spring">
+                </div>
+            </div>
+        </main>
+        <footer class="footer">&#169; Copyright &#169; 2022&nbsp;<a href="https://github.com/bulhakovolexii">Olexii
+                Bulhakov,</a>&nbsp;<a href="https://www.instagram.com/pollinabulgakova/">Polina
+                Bulhakova</a>
+        </footer>
+    </div>
+</body>
+
+</html>
