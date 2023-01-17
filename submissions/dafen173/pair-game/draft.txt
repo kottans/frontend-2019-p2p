@@ -1,0 +1,147 @@
+
+		<div class="flip-container" id="card-container2">
+			<div class="static" id="card2">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="flip-container" id="card-container3">
+			<div class="static" id="card3">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container4">
+			<div class="static" id="card4">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container5">
+			<div class="static" id="card5">
+				<div class="front">
+					<!-- front content -->
+					
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container6">
+			<div class="static" id="card6">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container7">
+			<div class="static" id="card7">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container8">
+			<div class="static" id="card8">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container9">
+			<div class="static" id="card9">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="flip-container" id="card-container10">
+			<div class="static" id="card10">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="flip-container" id="card-container11">
+			<div class="static" id="card11">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="flip-container" id="card-container12">
+			<div class="static" id="card12">
+				<div class="front">
+					<!-- front content -->
+					<img class='' src='img/logo-ctc.png' alt="">
+				</div>
+				<div class="back">
+					<!-- back content -->
+					<img class='' src='img/product-adeo.png' alt="">
+				</div>
+			</div>
+		</div>
