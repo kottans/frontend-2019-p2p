@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" >
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Pop-up Menu</title>
+    </head>
+    <body>
+        <header class="header">
+            <h2 class="logo"><a class="logo__link focus" href="#">hooli</a></h2>
+            <ul class="nav">
+                <li class="nav__item mobile-none">
+                    <a class="nav__link focus" href="#">Home</a>
+                </li>
+                <li class="nav__item mobile-none">
+                    <a class="nav__link focus" href="#">Log In</a>
+                </li>
+                <li class="nav__item">
+                    <input
+                        type="checkbox"
+                        id="popup__checkbox"
+                        class="popup__checkbox"
+                    />
+                    <label class="label" for="popup__checkbox">
+                        <img
+                            class="popup__menu-icon"
+                            src="img/menu.png"
+                            alt="menu"
+                        />
+                    </label>
+                    <div class="popup">
+                        <div class="popup__container">
+                            <ul class="popup__list">
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            class="popup__img"
+                                            src="img/attached-file.png"
+                                            alt=""
+                                        />
+                                        <p class="popup__subtitle">Files</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/book.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Books</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/cashless-payment.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Apple pay</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/chat.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Messages</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/customer-service.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Support</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/exam.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">
+                                            To-Do List
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/home.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Home</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/income.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Finances</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/link.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Links</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/placeholder.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Maps</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/post-stamp.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Postage</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/printer.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Print</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <input type="checkbox" id="more" class="more" />
+                            <label for="more" class="more__btn">More</label>
+                            <ul class="popup__more">
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/sculpture.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Arts</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/sleep.png"
+                                            alt="alarm"
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Alarm</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/syringe.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Meds</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/template.png"
+                                            alt="calc"
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">
+                                            Calculator
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/time-management.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">Settings</p>
+                                    </a>
+                                </li>
+                                <li class="popup__item">
+                                    <a class="popup__link" href="#">
+                                        <img
+                                            src="img/worldwide.png"
+                                            alt=""
+                                            class="popup__img"
+                                        />
+                                        <p class="popup__subtitle">
+                                            Connection
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </header>
+        <main>
+            <section class="banner">
+                <div class="banner__photo">
+                    <div class="banner__background"></div>
+                    <div class="banner__foreground">
+                        <img class="banner__img" src="img/ya.jpeg" alt="its_just_me" />
+                    </div>
+                </div>
+                <div class="welcome">
+                    <h2>Hello! I'm</h2>
+                    <h1>
+                        <span>Arsen</span>
+                        Yavorskyi
+                    </h1>
+                    <h3>a future front-end developer</h3>
+                    <blockquote>
+                        I may not have a long list of accomplishments, but I
+                        have a long list of Poroshenko meme videos watched!
+                    </blockquote>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>
+                © Copyright 2023
+                <a href="https://github.com/yazdrahobycha">Arsen Yavorskyi</a>
+            </p>
+        </footer>
+    </body>
+</html>
