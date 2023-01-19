@@ -72,7 +72,7 @@
 }
 
 /* header title */
-.header__conteiner {
+.header__container {
   margin-bottom: 40px;
 
   align-self: center;
@@ -89,13 +89,13 @@
 }
 
 @media (max-width: 1400px) {
-  .header__conteiner {
+  .header__container {
     margin-bottom: 28px;
   }
 }
 
 @media (max-width: 1100px) {
-  .header__conteiner {
+  .header__container {
     margin-bottom: 20px;
 
     height: 80px;
@@ -103,7 +103,7 @@
 }
 
 @media (max-width: 800px) {
-  .header__conteiner {
+  .header__container {
     margin-bottom: 16px;
 
     height: 60px;
@@ -111,7 +111,7 @@
 }
 
 @media (max-width: 600px) {
-  .header__conteiner {
+  .header__container {
     margin-bottom: 16px;
 
     height: 52px;
@@ -119,14 +119,14 @@
 }
 
 @media (max-width: 450px) {
-  .header__conteiner {
+  .header__container {
     margin-bottom: 16px;
 
     height: auto;
   }
 }
 
-.header__conteiner-title {
+.header__container-title {
   font-weight: 600;
   font-size: 52px;
 
@@ -136,31 +136,31 @@
 }
 
 @media (max-width: 1400px) {
-  .header__conteiner-title {
+  .header__container-title {
     font-size: 46px;
   }
 }
 
 @media (max-width: 1100px) {
-  .header__conteiner-title {
+  .header__container-title {
     font-size: 38px;
   }
 }
 
 @media (max-width: 800px) {
-  .header__conteiner-title {
+  .header__container-title {
     font-size: 32px;
   }
 }
 
 @media (max-width: 600px) {
-  .header__conteiner-title {
+  .header__container-title {
     font-size: 24px;
   }
 }
 
 @media (max-width: 450px) {
-  .header__conteiner-title {
+  .header__container-title {
 
     padding: 8px;
     width: 280px;
@@ -247,6 +247,8 @@
   font-size: 18px;
   font-weight: 600;
 
+  -webkit-background: var(--btn-bg) url(./images/menu-burger.svg) 12px 8px/24px no-repeat;
+  -moz-background: var(--btn-bg) url(./images/menu-burger.svg) 12px 8px/24px no-repeat;
   background: var(--btn-bg) url(./images/menu-burger.svg) 12px 8px/24px no-repeat;
   border-radius: 8px;
 
