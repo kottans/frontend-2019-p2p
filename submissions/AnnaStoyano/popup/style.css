@@ -1,0 +1,264 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;    
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.icon{ 
+    width:55px;
+    height: 55px;
+    background: url(./img/apps.png) no-repeat;
+}
+
+.navbar{
+    padding: 10px;
+}
+
+li{
+    list-style: none;
+}
+
+.mainMenu{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+.first-Level-Menu:not(.iconMenu){
+    cursor: pointer;   
+    margin-right: 20px;
+}
+
+.mainMenu a{
+    text-decoration: none;
+    color: rgb(75, 74, 74);
+}
+
+.first-Level-Menu:not(.iconMenu):hover {
+    opacity: 0.6;
+}
+
+.icon.menu:hover{
+    opacity: 0.5;
+}
+
+.menu{    
+    cursor: pointer;
+    width:25px;
+    height: 25px;
+    outline: none;
+    border: none;
+    padding: 0;
+    background-position: -2px -1803px ;
+    position: relative;
+    margin-right: 20px;
+    
+}
+
+.check{
+    -webkit-appearance: none;
+    position: absolute;
+}
+
+
+.check:checked + .rectangle-shape-container{
+   display: block;
+}
+
+
+
+.rectangle-shape-container::before{
+    
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 0.5px solid rgb(184, 182, 182);
+    position: absolute;
+    background-color: white;
+    top:-6px;
+    right: 80px;
+    transform: rotate(45deg); 
+    border-bottom: none;
+    border-right: none;
+}
+
+.rectangle-shape-container {
+    display: none;
+    position: absolute;
+    top:70px;
+    right: 70px;
+    width: 330px;
+    background-color: white;
+    border:0.5px solid rgb(184, 182, 182);
+    box-shadow: 1px 1px 10px rgb(184, 182, 182);
+}
+
+
+.submenu {
+    padding: 40px 25px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+}
+
+.container{
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    height: 494px;
+    width: 100%;
+}
+
+
+
+.submenu .icon{
+    margin: 0 auto;
+}
+
+.acount{
+    width:47px;
+    height: 47px;
+    background-position: -10px -1603px ;
+}
+
+.circle {
+    width:26px;
+    height: 26px;
+    background-color: rgb(131, 130, 130);
+    border-radius: 13px;
+}
+
+.bell {
+    color: white;
+    background-position: 3px -2320px ;
+    filter:invert(100%);
+}
+
+.referens{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    outline: none;
+   
+}
+
+.referens:focus {
+    
+    border:0.5px solid rgb(184, 182, 182);
+    box-shadow: 1px 1px 5px rgb(184, 182, 182);
+}
+
+.submenu .docs div.icon{
+   background-position: -4px -730px;
+}
+
+.submenu .translate div.icon{
+    background-position: -4px -2186px ;
+ }
+ 
+.submenu .galb div.icon{
+    background-position: -4px -420px;
+ }
+ 
+.submenu .search div.icon{
+    background-position: -4px -1910px ;
+ }
+ 
+.submenu .youTube div.icon{
+    background-position: -30px -2328px
+ }
+
+ .submenu .play div.icon{
+    background-position: -4px -352px;
+ }
+ .submenu .mail div.icon{
+    background-position: -4px -2742px
+ }
+ .submenu .drive div.icon{
+    background-position: -4px -524px;
+ }
+ .submenu .calendar div.icon{
+    background-position: -4px -178px;
+ }
+
+ .submenu .tables div.icon{
+    background-position: -4px -593px;
+ }
+
+
+.check +.check-label + .submenu{
+    display: none;
+}
+
+.check:checked + .check-label+.submenu{
+    display: flex;
+ }
+
+ .check:checked + .check-label .more{
+    visibility: hidden;
+ }
+
+ .line{
+    color: gray;
+    height: 2px;
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    top:2px;
+    right:40px;
+    z-index: 1;
+ }
+
+.check-label{
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+.more{
+    cursor: pointer;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: rgb(196, 195, 195);
+    padding: 5% 30%;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+}
+
+.more:hover{
+    color: white;
+    background-color: rgb(75, 74, 74);
+}
+
+.more-app{
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.more-app:hover {
+    font-size: 1.1em;
+    opacity: 120%;
+    outline: none;
+}
+
+
