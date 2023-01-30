@@ -1,0 +1,392 @@
+@font-face {
+    font-family: "Papyrus";
+    src: url("../fonts/PAPYRUS.TTF") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+.bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/bg.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &.cover {
+        background: url(../images/bg.jpeg);
+    }
+}
+
+.sidebar {
+    &__title {
+        font-size: 32px;
+        white-space: nowrap;
+        padding: 14px 18px;
+        margin-bottom: 26px;
+        border-bottom: 2px solid white;
+    }
+
+    &__link {
+        font-size: 32px;
+        font-weight: 600;
+        color: inherit;
+        text-decoration: none;
+        padding: 6px 20px;
+        border-radius: 20px;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        &.active {
+            align-self: flex-start;
+            background-color: #26C7EA;
+            color: black;
+            text-decoration: none;
+        }
+    }
+}
+
+.sidebar__body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: fixed;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    max-width: 342px;
+    backdrop-filter: blur(6px);
+    background: rgba(34, 34, 34, 0.77);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+    transition: max-width 500ms, padding 500ms, opacity 500ms;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+.burger-btn {
+    position: fixed;
+    top: 24px;
+    left: 366px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    background: black;
+    padding: 12px 6px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 500ms, left 500ms;
+
+    &__line {
+        height: 3px;
+        width: 36px;
+        background-color: white;
+        margin-bottom: 7.5px;
+        transform-origin: 0% 0%;
+        transition: transform 500ms, opacity 500ms;
+
+        &:nth-child(3) {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            border-color: white;
+            background-color: #26C7EA;
+
+            & .burger-btn__line {
+                background-color: black;
+            }
+        }
+    }
+
+    &.active {
+        .burger-btn__line:nth-child(1) {
+            transform: rotate(45deg) translate(3px, -5.5px);
+        }
+
+        .burger-btn__line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-btn__line:nth-child(3) {
+            transform: rotate(-45deg) translate(1.5px, 5px);
+        }
+    }
+}
+
+.content {
+    margin-left: 342px;
+    min-height: 100%;
+    display: flex;
+    gap: 48px;
+    flex-direction: column;
+    align-items: center;
+    transition: margin-left 500ms;
+
+    &__title {
+        color: white;
+        font-family: 'Papyrus';
+        font-size: 84px;
+        text-align: center;
+        padding-top: 56px;
+    }
+}
+
+.animal {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 27px;
+    padding: 0 27px 27px;
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 34px;
+    }
+
+    &__name {
+        align-self: center;
+        text-align: center;
+        font-size: 32px;
+        padding: 22px 27px;
+        background-color: #26C7EA;
+        border-radius: 20px;
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 665px;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    &__descr {
+        box-sizing: border-box;
+        align-self: stretch;
+        background-color: white;
+        border-radius: 20px;
+        padding: 34px;
+        max-width: 345px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .sidebar__body {
+        padding: 20px 0px;
+        max-width: 0px;
+        opacity: 0;
+        transition: max-width 500ms, padding 500ms, opacity 500ms;
+
+        &.visible {
+            max-width: 342px;
+            padding: 20px;
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+
+    .burger-btn {
+        opacity: 1;
+        z-index: 1;
+        left: 24px;
+        transition: opacity 500ms, left 500ms;
+
+        &.active {
+            left: 366px;
+        }
+    }
+
+    .sidebar__bg {
+        &.active {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: auto;
+        }
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1160px) {
+    .animal {
+        flex-direction: column;
+
+        &__descr {
+            max-width: 665px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bg {
+        background-size: 100% auto;
+        background-position: top;
+
+        &.cover {
+            background: url(../images/bg.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .sidebar {
+        &__title {
+            padding: 12px 18px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        &__link {
+            font-size: 16px;
+            padding: 4px 8px;
+        }
+    }
+
+
+    .sidebar__body {
+        gap: 10px;
+        top: 78px;
+        right: 24px;
+        border-radius: 10px;
+        height: auto;
+        max-height: 0px;
+        max-width: 242px;
+        padding: 0px 18px;
+        opacity: 0;
+        transition: opacity 500ms, max-height 500ms, padding 500ms;
+
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        &.visible {
+            max-height: calc(100% - 100px);
+            padding: 52px 18px 18px 18px;
+            opacity: 1;
+            transition: opacity 500ms, max-height 500ms, padding 500ms;
+        }
+    }
+
+    .burger-btn {
+        position: absolute;
+        top: 78px;
+        right: 24px;
+        left: auto;
+        background-color: transparent;
+        scale: 0.75;
+    }
+
+    .burger-btn.active {
+        left: auto;
+        z-index: 2;
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background-color: #26C7EA;
+            }
+        }
+    }
+
+    .content {
+        gap: 0;
+
+        &__title {
+            font-size: 32px;
+            padding-top: 80px;
+            padding-bottom: 34px;
+
+            &.cover {
+                flex-grow: 1;
+                font-size: 64px;
+                padding: 38vh 0 0 0;
+            }
+        }
+
+        .animal {
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: flex-start;
+            background-color: #181818;
+            padding-top: 48px;
+            gap: 18px;
+
+            &.cover {
+                background-color: transparent;
+                flex-grow: 0;
+            }
+
+            &__info {
+                gap: 18px;
+            }
+
+            &__name {
+                font-size: 16px;
+            }
+
+            &__img {
+                max-width: 100%;
+            }
+
+            &__descr {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 413px) {
+    .content {
+        &__title {
+            padding-top: 88px;
+            font-size: 24px;
+        }
+    }
+}
