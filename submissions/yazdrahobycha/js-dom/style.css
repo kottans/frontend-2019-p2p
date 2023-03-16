@@ -1,0 +1,459 @@
+/* CSS Reset */
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* General Styling */
+
+@font-face {
+    font-family: 'Optimus';
+    src: url('fonts/OptimusPrincepsSemiBold.ttf');
+}
+
+body {
+    background-color: black;
+    font-family: 'Optimus';
+}
+
+.bg {
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: url(img/background.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -10;
+}
+
+body.active,
+.wrapper {
+    overflow: hidden;
+}
+
+/* Burger icon styling and animation */
+
+.burger_wrapper {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 10px;
+    cursor: pointer;
+}
+
+.burger_wrapper:before,
+.burger_wrapper:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    background: #b8c3d2;
+    border-radius: 10px;
+    height: 2px;
+    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.burger_wrapper::before {
+    top: 0;
+}
+
+.burger_wrapper::after {
+    bottom: 0;
+}
+
+.burger_btn {
+    position: absolute;
+    top: 4px;
+    background: #b8c3d2;
+    opacity: 0.9;
+    border-radius: 10px;
+    height: 2px;
+    width: 100%;
+    transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+body.active .burger_wrapper::before {
+    transform: rotate(45deg);
+    top: 4px;
+}
+
+body.active .burger_wrapper::after {
+    transform: rotate(-45deg);
+    bottom: 4px;
+}
+
+body.active .burger_wrapper .burger_btn {
+    opacity: 0;
+    transform: translateX(12px);
+}
+
+body.active .burger_wrapper::before,
+body.active .burger_wrapper::after,
+body.active .burger_wrapper .burger_btn {
+    background: #e4e8ed;
+}
+
+/* Nav Styling */
+
+.navigation {
+    font-family: 'Optimus';
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 80px 3rem 0 3rem;
+    transition: all 0.4s ease-in;
+    z-index: 1;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.navigation.active {
+    left: 0;
+}
+
+.menu {
+    width: 100%;
+}
+
+.menu_item {
+    display: block;
+    font-size: 1.5rem;
+    color: #abc4de;
+    background: rgba(175, 217, 255, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.1px);
+    -webkit-backdrop-filter: blur(4.1px);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0 0.3rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.menu_item:hover {
+    background: rgba(175, 217, 255, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.menu_item.active_link,
+.menu_item:focus {
+    background: rgba(0, 0, 0, 0.47);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+}
+
+/* Header Styling */
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: black;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.menu_title {
+    display: block;
+    font-family: 'Optimus', sans-serif;
+    font-size: 1.5rem;
+    color: #b8c3d2;
+    cursor: pointer;
+    transition: text-shadow 0.5s ease-out;
+}
+
+.menu_title.active_link {
+    text-shadow: rgba(184, 195, 210, 1) 0px 0px 16px;
+}
+
+.menu_title:hover, .menu_title:focus {
+    text-shadow: rgb(64, 147, 255) 0px 0px 10px;
+}
+
+/* Main Part Styling */
+
+.content {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.4s ease-in;
+    min-height: calc(100vh - 60px);
+}
+
+body.active .content {
+    opacity: 0;
+}
+
+.text_container {
+    max-width: 300px;
+    font-family: 'Federo', sans-serif;
+    font-size: 1rem;
+    line-height: 140%;
+    margin: 0.7rem 2rem 0 2rem;
+    color: #8d9bb4;
+}
+
+.text_container p {
+    margin-bottom: 0.7rem;
+}
+
+.content_title {
+    font-family: 'Optimus';
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #dce6f1;
+    opacity: 0.9;
+}
+
+.content_img {
+    margin-top: auto;
+    max-width: 95%;
+    text-align: center;
+}
+
+.bloodborne {
+    max-width: 60%;
+}
+
+/* Narrow-mobile media queries */
+
+@media only screen and (max-height: 450px) {
+    .content_img {
+        max-width: 50%;
+    }
+
+    .bloodborne {
+        max-width: 30%;
+    }
+
+    .text_container {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+    .text_container {
+        max-width: 600px;
+    }
+
+    .navigation {
+        padding: 80px 13rem 0 13rem;
+    }
+}
+
+/* Tablet Media Quaries */
+
+@media only screen and (min-width: 750px) {
+    .menu_title {
+        font-size: 3rem;
+    }
+
+    .heading {
+        height: 100px;
+    }
+
+    .content {
+        margin-top: 100px;
+        min-height: calc(100vh - 100px);
+    }
+
+    .burger_wrapper {
+        width: 30px;
+        height: 20px;
+    }
+
+    .burger_btn,
+    body.active .burger_wrapper::before {
+        top: 9px;
+        border-radius: 20px;
+    }
+
+    body.active .burger_wrapper::after {
+        bottom: 9px;
+        border-radius: 20px;
+    }
+
+    .navigation {
+        padding: 120px 10rem 0 10rem;
+    }
+
+    .menu_item {
+        font-size: 2.5rem;
+        padding: 1rem 0 0.6rem 0;
+        border-radius: 10px;
+    }
+
+    .content_title {
+        font-size: 3.75rem;
+    }
+
+    .text_container {
+        font-size: 1.6rem;
+        max-width: 600px;
+    }
+
+    .text_container p {
+        margin-bottom: 1.4rem;
+    }
+
+    .content_img {
+        max-width: 75%;
+    }
+
+    .bloodborne {
+        max-width: 50%;
+    }
+}
+
+/* Laptop and wide screens media Queries */
+
+@media only screen and (min-width: 1024px) and (orientation: landscape) {
+    .wrapper {
+        min-height: 100%;
+        position: relative;
+    }
+
+    .burger_wrapper {
+        display: none;
+    }
+
+    .navigation {
+        position: static;
+        height: auto;
+        padding: 2rem 3rem 0 3rem;
+        margin: 0 auto;
+    }
+
+    .heading {
+        margin-top: 6rem;
+        position: static;
+        background-color: transparent;
+        height: auto;
+    }
+
+    .menu_title {
+        font-size: calc(80px + (120 + 120 * 0.7) * ((100vw - 1024px) / 2880));
+    }
+
+    .menu {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .menu_item {
+        font-size: calc(20px + (25 + 25 * 0.7) * ((100vw - 1024px) / 2280));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border-radius: 2rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+    }
+
+    .content_img {
+        max-width: 70vh;
+        z-index: -1;
+        bottom: 0;
+        left: 0;
+    }
+
+    .bloodborne {
+        max-width: 50vh;
+    }
+
+    .content {
+        min-height: auto;
+        margin-top: 2rem;
+    }
+
+    .content_title {
+        font-size: calc(60px + (67 + 67 * 0.7) * ((100vw - 1024px) / 2280));
+    }
+
+    .text_container {
+        font-size: calc(20px + (25 + 25 * 0.7) * ((100vw - 1024px) / 2280));
+        max-width: 1800px;
+        margin: 0.7rem 10rem 0 10rem;
+    }
+}
