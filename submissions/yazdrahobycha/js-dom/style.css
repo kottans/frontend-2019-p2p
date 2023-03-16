@@ -27,17 +27,6 @@ aside {
     display: block;
 }
 
-html,
-body {
-    height: 100%;
-    width: 100%;
-    font-size: 100%;
-    line-height: 1;
-    font-size: 16px;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
 input,
 button,
 textarea {
@@ -69,11 +58,7 @@ img {
     vertical-align: top;
 }
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
     font-size: inherit;
     font-weight: inherit;
 }
@@ -104,7 +89,8 @@ body {
     z-index: -10;
 }
 
-body.active, .wrapper {
+body.active,
+.wrapper {
     overflow: hidden;
 }
 
@@ -149,30 +135,30 @@ body.active, .wrapper {
     transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-.burger_wrapper.active::before {
+body.active .burger_wrapper::before {
     transform: rotate(45deg);
     top: 4px;
 }
 
-.burger_wrapper.active::after {
+body.active .burger_wrapper::after {
     transform: rotate(-45deg);
     bottom: 4px;
 }
 
-.burger_wrapper.active .burger_btn {
+body.active .burger_wrapper .burger_btn {
     opacity: 0;
     transform: translateX(12px);
 }
 
-.burger_wrapper.active::before,
-.burger_wrapper.active::after,
-.burger_wrapper.active .burger_btn {
+body.active .burger_wrapper::before,
+body.active .burger_wrapper::after,
+body.active .burger_wrapper .burger_btn {
     background: #e4e8ed;
 }
 
 /* Nav Styling */
 
-nav {
+.navigation {
     font-family: 'Optimus';
     position: fixed;
     top: 0;
@@ -182,22 +168,23 @@ nav {
     display: flex;
     justify-content: center;
     padding: 80px 3rem 0 3rem;
-    transition: all 0.5s ease-in;
+    transition: all 0.4s ease-in;
     z-index: 1;
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-nav.active {
+.navigation.active {
     left: 0;
 }
 
-ul {
+.menu {
     width: 100%;
 }
 
-li {
+.menu_item {
+    display: block;
     font-size: 1.5rem;
     color: #abc4de;
     background: rgba(175, 217, 255, 0.22);
@@ -212,28 +199,24 @@ li {
     transition: all 0.3s ease-out;
 }
 
-li:hover {
+.menu_item:hover {
     background: rgba(175, 217, 255, 0);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
 }
 
-li.active_link {
+.menu_item.active_link,
+.menu_item:focus {
     background: rgba(0, 0, 0, 0.47);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(7.1px);
     -webkit-backdrop-filter: blur(7.1px);
 }
 
-h1.active_link,
-h1:hover {
-    text-shadow: rgba(184,195,210,1) 0px 0px 16px;
-}
-
 /* Header Styling */
 
-header {
+.heading {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,7 +230,8 @@ header {
     z-index: 2;
 }
 
-h1 {
+.menu_title {
+    display: block;
     font-family: 'Optimus', sans-serif;
     font-size: 1.5rem;
     color: #b8c3d2;
@@ -255,19 +239,27 @@ h1 {
     transition: text-shadow 0.5s ease-out;
 }
 
+.menu_title.active_link {
+    text-shadow: rgba(184, 195, 210, 1) 0px 0px 16px;
+}
+
+.menu_title:hover, .menu_title:focus {
+    text-shadow: rgb(64, 147, 255) 0px 0px 10px;
+}
+
 /* Main Part Styling */
 
-main {
+.content {
     margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    transition: all 0.5s ease-in;
+    transition: all 0.4s ease-in;
     min-height: calc(100vh - 60px);
 }
 
-main.active {
+body.active .content {
     opacity: 0;
 }
 
@@ -284,7 +276,7 @@ main.active {
     margin-bottom: 0.7rem;
 }
 
-h2 {
+.content_title {
     font-family: 'Optimus';
     font-size: 2rem;
     text-align: center;
@@ -293,28 +285,24 @@ h2 {
     opacity: 0.9;
 }
 
-.display_none {
-    display: none;
-}
-
-img {
+.content_img {
     margin-top: auto;
     max-width: 95%;
     text-align: center;
 }
 
-img.bloodborne {
+.bloodborne {
     max-width: 60%;
 }
 
 /* Narrow-mobile media queries */
 
 @media only screen and (max-height: 450px) {
-    img {
+    .content_img {
         max-width: 50%;
     }
 
-    img.bloodborne {
+    .bloodborne {
         max-width: 30%;
     }
 
@@ -328,7 +316,7 @@ img.bloodborne {
         max-width: 600px;
     }
 
-    nav {
+    .navigation {
         padding: 80px 13rem 0 13rem;
     }
 }
@@ -336,15 +324,15 @@ img.bloodborne {
 /* Tablet Media Quaries */
 
 @media only screen and (min-width: 750px) {
-    h1 {
+    .menu_title {
         font-size: 3rem;
     }
 
-    header {
+    .heading {
         height: 100px;
     }
 
-    main {
+    .content {
         margin-top: 100px;
         min-height: calc(100vh - 100px);
     }
@@ -355,27 +343,27 @@ img.bloodborne {
     }
 
     .burger_btn,
-    .burger_wrapper.active::before {
+    body.active .burger_wrapper::before {
         top: 9px;
         border-radius: 20px;
     }
 
-    .burger_wrapper.active::after {
+    body.active .burger_wrapper::after {
         bottom: 9px;
         border-radius: 20px;
     }
 
-    nav {
+    .navigation {
         padding: 120px 10rem 0 10rem;
     }
 
-    li {
+    .menu_item {
         font-size: 2.5rem;
         padding: 1rem 0 0.6rem 0;
         border-radius: 10px;
     }
 
-    h2 {
+    .content_title {
         font-size: 3.75rem;
     }
 
@@ -388,11 +376,11 @@ img.bloodborne {
         margin-bottom: 1.4rem;
     }
 
-    img {
+    .content_img {
         max-width: 75%;
     }
 
-    img.bloodborne {
+    .bloodborne {
         max-width: 50%;
     }
 }
@@ -404,39 +392,37 @@ img.bloodborne {
         min-height: 100%;
         position: relative;
     }
+
     .burger_wrapper {
         display: none;
     }
-    nav {
+
+    .navigation {
         position: static;
         height: auto;
+        padding: 2rem 3rem 0 3rem;
+        margin: 0 auto;
     }
 
-    header {
+    .heading {
         margin-top: 6rem;
         position: static;
         background-color: transparent;
         height: auto;
     }
-    h1 {
+
+    .menu_title {
         font-size: calc(80px + (120 + 120 * 0.7) * ((100vw - 1024px) / 2880));
     }
 
-    nav {
-        height: auto;
-        padding: 2rem 3rem 0 3rem;
-        /* max-width: 2600px; */
-        margin: 0 auto;
-    }
-
-    ul {
+    .menu {
         display: flex;
         gap: 1rem;
         justify-content: center;
     }
 
-    li {
-        font-size: calc(15px + (30 + 30 * 0.7) * ((100vw - 1024px) / 2280));
+    .menu_item {
+        font-size: calc(20px + (25 + 25 * 0.7) * ((100vw - 1024px) / 2280));
         display: flex;
         align-items: center;
         justify-content: center;
@@ -445,23 +431,23 @@ img.bloodborne {
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
-    img {
+    .content_img {
         max-width: 70vh;
         z-index: -1;
         bottom: 0;
         left: 0;
     }
 
-    img.bloodborne {
+    .bloodborne {
         max-width: 50vh;
     }
 
-    main {
+    .content {
         min-height: auto;
         margin-top: 2rem;
     }
 
-    h2 {
+    .content_title {
         font-size: calc(60px + (67 + 67 * 0.7) * ((100vw - 1024px) / 2280));
     }
 

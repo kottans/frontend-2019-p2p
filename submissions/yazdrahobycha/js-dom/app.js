@@ -55,24 +55,19 @@ const elements = {
     $main: {},
     $header: {},
     $menuBtn: {},
-    $menuBtnMiddle: {},
     $body: {},
 };
 
 function loadElements() {
-    elements.$main = document.querySelector('main');
-    elements.$nav = document.querySelector('nav');
-    elements.$header = document.querySelector('header');
+    elements.$main = document.querySelector('.content');
+    elements.$nav = document.querySelector('.navigation');
+    elements.$header = document.querySelector('.heading');
     elements.$menuBtn = document.querySelector('.burger_wrapper');
-    elements.$menuBtnMiddle = document.querySelector('.burger_btn');
     elements.$body = document.querySelector('body');
 }
 
-
 // Utility functions
-function toSnakeCase(str) {
-    return str.toLowerCase().split(' ').join('_');
-}
+const toSnakeCase = (str) => str.toLowerCase().split(' ').join('_');
 
 function paragraphsSplit(str) {
     return str
@@ -81,22 +76,13 @@ function paragraphsSplit(str) {
         .join('\n');
 }
 
-
 // Toogle active classes for burger menu
 function toggleMenu() {
-    if (window.innerWidth < 1024) {
-        if (!elements.$nav.classList.contains('active')) {
-            elements.$nav.scrollTo(0, 0);
-        }
-        const elementsToToggle = [
-            elements.$menuBtn,
-            elements.$menuBtnMiddle,
-            elements.$nav,
-            elements.$main,
-            elements.$body,
-        ];
-        elementsToToggle.forEach((el) => el.classList.toggle('active'));
+    if (!elements.$nav.classList.contains('active')) {
+        elements.$nav.scrollTo(0, 0);
     }
+    elements.$nav.classList.toggle('active');
+    elements.$body.classList.toggle('active');
 }
 
 // Adding and removing active classes for active links
@@ -106,72 +92,74 @@ function changeActiveLink(linkIndex) {
     previousLink.classList.remove('active_link');
     document
         .querySelector(`[data-number="${linkIndex}"]`)
-        .classList.toggle('active_link');
+        .classList.add('active_link');
 }
-
 
 // Create list with buttons
 function makeMenu(allArticles) {
-    const [firstArticle, ...remainingArticles] = allArticles;
-    const heading = document.createElement('h1');
-    heading.textContent = firstArticle.title;
-    heading.dataset.number = 0;
-    elements.$header.appendChild(heading);
-    const menuButtons = remainingArticles
-        .map(({ title }, index) => {
-            return `<li class="menu_item ${toSnakeCase(title)}" data-number="${
-                index + 1
-            }">${title}</li>`;
-        })
-        .join(' ');
-    elements.$nav.insertAdjacentHTML('afterbegin', `<ul>${menuButtons}</ul>`);
+    const [header, ...navLinks] = allArticles.map(({ title }, index) => {
+        return index === 0
+            ? `<h1 data-number="0" tabindex="0" class="menu_title">${title}</h1>`
+            : `<li class="menu_item" data-number="${index}" tabindex="0">${title}</li>`;
+    });
+    elements.$header.insertAdjacentHTML('beforeend', header);
+    elements.$nav.insertAdjacentHTML(
+        'afterbegin',
+        `<ul class="menu">${navLinks.join(' ')}</ul>`
+    );
 }
 
-
-// Select item from buttons list and transfer number of clicked item to createAndShowInfoItem()
 function selectInfoItem(event) {
+    if (
+        event.type === 'keydown' &&
+        event.code !== 'Space' &&
+        event.code !== 'Enter'
+    ) {
+        return;
+    }
+    event.preventDefault();
     const { target } = event;
-    switch (target.tagName) {
-        case 'H1':
-        case 'LI':
-            elements.$main.innerHTML = '';
-            elements.$body.scrollTo(0, 0);
-            createAndShowInfoItem(
-                elements.$main,
-                articlesInfo,
-                Number(target.dataset.number)
-            );
-            if (elements.$nav.classList.contains('active')) {
-                toggleMenu();
-            }
-            break;
-
-        case 'NAV':
-        case 'UL':
+    if (target.closest('.menu_item, .menu_title')) {
+        elements.$main.innerHTML = '';
+        elements.$body.scrollTo(0, 0);
+        createAndShowInfoItem(
+            elements.$main,
+            articlesInfo,
+            Number(target.dataset.number)
+        );
+        if (target.closest('.active')) {
             toggleMenu();
-            break;
+        }
+    } else if (target.closest('.navigation.active')) {
+        toggleMenu();
     }
 }
-
 
 // Create title, text and img HTML
 function createAndShowInfoItem($container, articlesArr, index = 0) {
     changeActiveLink(index);
     const { title, text } = articlesArr[index];
     const snakeTitle = toSnakeCase(title);
-    const insertContent = `<h2>${title}</h2>
-    <div class="text_container">${paragraphsSplit(text)}</div>
-    <img class="${snakeTitle}" src="img/${snakeTitle}.png">`;
+    const insertContent = `<div class="text_container">${paragraphsSplit(
+        text
+    )}</div>
+    <img class="${snakeTitle} content_img" src="img/${snakeTitle}.png">`;
     $container.insertAdjacentHTML('afterbegin', insertContent);
-    if (index === 0) {
-        document.querySelector('h2').classList.add('display_none');
+    if (index !== 0) {
+        $container.insertAdjacentHTML(
+            'afterbegin',
+            `<h2 class="content_title">${title}</h2>`
+        );
     }
 }
 
 // Put everything together
 loadElements();
 makeMenu(articlesInfo);
-elements.$nav.addEventListener('click', selectInfoItem);
-elements.$header.addEventListener('click', selectInfoItem);
+['click', 'keydown'].forEach((ev) =>
+    [elements.$nav, elements.$header].forEach((container) =>
+        container.addEventListener(ev, selectInfoItem)
+    )
+);
 elements.$menuBtn.addEventListener('click', toggleMenu);
 createAndShowInfoItem(elements.$main, articlesInfo);
