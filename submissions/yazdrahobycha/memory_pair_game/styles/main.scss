@@ -1,0 +1,219 @@
+@use 'reset';
+@use 'spinner';
+
+@font-face {
+    font-family: 'Bosch';
+    src: url('../assets/fonts/BoschRegular.woff2') format('woff2'),
+        url('../assets/fonts/BoschRegular.woff') format('woff'),
+        url('../assets/fonts/BoschRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../assets/fonts/BoschRegular.woff2') format('woff2'),
+        url('../assets/fonts/Satoshi-Bold.woff') format('woff'),
+        url('../assets/fonts/Satoshi-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    color: white;
+    font-family: 'Satoshi';
+}
+
+.wrapper {
+    background-color: black;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.game_title {
+    user-select: none;
+    font-family: 'Bosch';
+    font-size: 7rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+.btn_outer {
+    cursor: pointer;
+    margin: 1rem auto 0 auto;
+    display: grid;
+    place-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.btn_inner {
+    text-transform: uppercase;
+    user-select: none;
+    display: grid;
+    place-content: center;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.btn_text {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.grid_element_outer {
+    overflow: hidden;
+}
+
+.grid_element_inner {
+    padding: 10px;
+}
+
+.grid_element_text {
+    opacity: 0;
+}
+
+
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, calc(25% - 10px));
+    height: calc(100vh - 150px);
+    width: calc(45vw);
+    max-width: 150vh;
+    perspective: 2000px;
+}
+
+.result_container_outer {
+    position: relative;
+    display: grid;
+    place-content: center;
+    width: calc(100vw / 2.5);
+    height: calc(100vw / 2.5);
+    background: white;
+    border-radius: 51%;
+    box-sizing: border-box;
+}
+
+.result_container_inner {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background-color: black;
+    padding: 40px;
+    text-align: center;
+    border-radius: 51%;
+    display: grid;
+    place-content: center;
+    box-sizing: border-box;
+    font-size: calc(10px + (20 + 20 * 0.7) * ((100vw - 320px) / 1440));
+}
+
+.currrent_score,
+.high_score {
+    user-select: none;
+}
+
+.currrent_score {
+    margin-bottom: 20px;
+}
+
+.high_score {
+    margin-bottom: 60px;
+}
+
+.fa-solid {
+    cursor: pointer;
+    user-select: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.clicked {
+    cursor: default;
+}
+
+@media screen and (orientation: portrait) {
+    .result_container_outer {
+        width: calc(100vh / 2.5);
+        height: calc(100vh / 2.5);
+    }
+
+    .result_container_inner {
+        font-size: calc(14px + (25 + 25 * 0.7) * ((100vw - 320px) / 1440));
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .grid_element_outer {
+        width: 70px;
+        height: 70px;
+    }
+
+    .grid_element_inner {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 1023px) and (orientation: portrait) {
+    .grid_container {
+        width: 90vw;
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .high_score {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    // calc(45px + (67 + 67 * 0.7) * ((100vw - 320px) / 790))
+    .game_title {
+        font-size: calc(45px + (67 + 67 * 0.7) * ((100vw - 320px) / 790));
+    }
+}
+
+@media screen and (max-height: 730px) and (max-width: 730px) {
+    .grid_container {
+        height: 70vh;
+    }
+}
+
+@media screen and (max-height: 520px) {
+    .grid_container {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media screen and (min-height: 1024px) and (min-width: 760px) and (orientation: portrait) {
+    .grid_element_outer {
+        width: 100px;
+        height: 100px;
+    }
+
+    .grid_element_inner {
+        width: 85px;
+        height: 85px;
+    }
+}
+
+@media screen and (min-height: 1024px) and (min-width: 1023px) and (orientation: portrait) {
+    .grid_container {
+        height: 50vh;
+    }
+}
